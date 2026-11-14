@@ -6,6 +6,7 @@
 - PR baselines reject stale heads, missing or altered source, private/fork PRs, cross-PR and manual-import substitutions. Existing fixture identities and importer-ID minimization remain compatible.
 - Added a pinned-engine/compiler pipeline example and setup/privacy documentation. Pipeline activation depends on the account's required two-step verification; configuration is not execution evidence.
 - 41 Jira/shared and 3 Bitbucket panel tests pass. Rust engine stays at 0.1.4; no new detection claims or release-tag replacement.
+- Deployed Jira 3.0.0 on cs0lutions and Bitbucket 2.0.0 in omniguard. [Production acceptance](docs/acceptance-bitbucket-2026-11-14.md) completed PR #1 → KAN-7 → fixed rescan → Done, including stale-head and mismatched-source rejection. Bitbucket pipeline execution remains pending.
 
 
 ## Forge 2.1.0 rollout — 14 November 2026

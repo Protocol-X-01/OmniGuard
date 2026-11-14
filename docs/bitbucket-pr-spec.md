@@ -1,6 +1,6 @@
 # Bitbucket pull-request remediation — implementation specification
 
-Status: implemented and locally tested, 14 November 2026. Development imports and panel reads verified; production remediation and pipeline acceptance are recorded separately.
+Status: implemented, tested and deployed, 14 November 2026. The [production remediation acceptance](acceptance-bitbucket-2026-11-14.md) passed as KAN-7. Bitbucket pipeline execution is pending account two-step verification; committed configuration is not execution evidence.
 
 ## First working scope
 
