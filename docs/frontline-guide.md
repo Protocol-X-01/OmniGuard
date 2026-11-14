@@ -111,6 +111,6 @@ Native and Forge validators check shape, bounds, canonical hashes, sequence and 
 
 Open **Contact owner**, choose a purpose, and **Preview mention**. Review the current Jira assignee and message, then **Send Jira mention**. A changed recipient, evidence or expired five-minute review requires a new preview. The same case/evidence/purpose posts once. This records a Jira comment; it does not prove delivery, reading or online presence, and it does not change completion.
 
-Teammates can respond on the issue in Jira for Android/iOS, subject to access and notification settings. Confidential messaging belongs in the separate [local encrypted communications lab](../secure-comms/README.md), whose deployment and mobile limits are explicit.
+Teammates can respond on the issue in Jira for Android/iOS, subject to access and notification settings. The separate [encrypted communications lab](../secure-comms/README.md) demonstrates messaging with synthetic data. Real confidential use requires the production controls described there.
 
 For repeated live exercises, preserve the engagement ID and advance the sequence beyond the active one, with new observation IDs and strictly newer capture times. The generator defaults to 1/2; it does not reset an existing Jira engagement.
