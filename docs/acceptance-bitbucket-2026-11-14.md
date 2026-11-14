@@ -1,6 +1,6 @@
 # Bitbucket PR → Jira acceptance — 14 November 2026
 
-**Production remediation passed. Automatic Bitbucket pipeline execution remains pending.**
+**Production remediation and automatic Bitbucket PR pipeline acceptance passed.**
 
 The public [isolated fixture PR #1](https://bitbucket.org/omniguard/omniguard-pr-fixtures/pull-requests/1) was imported into OmniGuard on cs0lutions. It created [KAN-7](https://cs0lutions.atlassian.net/browse/KAN-7), rejected stale and mismatched evidence, accepted the fixed compiler rescan, recorded verification comment **10006**, and explicitly moved KAN-7 to **Done**. The existing manual-fixture KAN-6 remained Done with its earlier update time.
 
@@ -50,8 +50,27 @@ The source-only fix was deliberately committed separately to test rejection. Nor
 
 The local runtime dependency audit for the new Bitbucket package reported zero vulnerabilities. The complete development-tool tree reported 32 advisories (3 low, 19 moderate, 10 high), largely in Forge CLI transitive tooling; no forced major downgrade was applied. This is not a claim that all dependencies are vulnerability-free.
 
-## Remaining pipeline gate
+## Automatic pipeline acceptance
 
-The committed [pipeline configuration](../integrations/atlassian-bitbucket/example/bitbucket-pipelines.yml) rebuilds the pinned engine, verifies the compiler checksum, generates JSON/SARIF and compares fresh JSON with the committed bundle. Bitbucket displayed **“Two-step verification is required to enable Pipelines.”** The account owner must finish that authentication setup, then Pipelines can be enabled and the PR run verified. **No Bitbucket build success, automatic PR execution or merge requirement is claimed.** GitHub CI success is separate evidence.
+The earlier two-step-verification gate was resolved by the account owner. Pipelines was enabled for **omniguard/omniguard-pr-fixtures** using its existing build allowance. A documentation-only update to the open PR branch automatically triggered [Pipeline #1](https://bitbucket.org/omniguard/omniguard-pr-fixtures/pipelines/results/1), which completed successfully in **2 minutes 2 seconds** (scan step **2 minutes 1 second**). It was not a manually started run.
+
+The unchanged [pipeline configuration](../integrations/atlassian-bitbucket/example/bitbucket-pipelines.yml) rebuilt engine commit `c5d49185802c8bfc7124d1252acc4f67e43efd1a`, verified native solc 0.8.26 checksum `d5f23436f443edb85d8e76906d12f0a86ce0490e7663a9e608efeb7a93f149ef`, generated JSON/SARIF and passed parsed-JSON equality against the committed bundle. The step retains its 15-minute maximum; no plan upgrade or integration credential was added.
+
+The actual 4,018-byte artifact archive was downloaded and checked independently:
+
+| Artifact | Verified result |
+| --- | --- |
+| [omniguard.scan.json](../reports/bitbucket-pr/pipeline-1/omniguard.scan.json) | Matches the committed fixed fixture and Jira's source/report content; 12-rule complete coverage, zero findings and diagnostics |
+| [omniguard.sarif](../reports/bitbucket-pr/pipeline-1/omniguard.sarif) | SARIF 2.1.0, 12 rules and zero results |
+| [source-commit.txt](../reports/bitbucket-pr/pipeline-1/source-commit.txt) | `b45f8b45849f7cc05deabea3e87bc009e6a6eeef`, matching the PR head and Jira import |
+| [Validation receipt](../reports/bitbucket-pr/pipeline-1/validation.json) | Exact artifact SHA-256 values, run identity and comparison results |
+
+![Successful automatic Bitbucket PR pipeline](evidence/bitbucket-pipeline-success.png)
+
+That PR commit was imported into Jira with evidence digest `e03394020087d7d93fee7e61c2d6d67139f4efd5a51c0199bfa9d9287fe2591a`. Verification comment **10007**, created at **14:52:14 UTC**, records its source/destination commits and matching compiler profile. KAN-7 remains **Done**; comment 10006 preserves the earlier fixed commit. No new issue was created or reopened. This updates the PR evidence after a documentation-only commit, so the Solidity source hash remains unchanged.
+
+![KAN-7 with verification of the pipeline-checked commit](evidence/bitbucket-pipeline-jira.png)
+
+Pipeline success proves this report was reproduced for the selected source commit. It does not mean every vulnerability is absent. No merge requirement or automatic Jira transition was installed. GitHub CI remains separate evidence; no Rust or Forge runtime changes were needed for activation.
 
 Imports and Jira transitions remain deliberate reviewer actions. Public isolated fixtures only; private repositories, fork PRs, automatic issue closure and scanner execution attestation are outside this version. Current-head checks are time-of-check checks, not an atomic lock across products. The privacy notice was updated to version 3 for the public source reads and stored PR provenance. The original submission, video and v0.1.4 release assets remain unchanged.

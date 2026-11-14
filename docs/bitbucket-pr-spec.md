@@ -1,6 +1,6 @@
 # Bitbucket pull-request remediation — implementation specification
 
-Status: implemented, tested and deployed, 14 November 2026. The [production remediation acceptance](acceptance-bitbucket-2026-11-14.md) passed as KAN-7. Bitbucket pipeline execution is pending account two-step verification; committed configuration is not execution evidence.
+Status: implemented, tested and deployed, 14 November 2026. The [production remediation acceptance](acceptance-bitbucket-2026-11-14.md) passed as KAN-7. Automatic Bitbucket PR Pipeline #1 passed; downloaded JSON/SARIF and the source-commit artifact matched the committed report and Jira import. Jira verification comment 10007 records that commit.
 
 ## First working scope
 
