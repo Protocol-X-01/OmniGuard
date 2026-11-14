@@ -13,7 +13,7 @@ async function call(name, payload) {
 }
 function el(tag, text, cls) { const n = document.createElement(tag); if (text !== undefined) n.textContent = text; if (cls) n.className = cls; return n; }
 function notice(text, error = false) { $('#notice').textContent = text; $('#notice').className = `notice${error ? ' error' : ''}`; }
-function controls() { root.querySelectorAll('button,input,select').forEach(n => { n.disabled = busy || n.dataset.blocked === 'true'; }); $('#import').disabled = busy || !chosen; }
+function controls() { root.querySelectorAll('button,input,textarea,select').forEach(n => { n.disabled = busy || n.dataset.blocked === 'true'; }); $('#import').disabled = busy || !chosen; }
 function button(text, fn, disabled = false) { const n = el('button', text); n.type = 'button'; n.dataset.blocked = String(disabled); n.disabled = busy || disabled; n.onclick = fn; return n; }
 async function refresh() { state = await call('getFrontline'); render(); }
 async function action(fn, message) {
@@ -82,10 +82,23 @@ function render() {
   }
   controls();
 }
+function prepareCandidate(raw, label) {
+  chosen = null;
+  if (new TextEncoder().encode(raw).byteLength > 65536) throw new Error('Choose a bundle up to 64 KiB.');
+  chosen = JSON.parse(raw);
+  $('#file-status').textContent = `${label} is ready for server validation.`;
+  notice('Review your chosen bundle, then validate and import.');
+}
 $('#bundle').onchange = async event => {
   chosen = null; controls();
   const file = event.target.files[0]; if (!file) return;
-  try { if (file.size > 65536) throw new Error('Choose a bundle up to 64 KiB.'); const parsed = JSON.parse(await file.text()); chosen = parsed; $('#file-status').textContent = `${file.name} is ready for server validation.`; notice('Review your chosen bundle, then validate and import.'); }
+  try { if (file.size > 65536) throw new Error('Choose a bundle up to 64 KiB.'); prepareCandidate(await file.text(), file.name); }
+  catch (e) { notice(e.message, true); }
+  controls();
+};
+$('#bundle-paste').oninput = () => { chosen = null; $('#file-status').textContent = 'Prepare the changed report before importing.'; controls(); };
+$('#use-paste').onclick = () => {
+  try { prepareCandidate($('#bundle-paste').value, 'Pasted report'); }
   catch (e) { notice(e.message, true); }
   controls();
 };
