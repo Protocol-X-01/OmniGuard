@@ -10,6 +10,6 @@ No local build is needed for the Jira workflow. To independently regenerate or e
 
 ## Submission status
 
-The installation link, public privacy/contact details, production acceptance, packaged instructions and [public YouTube walkthrough](https://www.youtube.com/watch?v=r23rE10Vv5A) are ready. The video is under four minutes, has English captions, and labels its development footage and separate production result. See the [publication record](acceptance-youtube-2026-11-14.md). Final Devpost submission and independent judge-site acceptance remain open. Intended category: Apps for Software Teams. No Rovo MCP bonus or live Bitbucket capability is claimed.
+The installation link, public privacy/contact details, production acceptance, packaged instructions and [public YouTube walkthrough](https://www.youtube.com/watch?v=XbvPjWep9nc) are ready. The video is under four minutes, uses US narration and English (United States) captions, and labels its development footage and separate production result. See the [publication record](acceptance-us-narration-2026-11-14.md). Final Devpost submission and independent judge-site acceptance remain open. Intended category: Apps for Software Teams. No Rovo MCP bonus or live Bitbucket capability is claimed.
 
 Deadline: **22 December 2026, 12:00pm Pacific / 20:00 London**. The [official rules](https://codegeist2026.devpost.com/rules), checked 14 November, require a working Forge installation, setup instructions and a public YouTube demonstration under five minutes.

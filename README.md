@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://omniguard-n5h9.onrender.com/"><strong>Project site</strong></a> ·
-  <a href="https://www.youtube.com/watch?v=r23rE10Vv5A"><strong>Watch the demo</strong></a> ·
+  <a href="https://www.youtube.com/watch?v=XbvPjWep9nc"><strong>Watch the demo</strong></a> ·
   <a href="docs/judge-guide.md"><strong>Try it in Jira</strong></a> ·
   <a href="#run-a-local-scan"><strong>Run a scan</strong></a> ·
   <a href="docs/rules.md"><strong>Explore the rules</strong></a> ·
@@ -105,4 +105,4 @@ The core and Forge remain separate: neither imports the other's runtime. No Omni
 
 Start with [CONTRIBUTING.md](CONTRIBUTING.md), bring an isolated regression and a matching fix, and keep unsupported cases visible. [Report a security issue privately](SECURITY.md), browse the [changelog](CHANGELOG.md), or contact **protocolx76@gmail.com**.
 
-Codegeist target: **Apps for Software Teams**. The [public captioned walkthrough](https://www.youtube.com/watch?v=r23rE10Vv5A) shows the development workflow and separate production acceptance. Independent judge-site acceptance and final submission remain open. See [the submission guide](docs/judge-guide.md) for the current status.
+Codegeist target: **Apps for Software Teams**. The [public captioned walkthrough](https://www.youtube.com/watch?v=XbvPjWep9nc) shows the development workflow and separate production acceptance. Independent judge-site acceptance and final submission remain open. See [the submission guide](docs/judge-guide.md) for the current status.

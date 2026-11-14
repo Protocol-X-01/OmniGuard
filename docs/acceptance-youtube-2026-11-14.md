@@ -1,4 +1,6 @@
-# Public demonstration — 14 November 2026
+# Initial public demonstration — 14 November 2026
+
+This records the original UK-narrated publication. The owner subsequently requested US narration; the [current US edition and its verification](acceptance-us-narration-2026-11-14.md) supersede it as the linked project walkthrough. This initial record and video are preserved.
 
 [Watch the OmniGuard walkthrough](https://www.youtube.com/watch?v=r23rE10Vv5A) on the [OmniGuard channel](https://www.youtube.com/@OmniGuardProtocolX).
 
