@@ -10,7 +10,7 @@ OmniGuard helps review isolated, authorized Solidity fixtures and track their re
 
 The local scanner reads the source files you select and generates reports containing file paths, source excerpts, findings and hashes. Source stays on your machine unless you choose to share or import it. Exported scan bundles include full selected source text.
 
-When you import a bundle into the Jira app, it stores that bundle, source text, findings, source and bundle hashes, target and revision details, analysis metadata, import time, and the importing user’s Atlassian account ID.
+When you import a bundle into the Jira app, it stores that bundle, source text, findings, source and bundle hashes, target and revision details, analysis metadata, and import time. The privacy update stops saving the importing user’s Atlassian account ID in new scan records. Older records may retain that field until a project administrator uses the removal control described below.
 
 The app also stores Jira project identifiers and remediation records, including issue keys, finding baselines, statuses, verification comment references and timestamps. Jira provides the signed-in user context and permission information needed to perform the requested actions.
 
@@ -18,7 +18,7 @@ If you email support, your email address, message and any attachments are handle
 
 ## Why the information is used
 
-Imported information is used to display and validate scan evidence, associate it with the correct Jira project, avoid duplicate remediation issues, compare rescans with their original analysis, and record verification and completion. The importing account ID records who supplied a scan.
+Imported information is used to display and validate scan evidence, associate it with the correct Jira project, avoid duplicate remediation issues, compare rescans with their original analysis, and record verification and completion. Legacy importing account IDs recorded who supplied a scan, but are not needed for evidence validation or remediation. Jira independently retains authorship for actions performed through its own APIs.
 
 Jira actions occur when you use the app’s controls: creating a remediation issue, adding a verification comment, or requesting an available completion transition. Support correspondence is used to respond to the request and investigate the reported problem.
 
@@ -32,7 +32,7 @@ Atlassian operates Forge, Jira and this Confluence privacy page and may process 
 
 ## Retention and removal
 
-Distinct imported scan snapshots and remediation history remain in app storage. Selecting a new active scan does not delete older snapshots. This early-access version has no automatic expiry schedule and no in-app deletion control.
+Distinct imported scan snapshots and remediation history remain in app storage. Selecting a new active scan does not delete older snapshots. This early-access version has no automatic expiry schedule or in-app control for deleting source bundles and remediation history. Under Data management, a Jira project administrator can review older scans and permanently remove only their stored importer account-ID field. The app checks project-admin permission and requires confirmation of the current project key. Source, evidence, import times and Jira records are preserved. Removing this field does not remove personal information an uploader may have included in a source bundle.
 
 Jira issues, comments and their history are separate copies managed through Jira. Uninstalling OmniGuard does not remove them. Atlassian controls platform backup and post-uninstallation storage retention.
 

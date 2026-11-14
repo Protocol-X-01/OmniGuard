@@ -1,0 +1,89 @@
+{
+  "recorded_at": "2026-11-14T11:24:21.287423+00:00",
+  "scope": "Fresh copied current repository fixture files; offline local EVM only. No network or live-chain transactions.",
+  "compiler_version": "solc, the solidity compiler commandline interface\nVersion: 0.8.26+commit.8a97fa7a.Linux.g++",
+  "compiler_sha256": "d5f23436f443edb85d8e76906d12f0a86ce0490e7663a9e608efeb7a93f149ef",
+  "foundry_version": "forge Version: 1.8.4\nCommit SHA: 50af4efe189dc64bad2b75ed6990b835de66c4ae\nBuild Timestamp: 2026-10-01T14:08:28.191932892Z (1790863708)\nBuild Profile: dist",
+  "passed": 3,
+  "fuzz_runs": 128,
+  "files": [
+    {
+      "path": "fixtures/effect-vault/fixed/foundry.toml",
+      "sha256": "40b8e0e7a74896747ba6108ea482b0a8a9415027f93b317d9e825419f66e0c44",
+      "matches_original_manifest": true,
+      "original_sha256": "40b8e0e7a74896747ba6108ea482b0a8a9415027f93b317d9e825419f66e0c44"
+    },
+    {
+      "path": "fixtures/effect-vault/fixed/src/EffectVault.sol",
+      "sha256": "18c00bd192c116d3b419c51b182f1301f41e602a5a9eb5e567b64860324635d8",
+      "matches_original_manifest": true,
+      "original_sha256": "18c00bd192c116d3b419c51b182f1301f41e602a5a9eb5e567b64860324635d8"
+    },
+    {
+      "path": "fixtures/effect-vault/vulnerable/foundry.toml",
+      "sha256": "40b8e0e7a74896747ba6108ea482b0a8a9415027f93b317d9e825419f66e0c44",
+      "matches_original_manifest": true,
+      "original_sha256": "40b8e0e7a74896747ba6108ea482b0a8a9415027f93b317d9e825419f66e0c44"
+    },
+    {
+      "path": "fixtures/effect-vault/vulnerable/src/EffectVault.sol",
+      "sha256": "ea933c4380fd876fd25bff485be6980573cd25a8c67ff84841927fbc48ee18f8",
+      "matches_original_manifest": true,
+      "original_sha256": "ea933c4380fd876fd25bff485be6980573cd25a8c67ff84841927fbc48ee18f8"
+    },
+    {
+      "path": "fixtures/effect-tests/foundry.toml",
+      "sha256": "de1ea1f2a0b578f1e94d4124938acd4526b914baccdf963ba1c327fa221d47d9",
+      "matches_original_manifest": false,
+      "original_sha256": "14f9e76ec6aaa3d504530e401063b2d88d9a805cb8af9c5c0a0ae6afd5e3efa5"
+    },
+    {
+      "path": "fixtures/effect-tests/test/EffectWitness.t.sol",
+      "sha256": "efd0f1e05cf4dd4216b5997e8723253742ba3b3c905b49deee3b422655366032",
+      "matches_original_manifest": true,
+      "original_sha256": "efd0f1e05cf4dd4216b5997e8723253742ba3b3c905b49deee3b422655366032"
+    }
+  ],
+  "source_manifest_note": "Five of six files match the original pre-evaluation witness manifest. The shipped effect-tests/foundry.toml differs; contract and test source bytes match. This fresh run validates the current configuration without rewriting historical evidence.",
+  "results": [
+    {
+      "suite": "test/EffectWitness.t.sol:EffectWitnessTest",
+      "test": "testFuzz_bounded_reentry_pair(uint8)",
+      "status": "Success",
+      "kind": {
+        "Fuzz": {
+          "first_case": {
+            "gas": 1912330,
+            "stipend": 21192
+          },
+          "runs": 128,
+          "mean_gas": 1877068,
+          "median_gas": 1891138,
+          "failed_corpus_replays": 0
+        }
+      }
+    },
+    {
+      "suite": "test/EffectWitness.t.sol:EffectWitnessTest",
+      "test": "test_fixed_alias_reset_blocks_nested_withdrawal()",
+      "status": "Success",
+      "kind": {
+        "Unit": {
+          "gas": 957044
+        }
+      }
+    },
+    {
+      "suite": "test/EffectWitness.t.sol:EffectWitnessTest",
+      "test": "test_vulnerable_helper_alias_drains_three_extra_credits()",
+      "status": "Success",
+      "kind": {
+        "Unit": {
+          "gas": 954692
+        }
+      }
+    }
+  ],
+  "raw_output_sha256": "62dcee22749a6d5754d02c6345a0a0b8fc80bdef803772b44ba21dbd81238bcc",
+  "raw_output_file": "entry-audit-20261114-raw.json"
+}

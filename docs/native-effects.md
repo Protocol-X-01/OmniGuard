@@ -34,9 +34,13 @@ Review subsequently found two development gaps outside those frozen cases: eager
 
 Three actual local Foundry witnesses passed: vulnerable callback withdrawal, fixed rejection with preservation, and a paired 128-run fuzz property. In the concrete vulnerable run a participant deposited 1 ETH and received 4 ETH; the fixed run returned that participant's 1 ETH while preserving the other participant's 5 ETH. Those are isolated EVM fixture balances. There was no fork, RPC or live transaction.
 
-## Final local acceptance
+The [14 November entry audit](../reports/benchmarks/native-effects/entry-audit-20261114.json) reran all three witnesses from fresh copies of the current repository fixtures, offline with the SHA-256-verified native compiler. All passed, including 128 fuzz runs. Five of six fixture files match the earlier runtime manifest; the shipped `effect-tests/foundry.toml` differs. The receipt records both hashes and the fresh results while preserving the historical manifest.
+
+## Native-effects release acceptance (before the later privacy update)
 
 The reviewed release SHA-256 is `dbf3fb31b96d7a33b6972ca110fd7d5980e03272ef6f3af38d0ee2d08497a7d3`. It preserves the frozen-pack results above after both disclosed corrections. **38 Rust tests** passed with the native compiler tests enabled, along with strict Clippy, formatting and release build. **23 Forge tests**, frontend builds, manifest validation and authenticated Forge lint passed. Twelve current bundles regenerate byte-for-byte. Schema validation covered 40 current/historical bundles, 149 standalone reports and seven SARIF files.
+
+These are the native-effects release measurements. The later [privacy update](privacy-minimization.md) increased the Forge suite to 31 passing tests and deployed production 2.1.0 without changing engine 0.1.4 or its fixtures.
 
 The [validation manifest](../reports/benchmarks/native-effects/validation.json) links exact final evidence; [the independent review](../reports/benchmarks/native-effects/reviewer/REVIEW.md) retains both the initial result and correction chronology. Frozen reviewer sources are available under [fixtures/effect-review](../fixtures/effect-review/README.md). Five independent report-import checks passed, including rejection of incomplete rescans and altered hashes/fingerprints. The separate [live tenant acceptance](acceptance-native-effects-cs0lutions-2026-11-14.md) completed KAN-4 with verification comment 10003 on development app 2.9.0 and retained the result after reload.
 
