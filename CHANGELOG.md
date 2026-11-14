@@ -1,5 +1,11 @@
 # Changelog
 
+## Forge 2.1.0 rollout — 14 November 2026
+
+- New scan imports no longer save unused importer account IDs. Project administrators can review and explicitly remove the legacy field; 31 Forge tests pass, including permission, scope, concurrency and interrupted-cleanup cases.
+- Approved cleanup removed 16 legacy fields across KAN development/production and OGTEST production. All 17 scan records and the existing Jira verification references remained intact after reload. [Rollout evidence](docs/privacy-minimization.md).
+- Updated the public privacy notice and current judge instructions. The Rust engine stays at 0.1.4; the earlier tagged archives remain unchanged.
+
 ## 0.1.4 — 14 November 2026
 
 - Bounded compiler-resolved effects through direct helpers, storage aliases and selected modifiers; explicit incomplete coverage for unsupported dispatch, recursion and exhausted bounds.
@@ -9,7 +15,7 @@
 - Accessible local dashboard fixes for contrast, keyboard navigation, narrow layouts and stale evidence after a failed rescan.
 - Public installer/privacy contact, packaged judge fixtures, contribution guidance and reproducible CI.
 
-Measured release evidence: 38 Rust tests, 23 Forge tests and three local effect-vault execution witnesses. The frozen synthetic review matches 24/26 labels, with explicit-super and composed-modifier cases incomplete. Independent judge-site installation and public video/submission are still open.
+Measured evidence at the tagged release: 38 Rust tests, 23 Forge tests and three local effect-vault execution witnesses. The frozen synthetic review matches 24/26 labels, with explicit-super and composed-modifier cases incomplete. Separate-site acceptance and public video were completed afterward; final submission and an independent reviewer-account test remain open. See the [current judge guide](docs/judge-guide.md).
 
 ## Earlier development milestones
 

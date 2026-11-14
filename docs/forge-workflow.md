@@ -41,7 +41,7 @@ Review the read/write Jira and app-storage scopes during installation. A later s
 
 ## Live acceptance evidence
 
-Current production 2.0.0 acceptance completed **KAN-6** with verification comment **10005**, Done status and reload persistence. A source-only zero-finding rescan was rejected before the matching compiler rescan passed. See the [production record](acceptance-production-cs0lutions-2026-11-14.md) and [current judge guide/installer](judge-guide.md).
+Production 2.0.0 acceptance completed **KAN-6** with verification comment **10005**, Done status and reload persistence. A source-only zero-finding rescan was rejected before the matching compiler rescan passed. Production is now 2.1.0; the [privacy rollout](privacy-minimization.md) retained that evidence after cleanup and reload. See the [production record](acceptance-production-cs0lutions-2026-11-14.md) and [current judge guide/installer](judge-guide.md).
 
 The historical cs0lutions acceptance and the current compiler-assisted acceptance passed on 13 November 2026: [historical KAN-1 record](acceptance-cs0lutions-2026-11-13.md), [compiler-assisted KAN-2 record](acceptance-compiler-cs0lutions-2026-11-13.md).
 

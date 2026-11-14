@@ -24,7 +24,7 @@ The Rust scanner runs locally. The Jira app stores imported fixture source bundl
 
 ## Production and judge distribution
 
-Production 2.0.0 is installed on cs0lutions; development 2.9.0 remains separate. Jira sharing is enabled. The [judge guide](judge-guide.md) contains the current installer; [KAN-6 acceptance](acceptance-production-cs0lutions-2026-11-14.md) proves the production workflow. The following commands document deployment for authorized contributors; they do not need rerunning to use the existing installation:
+Production 2.1.0 is installed on cs0lutions and the separate temporary acceptance site; development 2.10.0 remains separate. Jira sharing is enabled. The [judge guide](judge-guide.md) contains the current installer; [KAN-6 acceptance](acceptance-production-cs0lutions-2026-11-14.md) proves the production workflow. The [privacy rollout](privacy-minimization.md) records the later update and retained evidence. The following commands document deployment for authorized contributors; they do not need rerunning to use the existing installation:
 
 ```sh
 cd integrations/atlassian-forge

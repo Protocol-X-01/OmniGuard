@@ -4,7 +4,7 @@
 
 This pack needs no wallet, chain connection, compiler or local build. Install the production Forge app on a Jira site you administer, then open a project with a **Task** issue type. The reviewing user needs permission to browse/create issues, add comments and use a Done transition. Jira administrators install the app; project users act through their own Jira permissions.
 
-The requested permissions are Jira work read/write and Forge storage. Imported bundles contain full selected fixture source, report data, hashes and metadata. Forge also retains importing account ID/time and remediation history. Distinct snapshots remain stored; this version has no automatic expiry or in-app deletion control. Jira evidence copies follow Jira permissions. Use the supplied isolated fixtures.
+The requested permissions are Jira work read/write and Forge storage. Imported bundles contain full selected fixture source, report data, hashes and metadata. Forge retains import times and remediation history. New imports do not store importer account IDs; a project administrator can permanently remove that field from older scans under **Data management**. Distinct source snapshots and remediation history remain stored without automatic expiry or an in-app deletion control for those records. Jira evidence copies follow Jira permissions. Use the supplied isolated fixtures.
 
 1. Open the Jira project and select **OmniGuard** in its Apps/navigation menu.
 2. Choose `reports/vulnerable.omniguard.json`, then **Import scan report**. Alternatively use **Paste a report instead → Use pasted report**, then import.

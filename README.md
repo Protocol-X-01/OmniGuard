@@ -51,7 +51,7 @@ The vulnerable fixture produced one finding. A source-only zero-finding rescan w
 
 A Jira site administrator installs the app. The supplied [three-report fixture set](reports/judge/) needs no local compiler or wallet. It includes the intentional weaker-rescan check. Project users need permission to create Tasks, add comments and use a completion transition.
 
-The app imports full selected fixture source and retains scan/history records and importer attribution. See the privacy notice before importing. Production **2.0.0** is accepted on cs0lutions and a [separate temporary Jira site](docs/acceptance-separate-site-2026-11-14.md), both administered by the same owner.
+The app imports full selected fixture source and retains scan/history records. New imports do not store importer account IDs; project administrators can remove that field from older scans. See the privacy notice before importing. Production **2.1.0** is deployed on cs0lutions and a [separate temporary Jira site](docs/acceptance-separate-site-2026-11-14.md), both administered by the same owner. The [privacy rollout record](docs/privacy-minimization.md) confirms cleanup and retained Jira evidence after reload.
 
 ## Run a local scan
 
@@ -79,7 +79,7 @@ Foundry projects use their configured source directory. `--fail-on high` returns
 | Check | Recorded result | Evidence |
 | --- | --- | --- |
 | Rust core and compiler tests | 38 passed | [Native-effect validation](reports/benchmarks/native-effects/validation.json) |
-| Forge service tests | 23 passed | [Remediation tests](integrations/atlassian-forge/test/) |
+| Forge service tests | 31 passed | [Remediation and privacy tests](integrations/atlassian-forge/test/) |
 | Local effect-vault execution | 3 witnesses, including a 128-run paired fuzz property | [Execution record](docs/native-effects.md) |
 | Frozen synthetic review | 24/26 labels matched; 6 reports incomplete | [Review methodology and limits](fixtures/effect-review/README.md) |
 | Interface review | Keyboard, contrast, reflow and failed-rescan recovery checked | [Accessibility evidence](docs/accessibility.md) |
