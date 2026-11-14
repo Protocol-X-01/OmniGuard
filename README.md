@@ -105,6 +105,7 @@ These are fixture measurements, not production precision or recall. **Explicit-s
 | [Bitbucket PR integration](integrations/atlassian-bitbucket/) | Public fixture PR evidence, commit-bound Jira imports and reproducible pipeline configuration |
 | [Static judge page](https://omniguard-n5h9.onrender.com/) | Public guide and verified fixture downloads on Render; [source](site/) |
 | [Technical spec](SPEC.md) / [Release guide](docs/release.md) | Scope, boundaries, reproducibility and deployment |
+| [Team defence preview](docs/frontline-guide.md) / [coverage roadmap](docs/team-entry-points.md) | Local fixture checks for requests, sharing, handoffs, identity and endpoint posture; not deployed |
 
 The core and Forge remain separate: neither imports the other's runtime. No OmniScan or MULTI-CHAIN-FRAMEWORK code, dataset or runtime was copied into this project. The wider multi-chain research is separate work.
 

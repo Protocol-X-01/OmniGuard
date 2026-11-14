@@ -1,0 +1,11 @@
+$kind: http-request
+name: 'Final coverage and completion'
+method: GET
+url: '{{baseUrl}}/api/frontline'
+order: 8000
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test('HTTP 200', () => pm.response.to.have.status(200));
+      const b=pm.response.json();pm.test('Jira is done and coverage gaps remain visible',()=>{pm.expect(b.cases[0].status).to.eql('Done');pm.expect(b.engagement.results.filter(r=>r.coverage!=='assessed')).to.have.lengthOf(2);});

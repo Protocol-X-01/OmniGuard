@@ -1,0 +1,23 @@
+$kind: http-request
+name: 'completeFrontline'
+method: POST
+url: '{{baseUrl}}/api/frontline/complete'
+order: 7000
+headers:
+  - key: Content-Type
+    value: application/json
+  - key: X-OmniGuard-Local
+    value: '1'
+body:
+  type: json
+  content: |-
+    {
+      "id": "{{caseId}}",
+      "digest": "{{digest}}",
+      "transitionId": "31"
+    }
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test('HTTP 200', () => pm.response.to.have.status(200));

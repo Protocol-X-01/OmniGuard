@@ -1,0 +1,31 @@
+$kind: http-example
+name: Request rejected; no successful outcome is implied.
+request:
+  url: "{{baseUrl}}/api/frontline/verify"
+  method: POST
+  headers:
+    - key: X-OmniGuard-Local
+      value: "1"
+      disabled: false
+      description: "(Required) "
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "string",
+        "digest": "string"
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "message": "string"
+      }
+order: 4000

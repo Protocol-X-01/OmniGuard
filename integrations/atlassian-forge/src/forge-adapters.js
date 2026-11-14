@@ -55,7 +55,7 @@ export const jira = {
       for (const permission of needed) if (result.permissions?.[permission]?.havePermission !== true) throw new Error(`Jira permission required: ${permission}.`);
     }
   },
-  async taskType(project) {
+  async taskType(project, additionalFields = []) {
     const types = [];
     let startAt = 0;
     for (;;) {
@@ -74,7 +74,7 @@ export const jira = {
       if (page.isLast || startAt + 50 >= (page.total ?? fields.length)) break;
       startAt += 50;
     }
-    const supplied = new Set(['project', 'issuetype', 'summary', 'description', 'labels']);
+    const supplied = new Set(['project', 'issuetype', 'summary', 'description', 'labels', ...additionalFields]);
     const missing = fields.filter((field) => field.required && !field.hasDefaultValue && !supplied.has(field.fieldId || field.key));
     if (missing.length) throw new Error(`The Jira Task requires extra fields: ${missing.map((field) => field.name).join(', ')}. Configure defaults before creating the remediation.`);
     return task.id;
@@ -95,9 +95,9 @@ export const jira = {
     return { key: issue.key, status: issue.fields.status.name };
   },
   addComment: (issueKey, body) => request(route`/rest/api/3/issue/${issueKey}/comment`, post({ body })),
-  async findVerificationComment(issueKey, digest) {
+  async findVerificationComment(issueKey, digest, markerPrefix = 'OmniGuard rescan verification: ') {
     const page = await request(route`/rest/api/3/issue/${issueKey}/comment?orderBy=-created&maxResults=100`);
-    return page.comments.find((comment) => JSON.stringify(comment.body).includes(`OmniGuard rescan verification: ${digest}`));
+    return page.comments.find((comment) => JSON.stringify(comment.body).includes(`${markerPrefix}${digest}`));
   },
   async completionTransitions(issueKey) {
     const result = await request(route`/rest/api/3/issue/${issueKey}/transitions?expand=transitions.fields`);

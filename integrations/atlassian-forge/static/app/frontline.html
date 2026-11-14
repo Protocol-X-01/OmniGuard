@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OmniGuard · Team defence</title><link rel="stylesheet" href="./frontline.css"></head>
+<body>
+<a class="skip" href="#inventory">Skip to coverage</a>
+<main class="shell">
+  <header class="top"><a class="brand" href="./index.html">◈ <span>OMNIGUARD</span></a><nav aria-label="Workflows"><a href="./index.html">Code evidence</a><a href="./frontline.html" aria-current="page">Team defence</a></nav><span class="tag">Isolated fixture release</span></header>
+  <section class="hero" aria-labelledby="title"><div><p class="eyebrow">FRONT-LINE DEFENCE · TEAM INTERACTIONS</p><h1 id="title">Trust the handoff.<br>Keep the evidence.</h1><p class="intro">Know who owns the next step, what was checked, and where your team still needs an answer.</p></div><aside class="principle"><span class="orb" aria-hidden="true">◈</span><p>Every known entry point.</p><strong>An owner. A check.<br>Evidence. Visible coverage.</strong><p id="project">Loading project…</p></aside></section>
+  <p class="notice" id="notice" role="status" tabindex="-1" aria-live="polite">Loading the engagement…</p>
+  <section class="intake" aria-labelledby="intake-title"><div><h2 id="intake-title">Bring the interaction into view</h2><p>Import a native front-line fixture bundle. Observations are checked for integrity and freshness; their truth is not independently attested.</p></div><div><label for="bundle">Evidence bundle</label><input id="bundle" type="file" accept=".json,application/json"><button id="import" disabled>Validate and import</button><p id="file-status" class="muted">Choose a bundle up to 64 KiB. No message bodies or attachments.</p><div id="demo-controls" hidden><button id="demo-risk" class="secondary">Load risk exercise</button><button id="demo-retest" class="secondary">Load fresh retest</button></div></div></section>
+  <section class="metrics" aria-label="Coverage summary"><div><span id="count-total">0</span>Known entry points</div><div><span id="count-failed">0</span>Checks need action</div><div><span id="count-passed">0</span>Checks satisfied</div><div><span id="count-gaps">0</span>Coverage gaps</div></section>
+  <section id="inventory" tabindex="-1" aria-labelledby="coverage-title"><div class="section-head"><div><p class="eyebrow">THE TEAM'S TRUST BOUNDARIES</p><h2 id="coverage-title">Entry-point coverage</h2><p id="engagement-meta" class="muted">Your inventory will appear here.</p></div><button id="refresh" class="secondary">Refresh evidence</button></div><div id="entries" class="entries"></div></section>
+  <section aria-labelledby="cases-title"><p class="eyebrow">OWNERSHIP THROUGH TO RETEST</p><h2 id="cases-title">Remediation queue</h2><p class="muted">Triage decisions and verified fixes are separate outcomes. Tasks are assigned to the person creating them, subject to Jira permissions.</p><div id="cases"></div></section>
+  <footer><strong>Coverage is specific.</strong> These checks evaluate supplied synthetic observations. Unassessed and unsupported entry points remain open gaps. <span id="runtime-label"></span></footer>
+</main><script type="module" src="./frontline.js"></script>
+</body></html>

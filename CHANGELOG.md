@@ -1,5 +1,12 @@
 # Changelog
 
+## Front-line team defence — local candidate, 14 November 2026
+
+- Added independent Rust `omniguard-frontline` 0.1.0 with five explicit control checks, bounded synthetic observations, evidence digests and freshness/coverage states.
+- Jira package 0.1.6 adds a separate team-defence screen, assigned remediation, attributed triage comments, immutable baselines and retest/completion separation. Duplicate, stale and uncertain outcomes remain explicit.
+- Added a loopback preview with simulated Jira, a Postman contract/collection, reproducible fixtures, regression tests and deployment instructions. This candidate is local and has not changed the production Forge apps, Codegeist submission or release tag.
+
+
 ## Bitbucket integration 0.1.5 — 2026-11-14
 
 - Separate Forge PR panel and Jira PR-URL imports validate public isolated-fixture reports against exact repository source bytes and full commit identities.

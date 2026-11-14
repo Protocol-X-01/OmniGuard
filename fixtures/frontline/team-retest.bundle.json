@@ -1,0 +1,159 @@
+{
+  "assessed_at": 1794673230,
+  "engine_version": "frontline-0.1.0",
+  "intake": {
+    "engagement_id": "team-engagement-fixture",
+    "entries": [
+      {
+        "check_id": "OG-TEAM-001",
+        "evidence": {
+          "captured_at": 1794673230,
+          "expires_at": 1794759630,
+          "facts": {
+            "approved_request": true,
+            "independent_channel": true,
+            "requester_verified": true
+          },
+          "id": "observation-2-0",
+          "source": "synthetic_fixture"
+        },
+        "id": "entry-1",
+        "name": "Urgent access request",
+        "owner": "Service desk"
+      },
+      {
+        "check_id": "OG-TEAM-002",
+        "evidence": {
+          "captured_at": 1794673230,
+          "expires_at": 1794759630,
+          "facts": {
+            "access_scoped": true,
+            "approved_channel": true,
+            "recipient_verified": true
+          },
+          "id": "observation-2-1",
+          "source": "synthetic_fixture"
+        },
+        "id": "entry-2",
+        "name": "External evidence handoff",
+        "owner": "Case owner"
+      },
+      {
+        "check_id": "OG-TEAM-003",
+        "evidence": {
+          "captured_at": 1794673230,
+          "expires_at": 1794759630,
+          "facts": {
+            "context_complete": true,
+            "receiving_owner_acknowledged": true
+          },
+          "id": "observation-2-2",
+          "source": "synthetic_fixture"
+        },
+        "id": "entry-3",
+        "name": "Response team handover",
+        "owner": "Response lead"
+      },
+      {
+        "check_id": "OG-FL-001",
+        "evidence": {
+          "captured_at": 1794673230,
+          "expires_at": 1794759630,
+          "facts": {
+            "mfa_enabled": true,
+            "privileges_reviewed": true
+          },
+          "id": "observation-2-3",
+          "source": "synthetic_fixture"
+        },
+        "id": "entry-4",
+        "name": "Responder account",
+        "owner": "Identity team"
+      },
+      {
+        "check_id": "OG-FL-002",
+        "evidence": {
+          "captured_at": 1794673230,
+          "expires_at": 1794759630,
+          "facts": {
+            "managed": true,
+            "protection_active": true,
+            "updates_current": true
+          },
+          "id": "observation-2-4",
+          "source": "synthetic_fixture"
+        },
+        "id": "entry-5",
+        "name": "Responder workstation",
+        "owner": "Device team"
+      },
+      {
+        "check_id": "OG-FUTURE-001",
+        "evidence": null,
+        "id": "unknown-integration",
+        "name": "New external collaboration tool",
+        "owner": "Platform team"
+      },
+      {
+        "check_id": "OG-TEAM-001",
+        "evidence": null,
+        "id": "awaiting-intake",
+        "name": "New service-desk report",
+        "owner": "Service desk"
+      }
+    ],
+    "isolated_fixture": true,
+    "name": "Team engagement exercise",
+    "schema_version": 1,
+    "sequence": 2
+  },
+  "intake_sha256": "aef5a425c3540f316cf296949ef7649b5c9979c7721dfb7c956696ce3ce6863a",
+  "results": [
+    {
+      "coverage": "assessed",
+      "entry_id": "entry-1",
+      "outcome": "pass",
+      "reasons": []
+    },
+    {
+      "coverage": "assessed",
+      "entry_id": "entry-2",
+      "outcome": "pass",
+      "reasons": []
+    },
+    {
+      "coverage": "assessed",
+      "entry_id": "entry-3",
+      "outcome": "pass",
+      "reasons": []
+    },
+    {
+      "coverage": "assessed",
+      "entry_id": "entry-4",
+      "outcome": "pass",
+      "reasons": []
+    },
+    {
+      "coverage": "assessed",
+      "entry_id": "entry-5",
+      "outcome": "pass",
+      "reasons": []
+    },
+    {
+      "coverage": "unsupported",
+      "entry_id": "unknown-integration",
+      "outcome": "unknown",
+      "reasons": [
+        "No implemented check for this entry point"
+      ]
+    },
+    {
+      "coverage": "unassessed",
+      "entry_id": "awaiting-intake",
+      "outcome": "unknown",
+      "reasons": [
+        "No evidence supplied"
+      ]
+    }
+  ]
+}

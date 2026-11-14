@@ -1,0 +1,23 @@
+$kind: http-request
+name: 'verifyFrontline'
+method: POST
+url: '{{baseUrl}}/api/frontline/verify'
+order: 6000
+headers:
+  - key: Content-Type
+    value: application/json
+  - key: X-OmniGuard-Local
+    value: '1'
+body:
+  type: json
+  content: |-
+    {
+      "id": "{{caseId}}",
+      "digest": "{{digest}}"
+    }
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test('HTTP 200', () => pm.response.to.have.status(200));
+      pm.test('Verification binds the current digest',()=>pm.expect(pm.response.json().verification.digest).to.eql(pm.collectionVariables.get('digest')));
