@@ -57,6 +57,13 @@ jobs:
           npm test
           npm run build
           npm run validate:manifest
+      - name: Bitbucket panel tests, build and manifest
+        working-directory: integrations/atlassian-bitbucket
+        run: |
+          npm ci --ignore-scripts
+          npm test
+          npm run build
+          npm run validate:manifest
       - name: Dashboard production build
         working-directory: dashboard
         run: |

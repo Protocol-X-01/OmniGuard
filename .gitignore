@@ -15,3 +15,5 @@
 /fixtures/**/cache/
 /site/dist/
 __pycache__/
+
+/integrations/atlassian-bitbucket/static/app/main.js

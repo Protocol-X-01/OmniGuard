@@ -1,3 +1,4 @@
+import { provenanceAssessment } from '../../shared/bitbucket-pr.js';
 import { createHash } from 'node:crypto';
 import catalog from './rule-catalog.json' with { type: 'json' };
 
@@ -146,6 +147,8 @@ export function sameAnalysis(left, right) {
 }
 
 export function assessRescan(remediation, scan) {
+  const mismatch = provenanceAssessment(remediation, scan);
+  if (mismatch) return mismatch;
   if (!scan || scan.bundle.target.id !== remediation.targetId) return { allowed: false, reason: 'Import a rescan of the same target.' };
   if (scan.bundle.report.engine_version !== (remediation.baselineEngine || '0.1.0') || !sameList(scan.bundle.rules, remediation.baselineRules || LEGACY_RULES)) {
     return { allowed: false, reason: 'Engine or rule coverage differs from this remediation baseline. Review it under the matching profile.' };
@@ -162,5 +165,5 @@ export function assessRescan(remediation, scan) {
 export function publicScan(scan) {
   if (!scan) return null;
   const { target, revision, rules, report, sources } = scan.bundle;
-  return { digest: scan.digest, importedAt: scan.importedAt, target, revision, rules, report, sources: sources.map(({ path, sha256: digest }) => ({ path, sha256: digest })) };
+  return { ...(scan.provenance ? { provenance: scan.provenance } : {}), digest: scan.digest, importedAt: scan.importedAt, target, revision, rules, report, sources: sources.map(({ path, sha256: digest }) => ({ path, sha256: digest })) };
 }

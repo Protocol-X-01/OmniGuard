@@ -37,7 +37,7 @@ npm run deploy -- --environment development --non-interactive
 npm run install-app -- --site cs0lutions.atlassian.net --product Jira --environment development
 ```
 
-Review the read/write Jira and app-storage scopes during installation. A later scope change needs an installation upgrade. If registration presents developer terms, the account owner must review and accept them. The Jira app is distinct from the Bitbucket scaffold under `integrations/atlassian-bitbucket/`.
+Review the read/write Jira and app-storage scopes during installation. A later scope change needs an installation upgrade. If registration presents developer terms, the account owner must review and accept them. The Jira app is distinct from the Bitbucket app under `integrations/atlassian-bitbucket/`.
 
 ## Live acceptance evidence
 
@@ -57,3 +57,7 @@ After installation, test one isolated fixture issue through import → evidence 
 ## Engine upgrade behavior
 
 Schema v3 identifies analysis mode/compiler version and gives every related source its own digest, including cross-file declarations. Historical schema v2 includes SHA-256 snapshots for every scanned input, explicit coverage and contextual/related source spans. Import checks these in addition to the primary evidence. A profile change cannot verify an earlier remediation. Creation is idempotent within project, target, engine/mode/compiler profile and finding; a new profile receives a distinct review baseline while historical Jira records remain visible.
+
+## Bitbucket PR imports
+
+The [Bitbucket setup guide](../integrations/atlassian-bitbucket/README.md) describes the public-fixture PR workflow. Select **Import PR scan** in Jira to retrieve the current versioned report, then review the finding. The server validates repository identity, every Solidity source under `contracts/`, and both PR heads. Reimport after a source or destination change. A manual scan cannot clear a PR-linked remediation. Existing fixture imports and historical baselines remain supported.

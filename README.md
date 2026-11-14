@@ -80,7 +80,7 @@ Foundry projects use their configured source directory. `--fail-on high` returns
 | Check | Recorded result | Evidence |
 | --- | --- | --- |
 | Rust core and compiler tests | 38 passed | [Native-effect validation](reports/benchmarks/native-effects/validation.json) |
-| Forge service tests | 31 passed | [Remediation and privacy tests](integrations/atlassian-forge/test/) |
+| Forge service tests | 41 Jira + 3 Bitbucket passed | [Remediation and privacy tests](integrations/atlassian-forge/test/) |
 | Local effect-vault execution | 3 witnesses, including a 128-run paired fuzz property | [Execution record](docs/native-effects.md) |
 | Frozen synthetic review | 24/26 labels matched; 6 reports incomplete | [Review methodology and limits](fixtures/effect-review/README.md) |
 | Interface review | Keyboard, contrast, reflow and failed-rescan recovery checked | [Accessibility evidence](docs/accessibility.md) |
@@ -96,7 +96,7 @@ These are fixture measurements, not production precision or recall. **Explicit-s
 | [Fixtures](fixtures/) / [Reports](reports/) | Positive/fixed/negative cases and dated measurements |
 | [Forge Jira](integrations/atlassian-forge/) | Report import, evidence ledger and real remediation workflow |
 | [Local dashboard](dashboard/) | Accessible loopback fixture demo with explicitly local drafts |
-| [Bitbucket scaffold](integrations/atlassian-bitbucket/) | Separate integration starting point; live PR scanning is unfinished |
+| [Bitbucket PR integration](integrations/atlassian-bitbucket/) | Public fixture PR evidence, commit-bound Jira imports and reproducible pipeline configuration |
 | [Static judge page](https://omniguard-n5h9.onrender.com/) | Public guide and verified fixture downloads on Render; [source](site/) |
 | [Technical spec](SPEC.md) / [Release guide](docs/release.md) | Scope, boundaries, reproducibility and deployment |
 

@@ -3,7 +3,7 @@ app:
     name: nodejs24.x
     memoryMB: 256
     architecture: arm64
-  id: ari:cloud:ecosystem::app/00000000-0000-4000-8000-000000000001
+  id: ari:cloud:ecosystem::app/ec3109cb-b4a0-412f-ba45-b02d51084942
 modules:
   bitbucket:repoPullRequestOverviewPanel:
     - key: omniguard-bitbucket-pr-panel
@@ -17,3 +17,9 @@ modules:
 resources:
   - key: app-ui
     path: static/app
+permissions:
+  external:
+    fetch:
+      backend:
+        - address: https://api.bitbucket.org
+          inScopeEUD: true

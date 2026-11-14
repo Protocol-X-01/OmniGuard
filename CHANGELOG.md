@@ -1,5 +1,13 @@
 # Changelog
 
+## Bitbucket integration 0.1.5 — 2026-11-14
+
+- Separate Forge PR panel and Jira PR-URL imports validate public isolated-fixture reports against exact repository source bytes and full commit identities.
+- PR baselines reject stale heads, missing or altered source, private/fork PRs, cross-PR and manual-import substitutions. Existing fixture identities and importer-ID minimization remain compatible.
+- Added a pinned-engine/compiler pipeline example and setup/privacy documentation. Pipeline activation depends on the account's required two-step verification; configuration is not execution evidence.
+- 41 Jira/shared and 3 Bitbucket panel tests pass. Rust engine stays at 0.1.4; no new detection claims or release-tag replacement.
+
+
 ## Forge 2.1.0 rollout — 14 November 2026
 
 - New scan imports no longer save unused importer account IDs. Project administrators can review and explicitly remove the legacy field; 31 Forge tests pass, including permission, scope, concurrency and interrupted-cleanup cases.
