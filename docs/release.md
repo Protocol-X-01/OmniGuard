@@ -1,6 +1,6 @@
-# OmniGuard 0.1.4 local release candidate
+# OmniGuard 0.1.4 — early-access release
 
-This release packages the independent Rust analyzer, separate Forge Jira app, Bitbucket scaffold, fixture sources, reports and reproducibility records. The source archive is a **local candidate**, not a public source release or completed Codegeist entry. The Forge package is deployed as production 2.0.0 with Jira sharing enabled; [production acceptance](acceptance-production-cs0lutions-2026-11-14.md) completed KAN-6. Independent judge-site installation remains unverified.
+This release packages the independent Rust analyzer, separate Forge Jira app, Bitbucket scaffold, fixture sources, reports and reproducibility records. The independent source is public at [Protocol-X-01/OmniGuard](https://github.com/Protocol-X-01/OmniGuard). Downloadable early-access archives are published through [GitHub Releases](https://github.com/Protocol-X-01/OmniGuard/releases). This is not a completed Codegeist entry. The Forge package is deployed as production 2.0.0 with Jira sharing enabled; [production acceptance](acceptance-production-cs0lutions-2026-11-14.md) completed KAN-6. Independent judge-site installation remains unverified.
 
 The 14 November UI follow-up strengthens the separate local dashboard's contrast, keyboard navigation and narrow-screen layout, and clears stale success/evidence after a failed rescan. Its [focused acceptance record](accessibility.md) distinguishes these checks from the unchanged Rust/Forge validation. Source manifests identify the revised candidate; engine 0.1.4 and the deployed Forge package are unchanged.
 

@@ -64,3 +64,5 @@ jobs:
           npm run build
       - name: Verify deterministic source and judge packages
         run: python3 scripts/check-release.py
+      - name: Build static judge guide and fixture downloads
+        run: python3 site/build.py

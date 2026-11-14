@@ -14,7 +14,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 ROOT_FILES = ['.gitignore', '.editorconfig', 'Cargo.toml', 'Cargo.lock', 'rust-toolchain.toml', 'LICENSE', 'README.md', 'SPEC.md', 'SECURITY.md', 'CONTRIBUTING.md', 'CHANGELOG.md']
-ROOT_DIRS = ['.github', 'contracts', 'crates', 'dashboard', 'docs', 'fixtures', 'integrations', 'reports', 'scripts']
+ROOT_DIRS = ['.github', 'contracts', 'crates', 'dashboard', 'docs', 'fixtures', 'integrations', 'reports', 'scripts', 'site']
 SKIP_DIRS = {'.git', '.forge', 'node_modules', 'target', 'out', 'cache', 'dist', '__pycache__'}
 SUFFIXES = {'.md', '.toml', '.lock', '.rs', '.json', '.schema', '.sol', '.py', '.js', '.mjs', '.jsx',
             '.css', '.html', '.yml', '.yaml', '.jpg', '.jpeg', '.png', '.svg', '.sha256', '.sarif', '.txt'}
@@ -55,7 +55,7 @@ def manifest(files, version, kind):
     entries = [{'path': name, 'bytes': len(raw), 'sha256': sha(raw)} for name, raw in sorted(files.items())]
     canonical = json.dumps(entries, sort_keys=True, separators=(',', ':')).encode()
     return (json.dumps({'schema_version': 1, 'engine_version': version, 'kind': kind,
-                        'publication_status': 'local archive; Forge distribution acceptance is documented separately',
+                        'artifact_scope': 'deterministic source/judge package; hosting and Forge acceptance are documented separately',
                         'snapshot_sha256': sha(canonical), 'files': entries}, indent=2) + '\n').encode()
 
 

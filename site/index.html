@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Source evidence, Jira remediation and matching rescans. Explore OmniGuard and reproduce its isolated fixture workflow.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>OmniGuard — make the fix easy to verify</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="wrap masthead">
+    <a class="wordmark" href="#main" aria-label="OmniGuard home">OmniGuard<span aria-hidden="true"> / </span></a>
+    <nav aria-label="Main navigation"><a href="#walkthrough">Try the workflow</a><a href="https://github.com/Protocol-X-01/OmniGuard">Repository ↗</a><a href="@@PRIVACY@@">Privacy ↗</a></nav>
+  </header>
+  <main id="main" tabindex="-1">
+    <section class="wrap hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">Independent Rust core · Atlassian Forge</p>
+        <h1 id="hero-title">Make the fix<br>easy to <em>verify.</em></h1>
+        <p class="lede">Carry the source evidence into Jira. Keep the analysis baseline. Give the next reviewer a rescan they can check.</p>
+        <div class="actions"><a class="button" href="@@INSTALL@@">Install for Jira <span aria-hidden="true">↗</span></a><a class="button secondary" href="downloads/omniguard-0.1.4-judge-fixtures.zip" download>Get the fixture pack <span aria-hidden="true">↓</span></a></div>
+        <p class="fine">Engine 0.1.4 · Early access · MIT licensed</p>
+      </div>
+      <aside class="evidence-card" aria-labelledby="evidence-title">
+        <div class="card-label"><span>Evidence record</span><span>OG-SOL-002</span></div>
+        <h2 id="evidence-title">The same finding.<br>A complete handoff.</h2>
+        <ol class="evidence-rail"><li><strong>Source</strong><span>Exact excerpt, location and digest</span></li><li><strong>Remediation</strong><span>A real Jira Task with its analysis baseline</span></li><li><strong>Matching rescan</strong><span>Changed source, same engine and compiler</span></li><li><strong>Verification</strong><span>Saved evidence, explicit completion</span></li></ol>
+        <p class="fine">A zero-finding report with a weaker analysis profile cannot verify the baseline.</p>
+      </aside>
+    </section>
+
+    <section class="band" aria-label="Measured project status"><div class="wrap metrics"><p><strong>12</strong><span>Solidity rule classes</span></p><p><strong>38</strong><span>Rust tests in the recorded release</span></p><p><strong>23</strong><span>Forge service tests</span></p><p><strong>24 / 26</strong><span>Frozen synthetic review labels</span></p></div></section>
+
+    <section class="wrap section" id="walkthrough" aria-labelledby="try-title">
+      <p class="eyebrow">A small, reproducible review</p><h2 id="try-title">Try the whole workflow.</h2>
+      <p class="section-intro">Use a Jira project with a Task issue type and permission to create issues, add comments and complete work. An administrator installs the app. The fixture pack needs no local build or chain connection.</p>
+      <div class="steps">
+        <article><span class="step-number">01</span><h3>Import and inspect</h3><p>Import the vulnerable report. Review the helper call, later storage write and source hashes. Create the Jira remediation.</p><a href="downloads/vulnerable.omniguard.json" download>Download vulnerable report ↓</a></article>
+        <article><span class="step-number">02</span><h3>Check the baseline</h3><p>Import the source-only fixed report. It has zero findings, but verification should stay disabled because its analysis differs.</p><a href="downloads/fixed-source-only.omniguard.json" download>Download weaker rescan ↓</a></article>
+        <article><span class="step-number">03</span><h3>Verify the change</h3><p>Import the matching compiler fixed report. Record verification, review the source change, then complete the issue and reload.</p><a href="downloads/fixed.omniguard.json" download>Download matching rescan ↓</a></article>
+      </div>
+      <p><a class="text-link" href="https://github.com/Protocol-X-01/OmniGuard/blob/main/docs/judge-guide.md">Read the full setup and judge instructions ↗</a> <span class="separator">/</span> <a href="downloads/SHA256SUMS">Download checksums</a></p>
+    </section>
+
+    <section class="wrap section proof" aria-labelledby="proof-title">
+      <div><p class="eyebrow">Production acceptance · 14 November 2026</p><h2 id="proof-title">The evidence stays<br>with the fix.</h2><p>On cs0lutions, KAN-6 reached Done with verification comment 10005. A weaker rescan was rejected. The fixed report and Jira result survived a reload.</p><p><a href="https://github.com/Protocol-X-01/OmniGuard/blob/main/docs/acceptance-production-cs0lutions-2026-11-14.md">Inspect the acceptance record ↗</a></p></div>
+      <figure><img src="assets/production-jira-completed.png" alt="Actual OmniGuard production dashboard showing KAN-6 Done and the recorded rescan verification comment 10005" width="1280" height="720" loading="lazy"><figcaption>Actual production app. Independent installation on a second Jira site remains untested.</figcaption></figure>
+    </section>
+
+    <section class="wrap section boundaries" aria-labelledby="boundaries-title"><div><p class="eyebrow">Built for inspection</p><h2 id="boundaries-title">Keep the limits visible.</h2></div><div><p>These are synthetic fixture measurements, not production precision or recall. Explicit-super dispatch and one composed-modifier case remain incomplete. The separate Bitbucket integration is a scaffold.</p><p>Bundles include full selected source. Forge retains scan/history records and importer attribution; this version has no automatic expiry or in-app deletion control. Read the <a href="@@PRIVACY@@">privacy notice</a> before importing.</p><p>The Rust scanner runs locally. Forge checks imported evidence consistency; it does not run the scanner or certify safety. <a href="https://github.com/Protocol-X-01/OmniGuard/blob/main/docs/rules.md">Explore the rules and limits ↗</a></p></div></section>
+  </main>
+  <footer class="wrap footer"><p><strong>OmniGuard</strong><br>Evidence you can inspect.</p><p><a href="mailto:protocolx76@gmail.com">protocolx76@gmail.com</a><br><a href="https://github.com/Protocol-X-01/OmniGuard/blob/main/SECURITY.md">Security reporting</a> · <a href="@@PRIVACY@@">Privacy</a></p><p class="fine">Static project guide · No scan uploads<br>Public video and Codegeist submission pending</p></footer>
+</body>
+</html>

@@ -13,3 +13,5 @@
 /integrations/atlassian-bitbucket/.forge/
 /fixtures/**/out/
 /fixtures/**/cache/
+/site/dist/
+__pycache__/

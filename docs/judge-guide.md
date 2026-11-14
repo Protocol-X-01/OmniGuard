@@ -4,7 +4,7 @@
 
 Production 2.0.0 / engine 0.1.4 is available for Jira. The [production acceptance record](acceptance-production-cs0lutions-2026-11-14.md) proves the real KAN-6 remediation/rescan flow and reload persistence on cs0lutions. A separate judge-site installation remains untested.
 
-Use the standalone [fixture walkthrough](judge-pack.md) and the generated judge archive. In that archive the three bundles are under `reports/`; in the source repository they are under `reports/judge/`. The pack includes exact vulnerable/fixed source and the intentional weaker-rescan negative check. All site permissions, data handling and expected outcomes are described in the walkthrough.
+Use the standalone [fixture walkthrough](judge-pack.md) and the [downloadable judge archive](https://github.com/Protocol-X-01/OmniGuard/releases/download/v0.1.4/omniguard-0.1.4-judge-fixtures.zip). In that archive the three bundles are under `reports/`; in the source repository they are under `reports/judge/`. The pack includes exact vulnerable/fixed source and the intentional weaker-rescan negative check. All site permissions, data handling and expected outcomes are described in the walkthrough.
 
 No local build is needed for the Jira workflow. To independently regenerate or extend analysis, follow [deployment/build instructions](deployment.md) and [native-effect measurements](native-effects.md). Import checks validate supplied evidence consistency; they do not attest that the scanner ran. Current limitations and frozen review outcomes remain explicit.
 
