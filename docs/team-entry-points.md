@@ -1,6 +1,6 @@
 # Team engagement and entry-point coverage
 
-Status: expansion roadmap, 14 November 2026. The [front-line team-defence milestone](frontline-spec.md) is implemented for local fixture validation; it is not deployed. Baseline inspected: engine 0.1.4, Jira integration 0.1.5 and the accepted public-fixture Bitbucket workflow. See the [current architecture](architecture.md) and [production acceptance](acceptance-bitbucket-2026-11-14.md).
+Status: expansion roadmap, 14 November 2026. The [front-line team-defence milestone](frontline-spec.md) has passed local fixture validation and [cs0lutions development acceptance](acceptance-frontline-cs0lutions-dev-2026-11-14.md); production is unchanged. Baseline inspected: engine 0.1.4, Jira integration 0.1.5 and the accepted public-fixture Bitbucket workflow. See the [current architecture](architecture.md) and [production acceptance](acceptance-bitbucket-2026-11-14.md).
 
 ## Outcome
 

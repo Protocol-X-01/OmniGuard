@@ -1,8 +1,8 @@
-# Team defence: local milestone
+# Team defence: development workflow
 
 The first front-line milestone makes requests, sharing and team handoffs reviewable. Every declared entry point displays its owner, check, evidence and coverage. Identity and endpoint observations support that workflow. This candidate uses synthetic fixtures only; it does not monitor messages, devices or accounts, classify phishing, or attest the truth of observations.
 
-Native engine: `frontline-0.1.0`. Jira integration candidate: `0.1.6`. The separate Solidity engine remains `0.1.4`. This work is local; the existing production installation and Codegeist submission do not contain it. See the [technical specification](frontline-spec.md), [acceptance record](acceptance-frontline-2026-11-14.md) and broader [entry-point roadmap](team-entry-points.md).
+Native engine: `frontline-0.1.0`. Jira integration candidate: `0.1.6`. The separate Solidity engine remains `0.1.4`. Deployed and accepted in cs0lutions development 3.6.0; the existing production installation and Codegeist submission do not contain it. See the [live development acceptance](acceptance-frontline-cs0lutions-dev-2026-11-14.md). See the [technical specification](frontline-spec.md), [acceptance record](acceptance-frontline-2026-11-14.md) and broader [entry-point roadmap](team-entry-points.md).
 
 ## Coverage ledger
 
@@ -67,7 +67,7 @@ The risk capture is one minute before generation; the retest is 30 seconds newer
 
 ## HTTP contract check
 
-The [OpenAPI description](../postman/specs/frontline-local.openapi.json) covers only the local preview. The [Postman collection](../postman/collections/omniguard-frontline-local/) has ten ordered requests and 17 assertions. Start a **fresh** preview process with `OMNIGUARD_FRONTLINE_CLOCK=1794673260`, then run:
+The [OpenAPI description](../postman/specs/frontline-local.openapi.json) covers only the local preview. The [Postman collection](../postman/collections/omniguard-frontline-local/) has 13 ordered requests and 23 assertions. Start a **fresh** preview process with `OMNIGUARD_FRONTLINE_CLOCK=1794673260`, then run:
 
 ```sh
 postman collection lint postman/collections/omniguard-frontline-local
@@ -79,7 +79,7 @@ The collection creates and completes synthetic `LOCAL-1`, rejects premature veri
 
 ## Development deployment
 
-These are deployment instructions, not a record of deployment. An existing authorized OmniGuard contributor keeps the app ID. An independent developer registers their own app, as described in the [Forge workflow guide](forge-workflow.md). Sign in through Forge's terminal prompt; never put tokens in source or reports.
+The [development acceptance record](acceptance-frontline-cs0lutions-dev-2026-11-14.md) documents the measured deployment. The commands below reproduce the deployment process. An existing authorized OmniGuard contributor keeps the app ID. An independent developer registers their own app, as described in the [Forge workflow guide](forge-workflow.md). Sign in through Forge's terminal prompt; never put tokens in source or reports.
 
 From `integrations/atlassian-forge`, after the build and tests above:
 
@@ -106,3 +106,11 @@ Project-scoped storage under `og:p:<projectId>:fl:` holds immutable imported bun
 If Jira accepts a write but its response is lost, a retry checks the original issue property/label or comment marker before sending again. A pending triage decision blocks different decisions, verification and completion until recovered. A definite rejection releases the claim; an uncertain outcome stays blocked rather than guessing. A process crash may leave a mutation lock: an operator must inspect the original Jira outcome and stored evidence before recovering it. Automatic lock expiration or blind claim deletion is not implemented.
 
 Native and Forge validators check shape, bounds, canonical hashes, sequence and observation freshness. A SHA-256 match proves consistency of supplied bytes, not the authenticity of a report. Future live intake requires authenticated sources, a threat model, retention rules and separate acceptance evidence. This milestone performs no endpoint isolation, identity changes, live probing or employee scoring.
+
+## Contact an owner
+
+Open **Contact owner**, choose a purpose, and **Preview mention**. Review the current Jira assignee and message, then **Send Jira mention**. A changed recipient, evidence or expired five-minute review requires a new preview. The same case/evidence/purpose posts once. This records a Jira comment; it does not prove delivery, reading or online presence, and it does not change completion.
+
+Teammates can respond on the issue in Jira for Android/iOS, subject to access and notification settings. Confidential messaging belongs in the separate [local encrypted communications lab](../secure-comms/README.md), whose deployment and mobile limits are explicit.
+
+For repeated live exercises, preserve the engagement ID and advance the sequence beyond the active one, with new observation IDs and strictly newer capture times. The generator defaults to 1/2; it does not reset an existing Jira engagement.

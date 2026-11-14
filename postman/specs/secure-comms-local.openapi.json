@@ -1,0 +1,92 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "OmniGuard local encrypted communications fixture broker",
+    "version": "0.1.0",
+    "description": "Local synthetic sessions only; never deploy this broker publicly. Messaging uses Matrix directly, outside this API."
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:4190"
+    }
+  ],
+  "paths": {
+    "/lab/config": {
+      "get": {
+        "operationId": "getLabConfig",
+        "responses": {
+          "200": {
+            "description": "Synthetic lab configuration or fresh Matrix session"
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "403": {
+            "description": "Host or origin rejected"
+          },
+          "502": {
+            "description": "Matrix unavailable"
+          }
+        }
+      }
+    },
+    "/lab/session": {
+      "post": {
+        "operationId": "createFixtureSession",
+        "responses": {
+          "200": {
+            "description": "Synthetic lab configuration or fresh Matrix session"
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "403": {
+            "description": "Host or origin rejected"
+          },
+          "502": {
+            "description": "Matrix unavailable"
+          },
+          "429": {
+            "description": "Local Matrix login rate limit"
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-OmniGuard-Lab",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "1"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "participant"
+                ],
+                "properties": {
+                  "participant": {
+                    "type": "string",
+                    "enum": [
+                      "alice",
+                      "bob"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

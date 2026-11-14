@@ -19,3 +19,6 @@ __pycache__/
 /integrations/atlassian-bitbucket/static/app/main.js
 /integrations/atlassian-forge/static/app/frontline.js
 /.postman/
+/secure-comms/node_modules/
+/secure-comms/dist/
+/secure-comms/.state/

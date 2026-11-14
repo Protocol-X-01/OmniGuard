@@ -1,5 +1,12 @@
 # Changelog
 
+## Development collaboration update — 14 November 2026
+
+- Forge development 3.6.0: fresh team-defence fixtures completed KAN-8 through assigned remediation, one attributed decision, evidence-bound retest and explicit Done. Five satisfied checks and two gaps survive reload.
+- Added reviewed, current-assignee Jira mentions with recipient/actor/evidence binding, expiry and duplicate/uncertain-write protection. One self-mention was accepted on the synthetic issue. No online, delivery or read-receipt claim.
+- Fixed in-app routing and added a paste-report import path. 67 Jira/shared tests and 23 local API assertions pass. Production and submission unchanged.
+- Added a separate local encrypted communications lab using Matrix SDK Rust crypto and Synapse: device fingerprint checks, encrypted messages, tested recipient decryption, outsider denial and new-device/membership send blocks. Browser desktop and narrow layout checked; native mobile and production hosting remain pending.
+
 ## Front-line team defence — local candidate, 14 November 2026
 
 - Added independent Rust `omniguard-frontline` 0.1.0 with five explicit control checks, bounded synthetic observations, evidence digests and freshness/coverage states.

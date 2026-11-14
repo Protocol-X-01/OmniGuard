@@ -1,6 +1,6 @@
 # Front-line team defence — first milestone
 
-Status: locally implemented and validated, 14 November 2026; not deployed. The owner clarified that the priority is front-line defence and incident intake, including how teammates interact. This supersedes the earlier proposal to begin with editor and staged-code checks. See the [reproduction and deployment guide](frontline-guide.md) and [acceptance record](acceptance-frontline-2026-11-14.md).
+Status: implemented and validated locally, then accepted on cs0lutions Forge development 3.6.0, 14 November 2026. See [live acceptance](acceptance-frontline-cs0lutions-dev-2026-11-14.md). The owner clarified that the priority is front-line defence and incident intake, including how teammates interact. This supersedes the earlier proposal to begin with editor and staged-code checks. See the [reproduction and deployment guide](frontline-guide.md) and [acceptance record](acceptance-frontline-2026-11-14.md).
 
 ## Acceptance objective
 
@@ -32,4 +32,4 @@ The [local HTTP contract](../postman/specs/frontline-local.openapi.json) is only
 - Keyboard interaction, visible focus, text coverage labels, responsive layout and no unsafe rendering of supplied text.
 - Existing Rust and both Forge suites, both frontends/manifests and the loopback Postman collection.
 
-Local simulation is not live Jira acceptance or independent human-reviewer acceptance. Deployment guidance must name these outstanding checks. This milestone prepares a local release; it does not claim live monitoring, incident containment, phishing classification or complete coverage of all team interactions.
+Local simulation is not live Jira acceptance or independent human-reviewer acceptance. Deployment guidance must name these outstanding checks. Development acceptance uses one acting identity. Production is unchanged; this release does not claim live monitoring, incident containment, phishing classification or complete coverage of all team interactions.
