@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://omniguard-n5h9.onrender.com/"><strong>Project site</strong></a> ·
-  <a href="https://www.youtube.com/watch?v=XbvPjWep9nc"><strong>Watch the demo</strong></a> ·
+  <a href="https://www.youtube.com/watch?v=OVf5P7mi1xE"><strong>Watch the demo</strong></a> ·
   <a href="docs/judge-guide.md"><strong>Try it in Jira</strong></a> ·
   <a href="#run-a-local-scan"><strong>Run a scan</strong></a> ·
   <a href="docs/rules.md"><strong>Explore the rules</strong></a> ·
@@ -51,7 +51,7 @@ The vulnerable fixture produced one finding. A source-only zero-finding rescan w
 
 A Jira site administrator installs the app. The supplied [three-report fixture set](reports/judge/) needs no local compiler or wallet. It includes the intentional weaker-rescan check. Project users need permission to create Tasks, add comments and use a completion transition.
 
-The app imports full selected fixture source and retains scan/history records and importer attribution. See the privacy notice before importing. Production **2.0.0** is accepted on cs0lutions; a separate judge-site installation is still untested.
+The app imports full selected fixture source and retains scan/history records and importer attribution. See the privacy notice before importing. Production **2.0.0** is accepted on cs0lutions and a [separate temporary Jira site](docs/acceptance-separate-site-2026-11-14.md), both administered by the same owner.
 
 ## Run a local scan
 
@@ -105,4 +105,4 @@ The core and Forge remain separate: neither imports the other's runtime. No Omni
 
 Start with [CONTRIBUTING.md](CONTRIBUTING.md), bring an isolated regression and a matching fix, and keep unsupported cases visible. [Report a security issue privately](SECURITY.md), browse the [changelog](CHANGELOG.md), or contact **protocolx76@gmail.com**.
 
-Codegeist target: **Apps for Software Teams**. The [public captioned walkthrough](https://www.youtube.com/watch?v=XbvPjWep9nc) shows the development workflow and separate production acceptance. Independent judge-site acceptance and final submission remain open. See [the submission guide](docs/judge-guide.md) for the current status.
+Codegeist target: **Apps for Software Teams**. The [public captioned walkthrough](https://www.youtube.com/watch?v=OVf5P7mi1xE) shows the development workflow and separate production acceptance. Separate-site installation and remediation passed; an independent reviewer-account test and final submission remain open. See [the submission guide](docs/judge-guide.md) for the current status.

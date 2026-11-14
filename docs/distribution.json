@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-11-14T08:45:00Z",
+  "checked_at_utc": "2026-11-14T10:18:00Z",
   "app_id": "2dcc2164-b65e-43a5-90c8-bc4ac20447ab",
   "engine_version": "0.1.4",
   "production_version": "2.0.0",
@@ -16,7 +16,15 @@
     "status": "Done",
     "verification_comment": "10005"
   },
-  "independent_site_acceptance": "not yet tested; owner has no second site",
-  "public_video_url": null,
+  "independent_site_acceptance": {
+    "status": "passed on a separate temporary tenant; same administrator account",
+    "site": "one-atlas-vsdj.atlassian.net",
+    "issue": "OGTEST-1",
+    "status_in_jira": "Done",
+    "verification_comment": "84900",
+    "site_expires": "2027-02-12",
+    "record": "acceptance-separate-site-2026-11-14.md"
+  },
+  "public_video_url": "https://www.youtube.com/watch?v=OVf5P7mi1xE",
   "submission_status": "not submitted"
 }
