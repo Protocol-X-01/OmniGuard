@@ -20,6 +20,11 @@ const post = (body) => ({ method: 'POST', headers: { Accept: 'application/json',
 
 export const store = {
   get: (key) => kvs.get(key), set: (key, value) => kvs.set(key, value), remove: (key) => kvs.delete(key),
+  async scanPage(prefix, cursor) {
+    let query = kvs.query().where('key', WhereConditions.beginsWith(prefix)).limit(20);
+    if (cursor) query = query.cursor(cursor);
+    return query.getMany();
+  },
   saveScan: (key, scan, activeKey, digest) => kvs.transact().set(key, scan).set(activeKey, digest).execute(),
   async claim(key, value) {
     try { await kvs.set(key, value, { keyPolicy: 'FAIL_IF_EXISTS' }); return true; }

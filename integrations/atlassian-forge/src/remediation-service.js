@@ -62,8 +62,11 @@ export class RemediationService {
     await this.jira.authorize(project, ['EDIT_ISSUES']);
     const { bundle, digest } = validateBundle(payload?.bundle);
     const key = `${prefix(project)}scan:${digest}`;
-    const scan = await this.store.get(key) || { bundle, digest, importedAt: this.clock(), importedBy: project.accountId };
-    await this.store.saveScan(key, scan, `${prefix(project)}active`, digest);
+    const existing = await this.store.get(key);
+    const scan = existing || { bundle, digest, importedAt: this.clock() };
+    // Re-activation must not restore attribution from a stale read after cleanup.
+    if (existing) await this.store.set(`${prefix(project)}active`, digest);
+    else await this.store.saveScan(key, scan, `${prefix(project)}active`, digest);
     return { scan: publicScan(scan) };
   }
 
