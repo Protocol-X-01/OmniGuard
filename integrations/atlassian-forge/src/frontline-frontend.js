@@ -1,4 +1,5 @@
-const $ = s => document.querySelector(s);
+export async function mountFrontline(root = document) {
+const $ = s => root.querySelector(s);
 const local = location.hostname === '127.0.0.1';
 const { invoke, router, view } = local ? {} : await import('@forge/bridge');
 let state, chosen, busy = false, site = '';
@@ -12,7 +13,7 @@ async function call(name, payload) {
 }
 function el(tag, text, cls) { const n = document.createElement(tag); if (text !== undefined) n.textContent = text; if (cls) n.className = cls; return n; }
 function notice(text, error = false) { $('#notice').textContent = text; $('#notice').className = `notice${error ? ' error' : ''}`; }
-function controls() { document.querySelectorAll('button,input,select').forEach(n => { n.disabled = busy || n.dataset.blocked === 'true'; }); $('#import').disabled = busy || !chosen; }
+function controls() { root.querySelectorAll('button,input,select').forEach(n => { n.disabled = busy || n.dataset.blocked === 'true'; }); $('#import').disabled = busy || !chosen; }
 function button(text, fn, disabled = false) { const n = el('button', text); n.type = 'button'; n.dataset.blocked = String(disabled); n.disabled = busy || disabled; n.onclick = fn; return n; }
 async function refresh() { state = await call('getFrontline'); render(); }
 async function action(fn, message) {
@@ -92,8 +93,8 @@ $('#import').onclick = () => action(() => call('importFrontline', { bundle: chos
 $('#refresh').onclick = () => action(() => Promise.resolve(), 'Coverage, evidence expiry and Jira status refreshed.');
 $('#runtime-label').textContent = local ? 'Local preview · simulated Jira · memory resets when the preview stops.' : 'Forge workflow · current-user Jira permissions · synthetic fixture evidence only.';
 if (local) {
-  document.querySelector('nav a[href="./index.html"]').remove();
-  document.querySelector('.brand').href = './frontline.html';
+  root.querySelector('nav a[href="./index.html"]').remove();
+  root.querySelector('.brand').href = './frontline.html';
   $('#demo-controls').hidden = false;
   for (const [id, name] of [['#demo-risk', 'team-risk'], ['#demo-retest', 'team-retest']]) $(id).onclick = () => action(async () => {
     const response = await fetch(`/fixtures/${name}.bundle.json`); if (!response.ok) throw new Error('Generate the native fixtures first.');
@@ -101,3 +102,6 @@ if (local) {
   }, 'Fixture evidence imported. Unsupported and unassessed entries remain visible.');
 } else { try { site = (await view.getContext()).siteUrl || ''; } catch { /* Resolver still enforces project context. */ } }
 try { await refresh(); notice('Ready. Evidence and coverage stay attached to each handoff.'); } catch (e) { notice(e.message, true); }
+
+return refresh;
+}
