@@ -1,6 +1,7 @@
 <p align="center"><img src="docs/assets/omniguard-banner.svg" alt="OmniGuard — make the fix easy to verify" width="100%"></p>
 
 <p align="center">
+  <a href="https://omniguard-n5h9.onrender.com/"><strong>Project site</strong></a> ·
   <a href="docs/judge-guide.md"><strong>Try it in Jira</strong></a> ·
   <a href="#run-a-local-scan"><strong>Run a scan</strong></a> ·
   <a href="docs/rules.md"><strong>Explore the rules</strong></a> ·
@@ -94,7 +95,7 @@ These are fixture measurements, not production precision or recall. **Explicit-s
 | [Forge Jira](integrations/atlassian-forge/) | Report import, evidence ledger and real remediation workflow |
 | [Local dashboard](dashboard/) | Accessible loopback fixture demo with explicitly local drafts |
 | [Bitbucket scaffold](integrations/atlassian-bitbucket/) | Separate integration starting point; live PR scanning is unfinished |
-| [Static judge page](site/) | Dependency-free guide and fixture downloads, prepared for Render |
+| [Static judge page](https://omniguard-n5h9.onrender.com/) | Public guide and verified fixture downloads on Render; [source](site/) |
 | [Technical spec](SPEC.md) / [Release guide](docs/release.md) | Scope, boundaries, reproducibility and deployment |
 
 The core and Forge remain separate: neither imports the other's runtime. No OmniScan or MULTI-CHAIN-FRAMEWORK code, dataset or runtime was copied into this project. The wider multi-chain research is separate work.
