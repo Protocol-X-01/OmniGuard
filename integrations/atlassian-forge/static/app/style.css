@@ -67,3 +67,11 @@ footer { border-top: 1px solid #ccdad1; padding-top: 16px; color: #4b666d; font:
 .paste-option label { display: block; margin: 8px 0; font-size: 12px; font-weight: 600; }
 .paste-option textarea { width: 100%; box-sizing: border-box; resize: vertical; padding: 12px; border: 1px solid #8eaaa7; border-radius: 5px; background: #fff; color: #183749; font: 12px/1.6 ui-monospace, monospace; }
 .paste-option summary:focus-visible, .paste-option textarea:focus-visible { outline: 3px solid #087d96; outline-offset: 3px; }
+
+.privacy-panel { margin: 28px 0; padding: 16px; border: 1px solid #8eaaa7; border-radius: 6px; background: #f5f8f4; }
+.privacy-panel summary { cursor: pointer; padding: 8px 0; font-size: 14px; color: #245b6b; }
+.privacy-panel p { font-size: 14px; line-height: 1.65; max-width: 75ch; }
+.privacy-panel label { display: block; margin: 16px 0 8px; font-size: 14px; }
+.privacy-panel input { display: block; width: min(100%, 22rem); box-sizing: border-box; min-height: 44px; margin-bottom: 12px; padding: 10px; border: 1px solid #8eaaa7; border-radius: 4px; background: white; color: #183749; font: inherit; }
+.privacy-panel button { min-height: 44px; white-space: normal; }
+.privacy-panel summary:focus-visible, .privacy-panel input:focus-visible { outline: 3px solid #087d96; outline-offset: 3px; }

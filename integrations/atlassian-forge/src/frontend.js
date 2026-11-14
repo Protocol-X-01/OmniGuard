@@ -8,6 +8,14 @@ let chosenBundle;
 let selectedId;
 let siteUrl = '';
 let busy = false;
+let privacyReview = null;
+
+function updatePrivacyControl() {
+  const allowed = privacyReview?.legacy > 0 && privacyReview.projectKey === state?.project.key
+    && $('#privacy-confirm').value === state.project.key;
+  $('#privacy-remove').dataset.unavailable = String(!allowed);
+  $('#privacy-remove').disabled = busy || !allowed;
+}
 
 function element(tag, className, text) {
   const node = document.createElement(tag);
@@ -24,9 +32,17 @@ function setBusy(value) {
   document.querySelectorAll('button[data-action]').forEach((button) => { button.disabled = value || button.dataset.unavailable === 'true'; });
   $('#bundle-file').disabled = value;
   $('#bundle-paste').disabled = value;
+  $('#privacy-confirm').disabled = value;
+  updatePrivacyControl();
 }
 async function refresh() {
+  const previous = state;
   state = await invoke('getDashboard');
+  if (previous && (previous.project.id !== state.project.id || previous.scan?.digest !== state.scan?.digest)) {
+    privacyReview = null;
+    $('#privacy-confirm').value = '';
+    $('#privacy-summary').textContent = 'Scan state changed. Review stored importer IDs again before removal.';
+  }
   render();
 }
 async function action(work, success) {
@@ -167,5 +183,46 @@ $('#use-paste').addEventListener('click', () => {
 });
 $('#import').addEventListener('click', () => action(() => invoke('importReport', { bundle: chosenBundle }), 'Scan imported. Source digests, excerpts, spans and coverage were checked.'));
 $('#refresh').addEventListener('click', () => action(() => Promise.resolve(), 'Jira and scan state refreshed.'));
+
+async function reviewImporterData(remove = false) {
+  const confirmProjectKey = $('#privacy-confirm').value;
+  privacyReview = null;
+  updatePrivacyControl();
+  let cursor;
+  const totals = { inspected: 0, legacy: 0, removed: 0, projectKey: state.project.key };
+  const seen = new Set();
+  try {
+    // Cursors are used only in this immediate pagination flow, never persisted.
+    for (let page = 0; page < 100; page++) {
+      const result = await invoke(remove ? 'removeLegacyImporterData' : 'previewImporterData', {
+        ...(cursor ? { cursor } : {}), ...(remove ? { confirmProjectKey } : {}),
+      });
+      totals.inspected += result.inspected;
+      totals.legacy += result.legacy;
+      totals.removed += result.removed;
+      $('#privacy-summary').textContent = remove
+        ? `${totals.removed} stored importer IDs removed; ${totals.inspected} scans checked. Checking the next page…`
+        : `${totals.inspected} scans checked; ${totals.legacy} contain an older importer ID. Checking the next page…`;
+      if (!result.nextCursor) {
+        if (!remove) privacyReview = totals;
+        else $('#privacy-confirm').value = '';
+        $('#privacy-summary').textContent = remove
+          ? `Completed this pass: ${totals.removed} stored importer IDs removed from ${totals.inspected} checked scans. Review again to confirm the current result.`
+          : `Review complete for ${totals.projectKey}: ${totals.inspected} scans checked; ${totals.legacy} contain an older importer ID.`;
+        return totals;
+      }
+      if (seen.has(result.nextCursor)) throw new Error('The review could not advance.');
+      seen.add(result.nextCursor);
+      cursor = result.nextCursor;
+    }
+    throw new Error('This review exceeded 100 pages. Contact support to finish checking this large project.');
+  } catch (error) {
+    $('#privacy-summary').textContent = `Incomplete pass: ${totals.inspected} scans checked and ${totals.removed} removals confirmed. A failed page may have made additional removals. Review again before continuing. ${error.message}`;
+    throw error;
+  } finally { updatePrivacyControl(); }
+}
+$('#privacy-confirm').addEventListener('input', updatePrivacyControl);
+$('#privacy-review').addEventListener('click', () => action(() => reviewImporterData(), 'Stored importer ID review completed.'));
+$('#privacy-remove').addEventListener('click', () => action(() => reviewImporterData(true), 'Importer ID removal pass completed. Source evidence and Jira records were retained.'));
 try { siteUrl = (await view.getContext()).siteUrl || ''; await refresh(); }
 catch (error) { $('#mode').textContent = 'OmniGuard could not load'; notice(error.message, true); }
