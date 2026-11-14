@@ -1,0 +1,53 @@
+{
+  "recordedAt": "2026-11-14",
+  "scope": "Documentation publication of previously accepted development and local fixture work",
+  "sourceRevisions": {
+    "messaging": "396da676f8b52406dae5b33c927431802f39937a",
+    "jiraOwnerContact": "789dba2afe4a56d8716f6ec48f1cd0acd4015685",
+    "publiclyAvailable": false
+  },
+  "testedBrowserBuildSha256": "d7a066ad54bf9afd981cb73219098eddeefcb25eb554e36f084d8932add9e03e",
+  "sourceEvidence": [
+    {
+      "path": "secure-comms/src/secure-client.js",
+      "sha256": "25234e2a1a91be8ead6ea2cc06ac68e529f34fd4d02f84eb9cf31f7ea82e9437"
+    },
+    {
+      "path": "integrations/atlassian-forge/src/frontline-contact.js",
+      "sha256": "131e66749690a56af7bfa4dd75c767cc3614d715d6095725e25952b305c391c1"
+    }
+  ],
+  "assets": [
+    {
+      "path": "docs/assets/omniguard-messaging-desktop.jpg",
+      "bytes": 127526,
+      "sha256": "a4f31e1f5768e255ff5fd1090f2a44414877dc49bdfee02841d696a83211fecb",
+      "modified": false
+    },
+    {
+      "path": "docs/evidence/messaging-2026-11-14/crypto-acceptance.json",
+      "bytes": 655,
+      "sha256": "9e6f6024124df307a1411c965c33875376cc00856ba46a877ce413149aaaeb6e",
+      "modified": false
+    },
+    {
+      "path": "docs/evidence/messaging-2026-11-14/browser-acceptance.json",
+      "bytes": 591,
+      "sha256": "05f7e4c9d4735520bd5683b8a95a7a2a06d8c01d5155c5e4925852148fc527f1",
+      "modified": false
+    },
+    {
+      "path": "docs/evidence/messaging-2026-11-14/owner-contact-acceptance.json",
+      "bytes": 440,
+      "sha256": "ed6c764a636c94419e1443b4063afa9d840187963c38dfe154dc6e2a0ba80de1",
+      "modified": false
+    }
+  ],
+  "origin": "Original OmniGuard application and unchanged local browser capture by Codex for Protocol-X; synthetic conversation only. No generated or altered screenshot pixels.",
+  "limitations": [
+    "No production messaging service or public fixture broker",
+    "No independent human reviewer, notification delivery or online-presence acceptance",
+    "No physical Android/iOS test, production authentication or key recovery",
+    "Recorded fixture evidence is not a security certification"
+  ]
+}

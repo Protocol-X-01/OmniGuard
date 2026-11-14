@@ -60,6 +60,18 @@ The separate Bitbucket app is installed in the **omniguard** workspace. [Fixture
 
 The production test created **KAN-7**, rejected stale and mismatched evidence, then accepted the fixed compiler rescan and moved the issue to **Done**. A subsequent PR update automatically triggered [Bitbucket Pipeline #1](https://bitbucket.org/omniguard/omniguard-pr-fixtures/pipelines/results/1), which passed in **2 minutes 2 seconds**. Its downloaded JSON/SARIF matched the fixed source and committed report; Jira recorded that commit in verification comment **10007**. [Read the acceptance evidence](docs/acceptance-bitbucket-2026-11-14.md) and [setup instructions](integrations/atlassian-bitbucket/). This release supports public isolated fixtures only; Jira import and completion remain deliberate reviewer actions.
 
+## Coordinate the response
+
+OmniGuard's latest development work adds **reviewed Jira owner mentions** and a **separate encrypted messaging lab**. A reviewer can preview a message to the current remediation owner and record a Jira mention with duplicate protection. In the local Matrix lab, two synthetic participants compare device fingerprints before exchanging encrypted messages; the conversation and its keys stay outside Forge and Jira.
+
+Owner mentions were accepted in **Forge development 3.6.0**. Two-way encrypted messaging and recipient decryption were accepted on a **local Synapse server**. These features are not included in the public production installer or the current walkthrough. Production chat authentication, HTTPS hosting, key recovery and physical Android/iOS testing remain pending.
+
+[Explore messaging, availability and measured evidence](docs/messaging.md).
+
+![OmniGuard local encrypted messaging lab with verified synthetic Alice and Bob devices](docs/assets/omniguard-messaging-desktop.jpg)
+
+*Authentic local browser capture, 14 November 2026. Synthetic exercise only; not a hosted or native-mobile messenger.*
+
 ## Run a local scan
 
 Source mode needs Rust and a C build toolchain. The repository pins Rust **1.93.0**; it needs no Node, Atlassian account or chain connection.
@@ -103,6 +115,7 @@ These are fixture measurements, not production precision or recall. **Explicit-s
 | [Forge Jira](integrations/atlassian-forge/) | Report import, evidence ledger and real remediation workflow |
 | [Local dashboard](dashboard/) | Accessible loopback fixture demo with explicitly local drafts |
 | [Bitbucket PR integration](integrations/atlassian-bitbucket/) | Public fixture PR evidence, commit-bound Jira imports and reproducible pipeline configuration |
+| [Messaging and team coordination](docs/messaging.md) | Development owner mentions and local encrypted messaging: availability, authentic capture and acceptance records |
 | [Static judge page](https://omniguard-n5h9.onrender.com/) | Public guide and verified fixture downloads on Render; [source](site/) |
 | [Technical spec](SPEC.md) / [Release guide](docs/release.md) | Scope, boundaries, reproducibility and deployment |
 

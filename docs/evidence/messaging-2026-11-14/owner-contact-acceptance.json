@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-11-14T19:40:17.039Z",
+  "issue": "KAN-8",
+  "developmentVersion": "3.6.0",
+  "sourceCommit": "789dba2afe4a56d8716f6ec48f1cd0acd4015685",
+  "status": "Done",
+  "assigneeMatchesActor": true,
+  "totalComments": 3,
+  "contact": [
+    {
+      "id": "10010",
+      "created": "2026-11-14T19:40:01.492+0000",
+      "mentionTargetsActingAccount": true,
+      "hasMentionMarkup": true
+    }
+  ],
+  "deliveryVerified": false
+}
