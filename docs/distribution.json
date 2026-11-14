@@ -26,7 +26,7 @@
     "record": "acceptance-separate-site-2026-11-14.md"
   },
   "public_video_url": "https://www.youtube.com/watch?v=OVf5P7mi1xE",
-  "submission_status": "not submitted",
+  "submission_status": "submitted",
   "privacy_update": {
     "development_version": "2.10.0",
     "new_importer_ids_stored": false,
@@ -36,5 +36,13 @@
     "post_reload_legacy_fields": 0,
     "notice_version": 2,
     "record": "privacy-minimization.md"
+  },
+  "codegeist_submission": {
+    "project_url": "https://devpost.com/software/omniguard-z1pmcg",
+    "submission_id": "1302466",
+    "category": "Apps for Software Teams",
+    "bonus_category": null,
+    "confirmation_observed_at_utc": "2026-11-14T11:50:40Z",
+    "record": "acceptance-codegeist-2026-11-14.md"
   }
 }

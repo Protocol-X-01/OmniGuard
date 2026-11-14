@@ -1,6 +1,8 @@
 # Codegeist entry review — 14 November 2026
 
-The entrant is registered. The [OmniGuard Devpost draft](https://devpost.com/software/omniguard-z1pmcg) has its project story, two evidence screenshots, public captioned walkthrough, dedicated cover, software-team category, production installation link and complete judge instructions saved. The final binding agreement and submission have not been completed. This record describes preparation, not a contest acceptance receipt.
+**Submission update:** after explicit entrant approval, Devpost confirmed submission on 14 November 2026. See the separate [confirmation record](acceptance-codegeist-2026-11-14.md).
+
+At the initial review, the entrant was registered and the OmniGuard Devpost draft had its project story, two evidence screenshots, public captioned walkthrough, dedicated cover, software-team category, production installation link and complete judge instructions saved. Final terms acceptance and submission were still pending. The preparation checks below retain that historical context.
 
 ## Delivered vertical slice
 
