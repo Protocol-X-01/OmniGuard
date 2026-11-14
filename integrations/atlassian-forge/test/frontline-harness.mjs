@@ -9,7 +9,7 @@ export function harness({ now = 1794673260 } = {}) {
     authorize: async (project, needed) => { calls.push(['authorize', project.accountId, ...needed]); for (const p of needed) if (!permissions.has(p)) throw Object.assign(new Error(`Jira permission required: ${p}`), { status: 403 }); },
     taskType: async () => '10001',
     createIssue: async body => { const key = `LOCAL-${issues.size + 1}`; issues.set(key, { ...copy(body), key, status: 'To do', category: 'new' }); calls.push(['create', key]); return { key }; },
-    issue: async (key, project) => { const issue = issues.get(key); if (!issue || issue.fields.project.id !== project.id) throw new Error('Issue outside project'); return copy(issue); },
+    issue: async (key, project) => { const issue = issues.get(key); if (!issue || issue.fields.project.id !== project.id) throw new Error('Issue outside project'); return { ...copy(issue), assignee: issue.fields.assignee ? { displayName: 'Fixture responder', active: true, ...copy(issue.fields.assignee) } : null }; },
     findExisting: async (project, label, property) => { const item = [...issues.values()].find(i => i.fields.project.id === project.id && i.fields.labels.includes(label)); if (!item) return null; if (JSON.stringify(item.properties[0].value) !== JSON.stringify(property)) throw new Error('Different evidence'); return { key: item.key }; },
     findVerificationComment: async (key, marker, prefix = 'OmniGuard rescan verification: ') => copy(comments.find(c => c.key === key && JSON.stringify(c.body).includes(`${prefix}${marker}`))),
     addComment: async (key, body) => { const comment = { key, id: String(comments.length + 1), body: copy(body) }; comments.push(comment); return copy(comment); },

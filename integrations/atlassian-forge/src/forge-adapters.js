@@ -81,9 +81,11 @@ export const jira = {
   },
   createIssue: (body) => request(route`/rest/api/3/issue`, post(body)),
   async issue(issueKey, project) {
-    const result = await request(route`/rest/api/3/issue/${issueKey}?fields=project,status,labels`);
+    const result = await request(route`/rest/api/3/issue/${issueKey}?fields=project,status,labels,assignee`);
     if (String(result.fields.project.id) !== project.id) throw new Error('The tracked Jira issue has moved outside this project.');
-    return { key: result.key, status: result.fields.status.name, category: result.fields.status.statusCategory.key };
+    const assigned = result.fields.assignee;
+    return { key: result.key, status: result.fields.status.name, category: result.fields.status.statusCategory.key,
+      assignee: assigned ? { accountId: assigned.accountId, displayName: assigned.displayName, active: assigned.active } : null };
   },
   async findExisting(project, label, property) {
     const result = await request(route`/rest/api/3/search/jql`, post({ jql: `project = ${project.id} AND labels = "${label}"`, fields: ['status'], maxResults: 2 }));

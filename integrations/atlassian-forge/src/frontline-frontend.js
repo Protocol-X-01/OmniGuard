@@ -3,7 +3,8 @@ const $ = s => root.querySelector(s);
 const local = location.hostname === '127.0.0.1';
 const { invoke, router, view } = local ? {} : await import('@forge/bridge');
 let state, chosen, busy = false, site = '';
-const routes = { getFrontline: '', importFrontline: '/import', createFrontline: '/create', decideFrontline: '/decision', verifyFrontline: '/verify', completeFrontline: '/complete' };
+const contactReviews = new Map(), contactReasons = new Map(), contactOpen = new Set();
+const routes = { getFrontline: '', importFrontline: '/import', createFrontline: '/create', decideFrontline: '/decision', verifyFrontline: '/verify', completeFrontline: '/complete', previewFrontlineContact: '/contact-preview', sendFrontlineContact: '/contact' };
 async function call(name, payload) {
   if (!local) return invoke(name, payload);
   const r = await fetch(`/api/frontline${routes[name]}`, payload ? { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-OmniGuard-Local': '1' }, body: JSON.stringify(payload) } : {});
@@ -77,6 +78,39 @@ function render() {
     for (const transition of item.transitions) form.append(button(`Complete · ${transition.name}`, () => action(() => call('completeFrontline', { ...base, transitionId: transition.id }), 'Jira completion recorded after the current retest.')));
     if (!local) form.append(button('Open in Jira', () => router.open(`${site}/browse/${item.issueKey}`)));
     card.append(form);
+    const contactPanel = el('details', undefined, 'contact-panel');
+    contactPanel.open = contactOpen.has(item.id);
+    contactPanel.ontoggle = () => contactPanel.open ? contactOpen.add(item.id) : contactOpen.delete(item.id);
+    contactPanel.append(el('summary', `Contact owner · ${item.assigneeName}`));
+    const content = el('div', undefined, 'contact-content');
+    content.append(el('p', 'Mention the current Jira assignee with the evidence reference. Review the recipient and message before posting.', 'muted'));
+    const purpose = el('select'); purpose.id = `contact-purpose-${item.id}`;
+    const purposeLabel = el('label', 'Purpose'); purposeLabel.htmlFor = purpose.id;
+    for (const [value, label] of [['request_context', 'Ask for context'], ['remediation_update', 'Request an update'], ['retest_review', 'Review the retest']]) {
+      const option = el('option', label); option.value = value; option.selected = value === (contactReasons.get(item.id) || 'request_context'); purpose.append(option);
+    }
+    purpose.onchange = () => { contactReasons.set(item.id, purpose.value); contactReviews.delete(item.id); render(); $(`#contact-purpose-${item.id}`)?.focus(); };
+    content.append(purposeLabel, purpose);
+    const preview = button('Preview mention', () => action(async () => {
+      const reason = purpose.value;
+      const result = await call('previewFrontlineContact', { ...base, reason });
+      contactReviews.set(item.id, { ...result, reason, digest: engagement.digest }); contactOpen.add(item.id);
+    }, 'Message preview ready. Review the recipient and content before sending.'), !item.contactAvailable || Boolean(item.jiraError));
+    preview.className = 'secondary'; preview.id = `contact-preview-${item.id}`; content.append(preview);
+    const review = contactReviews.get(item.id);
+    if (review && review.digest === engagement.digest) {
+      const panel = el('section', undefined, 'message-review'); panel.setAttribute('aria-label', 'Message preview');
+      panel.append(el('strong', `To: ${review.recipient}`), el('p', review.message));
+      panel.append(el('p', 'Posts a Jira comment visible to people who can access this issue. No confidential message content is included. Notification delivery depends on Jira and device settings.', 'muted'));
+      const send = button(review.alreadySent ? 'Mention already recorded' : 'Send Jira mention', () => action(async () => {
+        await call('sendFrontlineContact', { ...base, reason: review.reason, expiresAt: review.expiresAt, token: review.token });
+        contactReviews.delete(item.id);
+      }, 'Mention recorded in Jira. Delivery and reading are not confirmed.'), review.alreadySent);
+      send.id = `contact-send-${item.id}`; panel.append(send); content.append(panel);
+    }
+    if (item.contacts?.length) content.append(el('p', `${item.contacts.length} owner contact${item.contacts.length === 1 ? '' : 's'} recorded in Jira. No delivery or read receipt.`, 'contact-receipt'));
+    content.append(el('p', 'On Android or iOS, open the issue in Jira to reply. Enable Mentions in Jira’s notification settings. Live availability is not shared.', 'muted'));
+    contactPanel.append(content); card.append(contactPanel);
     if (item.history.length) { const d = el('details'); d.append(el('summary', `${item.history.length} recorded decisions`)); const list = el('ul'); item.history.forEach(h => list.append(el('li', `${new Date(h.at * 1000).toISOString()}: ${h.decision.replaceAll('_', ' ')} — ${h.reason.replaceAll('_', ' ')}`))); d.append(list); card.append(d); }
     $('#cases').append(card);
   }

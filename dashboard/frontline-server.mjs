@@ -15,6 +15,7 @@ export function previewServer(port = 4180) {
     ...['team-risk', 'team-retest'].map(f => [`/fixtures/${f}.bundle.json`, [path.join(fixtureDirectory, `${f}.bundle.json`), 'application/json']]),
   ]);
   const actions = { '/import': body => h.service.import(h.context, body), '/create': body => h.service.create(h.context, body),
+    '/contact-preview': body => h.service.contact(h.context, body), '/contact': body => h.service.contact(h.context, body, true),
     '/decision': body => h.service.action(h.context, body, 'decision'), '/verify': body => h.service.action(h.context, body, 'verify'), '/complete': body => h.service.action(h.context, body, 'complete') };
   const server = http.createServer(async (req, res) => {
     const send = (code, value) => { res.writeHead(code, { 'Content-Type': 'application/json' }); res.end(JSON.stringify(value)); };

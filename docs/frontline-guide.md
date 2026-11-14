@@ -46,6 +46,8 @@ OMNIGUARD_FRONTLINE_CLOCK=1794673260 node dashboard/frontline-server.mjs
 
 Open [the local preview](http://127.0.0.1:4180/frontline.html). It is labelled **synthetic fixtures / simulated Jira** and discloses the frozen clock. It uses in-memory data; restarting resets the exercise. The process binds only to `127.0.0.1`. Host/origin and request-header checks protect this local surface; the header is not user authentication. Do not expose it as a hosted API.
 
+For either local or Forge intake, choose a `.bundle.json` file, or expand **Paste a report instead**, paste the complete bundle into **Evidence JSON**, and choose **Use pasted report**. Both paths prepare a candidate; **Validate and import** sends it through the same server-side checks. Editing pasted text clears the prepared candidate, and both paths enforce the 64 KiB limit.
+
 1. Load the risk fixture. Confirm seven entries, five failed checks and two gaps.
 2. Assign the urgent-request remediation. The simulated Jira task is assigned to the acting fixture responder.
 3. Record a **confirmed** decision with **verified context**. The decision has its own Jira comment receipt and evidence digest.
@@ -88,6 +90,8 @@ npm run install-app -- --upgrade --environment development
 ```
 
 Select the intended Jira development site when prompted. For a first installation, omit `--upgrade`. No new scopes or backend destinations were added by this milestone. The runtime uses the existing Forge bridge and `asUser()` Jira adapter; the loopback server and frozen preview clock are not deployed.
+
+The two workflow screens share the same authenticated Custom UI document. Navigation uses Forge's [`view.createHistory()`](https://developer.atlassian.com/platform/forge/apis-reference/ui-api-bridge/view/#createhistory), including the `/team-defence` route. Navigating the iframe to a separate HTML document loses the injected bridge; the standalone `frontline.html` remains the loopback preview entry, not the Forge navigation target.
 
 Test the **Team defence** navigation inside the installed Jira project page. Generate fresh fixture bundles and import them manually. A real Jira check must verify project isolation, assignment eligibility, persistence after reload, comment authorship from a second authorized identity, denied-user behavior and the exact completion transition. The local independent-actor harness does not substitute for this real account test.
 

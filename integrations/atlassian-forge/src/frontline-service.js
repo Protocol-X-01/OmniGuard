@@ -1,11 +1,13 @@
 import { projectContext } from './remediation-service.js';
 import { assess, checks, exact, fail, hash, retest, validateFrontline } from './frontline-evidence.js';
+import { contact } from './frontline-contact.js';
 const prefix = p => `og:p:${p.id}:fl:`;
 const paragraph = text => ({ type: 'paragraph', content: [{ type: 'text', text }] });
 const document = texts => ({ type: 'doc', version: 1, content: texts.map(paragraph) });
 export class FrontlineService {
   constructor({ store, jira, clock = () => Math.floor(Date.now() / 1000) }) { Object.assign(this, { store, jira, clock }); }
   async state(p) { return this.store.get(`${prefix(p)}state`); }
+  contact(context, payload, send = false) { return contact(this, context, payload, send); }
   async dashboard(context) {
     const p = projectContext(context);
     await this.jira.authorize(p, ['BROWSE_PROJECTS']);
@@ -20,7 +22,8 @@ export class FrontlineService {
         issue = await this.jira.issue(record.issueKey, p);
         if (current && issue.category !== 'done') transitions = await this.jira.completionTransitions(record.issueKey);
       } catch { jiraError = 'Jira state is unavailable. Refresh before acting.'; }
-      cases.push({ ...record, assessment, current, status: issue.status || (record.pending ? 'Creation pending' : 'Unavailable'), transitions, jiraError });
+      cases.push({ ...record, assessment, current, status: issue.status || (record.pending ? 'Creation pending' : 'Unavailable'), transitions, jiraError,
+        assigneeName: issue.assignee?.displayName || 'Unassigned', contactAvailable: Boolean(issue.assignee?.accountId && issue.assignee.active === true) });
     }
     return { project: { id: p.id, key: p.key }, engagement: state ? { bundle: state.bundle, digest: state.digest, results: assess(state.bundle.intake, this.clock()) } : null, cases, checks };
   }
