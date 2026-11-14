@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-11-14T19:53:08.941080Z",
+  "sourceCommit": "396da676f8b52406dae5b33c927431802f39937a",
+  "surface": "Local browser, two independent synthetic Matrix devices",
+  "twoWayEncryptedExchange": true,
+  "fingerprintsComparedAcrossDeviceViews": true,
+  "twoMessagesWithoutDuplicateRendering": true,
+  "viewportCheck": {
+    "width": 390,
+    "documentWidth": 390,
+    "horizontalOverflow": false
+  },
+  "actualAndroidDevice": false,
+  "actualIosDevice": false,
+  "hostedProduction": false,
+  "buildSha256": "d7a066ad54bf9afd981cb73219098eddeefcb25eb554e36f084d8932add9e03e"
+}

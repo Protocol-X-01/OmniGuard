@@ -1,5 +1,11 @@
 # Changelog
 
+## Messaging documentation — 14 November 2026
+
+- Added a public overview of reviewed Jira owner mentions, accepted in Forge development 3.6.0, and the separately tested local Matrix encrypted messaging lab.
+- Published an authentic synthetic-conversation screenshot and sanitized, dated acceptance records for encryption, device checks, browser behavior and the Jira self-mention.
+- Distinguished the installed production workflow from development and local-lab capabilities, with hosting, authentication, recovery and physical mobile acceptance still pending. This update publishes documentation and evidence; development feature source, production apps and the v0.1.4 release are unchanged.
+
 ## Bitbucket integration 0.1.5 — 2026-11-14
 
 - Separate Forge PR panel and Jira PR-URL imports validate public isolated-fixture reports against exact repository source bytes and full commit identities.
