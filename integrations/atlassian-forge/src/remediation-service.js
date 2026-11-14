@@ -24,12 +24,13 @@ function issueDescription(scan, finding) {
     ...(finding.evidence.related || []).flatMap((item) => [paragraph(`${item.label}: ${item.location.file}:${item.location.start_line}:${item.location.start_column}${item.source_sha256 ? ` · SHA-256 ${item.source_sha256}` : ""}`), { type: "codeBlock", content: [{ type: "text", text: item.excerpt }] }]),
     paragraph(`Source SHA-256: ${finding.evidence.source_sha256}`),
     paragraph(`Scan bundle SHA-256: ${scan.digest}`),
+    ...(scan.provenance ? [paragraph(`Bitbucket PR: ${scan.provenance.url}`), paragraph(`Repository UUID: ${scan.provenance.repositoryUuid} · source commit ${scan.provenance.commit} · destination commit ${scan.provenance.destinationCommit}`), paragraph('All Solidity files under contracts/ were matched to this PR commit. Scanner execution is not attested by these integrity checks.')] : []),
     paragraph('Source evidence was rechecked against the imported source. This is an isolated regression fixture; the detection is a review heuristic.'),
   ]);
 }
 
 export class RemediationService {
-  constructor({ store, jira, clock = () => new Date().toISOString() }) { Object.assign(this, { store, jira, clock }); }
+  constructor({ store, jira, pullRequests, clock = () => new Date().toISOString() }) { Object.assign(this, { store, jira, pullRequests, clock }); }
 
   async active(project) {
     const digest = await this.store.get(`${prefix(project)}active`);
@@ -40,9 +41,13 @@ export class RemediationService {
     const project = projectContext(context);
     await this.jira.authorize(project, []);
     const scan = await this.active(project);
+    let provenanceError = '';
+    if (scan?.provenance) {
+      try { await this.pullRequests.assertCurrent(scan.provenance); } catch (error) { provenanceError = error.message; }
+    }
     const records = await this.store.list(`${prefix(project)}rem:`);
     const remediations = await Promise.all(records.filter((record) => !scan || record.targetId === scan.bundle.target.id).map(async (record) => {
-      const assessment = assessRescan(record, scan);
+      const assessment = provenanceError ? { allowed: false, reason: provenanceError } : assessRescan(record, scan);
       const verifiedCurrent = record.verification?.scanDigest === scan?.digest && assessment.allowed;
       let jiraStatus = record.jiraStatus;
       let completionTransitions = [];
@@ -54,7 +59,7 @@ export class RemediationService {
       } catch (error) { jiraError = error.message; }
       return { ...record, jiraStatus, jiraError, assessment, verifiedCurrent, completionTransitions };
     }));
-    return { project: { id: project.id, key: project.key }, scan: publicScan(scan), remediations };
+    return { project: { id: project.id, key: project.key }, scan: publicScan(scan), provenanceError, remediations };
   }
 
   async importReport(context, payload) {
@@ -70,9 +75,21 @@ export class RemediationService {
     return { scan: publicScan(scan) };
   }
 
+  async importPullRequest(context, payload) {
+    const project = projectContext(context);
+    await this.jira.authorize(project, ['EDIT_ISSUES']);
+    const scan = await this.pullRequests.read(payload?.url);
+    const key = `${prefix(project)}scan:${scan.digest}`;
+    const existing = await this.store.get(key);
+    if (existing) await this.store.set(`${prefix(project)}active`, scan.digest);
+    else await this.store.saveScan(key, scan, `${prefix(project)}active`, scan.digest);
+    return { scan: publicScan(existing || scan) };
+  }
+
   async current(project, digest) {
     const scan = await this.active(project);
     if (!scan || scan.digest !== digest) throw new Error('The active scan changed. Refresh and review the current evidence.');
+    if (scan.provenance) await this.pullRequests.assertCurrent(scan.provenance);
     return scan;
   }
 
@@ -85,7 +102,8 @@ export class RemediationService {
     if (!finding) throw new Error('Choose a finding from the active validated scan.');
     const analysis = scan.bundle.report.analysis;
     const profilePart = scan.bundle.report.schema_version === 1 ? "" : `${scan.bundle.report.engine_version}\0${analysis ? `${analysis.mode}\0${analysis.compiler_version ?? ""}\0` : ""}`;
-    const id = sha256(`${project.id}\0${scan.bundle.target.id}\0${profilePart}${finding.id}`).slice(0, 24);
+    const originPart = scan.provenance ? `bitbucket\0${scan.provenance.repositoryUuid}\0${scan.provenance.pullRequestId}\0` : "";
+    const id = sha256(`${project.id}\0${scan.bundle.target.id}\0${originPart}${profilePart}${finding.id}`).slice(0, 24);
     const key = `${prefix(project)}rem:${id}`;
     const previous = await this.store.get(key);
     if (previous) return previous;
@@ -116,7 +134,7 @@ export class RemediationService {
       }
     }
     const record = { id, issueKey: created.key, jiraStatus: created.status || 'To Do', targetId: scan.bundle.target.id,
-      baselineDigest: scan.digest, baselineRevision: scan.bundle.revision, baselineEngine: scan.bundle.report.engine_version, baselineRules: [...scan.bundle.rules], ...(analysis ? { baselineAnalysis: { ...analysis } } : {}), finding, label, createdAt: this.clock(), state: 'open' };
+      baselineDigest: scan.digest, baselineRevision: scan.bundle.revision, ...(scan.provenance ? { baselineProvenance: { ...scan.provenance } } : {}), baselineEngine: scan.bundle.report.engine_version, baselineRules: [...scan.bundle.rules], ...(analysis ? { baselineAnalysis: { ...analysis } } : {}), finding, label, createdAt: this.clock(), state: 'open' };
     await this.store.set(key, record);
     return record;
   }
@@ -149,6 +167,7 @@ export class RemediationService {
         comment = await this.jira.addComment(record.issueKey, document([
           paragraph(`OmniGuard rescan verification: ${scan.digest}`),
           paragraph(`${record.finding.rule_id} is absent in ${record.finding.location.file} in imported revision ${scan.bundle.revision}. The imported report declares ${scan.bundle.rules.length}-rule coverage under engine ${scan.bundle.report.engine_version} (${scan.bundle.report.analysis?.mode || "source"}${scan.bundle.report.analysis?.compiler_version ? `, ${scan.bundle.report.analysis.compiler_version}` : ""}) and contains no diagnostics.`),
+          ...(scan.provenance ? [paragraph(`Bitbucket PR: ${scan.provenance.url} · source commit ${scan.provenance.commit} · destination commit ${scan.provenance.destinationCommit}. Both heads were checked immediately before this action.`)] : []),
           paragraph(`Previous source SHA-256: ${record.finding.evidence.source_sha256}`),
           paragraph(`Rescanned source SHA-256: ${assessment.sourceSha256}`),
           paragraph('This records absence in an imported isolated-fixture scan. Review the code change before completing the Jira issue.'),

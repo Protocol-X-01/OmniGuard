@@ -52,7 +52,13 @@ The vulnerable fixture produced one finding. A source-only zero-finding rescan w
 
 A Jira site administrator installs the app. The supplied [three-report fixture set](reports/judge/) needs no local compiler or wallet. It includes the intentional weaker-rescan check. Project users need permission to create Tasks, add comments and use a completion transition.
 
-The app imports full selected fixture source and retains scan/history records. New imports do not store importer account IDs; project administrators can remove that field from older scans. See the privacy notice before importing. Production **2.1.0** is deployed on cs0lutions and a [separate temporary Jira site](docs/acceptance-separate-site-2026-11-14.md), both administered by the same owner. The [privacy rollout record](docs/privacy-minimization.md) confirms cleanup and retained Jira evidence after reload.
+The app imports full selected fixture source and retains scan/history records. New imports do not store importer account IDs; project administrators can remove that field from older scans. See the privacy notice before importing. Jira production **3.0.0** is installed on cs0lutions; the [separate temporary Jira site](docs/acceptance-separate-site-2026-11-14.md) remains on **2.1.0**. Both sites are administered by the same owner. The [privacy rollout record](docs/privacy-minimization.md) confirms cleanup and retained Jira evidence after reload.
+
+## Review a Bitbucket pull request
+
+The separate Bitbucket app is installed in the **omniguard** workspace. [Fixture PR #1](https://bitbucket.org/omniguard/omniguard-pr-fixtures/pull-requests/1) shows the source, committed report and current evidence panel. In Jira, paste that PR URL under **Connect a Bitbucket pull request**. The app checks every selected source byte and both PR heads before creating or verifying a remediation.
+
+The production test created **KAN-7**, rejected stale and mismatched evidence, then accepted the fixed compiler rescan, recorded comment **10006**, and moved the issue to **Done**. [Read the acceptance evidence](docs/acceptance-bitbucket-2026-11-14.md) and [setup instructions](integrations/atlassian-bitbucket/). This release supports public isolated fixtures only. Pipeline configuration is committed; Bitbucket execution is pending account two-step verification and is not claimed as passing.
 
 ## Run a local scan
 
@@ -80,7 +86,7 @@ Foundry projects use their configured source directory. `--fail-on high` returns
 | Check | Recorded result | Evidence |
 | --- | --- | --- |
 | Rust core and compiler tests | 38 passed | [Native-effect validation](reports/benchmarks/native-effects/validation.json) |
-| Forge service tests | 31 passed | [Remediation and privacy tests](integrations/atlassian-forge/test/) |
+| Forge service tests | 41 Jira + 3 Bitbucket passed | [Remediation and privacy tests](integrations/atlassian-forge/test/) |
 | Local effect-vault execution | 3 witnesses, including a 128-run paired fuzz property | [Execution record](docs/native-effects.md) |
 | Frozen synthetic review | 24/26 labels matched; 6 reports incomplete | [Review methodology and limits](fixtures/effect-review/README.md) |
 | Interface review | Keyboard, contrast, reflow and failed-rescan recovery checked | [Accessibility evidence](docs/accessibility.md) |
@@ -96,7 +102,7 @@ These are fixture measurements, not production precision or recall. **Explicit-s
 | [Fixtures](fixtures/) / [Reports](reports/) | Positive/fixed/negative cases and dated measurements |
 | [Forge Jira](integrations/atlassian-forge/) | Report import, evidence ledger and real remediation workflow |
 | [Local dashboard](dashboard/) | Accessible loopback fixture demo with explicitly local drafts |
-| [Bitbucket scaffold](integrations/atlassian-bitbucket/) | Separate integration starting point; live PR scanning is unfinished |
+| [Bitbucket PR integration](integrations/atlassian-bitbucket/) | Public fixture PR evidence, commit-bound Jira imports and reproducible pipeline configuration |
 | [Static judge page](https://omniguard-n5h9.onrender.com/) | Public guide and verified fixture downloads on Render; [source](site/) |
 | [Technical spec](SPEC.md) / [Release guide](docs/release.md) | Scope, boundaries, reproducibility and deployment |
 

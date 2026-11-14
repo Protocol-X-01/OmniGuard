@@ -43,7 +43,7 @@ def source_files():
                 relative = path.relative_to(ROOT).as_posix()
                 if filename.startswith('.env') or filename == '.npmrc' or path.suffix == '.log':
                     continue
-                if relative == 'integrations/atlassian-forge/static/app/main.js':
+                if relative in {'integrations/atlassian-forge/static/app/main.js', 'integrations/atlassian-bitbucket/static/app/main.js'}:
                     continue  # Rebuild from the locked package, never include a stale bundle.
                 if path.suffix not in SUFFIXES:
                     raise ValueError(f'Unreviewed release file type: {relative}')

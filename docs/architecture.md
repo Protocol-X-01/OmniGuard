@@ -43,7 +43,7 @@ The Jira Forge package contains its own manifest, Node resolver, Custom UI, pure
 
 Jira writes run as the current user, in the project from the resolver context, after explicit UI actions and permission checks. Issue types and completion transitions come from Jira metadata. Persistent claims prevent duplicate creation on concurrent requests or uncertain network results. A rescan can verify absence only with the same target, engine/rule/mode/compiler profile and file, changed source, complete coverage, no diagnostics and no remaining instance of that rule in the file. Completing the issue additionally requires a current verification and an available Done-category transition.
 
-The Bitbucket scaffold has a separately registered app boundary under `integrations/atlassian-bitbucket/`. Atlassian's current multiple-app model supports Jira and Confluence. Repository fetching, commit/PR binding and authenticated report transfer for Bitbucket remain pending.
+The Bitbucket panel has a separately registered Forge app under `integrations/atlassian-bitbucket/`. It reads a versioned report from a public isolated-fixture PR and checks exact source bytes at its immutable commit. Jira independently retrieves the same PR, derives a repository/PR identity, and rechecks both heads before remediation actions. No cross-app shared secret or web trigger is used. The Rust core remains local or in the PR pipeline. See [the PR specification](bitbucket-pr-spec.md) and [setup guide](../integrations/atlassian-bitbucket/README.md); deployment and pipeline acceptance are recorded separately.
 
 ## Expanded core model
 

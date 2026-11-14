@@ -33,6 +33,7 @@ function setBusy(value) {
   $('#bundle-file').disabled = value;
   $('#bundle-paste').disabled = value;
   $('#privacy-confirm').disabled = value;
+  $('#pr-url').disabled = value;
   updatePrivacyControl();
 }
 async function refresh() {
@@ -92,13 +93,15 @@ function renderFinding(finding) {
   details.append(digest);
   const record = state.remediations.find((item) => item.finding.id === finding.id && item.targetId === state.scan.target.id && (item.baselineEngine || '0.1.0') === state.scan.report.engine_version && (item.baselineAnalysis?.mode ?? null) === (state.scan.report.analysis?.mode ?? null) && (item.baselineAnalysis?.compiler_version ?? null) === (state.scan.report.analysis?.compiler_version ?? null));
   if (record) details.append(issueLink(record.issueKey));
-  else details.append(button('Create Jira remediation', () => action(() => invoke('createRemediation', { findingId: finding.id, scanDigest: state.scan.digest }), (result) => `${result.issueKey} created with validated fixture evidence.`), state.scan.report.diagnostics.length > 0 || state.scan.report.coverage?.complete === false));
+  else details.append(button('Create Jira remediation', () => action(() => invoke('createRemediation', { findingId: finding.id, scanDigest: state.scan.digest }), (result) => `${result.issueKey} created with validated fixture evidence.`), state.scan.report.diagnostics.length > 0 || state.scan.report.coverage?.complete === false || Boolean(state.provenanceError)));
 }
 function render() {
   $('#project').textContent = `Jira project ${state.project.key}`;
   const scan = state.scan;
   $('#mode').textContent = scan ? `${scan.target.name} · ${scan.revision}` : 'Ready for your first scan report';
   $('#scan-meta').textContent = scan ? `${scan.report.scanned_files} source file(s) · engine ${scan.report.engine_version} · ${scan.report.analysis?.mode || "source"}${scan.report.analysis?.compiler_version ? ` (${scan.report.analysis.compiler_version})` : ""} · ${scan.rules.length} rules · ${scan.report.findings.length} findings · imported ${new Date(scan.importedAt).toLocaleString()}` : 'Generate a fixture bundle with OmniGuard, then import it here.';
+  $('#pr-provenance').textContent = scan?.provenance ? `Bitbucket PR #${scan.provenance.pullRequestId} · ${scan.provenance.workspace}/${scan.provenance.repository} · source ${scan.provenance.commit} · destination ${scan.provenance.destinationCommit}` : '';
+  $('#pr-freshness').textContent = state.provenanceError || '';
   $('#scan-digest').textContent = scan ? `Bundle SHA-256: ${scan.digest}` : '';
   $('#finding-count').textContent = scan ? String(scan.report.findings.length) : '—';
   $('#jira-count').textContent = String(state.remediations.length);
@@ -182,6 +185,7 @@ $('#use-paste').addEventListener('click', () => {
   catch (error) { clearCandidate(); notice(error.message, true); }
 });
 $('#import').addEventListener('click', () => action(() => invoke('importReport', { bundle: chosenBundle }), 'Scan imported. Source digests, excerpts, spans and coverage were checked.'));
+$('#import-pr').addEventListener('click', () => action(() => invoke('importPullRequest', { url: $('#pr-url').value.trim() }), 'PR scan imported. Repository identity, current commit and all fixture source bytes were checked.'));
 $('#refresh').addEventListener('click', () => action(() => Promise.resolve(), 'Jira and scan state refreshed.'));
 
 async function reviewImporterData(remove = false) {

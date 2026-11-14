@@ -1,14 +1,30 @@
 {
-  "name": "omniguard-bitbucket-scaffold",
-  "version": "0.1.0",
+  "name": "omniguard-bitbucket",
+  "version": "0.1.5",
   "private": true,
   "type": "module",
   "scripts": {
     "register": "forge register",
     "deploy": "forge deploy",
-    "install-app": "forge install"
+    "install-app": "forge install",
+    "test": "node --test test/*.test.mjs",
+    "build": "node scripts/build-frontend.mjs",
+    "validate:manifest": "node scripts/validate-manifest.mjs",
+    "lint": "forge lint"
   },
-  "dependencies": { "@forge/resolver": "2.0.2" },
-  "devDependencies": { "@forge/cli": "15.1.0" },
-  "overrides": { "glob": "14.0.2", "minimatch": "11.0.8", "prosemirror-view": "1.42.9" }
+  "dependencies": {
+    "@forge/resolver": "2.0.2",
+    "@forge/api": "8.5.0",
+    "@forge/bridge": "7.3.0"
+  },
+  "devDependencies": {
+    "@forge/cli": "15.1.0",
+    "@forge/manifest": "13.9.0",
+    "esbuild": "0.25.12"
+  },
+  "overrides": {
+    "glob": "14.0.2",
+    "minimatch": "11.0.8",
+    "prosemirror-view": "1.42.9"
+  }
 }

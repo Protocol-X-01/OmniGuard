@@ -1,0 +1,25 @@
+image: rust:1.93.0-bookworm
+
+pipelines:
+  pull-requests:
+    '**':
+      - step:
+          name: OmniGuard — reproduce PR source evidence
+          max-time: 15
+          script:
+            # PR pipelines may prepare a merge; review the source commit itself.
+            - git checkout --detach "$BITBUCKET_COMMIT"
+            - apt-get update && apt-get install -y --no-install-recommends python3 ca-certificates curl git
+            - git clone --filter=blob:none --no-checkout https://github.com/Protocol-X-01/OmniGuard.git /tmp/omniguard-engine
+            - git -C /tmp/omniguard-engine checkout --detach c5d49185802c8bfc7124d1252acc4f67e43efd1a
+            - cargo build --locked --release --manifest-path /tmp/omniguard-engine/Cargo.toml -p omniguard-cli
+            - curl --fail --location --proto '=https' --tlsv1.2 https://raw.githubusercontent.com/ethereum/solc-bin/gh-pages/linux-amd64/solc-linux-amd64-v0.8.26+commit.8a97fa7a --output /tmp/omniguard-solc
+            - echo 'd5f23436f443edb85d8e76906d12f0a86ce0490e7663a9e608efeb7a93f149ef  /tmp/omniguard-solc' | sha256sum --check
+            - chmod 700 /tmp/omniguard-solc
+            - mkdir -p .omniguard-generated
+            - /tmp/omniguard-engine/target/release/omniguard bundle contracts --isolated-fixture --target omniguard-bitbucket-fixtures --name 'Bitbucket isolated fixtures' --revision pr-snapshot --solc /tmp/omniguard-solc --output .omniguard-generated/omniguard.scan.json
+            - /tmp/omniguard-engine/target/release/omniguard scan contracts --solc /tmp/omniguard-solc --format sarif --output .omniguard-generated/omniguard.sarif
+            - python3 -c 'import json; expected=json.load(open("omniguard.scan.json")); actual=json.load(open(".omniguard-generated/omniguard.scan.json")); assert expected == actual, "Regenerate omniguard.scan.json for this PR source commit"'
+            - git rev-parse HEAD > .omniguard-generated/source-commit.txt
+          artifacts:
+            - .omniguard-generated/**
