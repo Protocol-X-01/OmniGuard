@@ -1,0 +1,37 @@
+{
+  "schema_version": 3,
+  "engine_version": "0.1.3",
+  "scanned_files": 2,
+  "analysis": {
+    "mode": "solc",
+    "compiler_version": "0.8.26+commit.8a97fa7a.Linux.g++"
+  },
+  "coverage": {
+    "rule_set": "solidity-core/2026.11",
+    "rules": [
+      "OG-SOL-001",
+      "OG-SOL-002",
+      "OG-SOL-003",
+      "OG-SOL-004",
+      "OG-SOL-005",
+      "OG-SOL-006",
+      "OG-SOL-007",
+      "OG-SOL-008",
+      "OG-SOL-009",
+      "OG-SOL-010",
+      "OG-SOL-011",
+      "OG-SOL-012"
+    ],
+    "files": [
+      "Base.sol",
+      "Entry.sol"
+    ],
+    "source_sha256": {
+      "Base.sol": "638a6a785dc6d2fedf04593c87df5171dffdd76c8a1dfa150e6deea390a0a491",
+      "Entry.sol": "6eb5ca9145e1ff6b5f5564e87cf3efbf63286b2022fc8eeb0851be83bf2f5da0"
+    },
+    "complete": true
+  },
+  "diagnostics": [],
+  "findings": []
+}

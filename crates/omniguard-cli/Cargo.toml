@@ -1,0 +1,15 @@
+[package]
+name = "omniguard-cli"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "omniguard"
+path = "src/main.rs"
+
+[dependencies]
+clap.workspace = true
+omniguard-core = { path = "../omniguard-core" }
+serde_json.workspace = true

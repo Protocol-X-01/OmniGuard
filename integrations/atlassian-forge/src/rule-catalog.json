@@ -1,0 +1,139 @@
+{
+  "engine_version": "0.1.4",
+  "rule_set": "solidity-core/2026.11",
+  "rules": [
+    {
+      "category": "authorization",
+      "confidence": "high",
+      "description": "tx.origin participates in a condition that can gate execution.",
+      "id": "OG-SOL-001",
+      "limitations": "Recognizes require/assert conditions and if conditions; does not prove the surrounding policy.",
+      "reference": "https://docs.soliditylang.org/en/latest/security-considerations.html#tx-origin",
+      "remediation": "Use msg.sender with an explicit role or ownership check, then add an access-control test.",
+      "severity": "high",
+      "title": "Authorization uses tx.origin"
+    },
+    {
+      "category": "reentrancy",
+      "confidence": "medium",
+      "description": "An external interaction precedes a write to this contract's storage on a modeled execution path.",
+      "id": "OG-SOL-002",
+      "limitations": "Ordering indicator, not exploit proof. Source mode is local; solc mode follows bounded direct helpers, storage aliases and modifiers. Dynamic dispatch, unresolved effects and exhausted bounds are incomplete; reentrancy-lock safety is not proven.",
+      "reference": "https://docs.soliditylang.org/en/latest/security-considerations.html#reentrancy",
+      "remediation": "Apply checks-effects-interactions and verify a reentrancy guard with a local regression test.",
+      "severity": "high",
+      "title": "State write follows an external call"
+    },
+    {
+      "category": "external-calls",
+      "confidence": "high",
+      "description": "An address call/delegatecall/staticcall result is discarded, or its captured success flag is unused.",
+      "id": "OG-SOL-003",
+      "limitations": "An observed use is not proof of correct failure handling; complex data-flow is not resolved.",
+      "reference": "https://docs.soliditylang.org/en/latest/units-and-global-variables.html#members-of-address-types",
+      "remediation": "Capture and enforce the success flag, or explicitly return it to a caller that handles failure.",
+      "severity": "medium",
+      "title": "Low-level call result is not checked"
+    },
+    {
+      "category": "external-calls",
+      "confidence": "high",
+      "description": "The boolean from an address send operation is discarded.",
+      "id": "OG-SOL-004",
+      "limitations": "Requires a locally resolved address receiver; imported or aliased types may remain unknown.",
+      "reference": "https://docs.soliditylang.org/en/latest/security-considerations.html#sending-and-receiving-ether",
+      "remediation": "Handle failed delivery explicitly; prefer a pull-payment design when recipients can reject Ether.",
+      "severity": "medium",
+      "title": "Ether send result is discarded"
+    },
+    {
+      "category": "code-execution",
+      "confidence": "high",
+      "description": "An externally callable path delegates to a caller-derived target without a recognized preceding caller restriction.",
+      "id": "OG-SOL-005",
+      "limitations": "Source mode tracks local parameters and aliases. Solc mode additionally binds direct helper arguments, storage roots and imported modifiers with bounded ordered effects. No global role-integrity proof; unresolved dispatch or effect limits are incomplete.",
+      "reference": "https://docs.soliditylang.org/en/latest/security-considerations.html#authorized-proxies",
+      "remediation": "Use a trusted implementation target and enforce the intended caller/upgrade policy before delegation.",
+      "severity": "high",
+      "title": "Caller controls a delegatecall target"
+    },
+    {
+      "category": "authorization",
+      "confidence": "medium",
+      "description": "An externally callable path contains selfdestruct without a recognized preceding caller restriction.",
+      "id": "OG-SOL-006",
+      "limitations": "Modern EVMs generally transfer the balance without deleting existing code; fork and creation-time semantics vary.",
+      "reference": "https://docs.soliditylang.org/en/latest/units-and-global-variables.html#contract-related",
+      "remediation": "Remove the operation or enforce the intended caller policy and test unauthorized calls locally.",
+      "severity": "high",
+      "title": "Selfdestruct lacks a local caller restriction"
+    },
+    {
+      "category": "accounting",
+      "confidence": "medium",
+      "description": "A loop writes the whole msg.value into storage on each iteration.",
+      "id": "OG-SOL-007",
+      "limitations": "Tracks direct writes and unmodified local aliases; does not infer protocol accounting invariants.",
+      "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#msgvalue-inside-a-loop",
+      "remediation": "Compute and validate a per-item allocation before the loop, or require a single recipient per payment.",
+      "severity": "high",
+      "title": "Loop repeatedly credits the full msg.value"
+    },
+    {
+      "category": "randomness",
+      "confidence": "high",
+      "description": "A block-derived value is used in modulo arithmetic to choose an array index.",
+      "id": "OG-SOL-008",
+      "limitations": "Direct expressions and unmodified local aliases; no interprocedural or cryptographic proof.",
+      "reference": "https://docs.soliditylang.org/en/latest/units-and-global-variables.html#block-and-transaction-properties",
+      "remediation": "Use an appropriate verifiable randomness or commit/reveal design with an explicit adversary model.",
+      "severity": "medium",
+      "title": "Block-derived array selection"
+    },
+    {
+      "category": "encoding",
+      "confidence": "high",
+      "description": "A hash uses packed encoding of two or more locally resolved string/bytes values, leaving input boundaries ambiguous.",
+      "id": "OG-SOL-009",
+      "limitations": "Currently resolves string/bytes declarations in the same source; purpose and downstream authorization are not inferred.",
+      "reference": "https://docs.soliditylang.org/en/latest/abi-spec.html#non-standard-packed-mode",
+      "remediation": "Use abi.encode with explicit types and domain separation for the intended hash or signature protocol.",
+      "severity": "high",
+      "title": "Packed hash combines dynamic inputs"
+    },
+    {
+      "category": "token-handling",
+      "confidence": "high",
+      "description": "A transfer/transferFrom/approve operation declared to return bool is used without its result.",
+      "id": "OG-SOL-010",
+      "limitations": "Source mode requires an unambiguous in-file interface; compiler mode uses the selected declaration across supplied files and overloads. Method names alone do not imply ERC-20 behavior.",
+      "reference": "https://eips.ethereum.org/EIPS/eip-20",
+      "remediation": "Use a compatible SafeERC20 wrapper or enforce the token's return value and test failure behavior.",
+      "severity": "medium",
+      "title": "Token operation boolean is discarded"
+    },
+    {
+      "category": "accounting",
+      "confidence": "medium",
+      "description": "A condition requires this contract's Ether balance to equal an exact value.",
+      "id": "OG-SOL-011",
+      "limitations": "Flags a fragile invariant, not a proven denial of service; intended accounting needs manual review.",
+      "reference": "https://docs.soliditylang.org/en/latest/security-considerations.html#sending-and-receiving-ether",
+      "remediation": "Track internal accounting explicitly and avoid relying on an exact external Ether balance.",
+      "severity": "medium",
+      "title": "Strict equality on contract Ether balance"
+    },
+    {
+      "category": "availability",
+      "confidence": "medium",
+      "description": "A payable-address transfer in a loop lets a rejecting recipient revert the whole batch.",
+      "id": "OG-SOL-012",
+      "limitations": "Does not establish loop bounds, recipient trust or protocol-level impact.",
+      "reference": "https://docs.soliditylang.org/en/latest/security-considerations.html#gas-limit-and-loops",
+      "remediation": "Use independently claimable payments or isolate recipient failures without losing accounting correctness.",
+      "severity": "medium",
+      "title": "Reverting Ether transfer inside a loop"
+    }
+  ],
+  "schema_version": 3
+}

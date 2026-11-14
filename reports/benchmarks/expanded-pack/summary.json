@@ -1,0 +1,870 @@
+{
+  "generated_at": "2026-11-13T22:40:43.933398+00:00",
+  "corpus_version": 1,
+  "corpus_sha256": "d676105fb39f00ca65872b399b46f382036b6c866ac2d405be077be72a319674",
+  "cases": 60,
+  "versions": {
+    "omniguard": "omniguard 0.1.1",
+    "slither": "0.11.6",
+    "solc": "solc, the solidity compiler commandline interface\nVersion: 0.8.26+commit.8a97fa7a.Linux.g++",
+    "foundry": "forge Version: 1.8.4\nCommit SHA: 50af4efe189dc64bad2b75ed6990b835de66c4ae\nBuild Timestamp: 2026-10-01T14:08:28.191932892Z (1790863708)\nBuild Profile: dist"
+  },
+  "method": "Case/rule pattern agreement on an authored synthetic corpus. Slither policies differ; these are not general vulnerability precision estimates or a superiority ranking.",
+  "timing_scope": "One local invocation. Slither includes its compiler/build pipeline; timings are not an equivalent workload ranking.",
+  "detector_mapping": {
+    "OG-SOL-001": "tx-origin",
+    "OG-SOL-002": "reentrancy-eth",
+    "OG-SOL-003": "unchecked-lowlevel",
+    "OG-SOL-004": "unchecked-send",
+    "OG-SOL-005": "controlled-delegatecall",
+    "OG-SOL-006": "suicidal",
+    "OG-SOL-007": "msg-value-loop",
+    "OG-SOL-008": "weak-prng",
+    "OG-SOL-009": "encode-packed-collision",
+    "OG-SOL-010": "unchecked-transfer",
+    "OG-SOL-011": "incorrect-equality",
+    "OG-SOL-012": "calls-loop"
+  },
+  "omniguard": {
+    "elapsed_ms": 7.53,
+    "metrics": {
+      "OG-SOL-001": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "tn": 59,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "OG-SOL-002": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "tn": 59,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "OG-SOL-003": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 0,
+        "tn": 56,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "OG-SOL-004": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "tn": 59,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "OG-SOL-005": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "tn": 55,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "OG-SOL-006": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "tn": 54,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "OG-SOL-007": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "tn": 58,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "OG-SOL-008": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "tn": 58,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "OG-SOL-009": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "tn": 59,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "OG-SOL-010": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "tn": 59,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "OG-SOL-011": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "tn": 59,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "OG-SOL-012": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "tn": 59,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    "exact_case_mismatches": []
+  },
+  "slither": {
+    "elapsed_ms": 1071.46,
+    "exit_code": 0,
+    "metrics": {
+      "OG-SOL-001": {
+        "tp": 1,
+        "fp": 1,
+        "fn": 0,
+        "tn": 58,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "OG-SOL-002": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "tn": 59,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "OG-SOL-003": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 2,
+        "tn": 56,
+        "precision": 1.0,
+        "recall": 0.5
+      },
+      "OG-SOL-004": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "tn": 59,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "OG-SOL-005": {
+        "tp": 5,
+        "fp": 3,
+        "fn": 0,
+        "tn": 52,
+        "precision": 0.625,
+        "recall": 1.0
+      },
+      "OG-SOL-006": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 4,
+        "tn": 54,
+        "precision": 1.0,
+        "recall": 0.3333
+      },
+      "OG-SOL-007": {
+        "tp": 1,
+        "fp": 1,
+        "fn": 1,
+        "tn": 57,
+        "precision": 0.5,
+        "recall": 0.5
+      },
+      "OG-SOL-008": {
+        "tp": 2,
+        "fp": 1,
+        "fn": 0,
+        "tn": 57,
+        "precision": 0.6667,
+        "recall": 1.0
+      },
+      "OG-SOL-009": {
+        "tp": 1,
+        "fp": 1,
+        "fn": 0,
+        "tn": 58,
+        "precision": 0.5,
+        "recall": 1.0
+      },
+      "OG-SOL-010": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "tn": 59,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "OG-SOL-011": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "tn": 59,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "OG-SOL-012": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "tn": 59,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    }
+  },
+  "case_results": [
+    {
+      "id": "rule_001_vulnerable",
+      "path": "positive/rule_001_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-001"
+      ],
+      "omniguard": [
+        "OG-SOL-001"
+      ],
+      "slither_mapped": [
+        "OG-SOL-001"
+      ]
+    },
+    {
+      "id": "rule_001_fixed",
+      "path": "fixed/rule_001_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "rule_002_vulnerable",
+      "path": "positive/rule_002_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-002"
+      ],
+      "omniguard": [
+        "OG-SOL-002"
+      ],
+      "slither_mapped": [
+        "OG-SOL-002"
+      ]
+    },
+    {
+      "id": "rule_002_fixed",
+      "path": "fixed/rule_002_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "rule_003_vulnerable",
+      "path": "positive/rule_003_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-003"
+      ],
+      "omniguard": [
+        "OG-SOL-003"
+      ],
+      "slither_mapped": [
+        "OG-SOL-003"
+      ]
+    },
+    {
+      "id": "rule_003_fixed",
+      "path": "fixed/rule_003_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "rule_004_vulnerable",
+      "path": "positive/rule_004_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-004"
+      ],
+      "omniguard": [
+        "OG-SOL-004"
+      ],
+      "slither_mapped": [
+        "OG-SOL-004"
+      ]
+    },
+    {
+      "id": "rule_004_fixed",
+      "path": "fixed/rule_004_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "rule_005_vulnerable",
+      "path": "positive/rule_005_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-005"
+      ],
+      "omniguard": [
+        "OG-SOL-005"
+      ],
+      "slither_mapped": [
+        "OG-SOL-005"
+      ]
+    },
+    {
+      "id": "rule_005_fixed",
+      "path": "fixed/rule_005_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": [
+        "OG-SOL-005"
+      ]
+    },
+    {
+      "id": "rule_006_vulnerable",
+      "path": "positive/rule_006_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-006"
+      ],
+      "omniguard": [
+        "OG-SOL-006"
+      ],
+      "slither_mapped": [
+        "OG-SOL-006"
+      ]
+    },
+    {
+      "id": "rule_006_fixed",
+      "path": "fixed/rule_006_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "rule_007_vulnerable",
+      "path": "positive/rule_007_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-007"
+      ],
+      "omniguard": [
+        "OG-SOL-007"
+      ],
+      "slither_mapped": [
+        "OG-SOL-007"
+      ]
+    },
+    {
+      "id": "rule_007_fixed",
+      "path": "fixed/rule_007_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "rule_008_vulnerable",
+      "path": "positive/rule_008_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-008"
+      ],
+      "omniguard": [
+        "OG-SOL-008"
+      ],
+      "slither_mapped": [
+        "OG-SOL-008"
+      ]
+    },
+    {
+      "id": "rule_008_fixed",
+      "path": "fixed/rule_008_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "rule_009_vulnerable",
+      "path": "positive/rule_009_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-009"
+      ],
+      "omniguard": [
+        "OG-SOL-009"
+      ],
+      "slither_mapped": [
+        "OG-SOL-009"
+      ]
+    },
+    {
+      "id": "rule_009_fixed",
+      "path": "fixed/rule_009_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "rule_010_vulnerable",
+      "path": "positive/rule_010_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-010"
+      ],
+      "omniguard": [
+        "OG-SOL-010"
+      ],
+      "slither_mapped": [
+        "OG-SOL-010"
+      ]
+    },
+    {
+      "id": "rule_010_fixed",
+      "path": "fixed/rule_010_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "rule_011_vulnerable",
+      "path": "positive/rule_011_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-011"
+      ],
+      "omniguard": [
+        "OG-SOL-011"
+      ],
+      "slither_mapped": [
+        "OG-SOL-011"
+      ]
+    },
+    {
+      "id": "rule_011_fixed",
+      "path": "fixed/rule_011_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "rule_012_vulnerable",
+      "path": "positive/rule_012_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-012"
+      ],
+      "omniguard": [
+        "OG-SOL-012"
+      ],
+      "slither_mapped": [
+        "OG-SOL-012"
+      ]
+    },
+    {
+      "id": "rule_012_fixed",
+      "path": "fixed/rule_012_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "origin_in_message",
+      "path": "negative/origin_in_message.sol",
+      "group": "negative",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": [
+        "OG-SOL-001"
+      ]
+    },
+    {
+      "id": "origin_in_event",
+      "path": "negative/origin_in_event.sol",
+      "group": "negative",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "cross_contract_state",
+      "path": "negative/cross_contract_state.sol",
+      "group": "negative",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "local_shadowing",
+      "path": "negative/local_shadowing.sol",
+      "group": "negative",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "storage_name_in_index",
+      "path": "negative/storage_name_in_index.sol",
+      "group": "negative",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "custom_method_names",
+      "path": "negative/custom_method_names.sol",
+      "group": "negative",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "resolved_owner_modifier",
+      "path": "negative/resolved_owner_modifier.sol",
+      "group": "negative",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": [
+        "OG-SOL-005"
+      ]
+    },
+    {
+      "id": "overwritten_delegate_target",
+      "path": "negative/overwritten_delegate_target.sol",
+      "group": "negative",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": [
+        "OG-SOL-005"
+      ]
+    },
+    {
+      "id": "disjoint_branches",
+      "path": "negative/disjoint_branches.sol",
+      "group": "negative",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "deadline_only",
+      "path": "negative/deadline_only.sol",
+      "group": "negative",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "packed_static",
+      "path": "negative/packed_static.sol",
+      "group": "negative",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "packed_one_dynamic",
+      "path": "negative/packed_one_dynamic.sol",
+      "group": "negative",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "value_loop_check_only",
+      "path": "negative/value_loop_check_only.sol",
+      "group": "negative",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "value_loop_scaled",
+      "path": "negative/value_loop_scaled.sol",
+      "group": "negative",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": [
+        "OG-SOL-007"
+      ]
+    },
+    {
+      "id": "address_transfer_outside_loop",
+      "path": "negative/address_transfer_outside_loop.sol",
+      "group": "negative",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "guarded_revert",
+      "path": "negative/guarded_revert.sol",
+      "group": "negative",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "delegate_alias",
+      "path": "positive/delegate_alias.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-005"
+      ],
+      "omniguard": [
+        "OG-SOL-005"
+      ],
+      "slither_mapped": [
+        "OG-SOL-005"
+      ]
+    },
+    {
+      "id": "guard_after_sink",
+      "path": "positive/guard_after_sink.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-006"
+      ],
+      "omniguard": [
+        "OG-SOL-006"
+      ],
+      "slither_mapped": []
+    },
+    {
+      "id": "noop_modifier",
+      "path": "positive/noop_modifier.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-005"
+      ],
+      "omniguard": [
+        "OG-SOL-005"
+      ],
+      "slither_mapped": [
+        "OG-SOL-005"
+      ]
+    },
+    {
+      "id": "guard_or_bypass",
+      "path": "positive/guard_or_bypass.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-005"
+      ],
+      "omniguard": [
+        "OG-SOL-005"
+      ],
+      "slither_mapped": [
+        "OG-SOL-005"
+      ]
+    },
+    {
+      "id": "nested_guard_not_dominating",
+      "path": "positive/nested_guard_not_dominating.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-006"
+      ],
+      "omniguard": [
+        "OG-SOL-006"
+      ],
+      "slither_mapped": []
+    },
+    {
+      "id": "captured_success_unused",
+      "path": "positive/captured_success_unused.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-003"
+      ],
+      "omniguard": [
+        "OG-SOL-003"
+      ],
+      "slither_mapped": []
+    },
+    {
+      "id": "staticcall_discarded",
+      "path": "positive/staticcall_discarded.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-003"
+      ],
+      "omniguard": [
+        "OG-SOL-003"
+      ],
+      "slither_mapped": [
+        "OG-SOL-003"
+      ]
+    },
+    {
+      "id": "modifier_guard_after_placeholder",
+      "path": "positive/modifier_guard_after_placeholder.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-006"
+      ],
+      "omniguard": [
+        "OG-SOL-006"
+      ],
+      "slither_mapped": []
+    },
+    {
+      "id": "conditional_revert_not_guard",
+      "path": "positive/conditional_revert_not_guard.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-006"
+      ],
+      "omniguard": [
+        "OG-SOL-006"
+      ],
+      "slither_mapped": []
+    },
+    {
+      "id": "early_return_separates_write",
+      "path": "negative/early_return_separates_write.sol",
+      "group": "negative",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "unused_success_shadowed_use",
+      "path": "positive/unused_success_shadowed_use.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-003"
+      ],
+      "omniguard": [
+        "OG-SOL-003"
+      ],
+      "slither_mapped": []
+    },
+    {
+      "id": "block_index_alias",
+      "path": "positive/block_index_alias.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-008"
+      ],
+      "omniguard": [
+        "OG-SOL-008"
+      ],
+      "slither_mapped": [
+        "OG-SOL-008"
+      ]
+    },
+    {
+      "id": "payment_alias_loop",
+      "path": "positive/payment_alias_loop.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-007"
+      ],
+      "omniguard": [
+        "OG-SOL-007"
+      ],
+      "slither_mapped": []
+    },
+    {
+      "id": "overwritten_block_index",
+      "path": "negative/overwritten_block_index.sol",
+      "group": "negative",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": [
+        "OG-SOL-008"
+      ]
+    },
+    {
+      "id": "address_prefixed_contract_type",
+      "path": "negative/address_prefixed_contract_type.sol",
+      "group": "negative",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "shadowed_selfdestruct_function",
+      "path": "negative/shadowed_selfdestruct_function.sol",
+      "group": "negative",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "shadowed_require_is_not_guard",
+      "path": "positive/shadowed_require_is_not_guard.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-006"
+      ],
+      "omniguard": [
+        "OG-SOL-006"
+      ],
+      "slither_mapped": [
+        "OG-SOL-006"
+      ]
+    },
+    {
+      "id": "contract_typed_delegate_target",
+      "path": "positive/contract_typed_delegate_target.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-005"
+      ],
+      "omniguard": [
+        "OG-SOL-005"
+      ],
+      "slither_mapped": [
+        "OG-SOL-005"
+      ]
+    },
+    {
+      "id": "callee_ignores_block_argument",
+      "path": "negative/callee_ignores_block_argument.sol",
+      "group": "negative",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": []
+    },
+    {
+      "id": "shadowed_hash_function",
+      "path": "negative/shadowed_hash_function.sol",
+      "group": "negative",
+      "expected": [],
+      "omniguard": [],
+      "slither_mapped": [
+        "OG-SOL-009"
+      ]
+    }
+  ]
+}

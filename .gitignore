@@ -1,0 +1,15 @@
+/target/
+/dashboard/node_modules/
+/dashboard/dist/
+/integrations/atlassian-forge/node_modules/
+/integrations/atlassian-forge/.forge/
+/integrations/atlassian-forge/static/app/main.js
+*.log
+.env
+.env.*
+!.env.example
+
+/integrations/atlassian-bitbucket/node_modules/
+/integrations/atlassian-bitbucket/.forge/
+/fixtures/**/out/
+/fixtures/**/cache/

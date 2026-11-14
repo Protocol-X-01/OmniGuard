@@ -1,0 +1,79 @@
+{
+  "schema_version": 3,
+  "engine_version": "0.1.3",
+  "scanned_files": 1,
+  "analysis": {
+    "mode": "solc",
+    "compiler_version": "0.8.26+commit.8a97fa7a.Linux.g++"
+  },
+  "coverage": {
+    "rule_set": "solidity-core/2026.11",
+    "rules": [
+      "OG-SOL-001",
+      "OG-SOL-002",
+      "OG-SOL-003",
+      "OG-SOL-004",
+      "OG-SOL-005",
+      "OG-SOL-006",
+      "OG-SOL-007",
+      "OG-SOL-008",
+      "OG-SOL-009",
+      "OG-SOL-010",
+      "OG-SOL-011",
+      "OG-SOL-012"
+    ],
+    "files": [
+      "Case.sol"
+    ],
+    "source_sha256": {
+      "Case.sol": "30092f2527891627db317db14fcc02b80ca628a17570ece4cf420449013a2650"
+    },
+    "complete": true
+  },
+  "diagnostics": [],
+  "findings": [
+    {
+      "id": "379f914db79e29ad4d180503",
+      "rule_id": "OG-SOL-005",
+      "title": "Caller controls a delegatecall target",
+      "severity": "high",
+      "confidence": "high",
+      "message": "An externally callable function contains delegation to a caller-derived target without a recognized local caller restriction.",
+      "remediation": "Use a trusted implementation target and enforce the intended caller/upgrade policy before delegation.",
+      "location": {
+        "file": "Case.sol",
+        "start_line": 3,
+        "start_column": 187,
+        "end_line": 3,
+        "end_column": 212,
+        "byte_start": 250,
+        "byte_end": 275
+      },
+      "evidence": {
+        "source_sha256": "30092f2527891627db317db14fcc02b80ca628a17570ece4cf420449013a2650",
+        "excerpt": "target.delegatecall(data)",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "30092f2527891627db317db14fcc02b80ca628a17570ece4cf420449013a2650",
+            "label": "Caller-controlled target source",
+            "location": {
+              "file": "Case.sol",
+              "start_line": 3,
+              "start_column": 112,
+              "end_line": 3,
+              "end_column": 126,
+              "byte_start": 175,
+              "byte_end": 189
+            },
+            "excerpt": "address target"
+          }
+        ]
+      },
+      "context": {
+        "contract": "C",
+        "function": "run"
+      }
+    }
+  ]
+}

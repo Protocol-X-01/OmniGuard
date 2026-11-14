@@ -1,0 +1,121 @@
+{
+  "schema_version": 3,
+  "engine_version": "0.1.3",
+  "scanned_files": 1,
+  "analysis": {
+    "mode": "solc",
+    "compiler_version": "0.8.26+commit.8a97fa7a.Linux.g++"
+  },
+  "coverage": {
+    "rule_set": "solidity-core/2026.11",
+    "rules": [
+      "OG-SOL-001",
+      "OG-SOL-002",
+      "OG-SOL-003",
+      "OG-SOL-004",
+      "OG-SOL-005",
+      "OG-SOL-006",
+      "OG-SOL-007",
+      "OG-SOL-008",
+      "OG-SOL-009",
+      "OG-SOL-010",
+      "OG-SOL-011",
+      "OG-SOL-012"
+    ],
+    "files": [
+      "Case.sol"
+    ],
+    "source_sha256": {
+      "Case.sol": "ec68e9c21a4836b4c06bf36cedbaf84c98c14655048d5f92a27a652731334a2c"
+    },
+    "complete": true
+  },
+  "diagnostics": [],
+  "findings": [
+    {
+      "id": "659d2e1961b8045717abc42d",
+      "rule_id": "OG-SOL-005",
+      "title": "Caller controls a delegatecall target",
+      "severity": "high",
+      "confidence": "high",
+      "message": "An externally callable function contains delegation to a caller-derived target without a recognized local caller restriction.",
+      "remediation": "Use a trusted implementation target and enforce the intended caller/upgrade policy before delegation.",
+      "location": {
+        "file": "Case.sol",
+        "start_line": 4,
+        "start_column": 109,
+        "end_line": 4,
+        "end_column": 134,
+        "byte_start": 302,
+        "byte_end": 327
+      },
+      "evidence": {
+        "source_sha256": "ec68e9c21a4836b4c06bf36cedbaf84c98c14655048d5f92a27a652731334a2c",
+        "excerpt": "target.delegatecall(data)",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "ec68e9c21a4836b4c06bf36cedbaf84c98c14655048d5f92a27a652731334a2c",
+            "label": "Resolved delegated interaction",
+            "location": {
+              "file": "Case.sol",
+              "start_line": 4,
+              "start_column": 109,
+              "end_line": 4,
+              "end_column": 134,
+              "byte_start": 302,
+              "byte_end": 327
+            },
+            "excerpt": "target.delegatecall(data)"
+          },
+          {
+            "source_sha256": "ec68e9c21a4836b4c06bf36cedbaf84c98c14655048d5f92a27a652731334a2c",
+            "label": "Caller-controlled target source",
+            "location": {
+              "file": "Case.sol",
+              "start_line": 4,
+              "start_column": 38,
+              "end_line": 4,
+              "end_column": 52,
+              "byte_start": 231,
+              "byte_end": 245
+            },
+            "excerpt": "address target"
+          },
+          {
+            "source_sha256": "ec68e9c21a4836b4c06bf36cedbaf84c98c14655048d5f92a27a652731334a2c",
+            "label": "Resolved argument or call chain",
+            "location": {
+              "file": "Case.sol",
+              "start_line": 4,
+              "start_column": 84,
+              "end_line": 4,
+              "end_column": 93,
+              "byte_start": 277,
+              "byte_end": 286
+            },
+            "excerpt": "onlyOwner"
+          },
+          {
+            "source_sha256": "ec68e9c21a4836b4c06bf36cedbaf84c98c14655048d5f92a27a652731334a2c",
+            "label": "Resolved argument or call chain",
+            "location": {
+              "file": "Case.sol",
+              "start_line": 3,
+              "start_column": 79,
+              "end_line": 3,
+              "end_column": 136,
+              "byte_start": 134,
+              "byte_end": 191
+            },
+            "excerpt": "modifier onlyOwner() { _; require(msg.sender == owner); }"
+          }
+        ]
+      },
+      "context": {
+        "contract": "Case",
+        "function": "run"
+      }
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "bundle_version": 1,
+  "target": {
+    "id": "omniguard-executable-vault",
+    "name": "Executable Vault regression fixture",
+    "kind": "isolated-fixture"
+  },
+  "revision": "executable-vulnerable-v0.1.4",
+  "rules": [
+    "OG-SOL-001",
+    "OG-SOL-002",
+    "OG-SOL-003",
+    "OG-SOL-004",
+    "OG-SOL-005",
+    "OG-SOL-006",
+    "OG-SOL-007",
+    "OG-SOL-008",
+    "OG-SOL-009",
+    "OG-SOL-010",
+    "OG-SOL-011",
+    "OG-SOL-012"
+  ],
+  "report": {
+    "schema_version": 3,
+    "engine_version": "0.1.4",
+    "scanned_files": 1,
+    "analysis": {
+      "mode": "source",
+      "compiler_version": null
+    },
+    "coverage": {
+      "rule_set": "solidity-core/2026.11",
+      "rules": [
+        "OG-SOL-001",
+        "OG-SOL-002",
+        "OG-SOL-003",
+        "OG-SOL-004",
+        "OG-SOL-005",
+        "OG-SOL-006",
+        "OG-SOL-007",
+        "OG-SOL-008",
+        "OG-SOL-009",
+        "OG-SOL-010",
+        "OG-SOL-011",
+        "OG-SOL-012"
+      ],
+      "files": [
+        "Vault.sol"
+      ],
+      "source_sha256": {
+        "Vault.sol": "f96d3e981e4374b25b6bb8de100c7ea54b7e12fbae959fe9fa94b404dd2e0cbb"
+      },
+      "complete": true
+    },
+    "diagnostics": [],
+    "findings": [
+      {
+        "id": "ff5df439b84b553ab1003d81",
+        "rule_id": "OG-SOL-001",
+        "title": "Authorization uses tx.origin",
+        "severity": "high",
+        "confidence": "high",
+        "message": "tx.origin participates in a condition that can gate execution.",
+        "remediation": "Use msg.sender with an explicit role or ownership check, then add an access-control test.",
+        "location": {
+          "file": "Vault.sol",
+          "start_line": 10,
+          "start_column": 36,
+          "end_line": 10,
+          "end_column": 45,
+          "byte_start": 319,
+          "byte_end": 328
+        },
+        "evidence": {
+          "source_sha256": "f96d3e981e4374b25b6bb8de100c7ea54b7e12fbae959fe9fa94b404dd2e0cbb",
+          "excerpt": "tx.origin",
+          "validated": true
+        },
+        "context": {
+          "contract": "ExecutableVault",
+          "function": "onlyOwner"
+        }
+      },
+      {
+        "id": "2d72735628ffe12131402939",
+        "rule_id": "OG-SOL-002",
+        "title": "State write follows an external call",
+        "severity": "high",
+        "confidence": "medium",
+        "message": "An external interaction precedes a write to this contract's storage on a modeled execution path.",
+        "remediation": "Apply checks-effects-interactions and verify a reentrancy guard with a local regression test.",
+        "location": {
+          "file": "Vault.sol",
+          "start_line": 15,
+          "start_column": 22,
+          "end_line": 15,
+          "end_column": 65,
+          "byte_start": 540,
+          "byte_end": 583
+        },
+        "evidence": {
+          "source_sha256": "f96d3e981e4374b25b6bb8de100c7ea54b7e12fbae959fe9fa94b404dd2e0cbb",
+          "excerpt": "payable(msg.sender).call{value: amount}(\"\")",
+          "validated": true,
+          "related": [
+            {
+              "source_sha256": "f96d3e981e4374b25b6bb8de100c7ea54b7e12fbae959fe9fa94b404dd2e0cbb",
+              "label": "Later storage write",
+              "location": {
+                "file": "Vault.sol",
+                "start_line": 17,
+                "start_column": 9,
+                "end_line": 17,
+                "end_column": 32,
+                "byte_start": 633,
+                "byte_end": 656
+              },
+              "excerpt": "credits[msg.sender] = 0"
+            }
+          ]
+        },
+        "context": {
+          "contract": "ExecutableVault",
+          "function": "withdraw"
+        }
+      },
+      {
+        "id": "0d0471812a7752297f015213",
+        "rule_id": "OG-SOL-003",
+        "title": "Low-level call result is not checked",
+        "severity": "medium",
+        "confidence": "high",
+        "message": "An address call/delegatecall/staticcall result is discarded, or its captured success flag is unused.",
+        "remediation": "Capture and enforce the success flag, or explicitly return it to a caller that handles failure.",
+        "location": {
+          "file": "Vault.sol",
+          "start_line": 20,
+          "start_column": 9,
+          "end_line": 20,
+          "end_column": 41,
+          "byte_start": 747,
+          "byte_end": 779
+        },
+        "evidence": {
+          "source_sha256": "f96d3e981e4374b25b6bb8de100c7ea54b7e12fbae959fe9fa94b404dd2e0cbb",
+          "excerpt": "recipient.call{value: 1 wei}(\"\")",
+          "validated": true
+        },
+        "context": {
+          "contract": "ExecutableVault",
+          "function": "uncheckedSend"
+        }
+      }
+    ]
+  },
+  "sources": [
+    {
+      "path": "Vault.sol",
+      "sha256": "f96d3e981e4374b25b6bb8de100c7ea54b7e12fbae959fe9fa94b404dd2e0cbb",
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.24;\n\n// Complete local-only value-flow witness. Intentionally vulnerable; never deploy.\ncontract ExecutableVault {\n    address public owner;\n    mapping(address => uint256) public credits;\n\n    constructor() { owner = msg.sender; }\n    modifier onlyOwner() { require(tx.origin == owner, \"owner only\"); _; }\n\n    function deposit() external payable { credits[msg.sender] += msg.value; }\n    function withdraw() external {\n        uint256 amount = credits[msg.sender];\n        (bool ok,) = payable(msg.sender).call{value: amount}(\"\");\n        require(ok, \"transfer failed\");\n        credits[msg.sender] = 0;\n    }\n    function uncheckedSend(address payable recipient) external onlyOwner {\n        recipient.call{value: 1 wei}(\"\");\n    }\n}\n"
+    }
+  ]
+}

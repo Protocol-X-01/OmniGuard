@@ -1,0 +1,66 @@
+{
+  "engine_version": "0.1.4",
+  "binary_sha256": "dbf3fb31b96d7a33b6972ca110fd7d5980e03272ef6f3af38d0ee2d08497a7d3",
+  "rust_validation": {
+    "runner": "implementation agent",
+    "workspace_tests_passed": 38,
+    "ignored": 0,
+    "native_solc": "0.8.26+commit.8a97fa7a.Linux.g++",
+    "strict_clippy": "passed",
+    "format": "passed",
+    "release_build": "passed"
+  },
+  "forge_checks": [
+    {
+      "check": "test",
+      "exit_code": 0
+    },
+    {
+      "check": "build",
+      "exit_code": 0
+    },
+    {
+      "check": "validate:manifest",
+      "exit_code": 0
+    },
+    {
+      "check": "lint",
+      "exit_code": 0
+    }
+  ],
+  "forge_tests_passed": 23,
+  "dashboard_build": "passed",
+  "current_bundles_deterministic": 12,
+  "runtime_witnesses": {
+    "passed": 3,
+    "paired_fuzz_runs": 128,
+    "raw_output": "foundry-witnesses.json"
+  },
+  "final_challenge_summary": "final/summary.json",
+  "reviewer_final": {
+    "summary": "reviewer/final-reviewed/summary.json",
+    "exact_expectations": "24/26",
+    "complete_clean_misses": 0,
+    "evidence_spans": 79,
+    "forge_bundles_validated": 5,
+    "remaining_detection_limits": [
+      "explicit super dispatch",
+      "composed-modifier evidence budget"
+    ]
+  },
+  "tenant_acceptance": {
+    "status": "passed",
+    "site": "cs0lutions.atlassian.net",
+    "project": "KAN",
+    "forge_development_version": "2.9.0",
+    "issue": "KAN-4",
+    "verification_comment": "10003",
+    "status_after_reload": "Done",
+    "record": "docs/acceptance-native-effects-cs0lutions-2026-11-14.md"
+  },
+  "schema_validation": {
+    "bundles": 40,
+    "standalone_reports": 149,
+    "sarif_files": 7
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "bundle_version": 1,
+  "target": {
+    "id": "omniguard-patterns-regression",
+    "name": "Solidity rule pack fixture",
+    "kind": "isolated-fixture"
+  },
+  "revision": "patterns-fixed-v0.1.4",
+  "rules": [
+    "OG-SOL-001",
+    "OG-SOL-002",
+    "OG-SOL-003",
+    "OG-SOL-004",
+    "OG-SOL-005",
+    "OG-SOL-006",
+    "OG-SOL-007",
+    "OG-SOL-008",
+    "OG-SOL-009",
+    "OG-SOL-010",
+    "OG-SOL-011",
+    "OG-SOL-012"
+  ],
+  "report": {
+    "schema_version": 3,
+    "engine_version": "0.1.4",
+    "scanned_files": 1,
+    "analysis": {
+      "mode": "source",
+      "compiler_version": null
+    },
+    "coverage": {
+      "rule_set": "solidity-core/2026.11",
+      "rules": [
+        "OG-SOL-001",
+        "OG-SOL-002",
+        "OG-SOL-003",
+        "OG-SOL-004",
+        "OG-SOL-005",
+        "OG-SOL-006",
+        "OG-SOL-007",
+        "OG-SOL-008",
+        "OG-SOL-009",
+        "OG-SOL-010",
+        "OG-SOL-011",
+        "OG-SOL-012"
+      ],
+      "files": [
+        "Patterns.sol"
+      ],
+      "source_sha256": {
+        "Patterns.sol": "8e4045a41d85cac5f05af774b5a5a944f763f3e69be5203dfe3f263fe2695b18"
+      },
+      "complete": true
+    },
+    "diagnostics": [],
+    "findings": []
+  },
+  "sources": [
+    {
+      "path": "Patterns.sol",
+      "sha256": "8e4045a41d85cac5f05af774b5a5a944f763f3e69be5203dfe3f263fe2695b18",
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.24;\n\n// Generated from the 12 primary authored corpus cases.\n\ncontract R001F { address owner = msg.sender; function enter() external view { require(msg.sender == owner); } }\n\ncontract R002F { mapping(address => uint256) credits;\nfunction withdraw() external { uint256 amount = credits[msg.sender]; credits[msg.sender] = 0; (bool ok,) = payable(msg.sender).call{value:amount}(\"\"); require(ok); } }\n\ncontract R003F { function invoke(address target, bytes calldata data) external { (bool ok,) = target.call(data); require(ok); } }\n\ncontract R004F { function pay(address payable recipient) external { bool ok = recipient.send(1); require(ok); } }\n\ncontract R005F { address owner = msg.sender; function run(address target, bytes calldata data) external { require(msg.sender == owner); (bool ok,) = target.delegatecall(data); require(ok); } }\n\ncontract R006F { address owner = msg.sender; function sweep(address payable recipient) external { require(msg.sender == owner); selfdestruct(recipient); } }\n\ncontract R007F { mapping(address => uint256) credits; function deposit(address[] calldata recipients) external payable {\nuint256 perItem = msg.value / recipients.length; for (uint256 i; i < recipients.length; i++) { credits[recipients[i]] += perItem; } } }\n\ncontract R008F { bytes32 verifiedRandomness; address immutable oracle; constructor(address source) { oracle = source; }\nfunction fulfill(bytes32 word) external { require(msg.sender == oracle); verifiedRandomness = word; }\nfunction pick(address[] calldata entrants) external view returns(address) { return entrants[uint256(verifiedRandomness) % entrants.length]; } }\n\ncontract R009F { function hash(string calldata a, bytes calldata b) external pure returns(bytes32) { return keccak256(abi.encode(a,b)); } }\n\ninterface IToken10F { function transfer(address to, uint256 amount) external returns(bool); }\ncontract R010F { IToken10F token; constructor(IToken10F configured) { token = configured; } function pay(address to, uint256 amount) external { require(token.transfer(to, amount)); } }\n\ncontract R011F { function enough(uint256 expected) external view { require(address(this).balance >= expected); } }\n\ncontract R012F { mapping(address => uint256) pending; function withdraw() external {\nuint256 amount = pending[msg.sender]; pending[msg.sender] = 0; payable(msg.sender).transfer(amount); } }\n"
+    }
+  ]
+}

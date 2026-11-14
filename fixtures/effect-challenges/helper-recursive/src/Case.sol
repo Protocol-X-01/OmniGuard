@@ -1,0 +1,3 @@
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.26;
+contract Case { struct Credit { uint256 amount; } mapping(address => Credit) credits; function deposit() external payable { credits[msg.sender].amount += msg.value; } function run(address payable to) external { Credit storage slot = credits[msg.sender]; uint256 n = slot.amount; recurse(to,n,3); slot.amount=0; } function recurse(address payable to,uint256 n,uint256 depth) private { if (depth>0) { recurse(to,n,depth-1); } else { pay(to,n); } } function pay(address payable recipient, uint256 amount) private { (bool ok,) = recipient.call{value:amount}(""); require(ok); } }

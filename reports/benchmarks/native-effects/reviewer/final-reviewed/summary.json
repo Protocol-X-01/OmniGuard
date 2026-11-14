@@ -1,0 +1,639 @@
+{
+  "observed_at_utc": "2026-11-14T01:26:13.873867+00:00",
+  "manifest_canonical_sha256": "cbf411ae966313627f3a7b28e7b84a4f8dd6ffd9193c91d029c720bf963dbbd7",
+  "binary": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/omniguard",
+  "binary_sha256": "dbf3fb31b96d7a33b6972ca110fd7d5980e03272ef6f3af38d0ee2d08497a7d3",
+  "version": "omniguard 0.1.4",
+  "cases": 26,
+  "counts": {
+    "detected": 13,
+    "clear": 8,
+    "unsupported": 5
+  },
+  "results": [
+    {
+      "case": "c01_helper_actual_v",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "outcome": "detected",
+      "exit_code": 1,
+      "engine_version": "0.1.4",
+      "coverage_complete": true,
+      "diagnostics": [],
+      "focus_findings_count": 1,
+      "all_rule_counts": {
+        "OG-SOL-002": 1
+      },
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 1,
+      "primary_locations": [
+        {
+          "file": "Case.sol",
+          "start_line": 3,
+          "start_column": 150,
+          "end_line": 3,
+          "end_column": 158,
+          "byte_start": 213,
+          "byte_end": 221
+        }
+      ],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c01_helper_actual_v.json"
+    },
+    {
+      "case": "c02_helper_actual_fixed",
+      "expectation": "clear",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "outcome": "clear",
+      "exit_code": 0,
+      "engine_version": "0.1.4",
+      "coverage_complete": true,
+      "diagnostics": [],
+      "focus_findings_count": 0,
+      "all_rule_counts": {},
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 0,
+      "primary_locations": [],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c02_helper_actual_fixed.json"
+    },
+    {
+      "case": "c03_storage_parameter_v",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "outcome": "detected",
+      "exit_code": 1,
+      "engine_version": "0.1.4",
+      "coverage_complete": true,
+      "diagnostics": [],
+      "focus_findings_count": 1,
+      "all_rule_counts": {
+        "OG-SOL-002": 1
+      },
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 1,
+      "primary_locations": [
+        {
+          "file": "Case.sol",
+          "start_line": 3,
+          "start_column": 247,
+          "end_line": 3,
+          "end_column": 255,
+          "byte_start": 310,
+          "byte_end": 318
+        }
+      ],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c03_storage_parameter_v.json"
+    },
+    {
+      "case": "c04_memory_parameter_fixed",
+      "expectation": "clear",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "outcome": "clear",
+      "exit_code": 0,
+      "engine_version": "0.1.4",
+      "coverage_complete": true,
+      "diagnostics": [],
+      "focus_findings_count": 0,
+      "all_rule_counts": {},
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 0,
+      "primary_locations": [],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c04_memory_parameter_fixed.json"
+    },
+    {
+      "case": "c05_overload_fixed",
+      "expectation": "clear",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "outcome": "clear",
+      "exit_code": 0,
+      "engine_version": "0.1.4",
+      "coverage_complete": true,
+      "diagnostics": [],
+      "focus_findings_count": 0,
+      "all_rule_counts": {},
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 0,
+      "primary_locations": [],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c05_overload_fixed.json"
+    },
+    {
+      "case": "c06_overload_actual_v",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "outcome": "detected",
+      "exit_code": 1,
+      "engine_version": "0.1.4",
+      "coverage_complete": true,
+      "diagnostics": [],
+      "focus_findings_count": 1,
+      "all_rule_counts": {
+        "OG-SOL-002": 1
+      },
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 1,
+      "primary_locations": [
+        {
+          "file": "Case.sol",
+          "start_line": 3,
+          "start_column": 191,
+          "end_line": 3,
+          "end_column": 201,
+          "byte_start": 254,
+          "byte_end": 264
+        }
+      ],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c06_overload_actual_v.json"
+    },
+    {
+      "case": "c07_virtual_dispatch",
+      "expectation": "detect_or_incomplete",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "outcome": "unsupported",
+      "exit_code": 2,
+      "engine_version": "0.1.4",
+      "coverage_complete": false,
+      "diagnostics": [
+        "native-effects-incomplete"
+      ],
+      "focus_findings_count": 0,
+      "all_rule_counts": {},
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 0,
+      "primary_locations": [],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c07_virtual_dispatch.json"
+    },
+    {
+      "case": "c08_explicit_super_v",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "outcome": "unsupported",
+      "exit_code": 2,
+      "engine_version": "0.1.4",
+      "coverage_complete": false,
+      "diagnostics": [
+        "native-effects-incomplete"
+      ],
+      "focus_findings_count": 0,
+      "all_rule_counts": {},
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 0,
+      "primary_locations": [],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c08_explicit_super_v.json"
+    },
+    {
+      "case": "c09_crossfile_two_callers",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 2,
+      "outcome": "detected",
+      "exit_code": 1,
+      "engine_version": "0.1.4",
+      "coverage_complete": true,
+      "diagnostics": [],
+      "focus_findings_count": 2,
+      "all_rule_counts": {
+        "OG-SOL-002": 2
+      },
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 2,
+      "primary_locations": [
+        {
+          "file": "Entry.sol",
+          "start_line": 3,
+          "start_column": 77,
+          "end_line": 3,
+          "end_column": 85,
+          "byte_start": 140,
+          "byte_end": 148
+        },
+        {
+          "file": "Entry.sol",
+          "start_line": 3,
+          "start_column": 135,
+          "end_line": 3,
+          "end_column": 143,
+          "byte_start": 198,
+          "byte_end": 206
+        }
+      ],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c09_crossfile_two_callers.json"
+    },
+    {
+      "case": "c10_internal_pointer",
+      "expectation": "detect_or_incomplete",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "outcome": "unsupported",
+      "exit_code": 2,
+      "engine_version": "0.1.4",
+      "coverage_complete": false,
+      "diagnostics": [
+        "native-effects-incomplete"
+      ],
+      "focus_findings_count": 0,
+      "all_rule_counts": {},
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 0,
+      "primary_locations": [],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c10_internal_pointer.json"
+    },
+    {
+      "case": "c11_recursive_effect",
+      "expectation": "detect_or_incomplete",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "outcome": "detected",
+      "exit_code": 2,
+      "engine_version": "0.1.4",
+      "coverage_complete": false,
+      "diagnostics": [
+        "native-effects-incomplete"
+      ],
+      "focus_findings_count": 1,
+      "all_rule_counts": {
+        "OG-SOL-002": 1
+      },
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 1,
+      "primary_locations": [
+        {
+          "file": "Case.sol",
+          "start_line": 3,
+          "start_column": 212,
+          "end_line": 3,
+          "end_column": 230,
+          "byte_start": 275,
+          "byte_end": 293
+        }
+      ],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c11_recursive_effect.json"
+    },
+    {
+      "case": "c12_expansion_bound",
+      "expectation": "detect_or_incomplete",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "outcome": "unsupported",
+      "exit_code": 2,
+      "engine_version": "0.1.4",
+      "coverage_complete": false,
+      "diagnostics": [
+        "native-effects-incomplete",
+        "native-effects-incomplete",
+        "native-effects-incomplete",
+        "native-effects-incomplete",
+        "native-effects-incomplete",
+        "native-effects-incomplete"
+      ],
+      "focus_findings_count": 0,
+      "all_rule_counts": {},
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 0,
+      "primary_locations": [],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c12_expansion_bound.json"
+    },
+    {
+      "case": "c13_exclusive_branches_fixed",
+      "expectation": "clear",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "outcome": "clear",
+      "exit_code": 0,
+      "engine_version": "0.1.4",
+      "coverage_complete": true,
+      "diagnostics": [],
+      "focus_findings_count": 0,
+      "all_rule_counts": {},
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 0,
+      "primary_locations": [],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c13_exclusive_branches_fixed.json"
+    },
+    {
+      "case": "c14_callee_return_v",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "outcome": "detected",
+      "exit_code": 1,
+      "engine_version": "0.1.4",
+      "coverage_complete": true,
+      "diagnostics": [],
+      "focus_findings_count": 1,
+      "all_rule_counts": {
+        "OG-SOL-002": 1
+      },
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 1,
+      "primary_locations": [
+        {
+          "file": "Case.sol",
+          "start_line": 3,
+          "start_column": 153,
+          "end_line": 3,
+          "end_column": 162,
+          "byte_start": 216,
+          "byte_end": 225
+        }
+      ],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c14_callee_return_v.json"
+    },
+    {
+      "case": "c15_terminated_branch_fixed",
+      "expectation": "clear",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "outcome": "clear",
+      "exit_code": 0,
+      "engine_version": "0.1.4",
+      "coverage_complete": true,
+      "diagnostics": [],
+      "focus_findings_count": 0,
+      "all_rule_counts": {},
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 0,
+      "primary_locations": [],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c15_terminated_branch_fixed.json"
+    },
+    {
+      "case": "c16_composed_modifiers_v",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "outcome": "unsupported",
+      "exit_code": 2,
+      "engine_version": "0.1.4",
+      "coverage_complete": false,
+      "diagnostics": [
+        "native-effects-incomplete"
+      ],
+      "focus_findings_count": 0,
+      "all_rule_counts": {},
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 0,
+      "primary_locations": [],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c16_composed_modifiers_v.json"
+    },
+    {
+      "case": "c17_composed_modifiers_fixed",
+      "expectation": "clear",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "outcome": "clear",
+      "exit_code": 0,
+      "engine_version": "0.1.4",
+      "coverage_complete": true,
+      "diagnostics": [],
+      "focus_findings_count": 0,
+      "all_rule_counts": {},
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 0,
+      "primary_locations": [],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c17_composed_modifiers_fixed.json"
+    },
+    {
+      "case": "c18_storage_rebind_v",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "outcome": "detected",
+      "exit_code": 1,
+      "engine_version": "0.1.4",
+      "coverage_complete": true,
+      "diagnostics": [],
+      "focus_findings_count": 1,
+      "all_rule_counts": {
+        "OG-SOL-002": 1
+      },
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 1,
+      "primary_locations": [
+        {
+          "file": "Case.sol",
+          "start_line": 3,
+          "start_column": 187,
+          "end_line": 3,
+          "end_column": 198,
+          "byte_start": 250,
+          "byte_end": 261
+        }
+      ],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c18_storage_rebind_v.json"
+    },
+    {
+      "case": "c19_rebind_is_not_write",
+      "expectation": "clear",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "outcome": "clear",
+      "exit_code": 0,
+      "engine_version": "0.1.4",
+      "coverage_complete": true,
+      "diagnostics": [],
+      "focus_findings_count": 0,
+      "all_rule_counts": {},
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 0,
+      "primary_locations": [],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c19_rebind_is_not_write.json"
+    },
+    {
+      "case": "c20_inherited_noop_v",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-005",
+      "minimum_count": 1,
+      "outcome": "detected",
+      "exit_code": 1,
+      "engine_version": "0.1.4",
+      "coverage_complete": true,
+      "diagnostics": [],
+      "focus_findings_count": 1,
+      "all_rule_counts": {
+        "OG-SOL-005": 1
+      },
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 1,
+      "primary_locations": [
+        {
+          "file": "Entry.sol",
+          "start_line": 3,
+          "start_column": 122,
+          "end_line": 3,
+          "end_column": 147,
+          "byte_start": 185,
+          "byte_end": 210
+        }
+      ],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c20_inherited_noop_v.json"
+    },
+    {
+      "case": "c21_modifier_argument_attacker",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-005",
+      "minimum_count": 1,
+      "outcome": "detected",
+      "exit_code": 1,
+      "engine_version": "0.1.4",
+      "coverage_complete": true,
+      "diagnostics": [],
+      "focus_findings_count": 1,
+      "all_rule_counts": {
+        "OG-SOL-005": 1
+      },
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 1,
+      "primary_locations": [
+        {
+          "file": "Case.sol",
+          "start_line": 3,
+          "start_column": 187,
+          "end_line": 3,
+          "end_column": 212,
+          "byte_start": 250,
+          "byte_end": 275
+        }
+      ],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c21_modifier_argument_attacker.json"
+    },
+    {
+      "case": "c22_modifier_argument_owner",
+      "expectation": "clear",
+      "focus_rule": "OG-SOL-005",
+      "minimum_count": 1,
+      "outcome": "clear",
+      "exit_code": 0,
+      "engine_version": "0.1.4",
+      "coverage_complete": true,
+      "diagnostics": [],
+      "focus_findings_count": 0,
+      "all_rule_counts": {},
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 0,
+      "primary_locations": [],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c22_modifier_argument_owner.json"
+    },
+    {
+      "case": "c23_cross_modifier_poison",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-005",
+      "minimum_count": 1,
+      "outcome": "detected",
+      "exit_code": 1,
+      "engine_version": "0.1.4",
+      "coverage_complete": true,
+      "diagnostics": [],
+      "focus_findings_count": 1,
+      "all_rule_counts": {
+        "OG-SOL-005": 1
+      },
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 1,
+      "primary_locations": [
+        {
+          "file": "Case.sol",
+          "start_line": 3,
+          "start_column": 227,
+          "end_line": 3,
+          "end_column": 252,
+          "byte_start": 290,
+          "byte_end": 315
+        }
+      ],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c23_cross_modifier_poison.json"
+    },
+    {
+      "case": "c24_unknown_guard",
+      "expectation": "detect_or_incomplete",
+      "focus_rule": "OG-SOL-005",
+      "minimum_count": 1,
+      "outcome": "detected",
+      "exit_code": 1,
+      "engine_version": "0.1.4",
+      "coverage_complete": true,
+      "diagnostics": [],
+      "focus_findings_count": 1,
+      "all_rule_counts": {
+        "OG-SOL-005": 1
+      },
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 1,
+      "primary_locations": [
+        {
+          "file": "Case.sol",
+          "start_line": 3,
+          "start_column": 236,
+          "end_line": 3,
+          "end_column": 261,
+          "byte_start": 299,
+          "byte_end": 324
+        }
+      ],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c24_unknown_guard.json"
+    },
+    {
+      "case": "c25_external_this_boundary",
+      "expectation": "detect_or_incomplete",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "outcome": "detected",
+      "exit_code": 1,
+      "engine_version": "0.1.4",
+      "coverage_complete": true,
+      "diagnostics": [],
+      "focus_findings_count": 1,
+      "all_rule_counts": {
+        "OG-SOL-002": 1
+      },
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 1,
+      "primary_locations": [
+        {
+          "file": "Case.sol",
+          "start_line": 3,
+          "start_column": 145,
+          "end_line": 3,
+          "end_column": 157,
+          "byte_start": 208,
+          "byte_end": 220
+        }
+      ],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c25_external_this_boundary.json"
+    },
+    {
+      "case": "c26_direct_positive_control",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "outcome": "detected",
+      "exit_code": 1,
+      "engine_version": "0.1.4",
+      "coverage_complete": true,
+      "diagnostics": [],
+      "focus_findings_count": 1,
+      "all_rule_counts": {
+        "OG-SOL-002": 1
+      },
+      "all_evidence_marked_validated": true,
+      "distinct_focus_fingerprints": 1,
+      "primary_locations": [
+        {
+          "file": "Case.sol",
+          "start_line": 3,
+          "start_column": 84,
+          "end_line": 3,
+          "end_column": 95,
+          "byte_start": 147,
+          "byte_end": 158
+        }
+      ],
+      "report": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/native-effects-20261114/redteam/final-reviewed/c26_direct_positive_control.json"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "scope": "Pure local Forge bundle/rescan functions, no tenant actions or network",
+  "results": [
+    {
+      "case": "c26_direct_positive_control",
+      "accepted": true,
+      "complete": true,
+      "diagnostics": 0,
+      "findings": 1
+    },
+    {
+      "case": "c02_helper_actual_fixed",
+      "accepted": true,
+      "complete": true,
+      "diagnostics": 0,
+      "findings": 0
+    },
+    {
+      "case": "c09_crossfile_two_callers",
+      "accepted": true,
+      "complete": true,
+      "diagnostics": 0,
+      "findings": 2
+    },
+    {
+      "case": "c07_virtual_dispatch",
+      "accepted": true,
+      "complete": false,
+      "diagnostics": 1,
+      "findings": 0
+    },
+    {
+      "case": "c16_composed_modifiers_v",
+      "accepted": true,
+      "complete": false,
+      "diagnostics": 1,
+      "findings": 0
+    },
+    {
+      "case": "c02_helper_actual_fixed",
+      "operation": "assessRescan",
+      "allowed": true,
+      "reason": "The finding is absent in the imported complete rescan."
+    },
+    {
+      "case": "c07_virtual_dispatch",
+      "operation": "assessRescan",
+      "allowed": false,
+      "reason": "The rescan is incomplete; resolve its diagnostics first."
+    },
+    {
+      "case": "c16_composed_modifiers_v",
+      "operation": "assessRescan",
+      "allowed": false,
+      "reason": "The rescan is incomplete; resolve its diagnostics first."
+    },
+    {
+      "case": "crossfile_digest_tampering",
+      "rejected": true,
+      "reason": "Related source digest does not match its included file."
+    },
+    {
+      "case": "caller_fingerprint_tampering",
+      "rejected": true,
+      "reason": "Finding fingerprint does not match its location."
+    }
+  ]
+}

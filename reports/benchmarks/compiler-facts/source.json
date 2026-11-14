@@ -1,0 +1,53 @@
+{
+  "schema_version": 3,
+  "engine_version": "0.1.2",
+  "scanned_files": 10,
+  "analysis": {
+    "mode": "source",
+    "compiler_version": null
+  },
+  "coverage": {
+    "rule_set": "solidity-core/2026.11",
+    "rules": [
+      "OG-SOL-001",
+      "OG-SOL-002",
+      "OG-SOL-003",
+      "OG-SOL-004",
+      "OG-SOL-005",
+      "OG-SOL-006",
+      "OG-SOL-007",
+      "OG-SOL-008",
+      "OG-SOL-009",
+      "OG-SOL-010",
+      "OG-SOL-011",
+      "OG-SOL-012"
+    ],
+    "files": [
+      "FixedState.sol",
+      "ImportedStruct.sol",
+      "ImportedToken.sol",
+      "ImportedVoid.sol",
+      "InheritedShadow.sol",
+      "InheritedState.sol",
+      "InheritedValue.sol",
+      "OverloadedToken.sol",
+      "deps/BaseState.sol",
+      "deps/Interfaces.sol"
+    ],
+    "source_sha256": {
+      "FixedState.sol": "6f7200c1c3b23ee31add9950bab002f7d824b4ab381bec151762770818231814",
+      "ImportedStruct.sol": "53ef215321d19c5086ddd07569748eee62cf9fd486af4a408eb41e2609c1eb2e",
+      "ImportedToken.sol": "58965b79f5bf8bea47e3d485a52367516efe9e41f166f1e236dbb3732aed2be0",
+      "ImportedVoid.sol": "96e35789750ccf0e66f14f58227149ca279ca2398cefddcc6fc266a63af3f277",
+      "InheritedShadow.sol": "cb54d866d59a7394f9f9da767b48f94f24e4c49af43d3c846089578698c4a6ca",
+      "InheritedState.sol": "424c3a2c36a87911752cd09da770c2f02998c001bd7cd9acf2f8e131a59c53b9",
+      "InheritedValue.sol": "7887fd68a45f6a6b62fe281340b9ee25cdf190452a30ed1576e500d96a776b07",
+      "OverloadedToken.sol": "24c06a901215fe2e13fa56d66709c5add571ccf1e5e1c35d64943523b38205ff",
+      "deps/BaseState.sol": "df2666cd174b0fa513fe76e8982f780f196d2363668811fc28049c001af8c631",
+      "deps/Interfaces.sol": "bff1e998a47873d98afed7b4378434423f31a8d128f55294589f434ddfec618d"
+    },
+    "complete": true
+  },
+  "diagnostics": [],
+  "findings": []
+}

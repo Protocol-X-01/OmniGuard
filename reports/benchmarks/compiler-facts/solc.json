@@ -1,0 +1,311 @@
+{
+  "schema_version": 3,
+  "engine_version": "0.1.2",
+  "scanned_files": 10,
+  "analysis": {
+    "mode": "solc",
+    "compiler_version": "0.8.26+commit.8a97fa7a.Linux.g++"
+  },
+  "coverage": {
+    "rule_set": "solidity-core/2026.11",
+    "rules": [
+      "OG-SOL-001",
+      "OG-SOL-002",
+      "OG-SOL-003",
+      "OG-SOL-004",
+      "OG-SOL-005",
+      "OG-SOL-006",
+      "OG-SOL-007",
+      "OG-SOL-008",
+      "OG-SOL-009",
+      "OG-SOL-010",
+      "OG-SOL-011",
+      "OG-SOL-012"
+    ],
+    "files": [
+      "FixedState.sol",
+      "ImportedStruct.sol",
+      "ImportedToken.sol",
+      "ImportedVoid.sol",
+      "InheritedShadow.sol",
+      "InheritedState.sol",
+      "InheritedValue.sol",
+      "OverloadedToken.sol",
+      "deps/BaseState.sol",
+      "deps/Interfaces.sol"
+    ],
+    "source_sha256": {
+      "FixedState.sol": "6f7200c1c3b23ee31add9950bab002f7d824b4ab381bec151762770818231814",
+      "ImportedStruct.sol": "53ef215321d19c5086ddd07569748eee62cf9fd486af4a408eb41e2609c1eb2e",
+      "ImportedToken.sol": "58965b79f5bf8bea47e3d485a52367516efe9e41f166f1e236dbb3732aed2be0",
+      "ImportedVoid.sol": "96e35789750ccf0e66f14f58227149ca279ca2398cefddcc6fc266a63af3f277",
+      "InheritedShadow.sol": "cb54d866d59a7394f9f9da767b48f94f24e4c49af43d3c846089578698c4a6ca",
+      "InheritedState.sol": "424c3a2c36a87911752cd09da770c2f02998c001bd7cd9acf2f8e131a59c53b9",
+      "InheritedValue.sol": "7887fd68a45f6a6b62fe281340b9ee25cdf190452a30ed1576e500d96a776b07",
+      "OverloadedToken.sol": "24c06a901215fe2e13fa56d66709c5add571ccf1e5e1c35d64943523b38205ff",
+      "deps/BaseState.sol": "df2666cd174b0fa513fe76e8982f780f196d2363668811fc28049c001af8c631",
+      "deps/Interfaces.sol": "bff1e998a47873d98afed7b4378434423f31a8d128f55294589f434ddfec618d"
+    },
+    "complete": true
+  },
+  "diagnostics": [],
+  "findings": [
+    {
+      "id": "717a16ccbd00528ec5af9ce0",
+      "rule_id": "OG-SOL-009",
+      "title": "Packed hash combines dynamic inputs",
+      "severity": "high",
+      "confidence": "high",
+      "message": "A hash uses packed encoding of two or more locally resolved string/bytes values, leaving input boundaries ambiguous.",
+      "remediation": "Use abi.encode with explicit types and domain separation for the intended hash or signature protocol.",
+      "location": {
+        "file": "ImportedStruct.sol",
+        "start_line": 6,
+        "start_column": 26,
+        "end_line": 6,
+        "end_column": 69,
+        "byte_start": 235,
+        "byte_end": 278
+      },
+      "evidence": {
+        "source_sha256": "53ef215321d19c5086ddd07569748eee62cf9fd486af4a408eb41e2609c1eb2e",
+        "excerpt": "abi.encodePacked(parts.first, parts.second)",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "bff1e998a47873d98afed7b4378434423f31a8d128f55294589f434ddfec618d",
+            "label": "Compiler-resolved dynamic hash input",
+            "location": {
+              "file": "deps/Interfaces.sol",
+              "start_line": 5,
+              "start_column": 20,
+              "end_line": 5,
+              "end_column": 32,
+              "byte_start": 249,
+              "byte_end": 261
+            },
+            "excerpt": "string first"
+          },
+          {
+            "source_sha256": "bff1e998a47873d98afed7b4378434423f31a8d128f55294589f434ddfec618d",
+            "label": "Compiler-resolved dynamic hash input",
+            "location": {
+              "file": "deps/Interfaces.sol",
+              "start_line": 5,
+              "start_column": 34,
+              "end_line": 5,
+              "end_column": 46,
+              "byte_start": 263,
+              "byte_end": 275
+            },
+            "excerpt": "bytes second"
+          }
+        ]
+      },
+      "context": {
+        "contract": "ImportedStruct",
+        "function": "hash"
+      }
+    },
+    {
+      "id": "a8ac3c1c86f97816a2562a99",
+      "rule_id": "OG-SOL-010",
+      "title": "Token operation boolean is discarded",
+      "severity": "medium",
+      "confidence": "high",
+      "message": "A transfer/transferFrom/approve operation declared to return bool is used without its result.",
+      "remediation": "Use a compatible SafeERC20 wrapper or enforce the token's return value and test failure behavior.",
+      "location": {
+        "file": "ImportedToken.sol",
+        "start_line": 5,
+        "start_column": 58,
+        "end_line": 5,
+        "end_column": 92,
+        "byte_start": 194,
+        "byte_end": 228
+      },
+      "evidence": {
+        "source_sha256": "58965b79f5bf8bea47e3d485a52367516efe9e41f166f1e236dbb3732aed2be0",
+        "excerpt": "token.transfer(msg.sender, amount)",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "bff1e998a47873d98afed7b4378434423f31a8d128f55294589f434ddfec618d",
+            "label": "Compiler-resolved boolean-returning method",
+            "location": {
+              "file": "deps/Interfaces.sol",
+              "start_line": 3,
+              "start_column": 20,
+              "end_line": 3,
+              "end_column": 90,
+              "byte_start": 76,
+              "byte_end": 146
+            },
+            "excerpt": "function transfer(address to, uint256 amount) external returns (bool);"
+          }
+        ]
+      },
+      "context": {
+        "contract": "ImportedToken",
+        "function": "pay"
+      }
+    },
+    {
+      "id": "91312d39716c4c210dd6d2ac",
+      "rule_id": "OG-SOL-002",
+      "title": "State write follows an external call",
+      "severity": "high",
+      "confidence": "medium",
+      "message": "An address low-level call precedes a write to this contract's storage in the same function.",
+      "remediation": "Apply checks-effects-interactions and verify a reentrancy guard with a local regression test.",
+      "location": {
+        "file": "InheritedState.sol",
+        "start_line": 8,
+        "start_column": 22,
+        "end_line": 8,
+        "end_column": 56,
+        "byte_start": 324,
+        "byte_end": 358
+      },
+      "evidence": {
+        "source_sha256": "424c3a2c36a87911752cd09da770c2f02998c001bd7cd9acf2f8e131a59c53b9",
+        "excerpt": "msg.sender.call{value: amount}(\"\")",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "424c3a2c36a87911752cd09da770c2f02998c001bd7cd9acf2f8e131a59c53b9",
+            "label": "Later storage write",
+            "location": {
+              "file": "InheritedState.sol",
+              "start_line": 10,
+              "start_column": 9,
+              "end_line": 10,
+              "end_column": 32,
+              "byte_start": 389,
+              "byte_end": 412
+            },
+            "excerpt": "credits[msg.sender] = 0"
+          },
+          {
+            "source_sha256": "df2666cd174b0fa513fe76e8982f780f196d2363668811fc28049c001af8c631",
+            "label": "Compiler-resolved storage declaration",
+            "location": {
+              "file": "deps/BaseState.sol",
+              "start_line": 3,
+              "start_column": 31,
+              "end_line": 3,
+              "end_column": 75,
+              "byte_start": 87,
+              "byte_end": 131
+            },
+            "excerpt": "mapping(address => uint256) internal credits"
+          }
+        ]
+      },
+      "context": {
+        "contract": "InheritedState",
+        "function": "withdraw"
+      }
+    },
+    {
+      "id": "f5982f176fee585faf56ae5b",
+      "rule_id": "OG-SOL-007",
+      "title": "Loop repeatedly credits the full msg.value",
+      "severity": "high",
+      "confidence": "medium",
+      "message": "A loop writes the whole msg.value into storage on each iteration.",
+      "remediation": "Compute and validate a per-item allocation before the loop, or require a single recipient per payment.",
+      "location": {
+        "file": "InheritedValue.sol",
+        "start_line": 6,
+        "start_column": 55,
+        "end_line": 6,
+        "end_column": 90,
+        "byte_start": 269,
+        "byte_end": 304
+      },
+      "evidence": {
+        "source_sha256": "7887fd68a45f6a6b62fe281340b9ee25cdf190452a30ed1576e500d96a776b07",
+        "excerpt": "credits[recipients[i]] += msg.value",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "7887fd68a45f6a6b62fe281340b9ee25cdf190452a30ed1576e500d96a776b07",
+            "label": "Repeated accounting operation",
+            "location": {
+              "file": "InheritedValue.sol",
+              "start_line": 6,
+              "start_column": 9,
+              "end_line": 6,
+              "end_column": 93,
+              "byte_start": 223,
+              "byte_end": 307
+            },
+            "excerpt": "for (uint256 i; i < recipients.length; i++) { credits[recipients[i]] += msg.value; }"
+          },
+          {
+            "source_sha256": "df2666cd174b0fa513fe76e8982f780f196d2363668811fc28049c001af8c631",
+            "label": "Compiler-resolved storage declaration",
+            "location": {
+              "file": "deps/BaseState.sol",
+              "start_line": 3,
+              "start_column": 31,
+              "end_line": 3,
+              "end_column": 75,
+              "byte_start": 87,
+              "byte_end": 131
+            },
+            "excerpt": "mapping(address => uint256) internal credits"
+          }
+        ]
+      },
+      "context": {
+        "contract": "InheritedValue",
+        "function": "deposit"
+      }
+    },
+    {
+      "id": "aa0ca608b52b3fdac5e84f0f",
+      "rule_id": "OG-SOL-010",
+      "title": "Token operation boolean is discarded",
+      "severity": "medium",
+      "confidence": "high",
+      "message": "A transfer/transferFrom/approve operation declared to return bool is used without its result.",
+      "remediation": "Use a compatible SafeERC20 wrapper or enforce the token's return value and test failure behavior.",
+      "location": {
+        "file": "OverloadedToken.sol",
+        "start_line": 8,
+        "start_column": 68,
+        "end_line": 8,
+        "end_column": 102,
+        "byte_start": 317,
+        "byte_end": 351
+      },
+      "evidence": {
+        "source_sha256": "24c06a901215fe2e13fa56d66709c5add571ccf1e5e1c35d64943523b38205ff",
+        "excerpt": "token.transfer(msg.sender, amount)",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "24c06a901215fe2e13fa56d66709c5add571ccf1e5e1c35d64943523b38205ff",
+            "label": "Compiler-resolved boolean-returning method",
+            "location": {
+              "file": "OverloadedToken.sol",
+              "start_line": 4,
+              "start_column": 5,
+              "end_line": 4,
+              "end_column": 75,
+              "byte_start": 89,
+              "byte_end": 159
+            },
+            "excerpt": "function transfer(address to, uint256 amount) external returns (bool);"
+          }
+        ]
+      },
+      "context": {
+        "contract": "OverloadedToken",
+        "function": "pay"
+      }
+    }
+  ]
+}

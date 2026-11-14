@@ -1,0 +1,37 @@
+{
+  "observed_utc": "2026-11-14T01:27:45.569331+00:00",
+  "reviewed_binary_sha256": "dbf3fb31b96d7a33b6972ca110fd7d5980e03272ef6f3af38d0ee2d08497a7d3",
+  "frozen_case_manifest_canonical_sha256": "cbf411ae966313627f3a7b28e7b84a4f8dd6ffd9193c91d029c720bf963dbbd7",
+  "sources": [
+    {
+      "path": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/crates/omniguard-core/src/effects.rs",
+      "bytes": 37436,
+      "sha256": "ee6bd24c02b84b1cf9490f2d53e4abd9b6583fa638592bf1a01040f46b8b7847"
+    },
+    {
+      "path": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/crates/omniguard-core/src/compiler.rs",
+      "bytes": 17469,
+      "sha256": "afe1d7271a9d93032a2674b380c45512f57bdf6cb6337768f22bbc2d740c77c0"
+    },
+    {
+      "path": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/crates/omniguard-core/src/analysis.rs",
+      "bytes": 47987,
+      "sha256": "8b88d932112a8e76f37d3c907cbc79f6f1988c4cdce4142b0810dd2c30a8fcc3"
+    },
+    {
+      "path": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/crates/omniguard-core/tests/native_effects.rs",
+      "bytes": 13362,
+      "sha256": "b6d828f94e027dbf3eed7a46a728cbccac2deb1e2df2581ffef682ef5a9f58cc"
+    },
+    {
+      "path": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/integrations/atlassian-forge/src/report-bundle.js",
+      "bytes": 13325,
+      "sha256": "c34f7a73525ba0c67c2834ef4fb42089c48d9df876620497f72eddad86ba4090"
+    },
+    {
+      "path": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/integrations/atlassian-forge/src/rule-catalog.json",
+      "bytes": 8247,
+      "sha256": "2ce5fb294015f76a54141b92858cb6c612a65cd33b7491ba76966dd572311801"
+    }
+  ]
+}

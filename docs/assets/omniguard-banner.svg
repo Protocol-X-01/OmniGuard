@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-labelledby="title desc">
+<title id="title">OmniGuard — make the fix easy to verify</title><desc id="desc">An evidence workflow from local scan to source evidence, Jira remediation and matching rescan. Independent Rust core, separate Forge app.</desc>
+<rect width="1280" height="420" rx="20" fill="#102d3a"/>
+<path d="M48 66H1232M48 346H1232" stroke="#4c6874"/>
+<g fill="#b8d1d7" font-family="Arial,Helvetica,sans-serif" font-size="14" letter-spacing="3"><text x="52" y="43">SECURITY / EVIDENCE / ENGINEERING</text><text x="1118" y="43">v0.1.4</text></g>
+<text x="48" y="166" fill="#f3f5ef" font-family="Georgia,serif" font-size="88" letter-spacing="-3">OmniGuard</text>
+<text x="52" y="216" fill="#c7d9dd" font-family="Arial,Helvetica,sans-serif" font-size="27">Make the fix easy to verify.</text>
+<g font-family="Arial,Helvetica,sans-serif" font-size="17" fill="#f3f5ef">
+<path d="M72 288H1185" stroke="#577681" stroke-width="2"/>
+<g fill="#d6b18b"><circle cx="70" cy="288" r="6"/><circle cx="375" cy="288" r="6"/><circle cx="680" cy="288" r="6"/><circle cx="1000" cy="288" r="6"/></g>
+<g fill="#102d3a"><rect x="87" y="272" width="195" height="33"/><rect x="392" y="272" width="218" height="33"/><rect x="697" y="272" width="243" height="33"/><rect x="1017" y="272" width="203" height="33"/></g>
+<text x="99" y="294">01 / LOCAL SCAN</text><text x="404" y="294">02 / SOURCE EVIDENCE</text><text x="709" y="294">03 / JIRA REMEDIATION</text><text x="1029" y="294">04 / MATCHING RESCAN</text>
+</g>
+<text x="52" y="387" fill="#b8d1d7" font-family="Arial,Helvetica,sans-serif" font-size="17">Independent Rust core</text><text x="434" y="387" fill="#b8d1d7" font-family="Arial,Helvetica,sans-serif" font-size="17">Separate Atlassian Forge app</text><text x="956" y="387" fill="#d6b18b" font-family="Arial,Helvetica,sans-serif" font-size="17">Evidence you can inspect.</text>
+</svg>

@@ -1,0 +1,2706 @@
+{
+  "success": true,
+  "error": null,
+  "results": {
+    "detectors": [
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "run",
+            "source_mapping": {
+              "start": 114,
+              "length": 136,
+              "filename_relative": "fixtures/rule-corpus/src/positive/contract_typed_delegate_target.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/contract_typed_delegate_target.sol",
+              "filename_short": "src/positive/contract_typed_delegate_target.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 57,
+              "ending_column": 193
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "PTypedTarget",
+                "source_mapping": {
+                  "start": 90,
+                  "length": 162,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/contract_typed_delegate_target.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/contract_typed_delegate_target.sol",
+                  "filename_short": "src/positive/contract_typed_delegate_target.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 33,
+                  "ending_column": 195
+                }
+              },
+              "signature": "run(TypedImplementation,bytes)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(ok,None) = address(target).delegatecall(data)",
+            "source_mapping": {
+              "start": 187,
+              "length": 47,
+              "filename_relative": "fixtures/rule-corpus/src/positive/contract_typed_delegate_target.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/contract_typed_delegate_target.sol",
+              "filename_short": "src/positive/contract_typed_delegate_target.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 130,
+              "ending_column": 177
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "run",
+                "source_mapping": {
+                  "start": 114,
+                  "length": 136,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/contract_typed_delegate_target.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/contract_typed_delegate_target.sol",
+                  "filename_short": "src/positive/contract_typed_delegate_target.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 57,
+                  "ending_column": 193
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "PTypedTarget",
+                    "source_mapping": {
+                      "start": 90,
+                      "length": 162,
+                      "filename_relative": "fixtures/rule-corpus/src/positive/contract_typed_delegate_target.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/contract_typed_delegate_target.sol",
+                      "filename_short": "src/positive/contract_typed_delegate_target.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4
+                      ],
+                      "starting_column": 33,
+                      "ending_column": 195
+                    }
+                  },
+                  "signature": "run(TypedImplementation,bytes)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "PTypedTarget.run(TypedImplementation,bytes) (src/positive/contract_typed_delegate_target.sol#4) uses delegatecall to a input-controlled function id\n\t- (ok,None) = address(target).delegatecall(data) (src/positive/contract_typed_delegate_target.sol#4)\n",
+        "markdown": "[PTypedTarget.run(TypedImplementation,bytes)](fixtures/rule-corpus/src/positive/contract_typed_delegate_target.sol#L4) uses delegatecall to a input-controlled function id\n\t- [(ok,None) = address(target).delegatecall(data)](fixtures/rule-corpus/src/positive/contract_typed_delegate_target.sol#L4)\n",
+        "first_markdown_element": "fixtures/rule-corpus/src/positive/contract_typed_delegate_target.sol#L4",
+        "id": "1d8de5423ff04989fc7bad053ac21835482be4121476651ae8d20894499f929f",
+        "check": "controlled-delegatecall",
+        "impact": "High",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#controlled-delegatecall"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "run",
+            "source_mapping": {
+              "start": 104,
+              "length": 126,
+              "filename_relative": "fixtures/rule-corpus/src/positive/noop_modifier.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/noop_modifier.sol",
+              "filename_short": "src/positive/noop_modifier.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 47,
+              "ending_column": 173
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "PNoop",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 174,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/noop_modifier.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/noop_modifier.sol",
+                  "filename_short": "src/positive/noop_modifier.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 175
+                }
+              },
+              "signature": "run(address,bytes)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(ok,None) = target.delegatecall(data)",
+            "source_mapping": {
+              "start": 176,
+              "length": 38,
+              "filename_relative": "fixtures/rule-corpus/src/positive/noop_modifier.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/noop_modifier.sol",
+              "filename_short": "src/positive/noop_modifier.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 119,
+              "ending_column": 157
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "run",
+                "source_mapping": {
+                  "start": 104,
+                  "length": 126,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/noop_modifier.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/noop_modifier.sol",
+                  "filename_short": "src/positive/noop_modifier.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 47,
+                  "ending_column": 173
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "PNoop",
+                    "source_mapping": {
+                      "start": 58,
+                      "length": 174,
+                      "filename_relative": "fixtures/rule-corpus/src/positive/noop_modifier.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/noop_modifier.sol",
+                      "filename_short": "src/positive/noop_modifier.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 175
+                    }
+                  },
+                  "signature": "run(address,bytes)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "PNoop.run(address,bytes) (src/positive/noop_modifier.sol#4) uses delegatecall to a input-controlled function id\n\t- (ok,None) = target.delegatecall(data) (src/positive/noop_modifier.sol#4)\n",
+        "markdown": "[PNoop.run(address,bytes)](fixtures/rule-corpus/src/positive/noop_modifier.sol#L4) uses delegatecall to a input-controlled function id\n\t- [(ok,None) = target.delegatecall(data)](fixtures/rule-corpus/src/positive/noop_modifier.sol#L4)\n",
+        "first_markdown_element": "fixtures/rule-corpus/src/positive/noop_modifier.sol#L4",
+        "id": "24bfa5cd6fe03e6befff465afd5f17cd486da1ab0a03c5258988f1c0edd8d37e",
+        "check": "controlled-delegatecall",
+        "impact": "High",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#controlled-delegatecall"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "run",
+            "source_mapping": {
+              "start": 103,
+              "length": 145,
+              "filename_relative": "fixtures/rule-corpus/src/fixed/rule_005_fixed.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/fixed/rule_005_fixed.sol",
+              "filename_short": "src/fixed/rule_005_fixed.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 46,
+              "ending_column": 191
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "R005F",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 192,
+                  "filename_relative": "fixtures/rule-corpus/src/fixed/rule_005_fixed.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/fixed/rule_005_fixed.sol",
+                  "filename_short": "src/fixed/rule_005_fixed.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 193
+                }
+              },
+              "signature": "run(address,bytes)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(ok,None) = target.delegatecall(data)",
+            "source_mapping": {
+              "start": 194,
+              "length": 38,
+              "filename_relative": "fixtures/rule-corpus/src/fixed/rule_005_fixed.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/fixed/rule_005_fixed.sol",
+              "filename_short": "src/fixed/rule_005_fixed.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 137,
+              "ending_column": 175
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "run",
+                "source_mapping": {
+                  "start": 103,
+                  "length": 145,
+                  "filename_relative": "fixtures/rule-corpus/src/fixed/rule_005_fixed.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/fixed/rule_005_fixed.sol",
+                  "filename_short": "src/fixed/rule_005_fixed.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 46,
+                  "ending_column": 191
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "R005F",
+                    "source_mapping": {
+                      "start": 58,
+                      "length": 192,
+                      "filename_relative": "fixtures/rule-corpus/src/fixed/rule_005_fixed.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/fixed/rule_005_fixed.sol",
+                      "filename_short": "src/fixed/rule_005_fixed.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 193
+                    }
+                  },
+                  "signature": "run(address,bytes)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "R005F.run(address,bytes) (src/fixed/rule_005_fixed.sol#4) uses delegatecall to a input-controlled function id\n\t- (ok,None) = target.delegatecall(data) (src/fixed/rule_005_fixed.sol#4)\n",
+        "markdown": "[R005F.run(address,bytes)](fixtures/rule-corpus/src/fixed/rule_005_fixed.sol#L4) uses delegatecall to a input-controlled function id\n\t- [(ok,None) = target.delegatecall(data)](fixtures/rule-corpus/src/fixed/rule_005_fixed.sol#L4)\n",
+        "first_markdown_element": "fixtures/rule-corpus/src/fixed/rule_005_fixed.sol#L4",
+        "id": "4f7a71c352d2befc398c837a8fcb8c05e337cdf9f6913e6ad70a413e8ea4229a",
+        "check": "controlled-delegatecall",
+        "impact": "High",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#controlled-delegatecall"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "run",
+            "source_mapping": {
+              "start": 101,
+              "length": 153,
+              "filename_relative": "fixtures/rule-corpus/src/positive/guard_or_bypass.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/guard_or_bypass.sol",
+              "filename_short": "src/positive/guard_or_bypass.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 44,
+              "ending_column": 197
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "POr",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 198,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/guard_or_bypass.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/guard_or_bypass.sol",
+                  "filename_short": "src/positive/guard_or_bypass.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 199
+                }
+              },
+              "signature": "run(address,bytes)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(ok,None) = target.delegatecall(data)",
+            "source_mapping": {
+              "start": 200,
+              "length": 38,
+              "filename_relative": "fixtures/rule-corpus/src/positive/guard_or_bypass.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/guard_or_bypass.sol",
+              "filename_short": "src/positive/guard_or_bypass.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 143,
+              "ending_column": 181
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "run",
+                "source_mapping": {
+                  "start": 101,
+                  "length": 153,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/guard_or_bypass.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/guard_or_bypass.sol",
+                  "filename_short": "src/positive/guard_or_bypass.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 44,
+                  "ending_column": 197
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "POr",
+                    "source_mapping": {
+                      "start": 58,
+                      "length": 198,
+                      "filename_relative": "fixtures/rule-corpus/src/positive/guard_or_bypass.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/guard_or_bypass.sol",
+                      "filename_short": "src/positive/guard_or_bypass.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 199
+                    }
+                  },
+                  "signature": "run(address,bytes)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "POr.run(address,bytes) (src/positive/guard_or_bypass.sol#4) uses delegatecall to a input-controlled function id\n\t- (ok,None) = target.delegatecall(data) (src/positive/guard_or_bypass.sol#4)\n",
+        "markdown": "[POr.run(address,bytes)](fixtures/rule-corpus/src/positive/guard_or_bypass.sol#L4) uses delegatecall to a input-controlled function id\n\t- [(ok,None) = target.delegatecall(data)](fixtures/rule-corpus/src/positive/guard_or_bypass.sol#L4)\n",
+        "first_markdown_element": "fixtures/rule-corpus/src/positive/guard_or_bypass.sol#L4",
+        "id": "7930cf8511c539b95eba0eee093d916b1c04fc4e1f3b105d04b71dea5ec48814",
+        "check": "controlled-delegatecall",
+        "impact": "High",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#controlled-delegatecall"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "run",
+            "source_mapping": {
+              "start": 163,
+              "length": 126,
+              "filename_relative": "fixtures/rule-corpus/src/negative/resolved_owner_modifier.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/resolved_owner_modifier.sol",
+              "filename_short": "src/negative/resolved_owner_modifier.sol",
+              "is_dependency": false,
+              "lines": [
+                5
+              ],
+              "starting_column": 1,
+              "ending_column": 127
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "NOwner",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 233,
+                  "filename_relative": "fixtures/rule-corpus/src/negative/resolved_owner_modifier.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/resolved_owner_modifier.sol",
+                  "filename_short": "src/negative/resolved_owner_modifier.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4,
+                    5
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 129
+                }
+              },
+              "signature": "run(address,bytes)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(ok,None) = target.delegatecall(data)",
+            "source_mapping": {
+              "start": 235,
+              "length": 38,
+              "filename_relative": "fixtures/rule-corpus/src/negative/resolved_owner_modifier.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/resolved_owner_modifier.sol",
+              "filename_short": "src/negative/resolved_owner_modifier.sol",
+              "is_dependency": false,
+              "lines": [
+                5
+              ],
+              "starting_column": 73,
+              "ending_column": 111
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "run",
+                "source_mapping": {
+                  "start": 163,
+                  "length": 126,
+                  "filename_relative": "fixtures/rule-corpus/src/negative/resolved_owner_modifier.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/resolved_owner_modifier.sol",
+                  "filename_short": "src/negative/resolved_owner_modifier.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    5
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 127
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "NOwner",
+                    "source_mapping": {
+                      "start": 58,
+                      "length": 233,
+                      "filename_relative": "fixtures/rule-corpus/src/negative/resolved_owner_modifier.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/resolved_owner_modifier.sol",
+                      "filename_short": "src/negative/resolved_owner_modifier.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4,
+                        5
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 129
+                    }
+                  },
+                  "signature": "run(address,bytes)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "NOwner.run(address,bytes) (src/negative/resolved_owner_modifier.sol#5) uses delegatecall to a input-controlled function id\n\t- (ok,None) = target.delegatecall(data) (src/negative/resolved_owner_modifier.sol#5)\n",
+        "markdown": "[NOwner.run(address,bytes)](fixtures/rule-corpus/src/negative/resolved_owner_modifier.sol#L5) uses delegatecall to a input-controlled function id\n\t- [(ok,None) = target.delegatecall(data)](fixtures/rule-corpus/src/negative/resolved_owner_modifier.sol#L5)\n",
+        "first_markdown_element": "fixtures/rule-corpus/src/negative/resolved_owner_modifier.sol#L5",
+        "id": "b826234b6a3b2f3b251596dee3dee757d52a4de8437b35697a609f486a998ef4",
+        "check": "controlled-delegatecall",
+        "impact": "High",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#controlled-delegatecall"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "run",
+            "source_mapping": {
+              "start": 76,
+              "length": 150,
+              "filename_relative": "fixtures/rule-corpus/src/positive/delegate_alias.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/delegate_alias.sol",
+              "filename_short": "src/positive/delegate_alias.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 19,
+              "ending_column": 169
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "PAlias",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 170,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/delegate_alias.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/delegate_alias.sol",
+                  "filename_short": "src/positive/delegate_alias.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 171
+                }
+              },
+              "signature": "run(address,bytes)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(ok,None) = aliasTarget.delegatecall(data)",
+            "source_mapping": {
+              "start": 167,
+              "length": 43,
+              "filename_relative": "fixtures/rule-corpus/src/positive/delegate_alias.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/delegate_alias.sol",
+              "filename_short": "src/positive/delegate_alias.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 110,
+              "ending_column": 153
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "run",
+                "source_mapping": {
+                  "start": 76,
+                  "length": 150,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/delegate_alias.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/delegate_alias.sol",
+                  "filename_short": "src/positive/delegate_alias.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 19,
+                  "ending_column": 169
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "PAlias",
+                    "source_mapping": {
+                      "start": 58,
+                      "length": 170,
+                      "filename_relative": "fixtures/rule-corpus/src/positive/delegate_alias.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/delegate_alias.sol",
+                      "filename_short": "src/positive/delegate_alias.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 171
+                    }
+                  },
+                  "signature": "run(address,bytes)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "PAlias.run(address,bytes) (src/positive/delegate_alias.sol#4) uses delegatecall to a input-controlled function id\n\t- (ok,None) = aliasTarget.delegatecall(data) (src/positive/delegate_alias.sol#4)\n",
+        "markdown": "[PAlias.run(address,bytes)](fixtures/rule-corpus/src/positive/delegate_alias.sol#L4) uses delegatecall to a input-controlled function id\n\t- [(ok,None) = aliasTarget.delegatecall(data)](fixtures/rule-corpus/src/positive/delegate_alias.sol#L4)\n",
+        "first_markdown_element": "fixtures/rule-corpus/src/positive/delegate_alias.sol#L4",
+        "id": "cb1761178b926291e2fdf09cf33a97b548eb9c4bbf544c443a5713f72a0d401b",
+        "check": "controlled-delegatecall",
+        "impact": "High",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#controlled-delegatecall"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "run",
+            "source_mapping": {
+              "start": 75,
+              "length": 115,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_005_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_005_vulnerable.sol",
+              "filename_short": "src/positive/rule_005_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 18,
+              "ending_column": 133
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "R005V",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 134,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_005_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_005_vulnerable.sol",
+                  "filename_short": "src/positive/rule_005_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 135
+                }
+              },
+              "signature": "run(address,bytes)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(ok,None) = target.delegatecall(data)",
+            "source_mapping": {
+              "start": 136,
+              "length": 38,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_005_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_005_vulnerable.sol",
+              "filename_short": "src/positive/rule_005_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 79,
+              "ending_column": 117
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "run",
+                "source_mapping": {
+                  "start": 75,
+                  "length": 115,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_005_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_005_vulnerable.sol",
+                  "filename_short": "src/positive/rule_005_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 18,
+                  "ending_column": 133
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "R005V",
+                    "source_mapping": {
+                      "start": 58,
+                      "length": 134,
+                      "filename_relative": "fixtures/rule-corpus/src/positive/rule_005_vulnerable.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_005_vulnerable.sol",
+                      "filename_short": "src/positive/rule_005_vulnerable.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 135
+                    }
+                  },
+                  "signature": "run(address,bytes)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "R005V.run(address,bytes) (src/positive/rule_005_vulnerable.sol#4) uses delegatecall to a input-controlled function id\n\t- (ok,None) = target.delegatecall(data) (src/positive/rule_005_vulnerable.sol#4)\n",
+        "markdown": "[R005V.run(address,bytes)](fixtures/rule-corpus/src/positive/rule_005_vulnerable.sol#L4) uses delegatecall to a input-controlled function id\n\t- [(ok,None) = target.delegatecall(data)](fixtures/rule-corpus/src/positive/rule_005_vulnerable.sol#L4)\n",
+        "first_markdown_element": "fixtures/rule-corpus/src/positive/rule_005_vulnerable.sol#L4",
+        "id": "d0ab1d0092a61d5bdc0a7e04002d72186c3856f8967463946d203b949440de17",
+        "check": "controlled-delegatecall",
+        "impact": "High",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#controlled-delegatecall"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "run",
+            "source_mapping": {
+              "start": 173,
+              "length": 133,
+              "filename_relative": "fixtures/rule-corpus/src/negative/overwritten_delegate_target.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/overwritten_delegate_target.sol",
+              "filename_short": "src/negative/overwritten_delegate_target.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 116,
+              "ending_column": 249
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "NOverwrite",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 250,
+                  "filename_relative": "fixtures/rule-corpus/src/negative/overwritten_delegate_target.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/overwritten_delegate_target.sol",
+                  "filename_short": "src/negative/overwritten_delegate_target.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 251
+                }
+              },
+              "signature": "run(address,bytes)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(ok,None) = target.delegatecall(data)",
+            "source_mapping": {
+              "start": 252,
+              "length": 38,
+              "filename_relative": "fixtures/rule-corpus/src/negative/overwritten_delegate_target.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/overwritten_delegate_target.sol",
+              "filename_short": "src/negative/overwritten_delegate_target.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 195,
+              "ending_column": 233
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "run",
+                "source_mapping": {
+                  "start": 173,
+                  "length": 133,
+                  "filename_relative": "fixtures/rule-corpus/src/negative/overwritten_delegate_target.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/overwritten_delegate_target.sol",
+                  "filename_short": "src/negative/overwritten_delegate_target.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 116,
+                  "ending_column": 249
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "NOverwrite",
+                    "source_mapping": {
+                      "start": 58,
+                      "length": 250,
+                      "filename_relative": "fixtures/rule-corpus/src/negative/overwritten_delegate_target.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/overwritten_delegate_target.sol",
+                      "filename_short": "src/negative/overwritten_delegate_target.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 251
+                    }
+                  },
+                  "signature": "run(address,bytes)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "NOverwrite.run(address,bytes) (src/negative/overwritten_delegate_target.sol#4) uses delegatecall to a input-controlled function id\n\t- (ok,None) = target.delegatecall(data) (src/negative/overwritten_delegate_target.sol#4)\n",
+        "markdown": "[NOverwrite.run(address,bytes)](fixtures/rule-corpus/src/negative/overwritten_delegate_target.sol#L4) uses delegatecall to a input-controlled function id\n\t- [(ok,None) = target.delegatecall(data)](fixtures/rule-corpus/src/negative/overwritten_delegate_target.sol#L4)\n",
+        "first_markdown_element": "fixtures/rule-corpus/src/negative/overwritten_delegate_target.sol#L4",
+        "id": "e45c3f685830b82738ab571ca702ea8f17c54f05d89c81035a1fb179d17f1ca2",
+        "check": "controlled-delegatecall",
+        "impact": "High",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#controlled-delegatecall"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "hash",
+            "source_mapping": {
+              "start": 170,
+              "length": 126,
+              "filename_relative": "fixtures/rule-corpus/src/negative/shadowed_hash_function.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/shadowed_hash_function.sol",
+              "filename_short": "src/negative/shadowed_hash_function.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 113,
+              "ending_column": 239
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "NShadowedHash",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 240,
+                  "filename_relative": "fixtures/rule-corpus/src/negative/shadowed_hash_function.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/shadowed_hash_function.sol",
+                  "filename_short": "src/negative/shadowed_hash_function.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 241
+                }
+              },
+              "signature": "hash(string,bytes)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "keccak256(abi.encodePacked(a,b))",
+            "source_mapping": {
+              "start": 254,
+              "length": 39,
+              "filename_relative": "fixtures/rule-corpus/src/negative/shadowed_hash_function.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/shadowed_hash_function.sol",
+              "filename_short": "src/negative/shadowed_hash_function.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 197,
+              "ending_column": 236
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "hash",
+                "source_mapping": {
+                  "start": 170,
+                  "length": 126,
+                  "filename_relative": "fixtures/rule-corpus/src/negative/shadowed_hash_function.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/shadowed_hash_function.sol",
+                  "filename_short": "src/negative/shadowed_hash_function.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 113,
+                  "ending_column": 239
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "NShadowedHash",
+                    "source_mapping": {
+                      "start": 58,
+                      "length": 240,
+                      "filename_relative": "fixtures/rule-corpus/src/negative/shadowed_hash_function.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/shadowed_hash_function.sol",
+                      "filename_short": "src/negative/shadowed_hash_function.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 241
+                    }
+                  },
+                  "signature": "hash(string,bytes)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "NShadowedHash.hash(string,bytes) (src/negative/shadowed_hash_function.sol#4) calls abi.encodePacked() with multiple dynamic arguments:\n\t- keccak256(abi.encodePacked(a,b)) (src/negative/shadowed_hash_function.sol#4)\n",
+        "markdown": "[NShadowedHash.hash(string,bytes)](fixtures/rule-corpus/src/negative/shadowed_hash_function.sol#L4) calls abi.encodePacked() with multiple dynamic arguments:\n\t- [keccak256(abi.encodePacked(a,b))](fixtures/rule-corpus/src/negative/shadowed_hash_function.sol#L4)\n",
+        "first_markdown_element": "fixtures/rule-corpus/src/negative/shadowed_hash_function.sol#L4",
+        "id": "54effe36ed3c709d59e8d5a0e41e402f53e1c34ee815a1f10a942b57bbd0b835",
+        "check": "encode-packed-collision",
+        "impact": "High",
+        "confidence": "High",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#abi-encodePacked-collision"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "hash",
+            "source_mapping": {
+              "start": 75,
+              "length": 126,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_009_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_009_vulnerable.sol",
+              "filename_short": "src/positive/rule_009_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 18,
+              "ending_column": 144
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "R009V",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 145,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_009_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_009_vulnerable.sol",
+                  "filename_short": "src/positive/rule_009_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 146
+                }
+              },
+              "signature": "hash(string,bytes)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "keccak256(bytes)(abi.encodePacked(a,b))",
+            "source_mapping": {
+              "start": 159,
+              "length": 39,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_009_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_009_vulnerable.sol",
+              "filename_short": "src/positive/rule_009_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 102,
+              "ending_column": 141
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "hash",
+                "source_mapping": {
+                  "start": 75,
+                  "length": 126,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_009_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_009_vulnerable.sol",
+                  "filename_short": "src/positive/rule_009_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 18,
+                  "ending_column": 144
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "R009V",
+                    "source_mapping": {
+                      "start": 58,
+                      "length": 145,
+                      "filename_relative": "fixtures/rule-corpus/src/positive/rule_009_vulnerable.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_009_vulnerable.sol",
+                      "filename_short": "src/positive/rule_009_vulnerable.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 146
+                    }
+                  },
+                  "signature": "hash(string,bytes)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "R009V.hash(string,bytes) (src/positive/rule_009_vulnerable.sol#4) calls abi.encodePacked() with multiple dynamic arguments:\n\t- keccak256(bytes)(abi.encodePacked(a,b)) (src/positive/rule_009_vulnerable.sol#4)\n",
+        "markdown": "[R009V.hash(string,bytes)](fixtures/rule-corpus/src/positive/rule_009_vulnerable.sol#L4) calls abi.encodePacked() with multiple dynamic arguments:\n\t- [keccak256(bytes)(abi.encodePacked(a,b))](fixtures/rule-corpus/src/positive/rule_009_vulnerable.sol#L4)\n",
+        "first_markdown_element": "fixtures/rule-corpus/src/positive/rule_009_vulnerable.sol#L4",
+        "id": "c10e1126b23749a2b5236874d58631ee18f9832c8fb6d4074612286091f33412",
+        "check": "encode-packed-collision",
+        "impact": "High",
+        "confidence": "High",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#abi-encodePacked-collision"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "exact",
+            "source_mapping": {
+              "start": 75,
+              "length": 94,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_011_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_011_vulnerable.sol",
+              "filename_short": "src/positive/rule_011_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 18,
+              "ending_column": 112
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "R011V",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 113,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_011_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_011_vulnerable.sol",
+                  "filename_short": "src/positive/rule_011_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 114
+                }
+              },
+              "signature": "exact(uint256)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "require(bool)(address(this).balance == expected)",
+            "source_mapping": {
+              "start": 124,
+              "length": 42,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_011_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_011_vulnerable.sol",
+              "filename_short": "src/positive/rule_011_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 67,
+              "ending_column": 109
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "exact",
+                "source_mapping": {
+                  "start": 75,
+                  "length": 94,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_011_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_011_vulnerable.sol",
+                  "filename_short": "src/positive/rule_011_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 18,
+                  "ending_column": 112
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "R011V",
+                    "source_mapping": {
+                      "start": 58,
+                      "length": 113,
+                      "filename_relative": "fixtures/rule-corpus/src/positive/rule_011_vulnerable.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_011_vulnerable.sol",
+                      "filename_short": "src/positive/rule_011_vulnerable.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 114
+                    }
+                  },
+                  "signature": "exact(uint256)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "R011V.exact(uint256) (src/positive/rule_011_vulnerable.sol#4) uses a dangerous strict equality:\n\t- require(bool)(address(this).balance == expected) (src/positive/rule_011_vulnerable.sol#4)\n",
+        "markdown": "[R011V.exact(uint256)](fixtures/rule-corpus/src/positive/rule_011_vulnerable.sol#L4) uses a dangerous strict equality:\n\t- [require(bool)(address(this).balance == expected)](fixtures/rule-corpus/src/positive/rule_011_vulnerable.sol#L4)\n",
+        "first_markdown_element": "fixtures/rule-corpus/src/positive/rule_011_vulnerable.sol#L4",
+        "id": "9f25b99634be3a6851db1b6c60e3964272557f2ac568c9fb1c0b08f02c659135",
+        "check": "incorrect-equality",
+        "impact": "Medium",
+        "confidence": "High",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "withdraw",
+            "source_mapping": {
+              "start": 112,
+              "length": 165,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_002_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_002_vulnerable.sol",
+              "filename_short": "src/positive/rule_002_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                5
+              ],
+              "starting_column": 1,
+              "ending_column": 166
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "R002V",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 221,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_002_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_002_vulnerable.sol",
+                  "filename_short": "src/positive/rule_002_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4,
+                    5
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 168
+                }
+              },
+              "signature": "withdraw()"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(ok,None) = address(msg.sender).call{value: amount}()",
+            "source_mapping": {
+              "start": 181,
+              "length": 55,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_002_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_002_vulnerable.sol",
+              "filename_short": "src/positive/rule_002_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                5
+              ],
+              "starting_column": 70,
+              "ending_column": 125
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "withdraw",
+                "source_mapping": {
+                  "start": 112,
+                  "length": 165,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_002_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_002_vulnerable.sol",
+                  "filename_short": "src/positive/rule_002_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    5
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 166
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "R002V",
+                    "source_mapping": {
+                      "start": 58,
+                      "length": 221,
+                      "filename_relative": "fixtures/rule-corpus/src/positive/rule_002_vulnerable.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_002_vulnerable.sol",
+                      "filename_short": "src/positive/rule_002_vulnerable.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4,
+                        5
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 168
+                    }
+                  },
+                  "signature": "withdraw()"
+                }
+              }
+            },
+            "additional_fields": {
+              "underlying_type": "external_calls"
+            }
+          },
+          {
+            "type": "node",
+            "name": "credits[msg.sender] = 0",
+            "source_mapping": {
+              "start": 251,
+              "length": 23,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_002_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_002_vulnerable.sol",
+              "filename_short": "src/positive/rule_002_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                5
+              ],
+              "starting_column": 140,
+              "ending_column": 163
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "withdraw",
+                "source_mapping": {
+                  "start": 112,
+                  "length": 165,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_002_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_002_vulnerable.sol",
+                  "filename_short": "src/positive/rule_002_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    5
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 166
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "R002V",
+                    "source_mapping": {
+                      "start": 58,
+                      "length": 221,
+                      "filename_relative": "fixtures/rule-corpus/src/positive/rule_002_vulnerable.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_002_vulnerable.sol",
+                      "filename_short": "src/positive/rule_002_vulnerable.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4,
+                        5
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 168
+                    }
+                  },
+                  "signature": "withdraw()"
+                }
+              }
+            },
+            "additional_fields": {
+              "underlying_type": "variables_written",
+              "variable_name": "credits"
+            }
+          }
+        ],
+        "description": "Reentrancy in R002V.withdraw() (src/positive/rule_002_vulnerable.sol#5):\n\tExternal calls:\n\t- (ok,None) = address(msg.sender).call{value: amount}() (src/positive/rule_002_vulnerable.sol#5)\n\tState variables written after the call(s):\n\t- credits[msg.sender] = 0 (src/positive/rule_002_vulnerable.sol#5)\n\tR002V.credits (src/positive/rule_002_vulnerable.sol#4) can be used in cross function reentrancies:\n\t- R002V.withdraw() (src/positive/rule_002_vulnerable.sol#5)\n",
+        "markdown": "Reentrancy in [R002V.withdraw()](fixtures/rule-corpus/src/positive/rule_002_vulnerable.sol#L5):\n\tExternal calls:\n\t- [(ok,None) = address(msg.sender).call{value: amount}()](fixtures/rule-corpus/src/positive/rule_002_vulnerable.sol#L5)\n\tState variables written after the call(s):\n\t- [credits[msg.sender] = 0](fixtures/rule-corpus/src/positive/rule_002_vulnerable.sol#L5)\n\t[R002V.credits](fixtures/rule-corpus/src/positive/rule_002_vulnerable.sol#L4) can be used in cross function reentrancies:\n\t- [R002V.withdraw()](fixtures/rule-corpus/src/positive/rule_002_vulnerable.sol#L5)\n",
+        "first_markdown_element": "fixtures/rule-corpus/src/positive/rule_002_vulnerable.sol#L5",
+        "id": "19979cbc4dc80a2f0f9008da3d9aabdeb695b36a414e317803d565b6a21d7a80",
+        "check": "reentrancy-eth",
+        "impact": "High",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "pay",
+            "source_mapping": {
+              "start": 75,
+              "length": 71,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_004_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_004_vulnerable.sol",
+              "filename_short": "src/positive/rule_004_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 18,
+              "ending_column": 89
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "R004V",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 90,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_004_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_004_vulnerable.sol",
+                  "filename_short": "src/positive/rule_004_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 91
+                }
+              },
+              "signature": "pay(address)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "recipient.send(1)",
+            "source_mapping": {
+              "start": 126,
+              "length": 17,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_004_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_004_vulnerable.sol",
+              "filename_short": "src/positive/rule_004_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 69,
+              "ending_column": 86
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "pay",
+                "source_mapping": {
+                  "start": 75,
+                  "length": 71,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_004_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_004_vulnerable.sol",
+                  "filename_short": "src/positive/rule_004_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 18,
+                  "ending_column": 89
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "R004V",
+                    "source_mapping": {
+                      "start": 58,
+                      "length": 90,
+                      "filename_relative": "fixtures/rule-corpus/src/positive/rule_004_vulnerable.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_004_vulnerable.sol",
+                      "filename_short": "src/positive/rule_004_vulnerable.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 91
+                    }
+                  },
+                  "signature": "pay(address)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "R004V.pay(address) (src/positive/rule_004_vulnerable.sol#4) ignores return value by recipient.send(1) (src/positive/rule_004_vulnerable.sol#4)\n",
+        "markdown": "[R004V.pay(address)](fixtures/rule-corpus/src/positive/rule_004_vulnerable.sol#L4) ignores return value by [recipient.send(1)](fixtures/rule-corpus/src/positive/rule_004_vulnerable.sol#L4)\n",
+        "first_markdown_element": "fixtures/rule-corpus/src/positive/rule_004_vulnerable.sol#L4",
+        "id": "206c3d02303cec948551ddd3364397b235a6081a0635d7bc4ad769a3677c58a2",
+        "check": "unchecked-send",
+        "impact": "Medium",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-send"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "pick",
+            "source_mapping": {
+              "start": 81,
+              "length": 205,
+              "filename_relative": "fixtures/rule-corpus/src/positive/block_index_alias.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/block_index_alias.sol",
+              "filename_short": "src/positive/block_index_alias.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 24,
+              "ending_column": 229
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "PIndexAlias",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 230,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/block_index_alias.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/block_index_alias.sol",
+                  "filename_short": "src/positive/block_index_alias.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 231
+                }
+              },
+              "signature": "pick(address[])"
+            }
+          },
+          {
+            "type": "node",
+            "name": "index = uint256(keccak256(bytes)(abi.encode(seed))) % entrants.length",
+            "source_mapping": {
+              "start": 189,
+              "length": 70,
+              "filename_relative": "fixtures/rule-corpus/src/positive/block_index_alias.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/block_index_alias.sol",
+              "filename_short": "src/positive/block_index_alias.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 132,
+              "ending_column": 202
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "pick",
+                "source_mapping": {
+                  "start": 81,
+                  "length": 205,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/block_index_alias.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/block_index_alias.sol",
+                  "filename_short": "src/positive/block_index_alias.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 24,
+                  "ending_column": 229
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "PIndexAlias",
+                    "source_mapping": {
+                      "start": 58,
+                      "length": 230,
+                      "filename_relative": "fixtures/rule-corpus/src/positive/block_index_alias.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/block_index_alias.sol",
+                      "filename_short": "src/positive/block_index_alias.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 231
+                    }
+                  },
+                  "signature": "pick(address[])"
+                }
+              }
+            }
+          }
+        ],
+        "description": "PIndexAlias.pick(address[]) (src/positive/block_index_alias.sol#4) uses a weak PRNG: \"index = uint256(keccak256(bytes)(abi.encode(seed))) % entrants.length (src/positive/block_index_alias.sol#4)\" \n",
+        "markdown": "[PIndexAlias.pick(address[])](fixtures/rule-corpus/src/positive/block_index_alias.sol#L4) uses a weak PRNG: \"[index = uint256(keccak256(bytes)(abi.encode(seed))) % entrants.length](fixtures/rule-corpus/src/positive/block_index_alias.sol#L4)\" \n",
+        "first_markdown_element": "fixtures/rule-corpus/src/positive/block_index_alias.sol#L4",
+        "id": "5cd15d267e9e4c2d5b532447808cfc889071475c454505f40f121f95a007ab53",
+        "check": "weak-prng",
+        "impact": "High",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "pick",
+            "source_mapping": {
+              "start": 75,
+              "length": 185,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_008_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_008_vulnerable.sol",
+              "filename_short": "src/positive/rule_008_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                4,
+                5
+              ],
+              "starting_column": 18,
+              "ending_column": 110
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "R008V",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 204,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_008_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_008_vulnerable.sol",
+                  "filename_short": "src/positive/rule_008_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4,
+                    5
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 112
+                }
+              },
+              "signature": "pick(address[])"
+            }
+          },
+          {
+            "type": "node",
+            "name": "entrants[uint256(keccak256(bytes)(abi.encodePacked(block.timestamp,block.prevrandao))) % entrants.length]",
+            "source_mapping": {
+              "start": 151,
+              "length": 106,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_008_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_008_vulnerable.sol",
+              "filename_short": "src/positive/rule_008_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                5
+              ],
+              "starting_column": 1,
+              "ending_column": 107
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "pick",
+                "source_mapping": {
+                  "start": 75,
+                  "length": 185,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_008_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_008_vulnerable.sol",
+                  "filename_short": "src/positive/rule_008_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4,
+                    5
+                  ],
+                  "starting_column": 18,
+                  "ending_column": 110
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "R008V",
+                    "source_mapping": {
+                      "start": 58,
+                      "length": 204,
+                      "filename_relative": "fixtures/rule-corpus/src/positive/rule_008_vulnerable.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_008_vulnerable.sol",
+                      "filename_short": "src/positive/rule_008_vulnerable.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4,
+                        5
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 112
+                    }
+                  },
+                  "signature": "pick(address[])"
+                }
+              }
+            }
+          }
+        ],
+        "description": "R008V.pick(address[]) (src/positive/rule_008_vulnerable.sol#4-5) uses a weak PRNG: \"entrants[uint256(keccak256(bytes)(abi.encodePacked(block.timestamp,block.prevrandao))) % entrants.length] (src/positive/rule_008_vulnerable.sol#5)\" \n",
+        "markdown": "[R008V.pick(address[])](fixtures/rule-corpus/src/positive/rule_008_vulnerable.sol#L4-L5) uses a weak PRNG: \"[entrants[uint256(keccak256(bytes)(abi.encodePacked(block.timestamp,block.prevrandao))) % entrants.length]](fixtures/rule-corpus/src/positive/rule_008_vulnerable.sol#L5)\" \n",
+        "first_markdown_element": "fixtures/rule-corpus/src/positive/rule_008_vulnerable.sol#L4-L5",
+        "id": "b46633c9c53de95459ec7082b37d097fd6e8bd8d558be499a08ecd582692aa35",
+        "check": "weak-prng",
+        "impact": "High",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "pick",
+            "source_mapping": {
+              "start": 85,
+              "length": 163,
+              "filename_relative": "fixtures/rule-corpus/src/negative/overwritten_block_index.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/overwritten_block_index.sol",
+              "filename_short": "src/negative/overwritten_block_index.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 28,
+              "ending_column": 191
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "NIndexOverwrite",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 192,
+                  "filename_relative": "fixtures/rule-corpus/src/negative/overwritten_block_index.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/overwritten_block_index.sol",
+                  "filename_short": "src/negative/overwritten_block_index.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 193
+                }
+              },
+              "signature": "pick(address[])"
+            }
+          },
+          {
+            "type": "node",
+            "name": "index = block.timestamp % entrants.length",
+            "source_mapping": {
+              "start": 161,
+              "length": 49,
+              "filename_relative": "fixtures/rule-corpus/src/negative/overwritten_block_index.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/overwritten_block_index.sol",
+              "filename_short": "src/negative/overwritten_block_index.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 104,
+              "ending_column": 153
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "pick",
+                "source_mapping": {
+                  "start": 85,
+                  "length": 163,
+                  "filename_relative": "fixtures/rule-corpus/src/negative/overwritten_block_index.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/overwritten_block_index.sol",
+                  "filename_short": "src/negative/overwritten_block_index.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 28,
+                  "ending_column": 191
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "NIndexOverwrite",
+                    "source_mapping": {
+                      "start": 58,
+                      "length": 192,
+                      "filename_relative": "fixtures/rule-corpus/src/negative/overwritten_block_index.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/overwritten_block_index.sol",
+                      "filename_short": "src/negative/overwritten_block_index.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 193
+                    }
+                  },
+                  "signature": "pick(address[])"
+                }
+              }
+            }
+          }
+        ],
+        "description": "NIndexOverwrite.pick(address[]) (src/negative/overwritten_block_index.sol#4) uses a weak PRNG: \"index = block.timestamp % entrants.length (src/negative/overwritten_block_index.sol#4)\" \n",
+        "markdown": "[NIndexOverwrite.pick(address[])](fixtures/rule-corpus/src/negative/overwritten_block_index.sol#L4) uses a weak PRNG: \"[index = block.timestamp % entrants.length](fixtures/rule-corpus/src/negative/overwritten_block_index.sol#L4)\" \n",
+        "first_markdown_element": "fixtures/rule-corpus/src/negative/overwritten_block_index.sol#L4",
+        "id": "d22d1cfb502826e3976049adb7f89699aadb4cfb127ff07ea85a4ebcbe9a3c2f",
+        "check": "weak-prng",
+        "impact": "High",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "deposit",
+            "source_mapping": {
+              "start": 112,
+              "length": 153,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_007_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_007_vulnerable.sol",
+              "filename_short": "src/positive/rule_007_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                4,
+                5
+              ],
+              "starting_column": 55,
+              "ending_column": 87
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "R007V",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 209,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_007_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_007_vulnerable.sol",
+                  "filename_short": "src/positive/rule_007_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4,
+                    5
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 89
+                }
+              },
+              "signature": "deposit(address[])"
+            }
+          },
+          {
+            "type": "node",
+            "name": "credits[recipients[i]] += msg.value",
+            "source_mapping": {
+              "start": 225,
+              "length": 35,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_007_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_007_vulnerable.sol",
+              "filename_short": "src/positive/rule_007_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                5
+              ],
+              "starting_column": 47,
+              "ending_column": 82
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "deposit",
+                "source_mapping": {
+                  "start": 112,
+                  "length": 153,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_007_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_007_vulnerable.sol",
+                  "filename_short": "src/positive/rule_007_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4,
+                    5
+                  ],
+                  "starting_column": 55,
+                  "ending_column": 87
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "R007V",
+                    "source_mapping": {
+                      "start": 58,
+                      "length": 209,
+                      "filename_relative": "fixtures/rule-corpus/src/positive/rule_007_vulnerable.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_007_vulnerable.sol",
+                      "filename_short": "src/positive/rule_007_vulnerable.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4,
+                        5
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 89
+                    }
+                  },
+                  "signature": "deposit(address[])"
+                }
+              }
+            }
+          }
+        ],
+        "description": "R007V.deposit(address[]) (src/positive/rule_007_vulnerable.sol#4-5) use msg.value in a loop: credits[recipients[i]] += msg.value (src/positive/rule_007_vulnerable.sol#5)\n",
+        "markdown": "[R007V.deposit(address[])](fixtures/rule-corpus/src/positive/rule_007_vulnerable.sol#L4-L5) use msg.value in a loop: [credits[recipients[i]] += msg.value](fixtures/rule-corpus/src/positive/rule_007_vulnerable.sol#L5)\n",
+        "first_markdown_element": "fixtures/rule-corpus/src/positive/rule_007_vulnerable.sol#L4-L5",
+        "id": "76eb9f599b6939a0b15cb4dfabfe455b1f41bc2bb45c17666dc7bf4836ea57db",
+        "check": "msg-value-loop",
+        "impact": "High",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation/#msgvalue-inside-a-loop"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "deposit",
+            "source_mapping": {
+              "start": 112,
+              "length": 171,
+              "filename_relative": "fixtures/rule-corpus/src/negative/value_loop_scaled.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/value_loop_scaled.sol",
+              "filename_short": "src/negative/value_loop_scaled.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 55,
+              "ending_column": 226
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "NScaled",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 227,
+                  "filename_relative": "fixtures/rule-corpus/src/negative/value_loop_scaled.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/value_loop_scaled.sol",
+                  "filename_short": "src/negative/value_loop_scaled.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 228
+                }
+              },
+              "signature": "deposit(address[])"
+            }
+          },
+          {
+            "type": "node",
+            "name": "credits[recipients[i]] += msg.value / recipients.length",
+            "source_mapping": {
+              "start": 223,
+              "length": 55,
+              "filename_relative": "fixtures/rule-corpus/src/negative/value_loop_scaled.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/value_loop_scaled.sol",
+              "filename_short": "src/negative/value_loop_scaled.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 166,
+              "ending_column": 221
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "deposit",
+                "source_mapping": {
+                  "start": 112,
+                  "length": 171,
+                  "filename_relative": "fixtures/rule-corpus/src/negative/value_loop_scaled.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/value_loop_scaled.sol",
+                  "filename_short": "src/negative/value_loop_scaled.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 55,
+                  "ending_column": 226
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "NScaled",
+                    "source_mapping": {
+                      "start": 58,
+                      "length": 227,
+                      "filename_relative": "fixtures/rule-corpus/src/negative/value_loop_scaled.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/value_loop_scaled.sol",
+                      "filename_short": "src/negative/value_loop_scaled.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 228
+                    }
+                  },
+                  "signature": "deposit(address[])"
+                }
+              }
+            }
+          }
+        ],
+        "description": "NScaled.deposit(address[]) (src/negative/value_loop_scaled.sol#4) use msg.value in a loop: credits[recipients[i]] += msg.value / recipients.length (src/negative/value_loop_scaled.sol#4)\n",
+        "markdown": "[NScaled.deposit(address[])](fixtures/rule-corpus/src/negative/value_loop_scaled.sol#L4) use msg.value in a loop: [credits[recipients[i]] += msg.value / recipients.length](fixtures/rule-corpus/src/negative/value_loop_scaled.sol#L4)\n",
+        "first_markdown_element": "fixtures/rule-corpus/src/negative/value_loop_scaled.sol#L4",
+        "id": "7ad36163358d131b453d38f066e978fb9c064817b0a1b560bdf4fb15bc65dcc9",
+        "check": "msg-value-loop",
+        "impact": "High",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation/#msgvalue-inside-a-loop"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "check",
+            "source_mapping": {
+              "start": 78,
+              "length": 91,
+              "filename_relative": "fixtures/rule-corpus/src/negative/origin_in_message.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/origin_in_message.sol",
+              "filename_short": "src/negative/origin_in_message.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 21,
+              "ending_column": 112
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "NMessage",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 113,
+                  "filename_relative": "fixtures/rule-corpus/src/negative/origin_in_message.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/origin_in_message.sol",
+                  "filename_short": "src/negative/origin_in_message.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 114
+                }
+              },
+              "signature": "check(bool)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "require(bool,string)(ok,string(abi.encodePacked(tx.origin)))",
+            "source_mapping": {
+              "start": 118,
+              "length": 48,
+              "filename_relative": "fixtures/rule-corpus/src/negative/origin_in_message.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/origin_in_message.sol",
+              "filename_short": "src/negative/origin_in_message.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 61,
+              "ending_column": 109
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "check",
+                "source_mapping": {
+                  "start": 78,
+                  "length": 91,
+                  "filename_relative": "fixtures/rule-corpus/src/negative/origin_in_message.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/origin_in_message.sol",
+                  "filename_short": "src/negative/origin_in_message.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 21,
+                  "ending_column": 112
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "NMessage",
+                    "source_mapping": {
+                      "start": 58,
+                      "length": 113,
+                      "filename_relative": "fixtures/rule-corpus/src/negative/origin_in_message.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/negative/origin_in_message.sol",
+                      "filename_short": "src/negative/origin_in_message.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 114
+                    }
+                  },
+                  "signature": "check(bool)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "NMessage.check(bool) (src/negative/origin_in_message.sol#4) uses tx.origin for authorization: require(bool,string)(ok,string(abi.encodePacked(tx.origin))) (src/negative/origin_in_message.sol#4)\n",
+        "markdown": "[NMessage.check(bool)](fixtures/rule-corpus/src/negative/origin_in_message.sol#L4) uses tx.origin for authorization: [require(bool,string)(ok,string(abi.encodePacked(tx.origin)))](fixtures/rule-corpus/src/negative/origin_in_message.sol#L4)\n",
+        "first_markdown_element": "fixtures/rule-corpus/src/negative/origin_in_message.sol#L4",
+        "id": "18d258ac36a6c59cf8cd47c896ea3a090d1cee0418418f1abe7283d486293aed",
+        "check": "tx-origin",
+        "impact": "Medium",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-usage-of-txorigin"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "enter",
+            "source_mapping": {
+              "start": 103,
+              "length": 63,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_001_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_001_vulnerable.sol",
+              "filename_short": "src/positive/rule_001_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 46,
+              "ending_column": 109
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "R001V",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 110,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_001_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_001_vulnerable.sol",
+                  "filename_short": "src/positive/rule_001_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 111
+                }
+              },
+              "signature": "enter()"
+            }
+          },
+          {
+            "type": "node",
+            "name": "require(bool)(tx.origin == owner)",
+            "source_mapping": {
+              "start": 136,
+              "length": 27,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_001_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_001_vulnerable.sol",
+              "filename_short": "src/positive/rule_001_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 79,
+              "ending_column": 106
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "enter",
+                "source_mapping": {
+                  "start": 103,
+                  "length": 63,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_001_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_001_vulnerable.sol",
+                  "filename_short": "src/positive/rule_001_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 46,
+                  "ending_column": 109
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "R001V",
+                    "source_mapping": {
+                      "start": 58,
+                      "length": 110,
+                      "filename_relative": "fixtures/rule-corpus/src/positive/rule_001_vulnerable.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_001_vulnerable.sol",
+                      "filename_short": "src/positive/rule_001_vulnerable.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 111
+                    }
+                  },
+                  "signature": "enter()"
+                }
+              }
+            }
+          }
+        ],
+        "description": "R001V.enter() (src/positive/rule_001_vulnerable.sol#4) uses tx.origin for authorization: require(bool)(tx.origin == owner) (src/positive/rule_001_vulnerable.sol#4)\n",
+        "markdown": "[R001V.enter()](fixtures/rule-corpus/src/positive/rule_001_vulnerable.sol#L4) uses tx.origin for authorization: [require(bool)(tx.origin == owner)](fixtures/rule-corpus/src/positive/rule_001_vulnerable.sol#L4)\n",
+        "first_markdown_element": "fixtures/rule-corpus/src/positive/rule_001_vulnerable.sol#L4",
+        "id": "3591d18fd4b893b9a9cb5646fe0667361bcc6a4787335291c50e020794677c42",
+        "check": "tx-origin",
+        "impact": "Medium",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-usage-of-txorigin"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "batch",
+            "source_mapping": {
+              "start": 75,
+              "length": 149,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_012_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_012_vulnerable.sol",
+              "filename_short": "src/positive/rule_012_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                4,
+                5
+              ],
+              "starting_column": 18,
+              "ending_column": 77
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "R012V",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 168,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_012_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_012_vulnerable.sol",
+                  "filename_short": "src/positive/rule_012_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4,
+                    5
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 79
+                }
+              },
+              "signature": "batch(address[])"
+            }
+          },
+          {
+            "type": "node",
+            "name": "recipients[i].transfer(1)",
+            "source_mapping": {
+              "start": 194,
+              "length": 25,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_012_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_012_vulnerable.sol",
+              "filename_short": "src/positive/rule_012_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                5
+              ],
+              "starting_column": 47,
+              "ending_column": 72
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "batch",
+                "source_mapping": {
+                  "start": 75,
+                  "length": 149,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_012_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_012_vulnerable.sol",
+                  "filename_short": "src/positive/rule_012_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4,
+                    5
+                  ],
+                  "starting_column": 18,
+                  "ending_column": 77
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "R012V",
+                    "source_mapping": {
+                      "start": 58,
+                      "length": 168,
+                      "filename_relative": "fixtures/rule-corpus/src/positive/rule_012_vulnerable.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_012_vulnerable.sol",
+                      "filename_short": "src/positive/rule_012_vulnerable.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4,
+                        5
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 79
+                    }
+                  },
+                  "signature": "batch(address[])"
+                }
+              }
+            }
+          }
+        ],
+        "description": "R012V.batch(address[]) (src/positive/rule_012_vulnerable.sol#4-5) has external calls inside a loop: recipients[i].transfer(1) (src/positive/rule_012_vulnerable.sol#5)\n",
+        "markdown": "[R012V.batch(address[])](fixtures/rule-corpus/src/positive/rule_012_vulnerable.sol#L4-L5) has external calls inside a loop: [recipients[i].transfer(1)](fixtures/rule-corpus/src/positive/rule_012_vulnerable.sol#L5)\n",
+        "first_markdown_element": "fixtures/rule-corpus/src/positive/rule_012_vulnerable.sol#L4-L5",
+        "id": "2d41ed339e49c962cfa7f7bc13df6e0ace3ec4120789ca9593ba4c17606bc005",
+        "check": "calls-loop",
+        "impact": "Low",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "pay",
+            "source_mapping": {
+              "start": 244,
+              "length": 81,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_010_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_010_vulnerable.sol",
+              "filename_short": "src/positive/rule_010_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                5
+              ],
+              "starting_column": 93,
+              "ending_column": 174
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "R010V",
+                "source_mapping": {
+                  "start": 152,
+                  "length": 175,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_010_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_010_vulnerable.sol",
+                  "filename_short": "src/positive/rule_010_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    5
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 176
+                }
+              },
+              "signature": "pay(address,uint256)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "token.transfer(to,amount)",
+            "source_mapping": {
+              "start": 296,
+              "length": 26,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_010_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_010_vulnerable.sol",
+              "filename_short": "src/positive/rule_010_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                5
+              ],
+              "starting_column": 145,
+              "ending_column": 171
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "pay",
+                "source_mapping": {
+                  "start": 244,
+                  "length": 81,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_010_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_010_vulnerable.sol",
+                  "filename_short": "src/positive/rule_010_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    5
+                  ],
+                  "starting_column": 93,
+                  "ending_column": 174
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "R010V",
+                    "source_mapping": {
+                      "start": 152,
+                      "length": 175,
+                      "filename_relative": "fixtures/rule-corpus/src/positive/rule_010_vulnerable.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_010_vulnerable.sol",
+                      "filename_short": "src/positive/rule_010_vulnerable.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        5
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 176
+                    }
+                  },
+                  "signature": "pay(address,uint256)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "R010V.pay(address,uint256) (src/positive/rule_010_vulnerable.sol#5) ignores return value by token.transfer(to,amount) (src/positive/rule_010_vulnerable.sol#5)\n",
+        "markdown": "[R010V.pay(address,uint256)](fixtures/rule-corpus/src/positive/rule_010_vulnerable.sol#L5) ignores return value by [token.transfer(to,amount)](fixtures/rule-corpus/src/positive/rule_010_vulnerable.sol#L5)\n",
+        "first_markdown_element": "fixtures/rule-corpus/src/positive/rule_010_vulnerable.sol#L5",
+        "id": "450666ef96154394a243af0d756e980d55d3fe2f545a8f94f13b6d9b051e8dd3",
+        "check": "unchecked-transfer",
+        "impact": "High",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-transfer"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "sweep",
+            "source_mapping": {
+              "start": 154,
+              "length": 95,
+              "filename_relative": "fixtures/rule-corpus/src/positive/shadowed_require_is_not_guard.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/shadowed_require_is_not_guard.sol",
+              "filename_short": "src/positive/shadowed_require_is_not_guard.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 97,
+              "ending_column": 192
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "PShadowedRequire",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 193,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/shadowed_require_is_not_guard.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/shadowed_require_is_not_guard.sol",
+                  "filename_short": "src/positive/shadowed_require_is_not_guard.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 194
+                }
+              },
+              "signature": "sweep(address)"
+            }
+          }
+        ],
+        "description": "PShadowedRequire.sweep(address) (src/positive/shadowed_require_is_not_guard.sol#4) allows anyone to destruct the contract\n",
+        "markdown": "[PShadowedRequire.sweep(address)](fixtures/rule-corpus/src/positive/shadowed_require_is_not_guard.sol#L4) allows anyone to destruct the contract\n",
+        "first_markdown_element": "fixtures/rule-corpus/src/positive/shadowed_require_is_not_guard.sol#L4",
+        "id": "bd6cc2db94a628d63e580e72b3143add5dd7f7d2cbdbd69f86ac41cbbef56011",
+        "check": "suicidal",
+        "impact": "High",
+        "confidence": "High",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#suicidal"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "sweep",
+            "source_mapping": {
+              "start": 75,
+              "length": 79,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_006_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_006_vulnerable.sol",
+              "filename_short": "src/positive/rule_006_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 18,
+              "ending_column": 97
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "R006V",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 98,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_006_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_006_vulnerable.sol",
+                  "filename_short": "src/positive/rule_006_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 99
+                }
+              },
+              "signature": "sweep(address)"
+            }
+          }
+        ],
+        "description": "R006V.sweep(address) (src/positive/rule_006_vulnerable.sol#4) allows anyone to destruct the contract\n",
+        "markdown": "[R006V.sweep(address)](fixtures/rule-corpus/src/positive/rule_006_vulnerable.sol#L4) allows anyone to destruct the contract\n",
+        "first_markdown_element": "fixtures/rule-corpus/src/positive/rule_006_vulnerable.sol#L4",
+        "id": "efdeeec4d3d814c1a6b1ba5b7e1eca9c22ceec84dfc0e08f9d6a4c26489ca91e",
+        "check": "suicidal",
+        "impact": "High",
+        "confidence": "High",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#suicidal"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "run",
+            "source_mapping": {
+              "start": 81,
+              "length": 69,
+              "filename_relative": "fixtures/rule-corpus/src/positive/staticcall_discarded.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/staticcall_discarded.sol",
+              "filename_short": "src/positive/staticcall_discarded.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 24,
+              "ending_column": 93
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "PStaticcall",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 94,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/staticcall_discarded.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/staticcall_discarded.sol",
+                  "filename_short": "src/positive/staticcall_discarded.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 95
+                }
+              },
+              "signature": "run(address)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "target.staticcall()",
+            "source_mapping": {
+              "start": 126,
+              "length": 21,
+              "filename_relative": "fixtures/rule-corpus/src/positive/staticcall_discarded.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/staticcall_discarded.sol",
+              "filename_short": "src/positive/staticcall_discarded.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 69,
+              "ending_column": 90
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "run",
+                "source_mapping": {
+                  "start": 81,
+                  "length": 69,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/staticcall_discarded.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/staticcall_discarded.sol",
+                  "filename_short": "src/positive/staticcall_discarded.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 24,
+                  "ending_column": 93
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "PStaticcall",
+                    "source_mapping": {
+                      "start": 58,
+                      "length": 94,
+                      "filename_relative": "fixtures/rule-corpus/src/positive/staticcall_discarded.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/staticcall_discarded.sol",
+                      "filename_short": "src/positive/staticcall_discarded.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 95
+                    }
+                  },
+                  "signature": "run(address)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "PStaticcall.run(address) (src/positive/staticcall_discarded.sol#4) ignores return value by target.staticcall() (src/positive/staticcall_discarded.sol#4)\n",
+        "markdown": "[PStaticcall.run(address)](fixtures/rule-corpus/src/positive/staticcall_discarded.sol#L4) ignores return value by [target.staticcall()](fixtures/rule-corpus/src/positive/staticcall_discarded.sol#L4)\n",
+        "first_markdown_element": "fixtures/rule-corpus/src/positive/staticcall_discarded.sol#L4",
+        "id": "10878ff71450a2fc3b31e6d6f8790f70f04c106d52af392665c81263f71a51ef",
+        "check": "unchecked-lowlevel",
+        "impact": "Medium",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-low-level-calls"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "invoke",
+            "source_mapping": {
+              "start": 75,
+              "length": 84,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_003_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_003_vulnerable.sol",
+              "filename_short": "src/positive/rule_003_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 18,
+              "ending_column": 102
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "R003V",
+                "source_mapping": {
+                  "start": 58,
+                  "length": 103,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_003_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_003_vulnerable.sol",
+                  "filename_short": "src/positive/rule_003_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 104
+                }
+              },
+              "signature": "invoke(address,bytes)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "target.call(data)",
+            "source_mapping": {
+              "start": 139,
+              "length": 17,
+              "filename_relative": "fixtures/rule-corpus/src/positive/rule_003_vulnerable.sol",
+              "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_003_vulnerable.sol",
+              "filename_short": "src/positive/rule_003_vulnerable.sol",
+              "is_dependency": false,
+              "lines": [
+                4
+              ],
+              "starting_column": 82,
+              "ending_column": 99
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "invoke",
+                "source_mapping": {
+                  "start": 75,
+                  "length": 84,
+                  "filename_relative": "fixtures/rule-corpus/src/positive/rule_003_vulnerable.sol",
+                  "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_003_vulnerable.sol",
+                  "filename_short": "src/positive/rule_003_vulnerable.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    4
+                  ],
+                  "starting_column": 18,
+                  "ending_column": 102
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "R003V",
+                    "source_mapping": {
+                      "start": 58,
+                      "length": 103,
+                      "filename_relative": "fixtures/rule-corpus/src/positive/rule_003_vulnerable.sol",
+                      "filename_absolute": "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/rule-corpus/src/positive/rule_003_vulnerable.sol",
+                      "filename_short": "src/positive/rule_003_vulnerable.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        4
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 104
+                    }
+                  },
+                  "signature": "invoke(address,bytes)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "R003V.invoke(address,bytes) (src/positive/rule_003_vulnerable.sol#4) ignores return value by target.call(data) (src/positive/rule_003_vulnerable.sol#4)\n",
+        "markdown": "[R003V.invoke(address,bytes)](fixtures/rule-corpus/src/positive/rule_003_vulnerable.sol#L4) ignores return value by [target.call(data)](fixtures/rule-corpus/src/positive/rule_003_vulnerable.sol#L4)\n",
+        "first_markdown_element": "fixtures/rule-corpus/src/positive/rule_003_vulnerable.sol#L4",
+        "id": "d1882adbbf82d3bcc626c69418570c7313e6be8f90a211cf24373894da93cf19",
+        "check": "unchecked-lowlevel",
+        "impact": "Medium",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-low-level-calls"
+      }
+    ]
+  }
+}

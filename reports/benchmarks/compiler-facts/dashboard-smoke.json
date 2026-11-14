@@ -1,0 +1,19 @@
+{
+  "tested_at": "2026-11-13T23:26:00.914050+00:00",
+  "engine": "0.1.2",
+  "analysis": {
+    "mode": "solc",
+    "compiler_version": "0.8.26+commit.8a97fa7a.Linux.g++"
+  },
+  "source_files": 3,
+  "vulnerable_rules": [
+    "OG-SOL-001",
+    "OG-SOL-002",
+    "OG-SOL-010"
+  ],
+  "fixed_findings": 0,
+  "draft_key": "LOCAL-001",
+  "retained_local_drafts": 1,
+  "origin_gate_status": 403,
+  "boundary": "Loopback-only fixture draft; no real Jira operation."
+}

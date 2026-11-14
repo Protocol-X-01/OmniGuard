@@ -1,0 +1,22 @@
+name: Jira or dashboard problem
+description: Report a reproducible import, remediation, rescan or interface problem
+body:
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps and expected result
+      description: Include the app version and the supplied fixture used. Exclude tokens and private site data.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: Include the visible error and whether it persists after reload.
+    validations:
+      required: true
+  - type: textarea
+    id: access
+    attributes:
+      label: Accessibility or environment context
+      description: Browser, keyboard/screen-reader behavior, viewport, and relevant Jira permissions if known.

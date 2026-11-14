@@ -1,0 +1,43 @@
+{
+  "schema_version": 3,
+  "engine_version": "0.1.4",
+  "scanned_files": 1,
+  "analysis": {
+    "mode": "solc",
+    "compiler_version": "0.8.26+commit.8a97fa7a.Linux.g++"
+  },
+  "coverage": {
+    "rule_set": "solidity-core/2026.11",
+    "rules": [
+      "OG-SOL-001",
+      "OG-SOL-002",
+      "OG-SOL-003",
+      "OG-SOL-004",
+      "OG-SOL-005",
+      "OG-SOL-006",
+      "OG-SOL-007",
+      "OG-SOL-008",
+      "OG-SOL-009",
+      "OG-SOL-010",
+      "OG-SOL-011",
+      "OG-SOL-012"
+    ],
+    "files": [
+      "Case.sol"
+    ],
+    "source_sha256": {
+      "Case.sol": "38018989c83ad4af2a7f32888ea37ae042ed4ec1512388d79ceee2d53a599082"
+    },
+    "complete": false
+  },
+  "diagnostics": [
+    {
+      "code": "native-effects-incomplete",
+      "message": "Virtual, unimplemented or non-internal helper effects are not statically expanded.",
+      "file": "Case.sol",
+      "line": 3,
+      "column": 126
+    }
+  ],
+  "findings": []
+}

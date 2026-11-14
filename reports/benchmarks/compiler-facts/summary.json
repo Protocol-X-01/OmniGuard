@@ -1,0 +1,615 @@
+{
+  "measured_at": "2026-11-13T23:25:10.738154+00:00",
+  "engine": "0.1.2",
+  "analysis": {
+    "mode": "solc",
+    "compiler_version": "0.8.26+commit.8a97fa7a.Linux.g++"
+  },
+  "challenge_sha256": "9465ea692cd7bcfbeaa2e742197c27ec0829109894c81103dcd82e24e0e02ebb",
+  "challenge_cases": 8,
+  "previous_corpus_cases": 60,
+  "method": "Authored challenge cases frozen before compiler integration; once used for implementation, these are development cases, not an independent held-out accuracy estimate.",
+  "mismatches": {
+    "source": 5,
+    "solc": 0,
+    "previous_corpus_solc": 0
+  },
+  "cases": {
+    "source": [
+      {
+        "path": "ImportedToken.sol",
+        "expected": [
+          "OG-SOL-010"
+        ],
+        "actual": [],
+        "matches": false
+      },
+      {
+        "path": "OverloadedToken.sol",
+        "expected": [
+          "OG-SOL-010"
+        ],
+        "actual": [],
+        "matches": false
+      },
+      {
+        "path": "InheritedState.sol",
+        "expected": [
+          "OG-SOL-002"
+        ],
+        "actual": [],
+        "matches": false
+      },
+      {
+        "path": "FixedState.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "ImportedVoid.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "ImportedStruct.sol",
+        "expected": [
+          "OG-SOL-009"
+        ],
+        "actual": [],
+        "matches": false
+      },
+      {
+        "path": "InheritedValue.sol",
+        "expected": [
+          "OG-SOL-007"
+        ],
+        "actual": [],
+        "matches": false
+      },
+      {
+        "path": "InheritedShadow.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      }
+    ],
+    "solc": [
+      {
+        "path": "ImportedToken.sol",
+        "expected": [
+          "OG-SOL-010"
+        ],
+        "actual": [
+          "OG-SOL-010"
+        ],
+        "matches": true
+      },
+      {
+        "path": "OverloadedToken.sol",
+        "expected": [
+          "OG-SOL-010"
+        ],
+        "actual": [
+          "OG-SOL-010"
+        ],
+        "matches": true
+      },
+      {
+        "path": "InheritedState.sol",
+        "expected": [
+          "OG-SOL-002"
+        ],
+        "actual": [
+          "OG-SOL-002"
+        ],
+        "matches": true
+      },
+      {
+        "path": "FixedState.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "ImportedVoid.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "ImportedStruct.sol",
+        "expected": [
+          "OG-SOL-009"
+        ],
+        "actual": [
+          "OG-SOL-009"
+        ],
+        "matches": true
+      },
+      {
+        "path": "InheritedValue.sol",
+        "expected": [
+          "OG-SOL-007"
+        ],
+        "actual": [
+          "OG-SOL-007"
+        ],
+        "matches": true
+      },
+      {
+        "path": "InheritedShadow.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      }
+    ],
+    "previous_corpus_solc": [
+      {
+        "path": "positive/rule_001_vulnerable.sol",
+        "expected": [
+          "OG-SOL-001"
+        ],
+        "actual": [
+          "OG-SOL-001"
+        ],
+        "matches": true
+      },
+      {
+        "path": "fixed/rule_001_fixed.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "positive/rule_002_vulnerable.sol",
+        "expected": [
+          "OG-SOL-002"
+        ],
+        "actual": [
+          "OG-SOL-002"
+        ],
+        "matches": true
+      },
+      {
+        "path": "fixed/rule_002_fixed.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "positive/rule_003_vulnerable.sol",
+        "expected": [
+          "OG-SOL-003"
+        ],
+        "actual": [
+          "OG-SOL-003"
+        ],
+        "matches": true
+      },
+      {
+        "path": "fixed/rule_003_fixed.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "positive/rule_004_vulnerable.sol",
+        "expected": [
+          "OG-SOL-004"
+        ],
+        "actual": [
+          "OG-SOL-004"
+        ],
+        "matches": true
+      },
+      {
+        "path": "fixed/rule_004_fixed.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "positive/rule_005_vulnerable.sol",
+        "expected": [
+          "OG-SOL-005"
+        ],
+        "actual": [
+          "OG-SOL-005"
+        ],
+        "matches": true
+      },
+      {
+        "path": "fixed/rule_005_fixed.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "positive/rule_006_vulnerable.sol",
+        "expected": [
+          "OG-SOL-006"
+        ],
+        "actual": [
+          "OG-SOL-006"
+        ],
+        "matches": true
+      },
+      {
+        "path": "fixed/rule_006_fixed.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "positive/rule_007_vulnerable.sol",
+        "expected": [
+          "OG-SOL-007"
+        ],
+        "actual": [
+          "OG-SOL-007"
+        ],
+        "matches": true
+      },
+      {
+        "path": "fixed/rule_007_fixed.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "positive/rule_008_vulnerable.sol",
+        "expected": [
+          "OG-SOL-008"
+        ],
+        "actual": [
+          "OG-SOL-008"
+        ],
+        "matches": true
+      },
+      {
+        "path": "fixed/rule_008_fixed.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "positive/rule_009_vulnerable.sol",
+        "expected": [
+          "OG-SOL-009"
+        ],
+        "actual": [
+          "OG-SOL-009"
+        ],
+        "matches": true
+      },
+      {
+        "path": "fixed/rule_009_fixed.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "positive/rule_010_vulnerable.sol",
+        "expected": [
+          "OG-SOL-010"
+        ],
+        "actual": [
+          "OG-SOL-010"
+        ],
+        "matches": true
+      },
+      {
+        "path": "fixed/rule_010_fixed.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "positive/rule_011_vulnerable.sol",
+        "expected": [
+          "OG-SOL-011"
+        ],
+        "actual": [
+          "OG-SOL-011"
+        ],
+        "matches": true
+      },
+      {
+        "path": "fixed/rule_011_fixed.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "positive/rule_012_vulnerable.sol",
+        "expected": [
+          "OG-SOL-012"
+        ],
+        "actual": [
+          "OG-SOL-012"
+        ],
+        "matches": true
+      },
+      {
+        "path": "fixed/rule_012_fixed.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "negative/origin_in_message.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "negative/origin_in_event.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "negative/cross_contract_state.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "negative/local_shadowing.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "negative/storage_name_in_index.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "negative/custom_method_names.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "negative/resolved_owner_modifier.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "negative/overwritten_delegate_target.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "negative/disjoint_branches.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "negative/deadline_only.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "negative/packed_static.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "negative/packed_one_dynamic.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "negative/value_loop_check_only.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "negative/value_loop_scaled.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "negative/address_transfer_outside_loop.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "negative/guarded_revert.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "positive/delegate_alias.sol",
+        "expected": [
+          "OG-SOL-005"
+        ],
+        "actual": [
+          "OG-SOL-005"
+        ],
+        "matches": true
+      },
+      {
+        "path": "positive/guard_after_sink.sol",
+        "expected": [
+          "OG-SOL-006"
+        ],
+        "actual": [
+          "OG-SOL-006"
+        ],
+        "matches": true
+      },
+      {
+        "path": "positive/noop_modifier.sol",
+        "expected": [
+          "OG-SOL-005"
+        ],
+        "actual": [
+          "OG-SOL-005"
+        ],
+        "matches": true
+      },
+      {
+        "path": "positive/guard_or_bypass.sol",
+        "expected": [
+          "OG-SOL-005"
+        ],
+        "actual": [
+          "OG-SOL-005"
+        ],
+        "matches": true
+      },
+      {
+        "path": "positive/nested_guard_not_dominating.sol",
+        "expected": [
+          "OG-SOL-006"
+        ],
+        "actual": [
+          "OG-SOL-006"
+        ],
+        "matches": true
+      },
+      {
+        "path": "positive/captured_success_unused.sol",
+        "expected": [
+          "OG-SOL-003"
+        ],
+        "actual": [
+          "OG-SOL-003"
+        ],
+        "matches": true
+      },
+      {
+        "path": "positive/staticcall_discarded.sol",
+        "expected": [
+          "OG-SOL-003"
+        ],
+        "actual": [
+          "OG-SOL-003"
+        ],
+        "matches": true
+      },
+      {
+        "path": "positive/modifier_guard_after_placeholder.sol",
+        "expected": [
+          "OG-SOL-006"
+        ],
+        "actual": [
+          "OG-SOL-006"
+        ],
+        "matches": true
+      },
+      {
+        "path": "positive/conditional_revert_not_guard.sol",
+        "expected": [
+          "OG-SOL-006"
+        ],
+        "actual": [
+          "OG-SOL-006"
+        ],
+        "matches": true
+      },
+      {
+        "path": "negative/early_return_separates_write.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "positive/unused_success_shadowed_use.sol",
+        "expected": [
+          "OG-SOL-003"
+        ],
+        "actual": [
+          "OG-SOL-003"
+        ],
+        "matches": true
+      },
+      {
+        "path": "positive/block_index_alias.sol",
+        "expected": [
+          "OG-SOL-008"
+        ],
+        "actual": [
+          "OG-SOL-008"
+        ],
+        "matches": true
+      },
+      {
+        "path": "positive/payment_alias_loop.sol",
+        "expected": [
+          "OG-SOL-007"
+        ],
+        "actual": [
+          "OG-SOL-007"
+        ],
+        "matches": true
+      },
+      {
+        "path": "negative/overwritten_block_index.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "negative/address_prefixed_contract_type.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "negative/shadowed_selfdestruct_function.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "positive/shadowed_require_is_not_guard.sol",
+        "expected": [
+          "OG-SOL-006"
+        ],
+        "actual": [
+          "OG-SOL-006"
+        ],
+        "matches": true
+      },
+      {
+        "path": "positive/contract_typed_delegate_target.sol",
+        "expected": [
+          "OG-SOL-005"
+        ],
+        "actual": [
+          "OG-SOL-005"
+        ],
+        "matches": true
+      },
+      {
+        "path": "negative/callee_ignores_block_argument.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      },
+      {
+        "path": "negative/shadowed_hash_function.sol",
+        "expected": [],
+        "actual": [],
+        "matches": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omniguard.dev/schemas/report-v1.schema.json",
+  "title": "OmniGuard scan report v1",
+  "type": "object",
+  "required": ["schema_version", "engine_version", "scanned_files", "diagnostics", "findings"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "engine_version": { "type": "string" },
+    "scanned_files": { "type": "integer", "minimum": 0 },
+    "diagnostics": { "type": "array", "items": { "type": "object", "required": ["code", "message", "file", "line", "column"] } },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "rule_id", "title", "severity", "confidence", "message", "remediation", "location", "evidence"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-f0-9]{24}$" },
+          "rule_id": { "type": "string", "pattern": "^OG-SOL-[0-9]{3}$" },
+          "title": { "type": "string" },
+          "severity": { "enum": ["low", "medium", "high", "critical"] },
+          "confidence": { "enum": ["low", "medium", "high"] },
+          "message": { "type": "string" },
+          "remediation": { "type": "string" },
+          "location": {
+            "type": "object",
+            "required": ["file", "start_line", "start_column", "end_line", "end_column", "byte_start", "byte_end"],
+            "properties": {
+              "file": { "type": "string" },
+              "start_line": { "type": "integer", "minimum": 1 },
+              "start_column": { "type": "integer", "minimum": 1 },
+              "end_line": { "type": "integer", "minimum": 1 },
+              "end_column": { "type": "integer", "minimum": 1 },
+              "byte_start": { "type": "integer", "minimum": 0 },
+              "byte_end": { "type": "integer", "minimum": 0 }
+            },
+            "additionalProperties": false
+          },
+          "evidence": {
+            "type": "object",
+            "required": ["source_sha256", "excerpt", "validated"],
+            "properties": {
+              "source_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+              "excerpt": { "type": "string" },
+              "validated": { "type": "boolean" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

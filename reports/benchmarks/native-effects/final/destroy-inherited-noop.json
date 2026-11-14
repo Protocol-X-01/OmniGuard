@@ -1,0 +1,107 @@
+{
+  "schema_version": 3,
+  "engine_version": "0.1.4",
+  "scanned_files": 1,
+  "analysis": {
+    "mode": "solc",
+    "compiler_version": "0.8.26+commit.8a97fa7a.Linux.g++"
+  },
+  "coverage": {
+    "rule_set": "solidity-core/2026.11",
+    "rules": [
+      "OG-SOL-001",
+      "OG-SOL-002",
+      "OG-SOL-003",
+      "OG-SOL-004",
+      "OG-SOL-005",
+      "OG-SOL-006",
+      "OG-SOL-007",
+      "OG-SOL-008",
+      "OG-SOL-009",
+      "OG-SOL-010",
+      "OG-SOL-011",
+      "OG-SOL-012"
+    ],
+    "files": [
+      "Case.sol"
+    ],
+    "source_sha256": {
+      "Case.sol": "0e1f655632e6cb011135b6c4af35701a6a6233b1ebf9d1f3c65ac1141d82828e"
+    },
+    "complete": true
+  },
+  "diagnostics": [],
+  "findings": [
+    {
+      "id": "b5b95c7a67c13610508ff41a",
+      "rule_id": "OG-SOL-006",
+      "title": "Selfdestruct lacks a local caller restriction",
+      "severity": "high",
+      "confidence": "medium",
+      "message": "An externally callable path contains selfdestruct without a recognized preceding caller restriction.",
+      "remediation": "Remove the operation or enforce the intended caller policy and test unauthorized calls locally.",
+      "location": {
+        "file": "Case.sol",
+        "start_line": 4,
+        "start_column": 88,
+        "end_line": 4,
+        "end_column": 111,
+        "byte_start": 251,
+        "byte_end": 274
+      },
+      "evidence": {
+        "source_sha256": "0e1f655632e6cb011135b6c4af35701a6a6233b1ebf9d1f3c65ac1141d82828e",
+        "excerpt": "selfdestruct(recipient)",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "0e1f655632e6cb011135b6c4af35701a6a6233b1ebf9d1f3c65ac1141d82828e",
+            "label": "Resolved destruction effect",
+            "location": {
+              "file": "Case.sol",
+              "start_line": 4,
+              "start_column": 88,
+              "end_line": 4,
+              "end_column": 111,
+              "byte_start": 251,
+              "byte_end": 274
+            },
+            "excerpt": "selfdestruct(recipient)"
+          },
+          {
+            "source_sha256": "0e1f655632e6cb011135b6c4af35701a6a6233b1ebf9d1f3c65ac1141d82828e",
+            "label": "Resolved call or modifier chain",
+            "location": {
+              "file": "Case.sol",
+              "start_line": 4,
+              "start_column": 76,
+              "end_line": 4,
+              "end_column": 85,
+              "byte_start": 239,
+              "byte_end": 248
+            },
+            "excerpt": "onlyOwner"
+          },
+          {
+            "source_sha256": "0e1f655632e6cb011135b6c4af35701a6a6233b1ebf9d1f3c65ac1141d82828e",
+            "label": "Resolved call or modifier chain",
+            "location": {
+              "file": "Case.sol",
+              "start_line": 3,
+              "start_column": 79,
+              "end_line": 3,
+              "end_column": 106,
+              "byte_start": 134,
+              "byte_end": 161
+            },
+            "excerpt": "modifier onlyOwner() { _; }"
+          }
+        ]
+      },
+      "context": {
+        "contract": "Case",
+        "function": "close"
+      }
+    }
+  ]
+}

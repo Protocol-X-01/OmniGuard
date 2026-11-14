@@ -1,0 +1,102 @@
+[
+  {
+    "case": "alias-after",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "case": "alias-before",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "case": "alias-rebound-after",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "case": "destroy-inherited-enforcing",
+    "exit_code": 0,
+    "stderr": "Warning: \"selfdestruct\" has been deprecated. Note that, starting from the Cancun hard fork, the underlying opcode no longer deletes the code and data associated with an account and only transfers its Ether to the beneficiary, unless executed in the same transaction in which the contract was created (see EIP-6780). Any use in newly deployed contracts is strongly discouraged even if the new behavior is taken into account. Future changes to the EVM might further reduce the functionality of the opcode.\n --> outputs/omniguard/fixtures/effect-challenges/destroy-inherited-enforcing/src/Case.sol:4:88:\n  |\n4 | contract Case is Base { function close(address payable recipient) external onlyOwner { selfdestruct(recipient); } }\n  |                                                                                        ^^^^^^^^^^^^\n\n"
+  },
+  {
+    "case": "destroy-inherited-noop",
+    "exit_code": 0,
+    "stderr": "Warning: \"selfdestruct\" has been deprecated. Note that, starting from the Cancun hard fork, the underlying opcode no longer deletes the code and data associated with an account and only transfers its Ether to the beneficiary, unless executed in the same transaction in which the contract was created (see EIP-6780). Any use in newly deployed contracts is strongly discouraged even if the new behavior is taken into account. Future changes to the EVM might further reduce the functionality of the opcode.\n --> outputs/omniguard/fixtures/effect-challenges/destroy-inherited-noop/src/Case.sol:4:88:\n  |\n4 | contract Case is Base { function close(address payable recipient) external onlyOwner { selfdestruct(recipient); } }\n  |                                                                                        ^^^^^^^^^^^^\n\n"
+  },
+  {
+    "case": "helper-call-after-alias-reset",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "case": "helper-call-before-alias-reset",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "case": "helper-delegate-enforcing",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "case": "helper-delegate-parameter",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "case": "helper-exclusive-branches",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "case": "helper-function-pointer",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "case": "helper-recursive",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "case": "helper-terminated-branch",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "case": "helper-two-level",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "case": "helper-virtual",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "case": "memory-copy-after",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "case": "modifier-inherited-enforcing",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "case": "modifier-inherited-irrelevant",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "case": "modifier-inherited-noop",
+    "exit_code": 0,
+    "stderr": ""
+  },
+  {
+    "case": "modifier-post-effect",
+    "exit_code": 0,
+    "stderr": ""
+  }
+]

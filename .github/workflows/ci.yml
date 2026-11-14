@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  rust:
+    name: Rust and native compiler evidence
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install pinned Rust toolchain
+        run: rustup toolchain install 1.93.0 --profile minimal --component rustfmt --component clippy
+      - name: Install checksum-pinned Solidity compiler for isolated tests
+        shell: bash
+        run: |
+          curl --fail --location --proto '=https' --tlsv1.2 --retry 3 \
+            https://raw.githubusercontent.com/ethereum/solc-bin/gh-pages/linux-amd64/solc-linux-amd64-v0.8.26+commit.8a97fa7a \
+            --output "$RUNNER_TEMP/omniguard-solc"
+          printf '%s  %s\n' d5f23436f443edb85d8e76906d12f0a86ce0490e7663a9e608efeb7a93f149ef "$RUNNER_TEMP/omniguard-solc" | sha256sum --check
+          chmod 700 "$RUNNER_TEMP/omniguard-solc"
+          printf 'OMNIGUARD_TEST_SOLC=%s\n' "$RUNNER_TEMP/omniguard-solc" >> "$GITHUB_ENV"
+      - run: cargo fmt --all -- --check
+      - run: cargo clippy --locked --workspace --all-targets -- -D warnings
+      - run: cargo test --locked --workspace -- --include-ignored
+      - run: cargo build --locked --release --workspace
+
+  interfaces:
+    name: Forge, dashboard and release integrity
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24.22.3'
+          package-manager-cache: false
+      - name: Forge tests, build and manifest
+        working-directory: integrations/atlassian-forge
+        run: |
+          npm ci --ignore-scripts
+          npm test
+          npm run build
+          npm run validate:manifest
+      - name: Dashboard production build
+        working-directory: dashboard
+        run: |
+          npm ci --ignore-scripts
+          npm run build
+      - name: Verify deterministic source and judge packages
+        run: python3 scripts/check-release.py

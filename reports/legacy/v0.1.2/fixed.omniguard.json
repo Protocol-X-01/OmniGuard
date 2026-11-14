@@ -1,0 +1,65 @@
+{
+  "bundle_version": 1,
+  "target": {
+    "id": "omniguard-vault-regression",
+    "name": "Vault regression fixture",
+    "kind": "isolated-fixture"
+  },
+  "revision": "fixed-v0.1.2",
+  "rules": [
+    "OG-SOL-001",
+    "OG-SOL-002",
+    "OG-SOL-003",
+    "OG-SOL-004",
+    "OG-SOL-005",
+    "OG-SOL-006",
+    "OG-SOL-007",
+    "OG-SOL-008",
+    "OG-SOL-009",
+    "OG-SOL-010",
+    "OG-SOL-011",
+    "OG-SOL-012"
+  ],
+  "report": {
+    "schema_version": 3,
+    "engine_version": "0.1.2",
+    "scanned_files": 1,
+    "analysis": {
+      "mode": "source",
+      "compiler_version": null
+    },
+    "coverage": {
+      "rule_set": "solidity-core/2026.11",
+      "rules": [
+        "OG-SOL-001",
+        "OG-SOL-002",
+        "OG-SOL-003",
+        "OG-SOL-004",
+        "OG-SOL-005",
+        "OG-SOL-006",
+        "OG-SOL-007",
+        "OG-SOL-008",
+        "OG-SOL-009",
+        "OG-SOL-010",
+        "OG-SOL-011",
+        "OG-SOL-012"
+      ],
+      "files": [
+        "Vault.sol"
+      ],
+      "source_sha256": {
+        "Vault.sol": "8292e8fa78afd5ef0f7b9b1f42fe26351121601bcd7fc33de59c053ab081a2c6"
+      },
+      "complete": true
+    },
+    "diagnostics": [],
+    "findings": []
+  },
+  "sources": [
+    {
+      "path": "Vault.sol",
+      "sha256": "8292e8fa78afd5ef0f7b9b1f42fe26351121601bcd7fc33de59c053ab081a2c6",
+      "content": "// Local regression fixture. Never deploy this contract.\npragma solidity 0.8.24;\n\ncontract Vault {\n    address public owner;\n    mapping(address => uint256) public credits;\n\n    constructor() {\n        owner = msg.sender;\n    }\n\n    modifier onlyOwner() {\n        require(msg.sender == owner, \"owner only\");\n        _;\n    }\n\n    function withdraw() external {\n        uint256 amount = credits[msg.sender];\n        credits[msg.sender] = 0;\n        (bool ok, ) = payable(msg.sender).call{value: amount}(\"\");\n        require(ok, \"transfer failed\");\n    }\n\n    function checkedSend(address payable recipient) external onlyOwner {\n        (bool ok, ) = recipient.call{value: 1 wei}(\"\");\n        require(ok, \"transfer failed\");\n    }\n}\n"
+    }
+  ]
+}

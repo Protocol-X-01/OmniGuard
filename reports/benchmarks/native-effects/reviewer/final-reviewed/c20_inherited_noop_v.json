@@ -1,0 +1,123 @@
+{
+  "schema_version": 3,
+  "engine_version": "0.1.4",
+  "scanned_files": 2,
+  "analysis": {
+    "mode": "solc",
+    "compiler_version": "0.8.26+commit.8a97fa7a.Linux.g++"
+  },
+  "coverage": {
+    "rule_set": "solidity-core/2026.11",
+    "rules": [
+      "OG-SOL-001",
+      "OG-SOL-002",
+      "OG-SOL-003",
+      "OG-SOL-004",
+      "OG-SOL-005",
+      "OG-SOL-006",
+      "OG-SOL-007",
+      "OG-SOL-008",
+      "OG-SOL-009",
+      "OG-SOL-010",
+      "OG-SOL-011",
+      "OG-SOL-012"
+    ],
+    "files": [
+      "Entry.sol",
+      "Guard.sol"
+    ],
+    "source_sha256": {
+      "Entry.sol": "37ee3c9b64f422e17bf0f2ec5a4e66de8eba4c4096659dfc14981d273cd666df",
+      "Guard.sol": "ecfc6b33e3b50c1c3d5a9a54ac33b63a5de2f6ac2e5f9bcfed5cde87a492b774"
+    },
+    "complete": true
+  },
+  "diagnostics": [],
+  "findings": [
+    {
+      "id": "478ef54c67aba3079e52dadf",
+      "rule_id": "OG-SOL-005",
+      "title": "Caller controls a delegatecall target",
+      "severity": "high",
+      "confidence": "high",
+      "message": "An externally callable path delegates to a caller-derived target without a recognized preceding caller restriction.",
+      "remediation": "Use a trusted implementation target and enforce the intended caller/upgrade policy before delegation.",
+      "location": {
+        "file": "Entry.sol",
+        "start_line": 3,
+        "start_column": 122,
+        "end_line": 3,
+        "end_column": 147,
+        "byte_start": 185,
+        "byte_end": 210
+      },
+      "evidence": {
+        "source_sha256": "37ee3c9b64f422e17bf0f2ec5a4e66de8eba4c4096659dfc14981d273cd666df",
+        "excerpt": "target.delegatecall(data)",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "37ee3c9b64f422e17bf0f2ec5a4e66de8eba4c4096659dfc14981d273cd666df",
+            "label": "Resolved delegated interaction",
+            "location": {
+              "file": "Entry.sol",
+              "start_line": 3,
+              "start_column": 122,
+              "end_line": 3,
+              "end_column": 147,
+              "byte_start": 185,
+              "byte_end": 210
+            },
+            "excerpt": "target.delegatecall(data)"
+          },
+          {
+            "source_sha256": "37ee3c9b64f422e17bf0f2ec5a4e66de8eba4c4096659dfc14981d273cd666df",
+            "label": "Caller-controlled target source",
+            "location": {
+              "file": "Entry.sol",
+              "start_line": 3,
+              "start_column": 53,
+              "end_line": 3,
+              "end_column": 67,
+              "byte_start": 116,
+              "byte_end": 130
+            },
+            "excerpt": "address target"
+          },
+          {
+            "source_sha256": "37ee3c9b64f422e17bf0f2ec5a4e66de8eba4c4096659dfc14981d273cd666df",
+            "label": "Resolved argument or call chain",
+            "location": {
+              "file": "Entry.sol",
+              "start_line": 3,
+              "start_column": 98,
+              "end_line": 3,
+              "end_column": 109,
+              "byte_start": 161,
+              "byte_end": 172
+            },
+            "excerpt": "trustedName"
+          },
+          {
+            "source_sha256": "ecfc6b33e3b50c1c3d5a9a54ac33b63a5de2f6ac2e5f9bcfed5cde87a492b774",
+            "label": "Resolved argument or call chain",
+            "location": {
+              "file": "Guard.sol",
+              "start_line": 3,
+              "start_column": 13,
+              "end_line": 3,
+              "end_column": 39,
+              "byte_start": 76,
+              "byte_end": 102
+            },
+            "excerpt": "modifier trustedName(){_;}"
+          }
+        ]
+      },
+      "context": {
+        "contract": "C",
+        "function": "run"
+      }
+    }
+  ]
+}

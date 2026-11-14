@@ -1,0 +1,667 @@
+{
+  "binary_sha256": "dbf3fb31b96d7a33b6972ca110fd7d5980e03272ef6f3af38d0ee2d08497a7d3",
+  "manifest_sha256": "f315bee1430030f01b0130166fb37699ddaf86134032f94fcaf02d03cfcff999",
+  "label_policy": "Exact target-rule sets for supported cases; unsupported cases require incomplete coverage and their findings are observational, not a forced empty result. These are independent initially; after engine tuning they are development challenges, never production precision/recall.",
+  "rows": [
+    {
+      "case": "modifier-inherited-noop",
+      "engine_version": "0.1.4",
+      "command": [
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+        "scan",
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/effect-challenges/modifier-inherited-noop",
+        "--solc",
+        "/home/protocol-x/.local/share/pipx/venvs/solc-select/bin/solc",
+        "--format",
+        "json",
+        "--output",
+        "reports/benchmarks/native-effects/final/modifier-inherited-noop.json"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "expected_target_rules": [
+        "OG-SOL-005"
+      ],
+      "actual_target_rules": [
+        "OG-SOL-005"
+      ],
+      "target_rule_match": true,
+      "expected_completeness": "complete",
+      "coverage_complete": true,
+      "completeness_match": true,
+      "diagnostics": [],
+      "evidence_spans_checked": 5,
+      "report_sha256": "b9b032fc05ffb50913b7b516373f095bf609977d442e050bb57056c5e627ae12",
+      "passed": true
+    },
+    {
+      "case": "modifier-inherited-enforcing",
+      "engine_version": "0.1.4",
+      "command": [
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+        "scan",
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/effect-challenges/modifier-inherited-enforcing",
+        "--solc",
+        "/home/protocol-x/.local/share/pipx/venvs/solc-select/bin/solc",
+        "--format",
+        "json",
+        "--output",
+        "reports/benchmarks/native-effects/final/modifier-inherited-enforcing.json"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "expected_target_rules": [],
+      "actual_target_rules": [],
+      "target_rule_match": true,
+      "expected_completeness": "complete",
+      "coverage_complete": true,
+      "completeness_match": true,
+      "diagnostics": [],
+      "evidence_spans_checked": 0,
+      "report_sha256": "1ab51ceab07f5f4a02a35f1e0c560bd53e4ec9bb319c981d60d9cec5a33df54e",
+      "passed": true
+    },
+    {
+      "case": "modifier-inherited-irrelevant",
+      "engine_version": "0.1.4",
+      "command": [
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+        "scan",
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/effect-challenges/modifier-inherited-irrelevant",
+        "--solc",
+        "/home/protocol-x/.local/share/pipx/venvs/solc-select/bin/solc",
+        "--format",
+        "json",
+        "--output",
+        "reports/benchmarks/native-effects/final/modifier-inherited-irrelevant.json"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "expected_target_rules": [
+        "OG-SOL-005"
+      ],
+      "actual_target_rules": [
+        "OG-SOL-005"
+      ],
+      "target_rule_match": true,
+      "expected_completeness": "complete",
+      "coverage_complete": true,
+      "completeness_match": true,
+      "diagnostics": [],
+      "evidence_spans_checked": 5,
+      "report_sha256": "77b2af19016c630c21b037ebc25b2b0f90daf9967d4741eb969340f50124cd81",
+      "passed": true
+    },
+    {
+      "case": "modifier-post-effect",
+      "engine_version": "0.1.4",
+      "command": [
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+        "scan",
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/effect-challenges/modifier-post-effect",
+        "--solc",
+        "/home/protocol-x/.local/share/pipx/venvs/solc-select/bin/solc",
+        "--format",
+        "json",
+        "--output",
+        "reports/benchmarks/native-effects/final/modifier-post-effect.json"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "expected_target_rules": [
+        "OG-SOL-005"
+      ],
+      "actual_target_rules": [
+        "OG-SOL-005"
+      ],
+      "target_rule_match": true,
+      "expected_completeness": "complete",
+      "coverage_complete": true,
+      "completeness_match": true,
+      "diagnostics": [],
+      "evidence_spans_checked": 5,
+      "report_sha256": "77810f010151638ade407a03828a4a3e551a5db0169fc80bd6ffda96213d6e36",
+      "passed": true
+    },
+    {
+      "case": "destroy-inherited-noop",
+      "engine_version": "0.1.4",
+      "command": [
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+        "scan",
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/effect-challenges/destroy-inherited-noop",
+        "--solc",
+        "/home/protocol-x/.local/share/pipx/venvs/solc-select/bin/solc",
+        "--format",
+        "json",
+        "--output",
+        "reports/benchmarks/native-effects/final/destroy-inherited-noop.json"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "expected_target_rules": [
+        "OG-SOL-006"
+      ],
+      "actual_target_rules": [
+        "OG-SOL-006"
+      ],
+      "target_rule_match": true,
+      "expected_completeness": "complete",
+      "coverage_complete": true,
+      "completeness_match": true,
+      "diagnostics": [],
+      "evidence_spans_checked": 4,
+      "report_sha256": "fa3e3999567354645166a757f9c99749de78f8d2edae67de9457bb844de36d3d",
+      "passed": true
+    },
+    {
+      "case": "destroy-inherited-enforcing",
+      "engine_version": "0.1.4",
+      "command": [
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+        "scan",
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/effect-challenges/destroy-inherited-enforcing",
+        "--solc",
+        "/home/protocol-x/.local/share/pipx/venvs/solc-select/bin/solc",
+        "--format",
+        "json",
+        "--output",
+        "reports/benchmarks/native-effects/final/destroy-inherited-enforcing.json"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "expected_target_rules": [],
+      "actual_target_rules": [],
+      "target_rule_match": true,
+      "expected_completeness": "complete",
+      "coverage_complete": true,
+      "completeness_match": true,
+      "diagnostics": [],
+      "evidence_spans_checked": 0,
+      "report_sha256": "897c59791edf549e59f6df2b013956888120269bb0358fc1d9749c83de31730a",
+      "passed": true
+    },
+    {
+      "case": "alias-after",
+      "engine_version": "0.1.4",
+      "command": [
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+        "scan",
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/effect-challenges/alias-after",
+        "--solc",
+        "/home/protocol-x/.local/share/pipx/venvs/solc-select/bin/solc",
+        "--format",
+        "json",
+        "--output",
+        "reports/benchmarks/native-effects/final/alias-after.json"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "expected_target_rules": [
+        "OG-SOL-002"
+      ],
+      "actual_target_rules": [
+        "OG-SOL-002"
+      ],
+      "target_rule_match": true,
+      "expected_completeness": "complete",
+      "coverage_complete": true,
+      "completeness_match": true,
+      "diagnostics": [],
+      "evidence_spans_checked": 5,
+      "report_sha256": "84ca4589345d502cb6c0a66ba6cfdeff4791dc978c8e208e1ada019e9a583e1f",
+      "passed": true
+    },
+    {
+      "case": "alias-before",
+      "engine_version": "0.1.4",
+      "command": [
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+        "scan",
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/effect-challenges/alias-before",
+        "--solc",
+        "/home/protocol-x/.local/share/pipx/venvs/solc-select/bin/solc",
+        "--format",
+        "json",
+        "--output",
+        "reports/benchmarks/native-effects/final/alias-before.json"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "expected_target_rules": [],
+      "actual_target_rules": [],
+      "target_rule_match": true,
+      "expected_completeness": "complete",
+      "coverage_complete": true,
+      "completeness_match": true,
+      "diagnostics": [],
+      "evidence_spans_checked": 0,
+      "report_sha256": "821ee0711b265e5d0ede5f2a09d700db8726e73887277400abf84a7a40bb66ea",
+      "passed": true
+    },
+    {
+      "case": "alias-rebound-after",
+      "engine_version": "0.1.4",
+      "command": [
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+        "scan",
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/effect-challenges/alias-rebound-after",
+        "--solc",
+        "/home/protocol-x/.local/share/pipx/venvs/solc-select/bin/solc",
+        "--format",
+        "json",
+        "--output",
+        "reports/benchmarks/native-effects/final/alias-rebound-after.json"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "expected_target_rules": [
+        "OG-SOL-002"
+      ],
+      "actual_target_rules": [
+        "OG-SOL-002"
+      ],
+      "target_rule_match": true,
+      "expected_completeness": "complete",
+      "coverage_complete": true,
+      "completeness_match": true,
+      "diagnostics": [],
+      "evidence_spans_checked": 5,
+      "report_sha256": "84ae046e24003632a404293d83689169abb7a0b4a95786c449436a18e2daa1ed",
+      "passed": true
+    },
+    {
+      "case": "memory-copy-after",
+      "engine_version": "0.1.4",
+      "command": [
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+        "scan",
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/effect-challenges/memory-copy-after",
+        "--solc",
+        "/home/protocol-x/.local/share/pipx/venvs/solc-select/bin/solc",
+        "--format",
+        "json",
+        "--output",
+        "reports/benchmarks/native-effects/final/memory-copy-after.json"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "expected_target_rules": [],
+      "actual_target_rules": [],
+      "target_rule_match": true,
+      "expected_completeness": "complete",
+      "coverage_complete": true,
+      "completeness_match": true,
+      "diagnostics": [],
+      "evidence_spans_checked": 0,
+      "report_sha256": "659789513c10125ad0d3e3881fae7292462308d629a62d8ad8b09d45878a6411",
+      "passed": true
+    },
+    {
+      "case": "helper-call-before-alias-reset",
+      "engine_version": "0.1.4",
+      "command": [
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+        "scan",
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/effect-challenges/helper-call-before-alias-reset",
+        "--solc",
+        "/home/protocol-x/.local/share/pipx/venvs/solc-select/bin/solc",
+        "--format",
+        "json",
+        "--output",
+        "reports/benchmarks/native-effects/final/helper-call-before-alias-reset.json"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "expected_target_rules": [
+        "OG-SOL-002"
+      ],
+      "actual_target_rules": [
+        "OG-SOL-002"
+      ],
+      "target_rule_match": true,
+      "expected_completeness": "complete",
+      "coverage_complete": true,
+      "completeness_match": true,
+      "diagnostics": [],
+      "evidence_spans_checked": 7,
+      "report_sha256": "2e52036ecda1e907def859b1efc227227abf64f6e513492b3c7aafaede90fb5e",
+      "passed": true
+    },
+    {
+      "case": "helper-call-after-alias-reset",
+      "engine_version": "0.1.4",
+      "command": [
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+        "scan",
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/effect-challenges/helper-call-after-alias-reset",
+        "--solc",
+        "/home/protocol-x/.local/share/pipx/venvs/solc-select/bin/solc",
+        "--format",
+        "json",
+        "--output",
+        "reports/benchmarks/native-effects/final/helper-call-after-alias-reset.json"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "expected_target_rules": [],
+      "actual_target_rules": [],
+      "target_rule_match": true,
+      "expected_completeness": "complete",
+      "coverage_complete": true,
+      "completeness_match": true,
+      "diagnostics": [],
+      "evidence_spans_checked": 0,
+      "report_sha256": "5878c349ce373f6a38c559a71231dd6768dd8985446fe09ab40e4bd88c3c9eac",
+      "passed": true
+    },
+    {
+      "case": "helper-exclusive-branches",
+      "engine_version": "0.1.4",
+      "command": [
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+        "scan",
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/effect-challenges/helper-exclusive-branches",
+        "--solc",
+        "/home/protocol-x/.local/share/pipx/venvs/solc-select/bin/solc",
+        "--format",
+        "json",
+        "--output",
+        "reports/benchmarks/native-effects/final/helper-exclusive-branches.json"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "expected_target_rules": [],
+      "actual_target_rules": [],
+      "target_rule_match": true,
+      "expected_completeness": "complete",
+      "coverage_complete": true,
+      "completeness_match": true,
+      "diagnostics": [],
+      "evidence_spans_checked": 0,
+      "report_sha256": "1c4aa5c9bf90450bfe71819d4038e48bdedea8c9bc96c6b4e922230483ef9ac9",
+      "passed": true
+    },
+    {
+      "case": "helper-terminated-branch",
+      "engine_version": "0.1.4",
+      "command": [
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+        "scan",
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/effect-challenges/helper-terminated-branch",
+        "--solc",
+        "/home/protocol-x/.local/share/pipx/venvs/solc-select/bin/solc",
+        "--format",
+        "json",
+        "--output",
+        "reports/benchmarks/native-effects/final/helper-terminated-branch.json"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "expected_target_rules": [],
+      "actual_target_rules": [],
+      "target_rule_match": true,
+      "expected_completeness": "complete",
+      "coverage_complete": true,
+      "completeness_match": true,
+      "diagnostics": [],
+      "evidence_spans_checked": 0,
+      "report_sha256": "2d5af54c17c58c276dca342b910ce1c3e46410616380788cad87207e2928e471",
+      "passed": true
+    },
+    {
+      "case": "helper-delegate-parameter",
+      "engine_version": "0.1.4",
+      "command": [
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+        "scan",
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/effect-challenges/helper-delegate-parameter",
+        "--solc",
+        "/home/protocol-x/.local/share/pipx/venvs/solc-select/bin/solc",
+        "--format",
+        "json",
+        "--output",
+        "reports/benchmarks/native-effects/final/helper-delegate-parameter.json"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "expected_target_rules": [
+        "OG-SOL-005"
+      ],
+      "actual_target_rules": [
+        "OG-SOL-005"
+      ],
+      "target_rule_match": true,
+      "expected_completeness": "complete",
+      "coverage_complete": true,
+      "completeness_match": true,
+      "diagnostics": [],
+      "evidence_spans_checked": 5,
+      "report_sha256": "9816f92ae9fd62e4b787975afb9ca2b54e184f468e8c937d4aaa009eed9c876d",
+      "passed": true
+    },
+    {
+      "case": "helper-delegate-enforcing",
+      "engine_version": "0.1.4",
+      "command": [
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+        "scan",
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/effect-challenges/helper-delegate-enforcing",
+        "--solc",
+        "/home/protocol-x/.local/share/pipx/venvs/solc-select/bin/solc",
+        "--format",
+        "json",
+        "--output",
+        "reports/benchmarks/native-effects/final/helper-delegate-enforcing.json"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "expected_target_rules": [],
+      "actual_target_rules": [],
+      "target_rule_match": true,
+      "expected_completeness": "complete",
+      "coverage_complete": true,
+      "completeness_match": true,
+      "diagnostics": [],
+      "evidence_spans_checked": 0,
+      "report_sha256": "914351884eef941fd8f7e7bff7c55c4bf060abb78822ee81239ef015120580ab",
+      "passed": true
+    },
+    {
+      "case": "helper-recursive",
+      "engine_version": "0.1.4",
+      "command": [
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+        "scan",
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/effect-challenges/helper-recursive",
+        "--solc",
+        "/home/protocol-x/.local/share/pipx/venvs/solc-select/bin/solc",
+        "--format",
+        "json",
+        "--output",
+        "reports/benchmarks/native-effects/final/helper-recursive.json"
+      ],
+      "exit_code": 2,
+      "stderr": "",
+      "expected_target_rules": [],
+      "actual_target_rules": [
+        "OG-SOL-002"
+      ],
+      "target_rule_match": null,
+      "expected_completeness": "incomplete",
+      "coverage_complete": false,
+      "completeness_match": true,
+      "diagnostics": [
+        {
+          "code": "native-effects-incomplete",
+          "message": "Recursive call or helper expansion depth exhausted.",
+          "file": "Case.sol",
+          "line": 3,
+          "column": 400
+        }
+      ],
+      "evidence_spans_checked": 9,
+      "report_sha256": "30a7b19a4895b0739e0fcf6b48d3eaf82fab1d7fabde10ac87ebd67f743b7597",
+      "passed": true
+    },
+    {
+      "case": "helper-virtual",
+      "engine_version": "0.1.4",
+      "command": [
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+        "scan",
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/effect-challenges/helper-virtual",
+        "--solc",
+        "/home/protocol-x/.local/share/pipx/venvs/solc-select/bin/solc",
+        "--format",
+        "json",
+        "--output",
+        "reports/benchmarks/native-effects/final/helper-virtual.json"
+      ],
+      "exit_code": 2,
+      "stderr": "",
+      "expected_target_rules": [],
+      "actual_target_rules": [],
+      "target_rule_match": null,
+      "expected_completeness": "incomplete",
+      "coverage_complete": false,
+      "completeness_match": true,
+      "diagnostics": [
+        {
+          "code": "native-effects-incomplete",
+          "message": "Virtual, unimplemented or non-internal helper effects are not statically expanded.",
+          "file": "Case.sol",
+          "line": 3,
+          "column": 280
+        }
+      ],
+      "evidence_spans_checked": 0,
+      "report_sha256": "7d0972557455beca6eaab5661e5754d9c3d10c059a9aa14930001fbc7be50911",
+      "passed": true
+    },
+    {
+      "case": "helper-function-pointer",
+      "engine_version": "0.1.4",
+      "command": [
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+        "scan",
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/effect-challenges/helper-function-pointer",
+        "--solc",
+        "/home/protocol-x/.local/share/pipx/venvs/solc-select/bin/solc",
+        "--format",
+        "json",
+        "--output",
+        "reports/benchmarks/native-effects/final/helper-function-pointer.json"
+      ],
+      "exit_code": 2,
+      "stderr": "",
+      "expected_target_rules": [],
+      "actual_target_rules": [],
+      "target_rule_match": null,
+      "expected_completeness": "incomplete",
+      "coverage_complete": false,
+      "completeness_match": true,
+      "diagnostics": [
+        {
+          "code": "native-effects-incomplete",
+          "message": "Unresolved function-pointer effects are not statically expanded.",
+          "file": "Case.sol",
+          "line": 3,
+          "column": 333
+        }
+      ],
+      "evidence_spans_checked": 0,
+      "report_sha256": "83d423b7315761eaed06cabd36238170d2aacdc056c9a41d59bd6bd3268bcf41",
+      "passed": true
+    },
+    {
+      "case": "helper-two-level",
+      "engine_version": "0.1.4",
+      "command": [
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+        "scan",
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/effect-challenges/helper-two-level",
+        "--solc",
+        "/home/protocol-x/.local/share/pipx/venvs/solc-select/bin/solc",
+        "--format",
+        "json",
+        "--output",
+        "reports/benchmarks/native-effects/final/helper-two-level.json"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "expected_target_rules": [
+        "OG-SOL-002"
+      ],
+      "actual_target_rules": [
+        "OG-SOL-002"
+      ],
+      "target_rule_match": true,
+      "expected_completeness": "complete",
+      "coverage_complete": true,
+      "completeness_match": true,
+      "diagnostics": [],
+      "evidence_spans_checked": 9,
+      "report_sha256": "1c43c31560cb500883a7bdcdba399452186f7abe5f9bf00f332f369626f741f3",
+      "passed": true
+    },
+    {
+      "case": "effect-vault-vulnerable",
+      "engine_version": "0.1.4",
+      "command": [
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+        "scan",
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/effect-vault/vulnerable",
+        "--solc",
+        "/home/protocol-x/.local/share/pipx/venvs/solc-select/bin/solc",
+        "--format",
+        "json",
+        "--output",
+        "reports/benchmarks/native-effects/final/effect-vault-vulnerable.json"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "expected_target_rules": [
+        "OG-SOL-002"
+      ],
+      "actual_target_rules": [
+        "OG-SOL-002"
+      ],
+      "target_rule_match": true,
+      "expected_completeness": "complete",
+      "coverage_complete": true,
+      "completeness_match": true,
+      "diagnostics": [],
+      "evidence_spans_checked": 7,
+      "report_sha256": "1c14a2761d651a9650701bca64e24fc032be86d927cebe07be8ef8465f411898",
+      "passed": true
+    },
+    {
+      "case": "effect-vault-fixed",
+      "engine_version": "0.1.4",
+      "command": [
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+        "scan",
+        "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/effect-vault/fixed",
+        "--solc",
+        "/home/protocol-x/.local/share/pipx/venvs/solc-select/bin/solc",
+        "--format",
+        "json",
+        "--output",
+        "reports/benchmarks/native-effects/final/effect-vault-fixed.json"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "expected_target_rules": [],
+      "actual_target_rules": [],
+      "target_rule_match": true,
+      "expected_completeness": "complete",
+      "coverage_complete": true,
+      "completeness_match": true,
+      "diagnostics": [],
+      "evidence_spans_checked": 0,
+      "report_sha256": "fca26f18aa01b1c35d285378aad32ea344c3ea3c14825f677267a001f7e2962d",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "schema_version": 3,
+  "engine_version": "0.1.3",
+  "scanned_files": 1,
+  "analysis": {
+    "mode": "solc",
+    "compiler_version": "0.8.26+commit.8a97fa7a.Linux.g++"
+  },
+  "coverage": {
+    "rule_set": "solidity-core/2026.11",
+    "rules": [
+      "OG-SOL-001",
+      "OG-SOL-002",
+      "OG-SOL-003",
+      "OG-SOL-004",
+      "OG-SOL-005",
+      "OG-SOL-006",
+      "OG-SOL-007",
+      "OG-SOL-008",
+      "OG-SOL-009",
+      "OG-SOL-010",
+      "OG-SOL-011",
+      "OG-SOL-012"
+    ],
+    "files": [
+      "Case.sol"
+    ],
+    "source_sha256": {
+      "Case.sol": "c3a1f269712e1c2fa61397f979c9e60900afe8bc1d144273ced9179b1e795f8b"
+    },
+    "complete": true
+  },
+  "diagnostics": [],
+  "findings": [
+    {
+      "id": "be8f078d5898d2147e892f18",
+      "rule_id": "OG-SOL-002",
+      "title": "State write follows an external call",
+      "severity": "high",
+      "confidence": "medium",
+      "message": "An address low-level call precedes a write to this contract's storage in the same function.",
+      "remediation": "Apply checks-effects-interactions and verify a reentrancy guard with a local regression test.",
+      "location": {
+        "file": "Case.sol",
+        "start_line": 3,
+        "start_column": 150,
+        "end_line": 3,
+        "end_column": 158,
+        "byte_start": 213,
+        "byte_end": 221
+      },
+      "evidence": {
+        "source_sha256": "c3a1f269712e1c2fa61397f979c9e60900afe8bc1d144273ced9179b1e795f8b",
+        "excerpt": "_pay(to)",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "c3a1f269712e1c2fa61397f979c9e60900afe8bc1d144273ced9179b1e795f8b",
+            "label": "Resolved external interaction",
+            "location": {
+              "file": "Case.sol",
+              "start_line": 3,
+              "start_column": 86,
+              "end_line": 3,
+              "end_column": 97,
+              "byte_start": 149,
+              "byte_end": 160
+            },
+            "excerpt": "to.call(\"\")"
+          },
+          {
+            "source_sha256": "c3a1f269712e1c2fa61397f979c9e60900afe8bc1d144273ced9179b1e795f8b",
+            "label": "Later storage write",
+            "location": {
+              "file": "Case.sol",
+              "start_line": 3,
+              "start_column": 160,
+              "end_line": 3,
+              "end_column": 168,
+              "byte_start": 223,
+              "byte_end": 231
+            },
+            "excerpt": "credit=0"
+          },
+          {
+            "source_sha256": "c3a1f269712e1c2fa61397f979c9e60900afe8bc1d144273ced9179b1e795f8b",
+            "label": "Compiler-resolved storage root",
+            "location": {
+              "file": "Case.sol",
+              "start_line": 3,
+              "start_column": 14,
+              "end_line": 3,
+              "end_column": 36,
+              "byte_start": 77,
+              "byte_end": 99
+            },
+            "excerpt": "uint internal credit=1"
+          },
+          {
+            "source_sha256": "c3a1f269712e1c2fa61397f979c9e60900afe8bc1d144273ced9179b1e795f8b",
+            "label": "Resolved effect binding or call chain",
+            "location": {
+              "file": "Case.sol",
+              "start_line": 3,
+              "start_column": 150,
+              "end_line": 3,
+              "end_column": 158,
+              "byte_start": 213,
+              "byte_end": 221
+            },
+            "excerpt": "_pay(to)"
+          },
+          {
+            "source_sha256": "c3a1f269712e1c2fa61397f979c9e60900afe8bc1d144273ced9179b1e795f8b",
+            "label": "Resolved effect binding or call chain",
+            "location": {
+              "file": "Case.sol",
+              "start_line": 3,
+              "start_column": 38,
+              "end_line": 3,
+              "end_column": 113,
+              "byte_start": 101,
+              "byte_end": 176
+            },
+            "excerpt": "function _pay(address to) internal { (bool ok,)=to.call(\"\"); require(ok); }"
+          }
+        ]
+      },
+      "context": {
+        "contract": "C",
+        "function": "run"
+      }
+    }
+  ]
+}

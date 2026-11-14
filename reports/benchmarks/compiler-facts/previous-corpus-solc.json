@@ -1,0 +1,1192 @@
+{
+  "schema_version": 3,
+  "engine_version": "0.1.2",
+  "scanned_files": 60,
+  "analysis": {
+    "mode": "solc",
+    "compiler_version": "0.8.26+commit.8a97fa7a.Linux.g++"
+  },
+  "coverage": {
+    "rule_set": "solidity-core/2026.11",
+    "rules": [
+      "OG-SOL-001",
+      "OG-SOL-002",
+      "OG-SOL-003",
+      "OG-SOL-004",
+      "OG-SOL-005",
+      "OG-SOL-006",
+      "OG-SOL-007",
+      "OG-SOL-008",
+      "OG-SOL-009",
+      "OG-SOL-010",
+      "OG-SOL-011",
+      "OG-SOL-012"
+    ],
+    "files": [
+      "fixed/rule_001_fixed.sol",
+      "fixed/rule_002_fixed.sol",
+      "fixed/rule_003_fixed.sol",
+      "fixed/rule_004_fixed.sol",
+      "fixed/rule_005_fixed.sol",
+      "fixed/rule_006_fixed.sol",
+      "fixed/rule_007_fixed.sol",
+      "fixed/rule_008_fixed.sol",
+      "fixed/rule_009_fixed.sol",
+      "fixed/rule_010_fixed.sol",
+      "fixed/rule_011_fixed.sol",
+      "fixed/rule_012_fixed.sol",
+      "negative/address_prefixed_contract_type.sol",
+      "negative/address_transfer_outside_loop.sol",
+      "negative/callee_ignores_block_argument.sol",
+      "negative/cross_contract_state.sol",
+      "negative/custom_method_names.sol",
+      "negative/deadline_only.sol",
+      "negative/disjoint_branches.sol",
+      "negative/early_return_separates_write.sol",
+      "negative/guarded_revert.sol",
+      "negative/local_shadowing.sol",
+      "negative/origin_in_event.sol",
+      "negative/origin_in_message.sol",
+      "negative/overwritten_block_index.sol",
+      "negative/overwritten_delegate_target.sol",
+      "negative/packed_one_dynamic.sol",
+      "negative/packed_static.sol",
+      "negative/resolved_owner_modifier.sol",
+      "negative/shadowed_hash_function.sol",
+      "negative/shadowed_selfdestruct_function.sol",
+      "negative/storage_name_in_index.sol",
+      "negative/value_loop_check_only.sol",
+      "negative/value_loop_scaled.sol",
+      "positive/block_index_alias.sol",
+      "positive/captured_success_unused.sol",
+      "positive/conditional_revert_not_guard.sol",
+      "positive/contract_typed_delegate_target.sol",
+      "positive/delegate_alias.sol",
+      "positive/guard_after_sink.sol",
+      "positive/guard_or_bypass.sol",
+      "positive/modifier_guard_after_placeholder.sol",
+      "positive/nested_guard_not_dominating.sol",
+      "positive/noop_modifier.sol",
+      "positive/payment_alias_loop.sol",
+      "positive/rule_001_vulnerable.sol",
+      "positive/rule_002_vulnerable.sol",
+      "positive/rule_003_vulnerable.sol",
+      "positive/rule_004_vulnerable.sol",
+      "positive/rule_005_vulnerable.sol",
+      "positive/rule_006_vulnerable.sol",
+      "positive/rule_007_vulnerable.sol",
+      "positive/rule_008_vulnerable.sol",
+      "positive/rule_009_vulnerable.sol",
+      "positive/rule_010_vulnerable.sol",
+      "positive/rule_011_vulnerable.sol",
+      "positive/rule_012_vulnerable.sol",
+      "positive/shadowed_require_is_not_guard.sol",
+      "positive/staticcall_discarded.sol",
+      "positive/unused_success_shadowed_use.sol"
+    ],
+    "source_sha256": {
+      "fixed/rule_001_fixed.sol": "697d3ff40d8212cec7197d9449056bd997be00704e077156edd771698c5b5306",
+      "fixed/rule_002_fixed.sol": "c4d367e799b0b365eb10c15ff98182e337606dd54798ac0cace493bbad57b656",
+      "fixed/rule_003_fixed.sol": "b1a61523a97a17b7ab826fa42d5bb21a14ed9a25aa5a7683ae82e0e477287825",
+      "fixed/rule_004_fixed.sol": "9474c171623944d29a915275713a774aec4bd181ebc52e0d0298cf6c5f488cce",
+      "fixed/rule_005_fixed.sol": "e909919b5d7278a68eedcf725162e8b59799d0c929f2391cd9258eb807416582",
+      "fixed/rule_006_fixed.sol": "3d1fbaaaccf22fb53e9541ae8dc8853e11f9984163cfa661999439537fa93927",
+      "fixed/rule_007_fixed.sol": "ae6bd832b1f1bfd01c37719fcc2ab2ecd4f0d8718a6e466f2e4e604bf8afedf3",
+      "fixed/rule_008_fixed.sol": "409638578551ea5872d312a02981e80f4bfc4116289b680debe7435acc04c956",
+      "fixed/rule_009_fixed.sol": "58a12369de55ceba8eab87b3dc0b8b191d1c4b41ddffcd3b9675bfccc3b90069",
+      "fixed/rule_010_fixed.sol": "d90c86e64dedf1250795a832ad85e781ee784912dc6fe88f269ab88497527e66",
+      "fixed/rule_011_fixed.sol": "1e71ad8d5bc9b3407053796d4d69371cfad007208be970ecff06d68090c3fb5e",
+      "fixed/rule_012_fixed.sol": "cd658a03c056a2a2aa681a9a74ff7e1f1d712367cab05a2b0fbbbf2ed560741f",
+      "negative/address_prefixed_contract_type.sol": "067b479d81ed45121de6bfd6d0cd65078e9e60b6e43cd9a83db7e856f1c119f1",
+      "negative/address_transfer_outside_loop.sol": "6a0e0aa18dd48276dcd1081a267f9eac4e2d14a3961a96abd08239cd772b1e5a",
+      "negative/callee_ignores_block_argument.sol": "9e59bdac56712590240c09fa7e9666fd1c0b42f20839229ed9f0def6c3002e81",
+      "negative/cross_contract_state.sol": "391817affcfa2d0e6676506f1760028a47cdb8091c432aeaa5aff89b96d8bcbf",
+      "negative/custom_method_names.sol": "78b6baf482ecbb0e568fbc8e6ef00745e7ffb5e4faec73aeddb139a0c290f830",
+      "negative/deadline_only.sol": "6961b43639c0a6a7ad9116ae6a0a5e395f362f2e6d4c55e44af4b5204cefdd16",
+      "negative/disjoint_branches.sol": "b4b4c638c1f7fb6da6bd8001ae456306e67e78f6e0e90f5229fc16393fbe49ef",
+      "negative/early_return_separates_write.sol": "8ad713b95d7dc46e2407a6494e6d93a445d58d338f618264ccf396899fa96ccc",
+      "negative/guarded_revert.sol": "9c6357c55ca4a6a0a296cd728f0dab5c595fb5e6050007a03b3e5b768e8b2b9d",
+      "negative/local_shadowing.sol": "275719abc1309784be112061608c516181508c2aa10d23b1642756e94efb050a",
+      "negative/origin_in_event.sol": "3e2ec13d9f4caadd3ad404c57301ef71ec9dcd70c28e81f0366b0487a76a7a31",
+      "negative/origin_in_message.sol": "d607c0994dd1d1bf6beed0ab89b60ca0c13e131215d667406a8b02c71223133d",
+      "negative/overwritten_block_index.sol": "6859cc48b06849890842cd139a7eac3f4c25d8a30024bdce624efbe120644b0a",
+      "negative/overwritten_delegate_target.sol": "c31c2bf53dea7e8e2d7ef92e7d67090649b98ca2d66b46ac344689c6055c7251",
+      "negative/packed_one_dynamic.sol": "e71e9600404234913f234b01c318d42bce40d143fa50fb876fbd6a2c635aa513",
+      "negative/packed_static.sol": "76fa969456f3ac0235b430b3b5a0cf972d95ac27752165f1f4055b9b63fc3423",
+      "negative/resolved_owner_modifier.sol": "ce2546e806507e07c17eb426118b8b543abbae6bb39573a9d6fe01ad40358fc3",
+      "negative/shadowed_hash_function.sol": "465b2143c7e1c24ba0461051866133871535a04b3ef5d31dca2117df1bf0a10e",
+      "negative/shadowed_selfdestruct_function.sol": "c677f0fb41cdd36dec2c040127a70e06f777770c91988a13a0dc662b197f54b6",
+      "negative/storage_name_in_index.sol": "3ccc429505c55202c2449520dac22b1265634fce193fc168fc52c2bd08e1504f",
+      "negative/value_loop_check_only.sol": "3cc2f7140d08a3709b35eac3925a7a99a33ac5411edad2921990f9b76b40db78",
+      "negative/value_loop_scaled.sol": "7d744e0518fadd06aa1b1c2a4d53a54bf12e62aca5cd69825715370086af7585",
+      "positive/block_index_alias.sol": "24903108d150bf1be932411e080b62220e8175a3404855933d059e8e14fa91c8",
+      "positive/captured_success_unused.sol": "17c32e150bf9e012399317de4f2287003f7a5269bfe0a0a0a6e42bbefd29df95",
+      "positive/conditional_revert_not_guard.sol": "28cb834cf3f342e51d39c66ab8f8407635c9faa95dbd09b88f2dd82049809466",
+      "positive/contract_typed_delegate_target.sol": "45f571ad3eafa1f82b3457f4cae7639772e2a8b8107ed25df298a4dd6514cc19",
+      "positive/delegate_alias.sol": "8fc9796bf79a9a595677c64a77426e603781f4a374a9f4ef4ded4ab38abce8c2",
+      "positive/guard_after_sink.sol": "24377ffd1658eb8ab0d55c2616a36f6e180886c9b7891537c6f58470b8dd729a",
+      "positive/guard_or_bypass.sol": "4979ebcac70be6697d56a1e91ffa8847dde0e04f309e7e4482c67fc1888a661f",
+      "positive/modifier_guard_after_placeholder.sol": "3d0e75cec2b42f142a51bb518140e9df6adc3f3bbc27344291f59c405d23753e",
+      "positive/nested_guard_not_dominating.sol": "706257ae9107af31aa2fba3d30019e939163b73587870e503a9cb5393c3e131f",
+      "positive/noop_modifier.sol": "9206bcf65326e55e1ee5cd132b45d2973ba619e56745df4a1be9177dc796cb04",
+      "positive/payment_alias_loop.sol": "edb52961f8cac92a050b181ce7fd7bf38387d4a297bbfbba3d57fcaffda7f66b",
+      "positive/rule_001_vulnerable.sol": "a8e16c8ff660e050fdbc3dbacd138d5e306470f06878c05767946477a258500d",
+      "positive/rule_002_vulnerable.sol": "74d06511df87e588e845ec05602333d394f18064c62a1b1d806e2e668226767a",
+      "positive/rule_003_vulnerable.sol": "792e195a24f90cc9346a8383300937e8d0a7f34e1a83c899480c586d31c8f041",
+      "positive/rule_004_vulnerable.sol": "b6b55d9fa2d87d1ef02f8073ad4f74aa97574221aac83446df8196d63a2bca42",
+      "positive/rule_005_vulnerable.sol": "597cd2aa796f756442cf41a81deab51248293685c0b8f383582ba24c459805fa",
+      "positive/rule_006_vulnerable.sol": "2048042ec4d01f80a4c07a308bb48b2799a08f3d12e85c9ef5b4706de00dd30e",
+      "positive/rule_007_vulnerable.sol": "26c031a4d650c0459dfa8b4558516ce497cd238b19cde426830f074d3c85df0a",
+      "positive/rule_008_vulnerable.sol": "831ccaf91e29005c57032a9f24f62ec1345e397c645b62afa2dcce75767c6941",
+      "positive/rule_009_vulnerable.sol": "75fb567e0c72e263b15e13bea2d50c3c9b26fc767a025976e7cdddbfce798389",
+      "positive/rule_010_vulnerable.sol": "c8bdea622949edd3bcd9445e9c0f857a6501c00df500817f7c3b5499e8e10a21",
+      "positive/rule_011_vulnerable.sol": "9a1a5b54492022e515c342e343ec669ef77b729bd6268308bfad22e2dfcb6a0f",
+      "positive/rule_012_vulnerable.sol": "99fa65909ced89cd37437cabe2b2bb10341b8b86772ad51d0bb639bc056597fc",
+      "positive/shadowed_require_is_not_guard.sol": "5952106e6a32a9ff15399d031ee5742e4c70b5f07d0ddf1aa5ccdba837fc4c41",
+      "positive/staticcall_discarded.sol": "2cd54a40bf0e6828bbb88edee26cd21f50f94e75c01aa34f5e03d8330d4b6273",
+      "positive/unused_success_shadowed_use.sol": "fdc45c5c35cfa0c776201bfadf9a34d1c5016b9c6c4fd216e5d01d3f350af842"
+    },
+    "complete": true
+  },
+  "diagnostics": [],
+  "findings": [
+    {
+      "id": "a10421c14f83110a17e3a01a",
+      "rule_id": "OG-SOL-008",
+      "title": "Block-derived array selection",
+      "severity": "medium",
+      "confidence": "high",
+      "message": "A block-derived value is used in modulo arithmetic to choose an array index.",
+      "remediation": "Use an appropriate verifiable randomness or commit/reveal design with an explicit adversary model.",
+      "location": {
+        "file": "positive/block_index_alias.sol",
+        "start_line": 4,
+        "start_column": 220,
+        "end_line": 4,
+        "end_column": 225,
+        "byte_start": 277,
+        "byte_end": 282
+      },
+      "evidence": {
+        "source_sha256": "24903108d150bf1be932411e080b62220e8175a3404855933d059e8e14fa91c8",
+        "excerpt": "index",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "24903108d150bf1be932411e080b62220e8175a3404855933d059e8e14fa91c8",
+            "label": "Block-derived index value flow",
+            "location": {
+              "file": "positive/block_index_alias.sol",
+              "start_line": 4,
+              "start_column": 100,
+              "end_line": 4,
+              "end_column": 112,
+              "byte_start": 157,
+              "byte_end": 169
+            },
+            "excerpt": "uint256 seed"
+          },
+          {
+            "source_sha256": "24903108d150bf1be932411e080b62220e8175a3404855933d059e8e14fa91c8",
+            "label": "Block-derived index value flow",
+            "location": {
+              "file": "positive/block_index_alias.sol",
+              "start_line": 4,
+              "start_column": 132,
+              "end_line": 4,
+              "end_column": 145,
+              "byte_start": 189,
+              "byte_end": 202
+            },
+            "excerpt": "uint256 index"
+          }
+        ]
+      },
+      "context": {
+        "contract": "PIndexAlias",
+        "function": "pick"
+      }
+    },
+    {
+      "id": "9d22248a1a2efb3d100478e6",
+      "rule_id": "OG-SOL-003",
+      "title": "Low-level call result is not checked",
+      "severity": "medium",
+      "confidence": "high",
+      "message": "An address call/delegatecall/staticcall result is discarded, or its captured success flag is unused.",
+      "remediation": "Capture and enforce the success flag, or explicitly return it to a caller that handles failure.",
+      "location": {
+        "file": "positive/captured_success_unused.sol",
+        "start_line": 4,
+        "start_column": 73,
+        "end_line": 4,
+        "end_column": 88,
+        "byte_start": 130,
+        "byte_end": 145
+      },
+      "evidence": {
+        "source_sha256": "17c32e150bf9e012399317de4f2287003f7a5269bfe0a0a0a6e42bbefd29df95",
+        "excerpt": "target.call(\"\")",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "17c32e150bf9e012399317de4f2287003f7a5269bfe0a0a0a6e42bbefd29df95",
+            "label": "Unused captured success flag",
+            "location": {
+              "file": "positive/captured_success_unused.sol",
+              "start_line": 4,
+              "start_column": 61,
+              "end_line": 4,
+              "end_column": 68,
+              "byte_start": 118,
+              "byte_end": 125
+            },
+            "excerpt": "bool ok"
+          }
+        ]
+      },
+      "context": {
+        "contract": "PUnused",
+        "function": "run"
+      }
+    },
+    {
+      "id": "69ad5c0dcfd24fa19a95414f",
+      "rule_id": "OG-SOL-006",
+      "title": "Selfdestruct lacks a local caller restriction",
+      "severity": "high",
+      "confidence": "medium",
+      "message": "An externally callable function contains selfdestruct without a recognized local caller restriction.",
+      "remediation": "Remove the operation or enforce the intended caller policy and test unauthorized calls locally.",
+      "location": {
+        "file": "positive/conditional_revert_not_guard.sol",
+        "start_line": 4,
+        "start_column": 182,
+        "end_line": 4,
+        "end_column": 198,
+        "byte_start": 239,
+        "byte_end": 255
+      },
+      "evidence": {
+        "source_sha256": "28cb834cf3f342e51d39c66ab8f8407635c9faa95dbd09b88f2dd82049809466",
+        "excerpt": "selfdestruct(to)",
+        "validated": true
+      },
+      "context": {
+        "contract": "PConditional",
+        "function": "sweep"
+      }
+    },
+    {
+      "id": "99f1b4127bef90a224876c9d",
+      "rule_id": "OG-SOL-005",
+      "title": "Caller controls a delegatecall target",
+      "severity": "high",
+      "confidence": "high",
+      "message": "An externally callable function contains delegation to a caller-derived target without a recognized local caller restriction.",
+      "remediation": "Use a trusted implementation target and enforce the intended caller/upgrade policy before delegation.",
+      "location": {
+        "file": "positive/contract_typed_delegate_target.sol",
+        "start_line": 4,
+        "start_column": 143,
+        "end_line": 4,
+        "end_column": 177,
+        "byte_start": 200,
+        "byte_end": 234
+      },
+      "evidence": {
+        "source_sha256": "45f571ad3eafa1f82b3457f4cae7639772e2a8b8107ed25df298a4dd6514cc19",
+        "excerpt": "address(target).delegatecall(data)",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "45f571ad3eafa1f82b3457f4cae7639772e2a8b8107ed25df298a4dd6514cc19",
+            "label": "Caller-controlled target source",
+            "location": {
+              "file": "positive/contract_typed_delegate_target.sol",
+              "start_line": 4,
+              "start_column": 70,
+              "end_line": 4,
+              "end_column": 96,
+              "byte_start": 127,
+              "byte_end": 153
+            },
+            "excerpt": "TypedImplementation target"
+          }
+        ]
+      },
+      "context": {
+        "contract": "PTypedTarget",
+        "function": "run"
+      }
+    },
+    {
+      "id": "07dc7ab2b1c81555d73b2fb1",
+      "rule_id": "OG-SOL-005",
+      "title": "Caller controls a delegatecall target",
+      "severity": "high",
+      "confidence": "high",
+      "message": "An externally callable function contains delegation to a caller-derived target without a recognized local caller restriction.",
+      "remediation": "Use a trusted implementation target and enforce the intended caller/upgrade policy before delegation.",
+      "location": {
+        "file": "positive/delegate_alias.sol",
+        "start_line": 4,
+        "start_column": 123,
+        "end_line": 4,
+        "end_column": 153,
+        "byte_start": 180,
+        "byte_end": 210
+      },
+      "evidence": {
+        "source_sha256": "8fc9796bf79a9a595677c64a77426e603781f4a374a9f4ef4ded4ab38abce8c2",
+        "excerpt": "aliasTarget.delegatecall(data)",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "8fc9796bf79a9a595677c64a77426e603781f4a374a9f4ef4ded4ab38abce8c2",
+            "label": "Caller-controlled target source",
+            "location": {
+              "file": "positive/delegate_alias.sol",
+              "start_line": 4,
+              "start_column": 32,
+              "end_line": 4,
+              "end_column": 46,
+              "byte_start": 89,
+              "byte_end": 103
+            },
+            "excerpt": "address target"
+          }
+        ]
+      },
+      "context": {
+        "contract": "PAlias",
+        "function": "run"
+      }
+    },
+    {
+      "id": "bf36465433c1b3969404aa65",
+      "rule_id": "OG-SOL-006",
+      "title": "Selfdestruct lacks a local caller restriction",
+      "severity": "high",
+      "confidence": "medium",
+      "message": "An externally callable function contains selfdestruct without a recognized local caller restriction.",
+      "remediation": "Remove the operation or enforce the intended caller policy and test unauthorized calls locally.",
+      "location": {
+        "file": "positive/guard_after_sink.sol",
+        "start_line": 4,
+        "start_column": 93,
+        "end_line": 4,
+        "end_column": 109,
+        "byte_start": 150,
+        "byte_end": 166
+      },
+      "evidence": {
+        "source_sha256": "24377ffd1658eb8ab0d55c2616a36f6e180886c9b7891537c6f58470b8dd729a",
+        "excerpt": "selfdestruct(to)",
+        "validated": true
+      },
+      "context": {
+        "contract": "PAfter",
+        "function": "sweep"
+      }
+    },
+    {
+      "id": "cfa175f97024668a142dc0ad",
+      "rule_id": "OG-SOL-005",
+      "title": "Caller controls a delegatecall target",
+      "severity": "high",
+      "confidence": "high",
+      "message": "An externally callable function contains delegation to a caller-derived target without a recognized local caller restriction.",
+      "remediation": "Use a trusted implementation target and enforce the intended caller/upgrade policy before delegation.",
+      "location": {
+        "file": "positive/guard_or_bypass.sol",
+        "start_line": 4,
+        "start_column": 156,
+        "end_line": 4,
+        "end_column": 181,
+        "byte_start": 213,
+        "byte_end": 238
+      },
+      "evidence": {
+        "source_sha256": "4979ebcac70be6697d56a1e91ffa8847dde0e04f309e7e4482c67fc1888a661f",
+        "excerpt": "target.delegatecall(data)",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "4979ebcac70be6697d56a1e91ffa8847dde0e04f309e7e4482c67fc1888a661f",
+            "label": "Caller-controlled target source",
+            "location": {
+              "file": "positive/guard_or_bypass.sol",
+              "start_line": 4,
+              "start_column": 57,
+              "end_line": 4,
+              "end_column": 71,
+              "byte_start": 114,
+              "byte_end": 128
+            },
+            "excerpt": "address target"
+          }
+        ]
+      },
+      "context": {
+        "contract": "POr",
+        "function": "run"
+      }
+    },
+    {
+      "id": "8367f96313cd2bc7a4b12715",
+      "rule_id": "OG-SOL-006",
+      "title": "Selfdestruct lacks a local caller restriction",
+      "severity": "high",
+      "confidence": "medium",
+      "message": "An externally callable function contains selfdestruct without a recognized local caller restriction.",
+      "remediation": "Remove the operation or enforce the intended caller policy and test unauthorized calls locally.",
+      "location": {
+        "file": "positive/modifier_guard_after_placeholder.sol",
+        "start_line": 4,
+        "start_column": 165,
+        "end_line": 4,
+        "end_column": 181,
+        "byte_start": 222,
+        "byte_end": 238
+      },
+      "evidence": {
+        "source_sha256": "3d0e75cec2b42f142a51bb518140e9df6adc3f3bbc27344291f59c405d23753e",
+        "excerpt": "selfdestruct(to)",
+        "validated": true
+      },
+      "context": {
+        "contract": "PModifierAfter",
+        "function": "sweep"
+      }
+    },
+    {
+      "id": "cc84edec4a0576d7420f8e88",
+      "rule_id": "OG-SOL-006",
+      "title": "Selfdestruct lacks a local caller restriction",
+      "severity": "high",
+      "confidence": "medium",
+      "message": "An externally callable function contains selfdestruct without a recognized local caller restriction.",
+      "remediation": "Remove the operation or enforce the intended caller policy and test unauthorized calls locally.",
+      "location": {
+        "file": "positive/nested_guard_not_dominating.sol",
+        "start_line": 4,
+        "start_column": 154,
+        "end_line": 4,
+        "end_column": 170,
+        "byte_start": 211,
+        "byte_end": 227
+      },
+      "evidence": {
+        "source_sha256": "706257ae9107af31aa2fba3d30019e939163b73587870e503a9cb5393c3e131f",
+        "excerpt": "selfdestruct(to)",
+        "validated": true
+      },
+      "context": {
+        "contract": "PNested",
+        "function": "sweep"
+      }
+    },
+    {
+      "id": "2f7a3246a2bac5137957c232",
+      "rule_id": "OG-SOL-005",
+      "title": "Caller controls a delegatecall target",
+      "severity": "high",
+      "confidence": "high",
+      "message": "An externally callable function contains delegation to a caller-derived target without a recognized local caller restriction.",
+      "remediation": "Use a trusted implementation target and enforce the intended caller/upgrade policy before delegation.",
+      "location": {
+        "file": "positive/noop_modifier.sol",
+        "start_line": 4,
+        "start_column": 132,
+        "end_line": 4,
+        "end_column": 157,
+        "byte_start": 189,
+        "byte_end": 214
+      },
+      "evidence": {
+        "source_sha256": "9206bcf65326e55e1ee5cd132b45d2973ba619e56745df4a1be9177dc796cb04",
+        "excerpt": "target.delegatecall(data)",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "9206bcf65326e55e1ee5cd132b45d2973ba619e56745df4a1be9177dc796cb04",
+            "label": "Caller-controlled target source",
+            "location": {
+              "file": "positive/noop_modifier.sol",
+              "start_line": 4,
+              "start_column": 60,
+              "end_line": 4,
+              "end_column": 74,
+              "byte_start": 117,
+              "byte_end": 131
+            },
+            "excerpt": "address target"
+          }
+        ]
+      },
+      "context": {
+        "contract": "PNoop",
+        "function": "run"
+      }
+    },
+    {
+      "id": "4aa2477fbc1b66920b00baf3",
+      "rule_id": "OG-SOL-007",
+      "title": "Loop repeatedly credits the full msg.value",
+      "severity": "high",
+      "confidence": "medium",
+      "message": "A loop writes the whole msg.value into storage on each iteration.",
+      "remediation": "Compute and validate a per-item allocation before the loop, or require a single recipient per payment.",
+      "location": {
+        "file": "positive/payment_alias_loop.sol",
+        "start_line": 4,
+        "start_column": 200,
+        "end_line": 4,
+        "end_column": 233,
+        "byte_start": 257,
+        "byte_end": 290
+      },
+      "evidence": {
+        "source_sha256": "edb52961f8cac92a050b181ce7fd7bf38387d4a297bbfbba3d57fcaffda7f66b",
+        "excerpt": "credits[recipients[i]] += payment",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "edb52961f8cac92a050b181ce7fd7bf38387d4a297bbfbba3d57fcaffda7f66b",
+            "label": "Repeated accounting operation",
+            "location": {
+              "file": "positive/payment_alias_loop.sol",
+              "start_line": 4,
+              "start_column": 157,
+              "end_line": 4,
+              "end_column": 236,
+              "byte_start": 214,
+              "byte_end": 293
+            },
+            "excerpt": "for(uint256 i; i<recipients.length; i++) { credits[recipients[i]] += payment; }"
+          },
+          {
+            "source_sha256": "edb52961f8cac92a050b181ce7fd7bf38387d4a297bbfbba3d57fcaffda7f66b",
+            "label": "Unscaled payment alias",
+            "location": {
+              "file": "positive/payment_alias_loop.sol",
+              "start_line": 4,
+              "start_column": 128,
+              "end_line": 4,
+              "end_column": 143,
+              "byte_start": 185,
+              "byte_end": 200
+            },
+            "excerpt": "uint256 payment"
+          },
+          {
+            "source_sha256": "edb52961f8cac92a050b181ce7fd7bf38387d4a297bbfbba3d57fcaffda7f66b",
+            "label": "Compiler-resolved storage declaration",
+            "location": {
+              "file": "positive/payment_alias_loop.sol",
+              "start_line": 4,
+              "start_column": 26,
+              "end_line": 4,
+              "end_column": 59,
+              "byte_start": 83,
+              "byte_end": 116
+            },
+            "excerpt": "mapping(address=>uint256) credits"
+          }
+        ]
+      },
+      "context": {
+        "contract": "PPaymentAlias",
+        "function": "deposit"
+      }
+    },
+    {
+      "id": "d5813b0a7bc7d77ce91494f4",
+      "rule_id": "OG-SOL-001",
+      "title": "Authorization uses tx.origin",
+      "severity": "high",
+      "confidence": "high",
+      "message": "tx.origin participates in a condition that can gate execution.",
+      "remediation": "Use msg.sender with an explicit role or ownership check, then add an access-control test.",
+      "location": {
+        "file": "positive/rule_001_vulnerable.sol",
+        "start_line": 4,
+        "start_column": 87,
+        "end_line": 4,
+        "end_column": 96,
+        "byte_start": 144,
+        "byte_end": 153
+      },
+      "evidence": {
+        "source_sha256": "a8e16c8ff660e050fdbc3dbacd138d5e306470f06878c05767946477a258500d",
+        "excerpt": "tx.origin",
+        "validated": true
+      },
+      "context": {
+        "contract": "R001V",
+        "function": "enter"
+      }
+    },
+    {
+      "id": "ce18761df4b2a0998de90561",
+      "rule_id": "OG-SOL-002",
+      "title": "State write follows an external call",
+      "severity": "high",
+      "confidence": "medium",
+      "message": "An address low-level call precedes a write to this contract's storage in the same function.",
+      "remediation": "Apply checks-effects-interactions and verify a reentrancy guard with a local regression test.",
+      "location": {
+        "file": "positive/rule_002_vulnerable.sol",
+        "start_line": 5,
+        "start_column": 83,
+        "end_line": 5,
+        "end_column": 125,
+        "byte_start": 194,
+        "byte_end": 236
+      },
+      "evidence": {
+        "source_sha256": "74d06511df87e588e845ec05602333d394f18064c62a1b1d806e2e668226767a",
+        "excerpt": "payable(msg.sender).call{value:amount}(\"\")",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "74d06511df87e588e845ec05602333d394f18064c62a1b1d806e2e668226767a",
+            "label": "Later storage write",
+            "location": {
+              "file": "positive/rule_002_vulnerable.sol",
+              "start_line": 5,
+              "start_column": 140,
+              "end_line": 5,
+              "end_column": 163,
+              "byte_start": 251,
+              "byte_end": 274
+            },
+            "excerpt": "credits[msg.sender] = 0"
+          },
+          {
+            "source_sha256": "74d06511df87e588e845ec05602333d394f18064c62a1b1d806e2e668226767a",
+            "label": "Compiler-resolved storage declaration",
+            "location": {
+              "file": "positive/rule_002_vulnerable.sol",
+              "start_line": 4,
+              "start_column": 18,
+              "end_line": 4,
+              "end_column": 53,
+              "byte_start": 75,
+              "byte_end": 110
+            },
+            "excerpt": "mapping(address => uint256) credits"
+          }
+        ]
+      },
+      "context": {
+        "contract": "R002V",
+        "function": "withdraw"
+      }
+    },
+    {
+      "id": "bca7b57cfa22d2c1770d8615",
+      "rule_id": "OG-SOL-003",
+      "title": "Low-level call result is not checked",
+      "severity": "medium",
+      "confidence": "high",
+      "message": "An address call/delegatecall/staticcall result is discarded, or its captured success flag is unused.",
+      "remediation": "Capture and enforce the success flag, or explicitly return it to a caller that handles failure.",
+      "location": {
+        "file": "positive/rule_003_vulnerable.sol",
+        "start_line": 4,
+        "start_column": 82,
+        "end_line": 4,
+        "end_column": 99,
+        "byte_start": 139,
+        "byte_end": 156
+      },
+      "evidence": {
+        "source_sha256": "792e195a24f90cc9346a8383300937e8d0a7f34e1a83c899480c586d31c8f041",
+        "excerpt": "target.call(data)",
+        "validated": true
+      },
+      "context": {
+        "contract": "R003V",
+        "function": "invoke"
+      }
+    },
+    {
+      "id": "6f07aa29ccb80bc3373d7df5",
+      "rule_id": "OG-SOL-004",
+      "title": "Ether send result is discarded",
+      "severity": "medium",
+      "confidence": "high",
+      "message": "The boolean from an address send operation is discarded.",
+      "remediation": "Handle failed delivery explicitly; prefer a pull-payment design when recipients can reject Ether.",
+      "location": {
+        "file": "positive/rule_004_vulnerable.sol",
+        "start_line": 4,
+        "start_column": 69,
+        "end_line": 4,
+        "end_column": 86,
+        "byte_start": 126,
+        "byte_end": 143
+      },
+      "evidence": {
+        "source_sha256": "b6b55d9fa2d87d1ef02f8073ad4f74aa97574221aac83446df8196d63a2bca42",
+        "excerpt": "recipient.send(1)",
+        "validated": true
+      },
+      "context": {
+        "contract": "R004V",
+        "function": "pay"
+      }
+    },
+    {
+      "id": "46f3189a6eb5826b69cbf7cf",
+      "rule_id": "OG-SOL-005",
+      "title": "Caller controls a delegatecall target",
+      "severity": "high",
+      "confidence": "high",
+      "message": "An externally callable function contains delegation to a caller-derived target without a recognized local caller restriction.",
+      "remediation": "Use a trusted implementation target and enforce the intended caller/upgrade policy before delegation.",
+      "location": {
+        "file": "positive/rule_005_vulnerable.sol",
+        "start_line": 4,
+        "start_column": 92,
+        "end_line": 4,
+        "end_column": 117,
+        "byte_start": 149,
+        "byte_end": 174
+      },
+      "evidence": {
+        "source_sha256": "597cd2aa796f756442cf41a81deab51248293685c0b8f383582ba24c459805fa",
+        "excerpt": "target.delegatecall(data)",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "597cd2aa796f756442cf41a81deab51248293685c0b8f383582ba24c459805fa",
+            "label": "Caller-controlled target source",
+            "location": {
+              "file": "positive/rule_005_vulnerable.sol",
+              "start_line": 4,
+              "start_column": 31,
+              "end_line": 4,
+              "end_column": 45,
+              "byte_start": 88,
+              "byte_end": 102
+            },
+            "excerpt": "address target"
+          }
+        ]
+      },
+      "context": {
+        "contract": "R005V",
+        "function": "run"
+      }
+    },
+    {
+      "id": "600738d05d5ae71f0fc6b405",
+      "rule_id": "OG-SOL-006",
+      "title": "Selfdestruct lacks a local caller restriction",
+      "severity": "high",
+      "confidence": "medium",
+      "message": "An externally callable function contains selfdestruct without a recognized local caller restriction.",
+      "remediation": "Remove the operation or enforce the intended caller policy and test unauthorized calls locally.",
+      "location": {
+        "file": "positive/rule_006_vulnerable.sol",
+        "start_line": 4,
+        "start_column": 71,
+        "end_line": 4,
+        "end_column": 94,
+        "byte_start": 128,
+        "byte_end": 151
+      },
+      "evidence": {
+        "source_sha256": "2048042ec4d01f80a4c07a308bb48b2799a08f3d12e85c9ef5b4706de00dd30e",
+        "excerpt": "selfdestruct(recipient)",
+        "validated": true
+      },
+      "context": {
+        "contract": "R006V",
+        "function": "sweep"
+      }
+    },
+    {
+      "id": "52e2715af61f7a06900c0d11",
+      "rule_id": "OG-SOL-007",
+      "title": "Loop repeatedly credits the full msg.value",
+      "severity": "high",
+      "confidence": "medium",
+      "message": "A loop writes the whole msg.value into storage on each iteration.",
+      "remediation": "Compute and validate a per-item allocation before the loop, or require a single recipient per payment.",
+      "location": {
+        "file": "positive/rule_007_vulnerable.sol",
+        "start_line": 5,
+        "start_column": 47,
+        "end_line": 5,
+        "end_column": 82,
+        "byte_start": 225,
+        "byte_end": 260
+      },
+      "evidence": {
+        "source_sha256": "26c031a4d650c0459dfa8b4558516ce497cd238b19cde426830f074d3c85df0a",
+        "excerpt": "credits[recipients[i]] += msg.value",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "26c031a4d650c0459dfa8b4558516ce497cd238b19cde426830f074d3c85df0a",
+            "label": "Repeated accounting operation",
+            "location": {
+              "file": "positive/rule_007_vulnerable.sol",
+              "start_line": 5,
+              "start_column": 1,
+              "end_line": 5,
+              "end_column": 85,
+              "byte_start": 179,
+              "byte_end": 263
+            },
+            "excerpt": "for (uint256 i; i < recipients.length; i++) { credits[recipients[i]] += msg.value; }"
+          },
+          {
+            "source_sha256": "26c031a4d650c0459dfa8b4558516ce497cd238b19cde426830f074d3c85df0a",
+            "label": "Compiler-resolved storage declaration",
+            "location": {
+              "file": "positive/rule_007_vulnerable.sol",
+              "start_line": 4,
+              "start_column": 18,
+              "end_line": 4,
+              "end_column": 53,
+              "byte_start": 75,
+              "byte_end": 110
+            },
+            "excerpt": "mapping(address => uint256) credits"
+          }
+        ]
+      },
+      "context": {
+        "contract": "R007V",
+        "function": "deposit"
+      }
+    },
+    {
+      "id": "4aece2341c68c99c45422e1f",
+      "rule_id": "OG-SOL-008",
+      "title": "Block-derived array selection",
+      "severity": "medium",
+      "confidence": "high",
+      "message": "A block-derived value is used in modulo arithmetic to choose an array index.",
+      "remediation": "Use an appropriate verifiable randomness or commit/reveal design with an explicit adversary model.",
+      "location": {
+        "file": "positive/rule_008_vulnerable.sol",
+        "start_line": 5,
+        "start_column": 17,
+        "end_line": 5,
+        "end_column": 106,
+        "byte_start": 167,
+        "byte_end": 256
+      },
+      "evidence": {
+        "source_sha256": "831ccaf91e29005c57032a9f24f62ec1345e397c645b62afa2dcce75767c6941",
+        "excerpt": "uint256(keccak256(abi.encodePacked(block.timestamp, block.prevrandao))) % entrants.length",
+        "validated": true
+      },
+      "context": {
+        "contract": "R008V",
+        "function": "pick"
+      }
+    },
+    {
+      "id": "c30a3caf38386959e4b8d520",
+      "rule_id": "OG-SOL-009",
+      "title": "Packed hash combines dynamic inputs",
+      "severity": "high",
+      "confidence": "high",
+      "message": "A hash uses packed encoding of two or more locally resolved string/bytes values, leaving input boundaries ambiguous.",
+      "remediation": "Use abi.encode with explicit types and domain separation for the intended hash or signature protocol.",
+      "location": {
+        "file": "positive/rule_009_vulnerable.sol",
+        "start_line": 4,
+        "start_column": 119,
+        "end_line": 4,
+        "end_column": 140,
+        "byte_start": 176,
+        "byte_end": 197
+      },
+      "evidence": {
+        "source_sha256": "75fb567e0c72e263b15e13bea2d50c3c9b26fc767a025976e7cdddbfce798389",
+        "excerpt": "abi.encodePacked(a,b)",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "75fb567e0c72e263b15e13bea2d50c3c9b26fc767a025976e7cdddbfce798389",
+            "label": "Dynamic hash input",
+            "location": {
+              "file": "positive/rule_009_vulnerable.sol",
+              "start_line": 4,
+              "start_column": 32,
+              "end_line": 4,
+              "end_column": 49,
+              "byte_start": 89,
+              "byte_end": 106
+            },
+            "excerpt": "string calldata a"
+          },
+          {
+            "source_sha256": "75fb567e0c72e263b15e13bea2d50c3c9b26fc767a025976e7cdddbfce798389",
+            "label": "Dynamic hash input",
+            "location": {
+              "file": "positive/rule_009_vulnerable.sol",
+              "start_line": 4,
+              "start_column": 51,
+              "end_line": 4,
+              "end_column": 67,
+              "byte_start": 108,
+              "byte_end": 124
+            },
+            "excerpt": "bytes calldata b"
+          },
+          {
+            "source_sha256": "75fb567e0c72e263b15e13bea2d50c3c9b26fc767a025976e7cdddbfce798389",
+            "label": "Compiler-resolved dynamic hash input",
+            "location": {
+              "file": "positive/rule_009_vulnerable.sol",
+              "start_line": 4,
+              "start_column": 32,
+              "end_line": 4,
+              "end_column": 49,
+              "byte_start": 89,
+              "byte_end": 106
+            },
+            "excerpt": "string calldata a"
+          },
+          {
+            "source_sha256": "75fb567e0c72e263b15e13bea2d50c3c9b26fc767a025976e7cdddbfce798389",
+            "label": "Compiler-resolved dynamic hash input",
+            "location": {
+              "file": "positive/rule_009_vulnerable.sol",
+              "start_line": 4,
+              "start_column": 51,
+              "end_line": 4,
+              "end_column": 67,
+              "byte_start": 108,
+              "byte_end": 124
+            },
+            "excerpt": "bytes calldata b"
+          }
+        ]
+      },
+      "context": {
+        "contract": "R009V",
+        "function": "hash"
+      }
+    },
+    {
+      "id": "c8ff351ca63f61ff69c5f059",
+      "rule_id": "OG-SOL-010",
+      "title": "Token operation boolean is discarded",
+      "severity": "medium",
+      "confidence": "high",
+      "message": "A transfer/transferFrom/approve operation declared to return bool is used without its result.",
+      "remediation": "Use a compatible SafeERC20 wrapper or enforce the token's return value and test failure behavior.",
+      "location": {
+        "file": "positive/rule_010_vulnerable.sol",
+        "start_line": 5,
+        "start_column": 145,
+        "end_line": 5,
+        "end_column": 171,
+        "byte_start": 296,
+        "byte_end": 322
+      },
+      "evidence": {
+        "source_sha256": "c8bdea622949edd3bcd9445e9c0f857a6501c00df500817f7c3b5499e8e10a21",
+        "excerpt": "token.transfer(to, amount)",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "c8bdea622949edd3bcd9445e9c0f857a6501c00df500817f7c3b5499e8e10a21",
+            "label": "Compiler-resolved boolean-returning method",
+            "location": {
+              "file": "positive/rule_010_vulnerable.sol",
+              "start_line": 4,
+              "start_column": 23,
+              "end_line": 4,
+              "end_column": 92,
+              "byte_start": 80,
+              "byte_end": 149
+            },
+            "excerpt": "function transfer(address to, uint256 amount) external returns(bool);"
+          }
+        ]
+      },
+      "context": {
+        "contract": "R010V",
+        "function": "pay"
+      }
+    },
+    {
+      "id": "bc4e6e03b1546bf654baceb7",
+      "rule_id": "OG-SOL-011",
+      "title": "Strict equality on contract Ether balance",
+      "severity": "medium",
+      "confidence": "medium",
+      "message": "A condition requires this contract's Ether balance to equal an exact value.",
+      "remediation": "Track internal accounting explicitly and avoid relying on an exact external Ether balance.",
+      "location": {
+        "file": "positive/rule_011_vulnerable.sol",
+        "start_line": 4,
+        "start_column": 75,
+        "end_line": 4,
+        "end_column": 108,
+        "byte_start": 132,
+        "byte_end": 165
+      },
+      "evidence": {
+        "source_sha256": "9a1a5b54492022e515c342e343ec669ef77b729bd6268308bfad22e2dfcb6a0f",
+        "excerpt": "address(this).balance == expected",
+        "validated": true
+      },
+      "context": {
+        "contract": "R011V",
+        "function": "exact"
+      }
+    },
+    {
+      "id": "9a19d4573e4b2ffcadbb2d03",
+      "rule_id": "OG-SOL-012",
+      "title": "Reverting Ether transfer inside a loop",
+      "severity": "medium",
+      "confidence": "medium",
+      "message": "A payable-address transfer in a loop lets a rejecting recipient revert the whole batch.",
+      "remediation": "Use independently claimable payments or isolate recipient failures without losing accounting correctness.",
+      "location": {
+        "file": "positive/rule_012_vulnerable.sol",
+        "start_line": 5,
+        "start_column": 47,
+        "end_line": 5,
+        "end_column": 72,
+        "byte_start": 194,
+        "byte_end": 219
+      },
+      "evidence": {
+        "source_sha256": "99fa65909ced89cd37437cabe2b2bb10341b8b86772ad51d0bb639bc056597fc",
+        "excerpt": "recipients[i].transfer(1)",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "99fa65909ced89cd37437cabe2b2bb10341b8b86772ad51d0bb639bc056597fc",
+            "label": "Enclosing batch loop",
+            "location": {
+              "file": "positive/rule_012_vulnerable.sol",
+              "start_line": 5,
+              "start_column": 1,
+              "end_line": 5,
+              "end_column": 75,
+              "byte_start": 148,
+              "byte_end": 222
+            },
+            "excerpt": "for (uint256 i; i < recipients.length; i++) { recipients[i].transfer(1); }"
+          }
+        ]
+      },
+      "context": {
+        "contract": "R012V",
+        "function": "batch"
+      }
+    },
+    {
+      "id": "88a50f593e9d44ea8596bdbe",
+      "rule_id": "OG-SOL-006",
+      "title": "Selfdestruct lacks a local caller restriction",
+      "severity": "high",
+      "confidence": "medium",
+      "message": "An externally callable function contains selfdestruct without a recognized local caller restriction.",
+      "remediation": "Remove the operation or enforce the intended caller policy and test unauthorized calls locally.",
+      "location": {
+        "file": "positive/shadowed_require_is_not_guard.sol",
+        "start_line": 4,
+        "start_column": 173,
+        "end_line": 4,
+        "end_column": 189,
+        "byte_start": 230,
+        "byte_end": 246
+      },
+      "evidence": {
+        "source_sha256": "5952106e6a32a9ff15399d031ee5742e4c70b5f07d0ddf1aa5ccdba837fc4c41",
+        "excerpt": "selfdestruct(to)",
+        "validated": true
+      },
+      "context": {
+        "contract": "PShadowedRequire",
+        "function": "sweep"
+      }
+    },
+    {
+      "id": "6a7a619a9502516a0d34cc71",
+      "rule_id": "OG-SOL-003",
+      "title": "Low-level call result is not checked",
+      "severity": "medium",
+      "confidence": "high",
+      "message": "An address call/delegatecall/staticcall result is discarded, or its captured success flag is unused.",
+      "remediation": "Capture and enforce the success flag, or explicitly return it to a caller that handles failure.",
+      "location": {
+        "file": "positive/staticcall_discarded.sol",
+        "start_line": 4,
+        "start_column": 69,
+        "end_line": 4,
+        "end_column": 90,
+        "byte_start": 126,
+        "byte_end": 147
+      },
+      "evidence": {
+        "source_sha256": "2cd54a40bf0e6828bbb88edee26cd21f50f94e75c01aa34f5e03d8330d4b6273",
+        "excerpt": "target.staticcall(\"\")",
+        "validated": true
+      },
+      "context": {
+        "contract": "PStaticcall",
+        "function": "run"
+      }
+    },
+    {
+      "id": "ea8805c9a5e9f29c500ddf39",
+      "rule_id": "OG-SOL-003",
+      "title": "Low-level call result is not checked",
+      "severity": "medium",
+      "confidence": "high",
+      "message": "An address call/delegatecall/staticcall result is discarded, or its captured success flag is unused.",
+      "remediation": "Capture and enforce the success flag, or explicitly return it to a caller that handles failure.",
+      "location": {
+        "file": "positive/unused_success_shadowed_use.sol",
+        "start_line": 4,
+        "start_column": 97,
+        "end_line": 4,
+        "end_column": 112,
+        "byte_start": 154,
+        "byte_end": 169
+      },
+      "evidence": {
+        "source_sha256": "fdc45c5c35cfa0c776201bfadf9a34d1c5016b9c6c4fd216e5d01d3f350af842",
+        "excerpt": "target.call(\"\")",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "fdc45c5c35cfa0c776201bfadf9a34d1c5016b9c6c4fd216e5d01d3f350af842",
+            "label": "Unused captured success flag",
+            "location": {
+              "file": "positive/unused_success_shadowed_use.sol",
+              "start_line": 4,
+              "start_column": 85,
+              "end_line": 4,
+              "end_column": 92,
+              "byte_start": 142,
+              "byte_end": 149
+            },
+            "excerpt": "bool ok"
+          }
+        ]
+      },
+      "context": {
+        "contract": "PUnusedShadow",
+        "function": "run"
+      }
+    }
+  ]
+}

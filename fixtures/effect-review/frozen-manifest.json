@@ -1,0 +1,407 @@
+{
+  "schema_version": 1,
+  "frozen_at_utc": "2026-11-14T01:15:24.597738+00:00",
+  "purpose": "Independent adversarial native-effect challenges; not an unbiased accuracy benchmark. Cases used in later tuning become development cases.",
+  "compiler": "0.8.26",
+  "cases": [
+    {
+      "id": "c01_helper_actual_v",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "notes": "",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "c3a1f269712e1c2fa61397f979c9e60900afe8bc1d144273ced9179b1e795f8b",
+          "utf8_bytes": 237
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c02_helper_actual_fixed",
+      "expectation": "clear",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "notes": "",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "68986da24ae13dfc1faab230d3c1d9ac3e353e6dd6e2e6a1f34408550c4e01db",
+          "utf8_bytes": 237
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c03_storage_parameter_v",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "notes": "",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "a50ffd4de660e4ebf2a888fd902dffb9f3124afbbffd12d983fd02cda34b4b98",
+          "utf8_bytes": 351
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c04_memory_parameter_fixed",
+      "expectation": "clear",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "notes": "",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "267398c6c244748e3e8fa0d70a8765c6f901174d865c230bffd5bf5f11021966",
+          "utf8_bytes": 369
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 1
+    },
+    {
+      "id": "c05_overload_fixed",
+      "expectation": "clear",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "notes": "",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "7387cd720e71a19bfbb2417a8fa36e7fb24952864324dc12849bfd62067424eb",
+          "utf8_bytes": 273
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c06_overload_actual_v",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "notes": "",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "ac4e6b7468b62f9b9a530dedc050545e3c7a7ba561b687ef1aa19cadf94a616f",
+          "utf8_bytes": 278
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c07_virtual_dispatch",
+      "expectation": "detect_or_incomplete",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "notes": "Unknown virtual dispatch may be reported incomplete; a declaration ID alone is not a proven target.",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "38018989c83ad4af2a7f32888ea37ae042ed4ec1512388d79ceee2d53a599082",
+          "utf8_bytes": 311
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c08_explicit_super_v",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "notes": "",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "af4c3ba2ae72b63c37d6fe25817c9ca511a5b089c41fa3067181db8b9a578e53",
+          "utf8_bytes": 307
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c09_crossfile_two_callers",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 2,
+      "notes": "Require distinct caller-site locations/fingerprints, helper and storage evidence hashes.",
+      "files": {
+        "src/Base.sol": {
+          "sha256": "638a6a785dc6d2fedf04593c87df5171dffdd76c8a1dfa150e6deea390a0a491",
+          "utf8_bytes": 179
+        },
+        "src/Entry.sol": {
+          "sha256": "6eb5ca9145e1ff6b5f5564e87cf3efbf63286b2022fc8eeb0851be83bf2f5da0",
+          "utf8_bytes": 220
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c10_internal_pointer",
+      "expectation": "detect_or_incomplete",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "notes": "Unresolved function pointer must not silently become a complete clean report.",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "435b94d6a8bc51a95ad3eafc14abc51f38ef093f934cdbac86ee197a5c31721c",
+          "utf8_bytes": 336
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c11_recursive_effect",
+      "expectation": "detect_or_incomplete",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "notes": "Cycle requires an explicit diagnostic unless sound effect summarization proves the effect.",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "b25ba85693842d0e89756cdbf9724b3ffd548679af4b096b9c22227c0761681b",
+          "utf8_bytes": 307
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c12_expansion_bound",
+      "expectation": "detect_or_incomplete",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "notes": "A depth limit must yield incomplete coverage rather than complete zero findings.",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "eaef7f5eb74da16a2a907484ed9f26a1b0361fcad5487b14b43bc9665b1c7c02",
+          "utf8_bytes": 762
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c13_exclusive_branches_fixed",
+      "expectation": "clear",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "notes": "",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "d15e31c4d3e0237772494501890e4841ff787a8ef346e8714ea61b7e74cf0612",
+          "utf8_bytes": 285
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c14_callee_return_v",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "notes": "A return in the callee does not terminate the caller.",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "626c5e7967df8c846300073f2489991120992bcf996d70ebc60fa138af5b9c92",
+          "utf8_bytes": 239
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c15_terminated_branch_fixed",
+      "expectation": "clear",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "notes": "",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "370db2e2a6ebeebbfbcb2fb5227df1c3d89e6e5bdd81c0daca96578dc6b92558",
+          "utf8_bytes": 286
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c16_composed_modifiers_v",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "notes": "",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "f3c7772b8f52443a2f600aba466a8557dabc8a6a3556e2f3f3f3980b92240f94",
+          "utf8_bytes": 300
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c17_composed_modifiers_fixed",
+      "expectation": "clear",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "notes": "",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "975bb04fe47ce45a1814b54130f3be143fdbc74a904c9c6d8986657dd99730d4",
+          "utf8_bytes": 300
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c18_storage_rebind_v",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "notes": "",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "82476b1f19950420eb91acc0af9a75c181379840809b909c0333e27a211cd9f1",
+          "utf8_bytes": 291
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c19_rebind_is_not_write",
+      "expectation": "clear",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "notes": "Assigning a new storage reference is pointer rebinding, not a write to the referent.",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "46f8474a9812bf6f90fd05a319107c0709d3b7c66ede304ae95adbc168d6e384",
+          "utf8_bytes": 278
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c20_inherited_noop_v",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-005",
+      "minimum_count": 1,
+      "notes": "",
+      "files": {
+        "src/Guard.sol": {
+          "sha256": "ecfc6b33e3b50c1c3d5a9a54ac33b63a5de2f6ac2e5f9bcfed5cde87a492b774",
+          "utf8_bytes": 104
+        },
+        "src/Entry.sol": {
+          "sha256": "37ee3c9b64f422e17bf0f2ec5a4e66de8eba4c4096659dfc14981d273cd666df",
+          "utf8_bytes": 226
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c21_modifier_argument_attacker",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-005",
+      "minimum_count": 1,
+      "notes": "",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "30092f2527891627db317db14fcc02b80ca628a17570ece4cf420449013a2650",
+          "utf8_bytes": 291
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c22_modifier_argument_owner",
+      "expectation": "clear",
+      "focus_rule": "OG-SOL-005",
+      "minimum_count": 1,
+      "notes": "",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "5bb0f1b143abdd0c8c9fcfeb2ec3b8011b3abcb35e54a830e408e77886b494d3",
+          "utf8_bytes": 326
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c23_cross_modifier_poison",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-005",
+      "minimum_count": 1,
+      "notes": "",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "bd1e4e75f20cc2a4f553dc86a5527cec50f2de3f14fd7a84feb92cf0608f90aa",
+          "utf8_bytes": 331
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c24_unknown_guard",
+      "expectation": "detect_or_incomplete",
+      "focus_rule": "OG-SOL-005",
+      "minimum_count": 1,
+      "notes": "Unresolved external authorization is not proof that caller control is restricted.",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "3200261fd43ca87f09d1f46ca70e0b86b58f490a4aaad73e78716547c082cc0b",
+          "utf8_bytes": 340
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c25_external_this_boundary",
+      "expectation": "detect_or_incomplete",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "notes": "this.pay is an external interaction, not a same-context private-helper call.",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "0d4490e82cb5cb12c971e3a33c8776fd3503d26fac7f44bced12ee01a2ab080c",
+          "utf8_bytes": 234
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    },
+    {
+      "id": "c26_direct_positive_control",
+      "expectation": "detect",
+      "focus_rule": "OG-SOL-002",
+      "minimum_count": 1,
+      "notes": "",
+      "files": {
+        "src/Case.sol": {
+          "sha256": "6ede64c38617a1f163d87a07c2a620a83d6fc6902a86a2621c8c283f40320503",
+          "utf8_bytes": 184
+        }
+      },
+      "compiler_accepted": true,
+      "compiler_warning_count": 0
+    }
+  ],
+  "canonical_payload_sha256": "cbf411ae966313627f3a7b28e7b84a4f8dd6ffd9193c91d029c720bf963dbbd7"
+}

@@ -1,0 +1,121 @@
+{
+  "schema_version": 3,
+  "engine_version": "0.1.4",
+  "scanned_files": 1,
+  "analysis": {
+    "mode": "solc",
+    "compiler_version": "0.8.26+commit.8a97fa7a.Linux.g++"
+  },
+  "coverage": {
+    "rule_set": "solidity-core/2026.11",
+    "rules": [
+      "OG-SOL-001",
+      "OG-SOL-002",
+      "OG-SOL-003",
+      "OG-SOL-004",
+      "OG-SOL-005",
+      "OG-SOL-006",
+      "OG-SOL-007",
+      "OG-SOL-008",
+      "OG-SOL-009",
+      "OG-SOL-010",
+      "OG-SOL-011",
+      "OG-SOL-012"
+    ],
+    "files": [
+      "Case.sol"
+    ],
+    "source_sha256": {
+      "Case.sol": "6287aa21483c85519d0747f3f50ca74c956a0a8004af0094740f0050b5d8a21a"
+    },
+    "complete": true
+  },
+  "diagnostics": [],
+  "findings": [
+    {
+      "id": "dc4538bf9333354bada85e0a",
+      "rule_id": "OG-SOL-002",
+      "title": "State write follows an external call",
+      "severity": "high",
+      "confidence": "medium",
+      "message": "An external interaction precedes a write to this contract's storage on a modeled execution path.",
+      "remediation": "Apply checks-effects-interactions and verify a reentrancy guard with a local regression test.",
+      "location": {
+        "file": "Case.sol",
+        "start_line": 3,
+        "start_column": 361,
+        "end_line": 3,
+        "end_column": 381,
+        "byte_start": 416,
+        "byte_end": 436
+      },
+      "evidence": {
+        "source_sha256": "6287aa21483c85519d0747f3f50ca74c956a0a8004af0094740f0050b5d8a21a",
+        "excerpt": "to.call{value:n}(\"\")",
+        "validated": true,
+        "related": [
+          {
+            "source_sha256": "6287aa21483c85519d0747f3f50ca74c956a0a8004af0094740f0050b5d8a21a",
+            "label": "Resolved external interaction",
+            "location": {
+              "file": "Case.sol",
+              "start_line": 3,
+              "start_column": 361,
+              "end_line": 3,
+              "end_column": 381,
+              "byte_start": 416,
+              "byte_end": 436
+            },
+            "excerpt": "to.call{value:n}(\"\")"
+          },
+          {
+            "source_sha256": "6287aa21483c85519d0747f3f50ca74c956a0a8004af0094740f0050b5d8a21a",
+            "label": "Later storage write",
+            "location": {
+              "file": "Case.sol",
+              "start_line": 3,
+              "start_column": 396,
+              "end_line": 3,
+              "end_column": 411,
+              "byte_start": 451,
+              "byte_end": 466
+            },
+            "excerpt": "slot.amount = 0"
+          },
+          {
+            "source_sha256": "6287aa21483c85519d0747f3f50ca74c956a0a8004af0094740f0050b5d8a21a",
+            "label": "Compiler-resolved storage root",
+            "location": {
+              "file": "Case.sol",
+              "start_line": 3,
+              "start_column": 87,
+              "end_line": 3,
+              "end_column": 123,
+              "byte_start": 142,
+              "byte_end": 178
+            },
+            "excerpt": "mapping(address => Credit) alternate"
+          },
+          {
+            "source_sha256": "6287aa21483c85519d0747f3f50ca74c956a0a8004af0094740f0050b5d8a21a",
+            "label": "Resolved effect binding or call chain",
+            "location": {
+              "file": "Case.sol",
+              "start_line": 3,
+              "start_column": 318,
+              "end_line": 3,
+              "end_column": 346,
+              "byte_start": 373,
+              "byte_end": 401
+            },
+            "excerpt": "slot = alternate[msg.sender]"
+          }
+        ]
+      },
+      "context": {
+        "contract": "Case",
+        "function": "run"
+      }
+    }
+  ]
+}

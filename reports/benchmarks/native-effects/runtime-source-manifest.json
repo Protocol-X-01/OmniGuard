@@ -1,0 +1,30 @@
+{
+  "recorded_at_utc": "2026-11-14T01:14:38.114468+00:00",
+  "timing": "Sources authored before first witness run; this source-only manifest recorded after first witness run and before any new-engine evaluation. Generated cache/output files excluded.",
+  "files": [
+    {
+      "path": "outputs/omniguard/fixtures/effect-vault/fixed/foundry.toml",
+      "sha256": "40b8e0e7a74896747ba6108ea482b0a8a9415027f93b317d9e825419f66e0c44"
+    },
+    {
+      "path": "outputs/omniguard/fixtures/effect-vault/fixed/src/EffectVault.sol",
+      "sha256": "18c00bd192c116d3b419c51b182f1301f41e602a5a9eb5e567b64860324635d8"
+    },
+    {
+      "path": "outputs/omniguard/fixtures/effect-vault/vulnerable/foundry.toml",
+      "sha256": "40b8e0e7a74896747ba6108ea482b0a8a9415027f93b317d9e825419f66e0c44"
+    },
+    {
+      "path": "outputs/omniguard/fixtures/effect-vault/vulnerable/src/EffectVault.sol",
+      "sha256": "ea933c4380fd876fd25bff485be6980573cd25a8c67ff84841927fbc48ee18f8"
+    },
+    {
+      "path": "outputs/omniguard/fixtures/effect-tests/foundry.toml",
+      "sha256": "14f9e76ec6aaa3d504530e401063b2d88d9a805cb8af9c5c0a0ae6afd5e3efa5"
+    },
+    {
+      "path": "outputs/omniguard/fixtures/effect-tests/test/EffectWitness.t.sol",
+      "sha256": "efd0f1e05cf4dd4216b5997e8723253742ba3b3c905b49deee3b422655366032"
+    }
+  ]
+}

@@ -1,0 +1,500 @@
+{
+  "bundle_version": 1,
+  "target": {
+    "id": "omniguard-patterns-regression",
+    "name": "Solidity rule pack fixture",
+    "kind": "isolated-fixture"
+  },
+  "revision": "patterns-vulnerable-v0.1.3",
+  "rules": [
+    "OG-SOL-001",
+    "OG-SOL-002",
+    "OG-SOL-003",
+    "OG-SOL-004",
+    "OG-SOL-005",
+    "OG-SOL-006",
+    "OG-SOL-007",
+    "OG-SOL-008",
+    "OG-SOL-009",
+    "OG-SOL-010",
+    "OG-SOL-011",
+    "OG-SOL-012"
+  ],
+  "report": {
+    "schema_version": 3,
+    "engine_version": "0.1.3",
+    "scanned_files": 1,
+    "analysis": {
+      "mode": "source",
+      "compiler_version": null
+    },
+    "coverage": {
+      "rule_set": "solidity-core/2026.11",
+      "rules": [
+        "OG-SOL-001",
+        "OG-SOL-002",
+        "OG-SOL-003",
+        "OG-SOL-004",
+        "OG-SOL-005",
+        "OG-SOL-006",
+        "OG-SOL-007",
+        "OG-SOL-008",
+        "OG-SOL-009",
+        "OG-SOL-010",
+        "OG-SOL-011",
+        "OG-SOL-012"
+      ],
+      "files": [
+        "Patterns.sol"
+      ],
+      "source_sha256": {
+        "Patterns.sol": "7f2b36a45ea3bcb6a79f42eaa06d71d37c60b5a48db1235d774dd5c601a19bd2"
+      },
+      "complete": true
+    },
+    "diagnostics": [],
+    "findings": [
+      {
+        "id": "23d8487e24e4b65c07638a29",
+        "rule_id": "OG-SOL-001",
+        "title": "Authorization uses tx.origin",
+        "severity": "high",
+        "confidence": "high",
+        "message": "tx.origin participates in a condition that can gate execution.",
+        "remediation": "Use msg.sender with an explicit role or ownership check, then add an access-control test.",
+        "location": {
+          "file": "Patterns.sol",
+          "start_line": 6,
+          "start_column": 87,
+          "end_line": 6,
+          "end_column": 96,
+          "byte_start": 201,
+          "byte_end": 210
+        },
+        "evidence": {
+          "source_sha256": "7f2b36a45ea3bcb6a79f42eaa06d71d37c60b5a48db1235d774dd5c601a19bd2",
+          "excerpt": "tx.origin",
+          "validated": true
+        },
+        "context": {
+          "contract": "R001V",
+          "function": "enter"
+        }
+      },
+      {
+        "id": "699e7898414bc6f7723e15c7",
+        "rule_id": "OG-SOL-002",
+        "title": "State write follows an external call",
+        "severity": "high",
+        "confidence": "medium",
+        "message": "An address low-level call precedes a write to this contract's storage in the same function.",
+        "remediation": "Apply checks-effects-interactions and verify a reentrancy guard with a local regression test.",
+        "location": {
+          "file": "Patterns.sol",
+          "start_line": 9,
+          "start_column": 83,
+          "end_line": 9,
+          "end_column": 125,
+          "byte_start": 363,
+          "byte_end": 405
+        },
+        "evidence": {
+          "source_sha256": "7f2b36a45ea3bcb6a79f42eaa06d71d37c60b5a48db1235d774dd5c601a19bd2",
+          "excerpt": "payable(msg.sender).call{value:amount}(\"\")",
+          "validated": true,
+          "related": [
+            {
+              "source_sha256": "7f2b36a45ea3bcb6a79f42eaa06d71d37c60b5a48db1235d774dd5c601a19bd2",
+              "label": "Later storage write",
+              "location": {
+                "file": "Patterns.sol",
+                "start_line": 9,
+                "start_column": 140,
+                "end_line": 9,
+                "end_column": 163,
+                "byte_start": 420,
+                "byte_end": 443
+              },
+              "excerpt": "credits[msg.sender] = 0"
+            }
+          ]
+        },
+        "context": {
+          "contract": "R002V",
+          "function": "withdraw"
+        }
+      },
+      {
+        "id": "920e025d6fddfcd13a164f43",
+        "rule_id": "OG-SOL-003",
+        "title": "Low-level call result is not checked",
+        "severity": "medium",
+        "confidence": "high",
+        "message": "An address call/delegatecall/staticcall result is discarded, or its captured success flag is unused.",
+        "remediation": "Capture and enforce the success flag, or explicitly return it to a caller that handles failure.",
+        "location": {
+          "file": "Patterns.sol",
+          "start_line": 11,
+          "start_column": 82,
+          "end_line": 11,
+          "end_column": 99,
+          "byte_start": 531,
+          "byte_end": 548
+        },
+        "evidence": {
+          "source_sha256": "7f2b36a45ea3bcb6a79f42eaa06d71d37c60b5a48db1235d774dd5c601a19bd2",
+          "excerpt": "target.call(data)",
+          "validated": true
+        },
+        "context": {
+          "contract": "R003V",
+          "function": "invoke"
+        }
+      },
+      {
+        "id": "a3cb703d265c2c4fea19ea00",
+        "rule_id": "OG-SOL-004",
+        "title": "Ether send result is discarded",
+        "severity": "medium",
+        "confidence": "high",
+        "message": "The boolean from an address send operation is discarded.",
+        "remediation": "Handle failed delivery explicitly; prefer a pull-payment design when recipients can reject Ether.",
+        "location": {
+          "file": "Patterns.sol",
+          "start_line": 13,
+          "start_column": 69,
+          "end_line": 13,
+          "end_column": 86,
+          "byte_start": 623,
+          "byte_end": 640
+        },
+        "evidence": {
+          "source_sha256": "7f2b36a45ea3bcb6a79f42eaa06d71d37c60b5a48db1235d774dd5c601a19bd2",
+          "excerpt": "recipient.send(1)",
+          "validated": true
+        },
+        "context": {
+          "contract": "R004V",
+          "function": "pay"
+        }
+      },
+      {
+        "id": "c38fd0228da38a133e8db13c",
+        "rule_id": "OG-SOL-005",
+        "title": "Caller controls a delegatecall target",
+        "severity": "high",
+        "confidence": "high",
+        "message": "An externally callable function contains delegation to a caller-derived target without a recognized local caller restriction.",
+        "remediation": "Use a trusted implementation target and enforce the intended caller/upgrade policy before delegation.",
+        "location": {
+          "file": "Patterns.sol",
+          "start_line": 15,
+          "start_column": 92,
+          "end_line": 15,
+          "end_column": 117,
+          "byte_start": 738,
+          "byte_end": 763
+        },
+        "evidence": {
+          "source_sha256": "7f2b36a45ea3bcb6a79f42eaa06d71d37c60b5a48db1235d774dd5c601a19bd2",
+          "excerpt": "target.delegatecall(data)",
+          "validated": true,
+          "related": [
+            {
+              "source_sha256": "7f2b36a45ea3bcb6a79f42eaa06d71d37c60b5a48db1235d774dd5c601a19bd2",
+              "label": "Caller-controlled target source",
+              "location": {
+                "file": "Patterns.sol",
+                "start_line": 15,
+                "start_column": 31,
+                "end_line": 15,
+                "end_column": 45,
+                "byte_start": 677,
+                "byte_end": 691
+              },
+              "excerpt": "address target"
+            }
+          ]
+        },
+        "context": {
+          "contract": "R005V",
+          "function": "run"
+        }
+      },
+      {
+        "id": "9be50e48218b9107378e48e5",
+        "rule_id": "OG-SOL-006",
+        "title": "Selfdestruct lacks a local caller restriction",
+        "severity": "high",
+        "confidence": "medium",
+        "message": "An externally callable function contains selfdestruct without a recognized local caller restriction.",
+        "remediation": "Remove the operation or enforce the intended caller policy and test unauthorized calls locally.",
+        "location": {
+          "file": "Patterns.sol",
+          "start_line": 17,
+          "start_column": 71,
+          "end_line": 17,
+          "end_column": 94,
+          "byte_start": 853,
+          "byte_end": 876
+        },
+        "evidence": {
+          "source_sha256": "7f2b36a45ea3bcb6a79f42eaa06d71d37c60b5a48db1235d774dd5c601a19bd2",
+          "excerpt": "selfdestruct(recipient)",
+          "validated": true
+        },
+        "context": {
+          "contract": "R006V",
+          "function": "sweep"
+        }
+      },
+      {
+        "id": "006b4534e0c22e18cd4a5d45",
+        "rule_id": "OG-SOL-007",
+        "title": "Loop repeatedly credits the full msg.value",
+        "severity": "high",
+        "confidence": "medium",
+        "message": "A loop writes the whole msg.value into storage on each iteration.",
+        "remediation": "Compute and validate a per-item allocation before the loop, or require a single recipient per payment.",
+        "location": {
+          "file": "Patterns.sol",
+          "start_line": 20,
+          "start_column": 47,
+          "end_line": 20,
+          "end_column": 82,
+          "byte_start": 1050,
+          "byte_end": 1085
+        },
+        "evidence": {
+          "source_sha256": "7f2b36a45ea3bcb6a79f42eaa06d71d37c60b5a48db1235d774dd5c601a19bd2",
+          "excerpt": "credits[recipients[i]] += msg.value",
+          "validated": true,
+          "related": [
+            {
+              "source_sha256": "7f2b36a45ea3bcb6a79f42eaa06d71d37c60b5a48db1235d774dd5c601a19bd2",
+              "label": "Repeated accounting operation",
+              "location": {
+                "file": "Patterns.sol",
+                "start_line": 20,
+                "start_column": 1,
+                "end_line": 20,
+                "end_column": 85,
+                "byte_start": 1004,
+                "byte_end": 1088
+              },
+              "excerpt": "for (uint256 i; i < recipients.length; i++) { credits[recipients[i]] += msg.value; }"
+            }
+          ]
+        },
+        "context": {
+          "contract": "R007V",
+          "function": "deposit"
+        }
+      },
+      {
+        "id": "b6852909ef16bb486f6ccb27",
+        "rule_id": "OG-SOL-008",
+        "title": "Block-derived array selection",
+        "severity": "medium",
+        "confidence": "high",
+        "message": "A block-derived value is used in modulo arithmetic to choose an array index.",
+        "remediation": "Use an appropriate verifiable randomness or commit/reveal design with an explicit adversary model.",
+        "location": {
+          "file": "Patterns.sol",
+          "start_line": 23,
+          "start_column": 17,
+          "end_line": 23,
+          "end_column": 106,
+          "byte_start": 1203,
+          "byte_end": 1292
+        },
+        "evidence": {
+          "source_sha256": "7f2b36a45ea3bcb6a79f42eaa06d71d37c60b5a48db1235d774dd5c601a19bd2",
+          "excerpt": "uint256(keccak256(abi.encodePacked(block.timestamp, block.prevrandao))) % entrants.length",
+          "validated": true
+        },
+        "context": {
+          "contract": "R008V",
+          "function": "pick"
+        }
+      },
+      {
+        "id": "edd9da2af35ace5b6bddf62d",
+        "rule_id": "OG-SOL-009",
+        "title": "Packed hash combines dynamic inputs",
+        "severity": "high",
+        "confidence": "high",
+        "message": "A hash uses packed encoding of two or more locally resolved string/bytes values, leaving input boundaries ambiguous.",
+        "remediation": "Use abi.encode with explicit types and domain separation for the intended hash or signature protocol.",
+        "location": {
+          "file": "Patterns.sol",
+          "start_line": 25,
+          "start_column": 119,
+          "end_line": 25,
+          "end_column": 140,
+          "byte_start": 1418,
+          "byte_end": 1439
+        },
+        "evidence": {
+          "source_sha256": "7f2b36a45ea3bcb6a79f42eaa06d71d37c60b5a48db1235d774dd5c601a19bd2",
+          "excerpt": "abi.encodePacked(a,b)",
+          "validated": true,
+          "related": [
+            {
+              "source_sha256": "7f2b36a45ea3bcb6a79f42eaa06d71d37c60b5a48db1235d774dd5c601a19bd2",
+              "label": "Dynamic hash input",
+              "location": {
+                "file": "Patterns.sol",
+                "start_line": 25,
+                "start_column": 32,
+                "end_line": 25,
+                "end_column": 49,
+                "byte_start": 1331,
+                "byte_end": 1348
+              },
+              "excerpt": "string calldata a"
+            },
+            {
+              "source_sha256": "7f2b36a45ea3bcb6a79f42eaa06d71d37c60b5a48db1235d774dd5c601a19bd2",
+              "label": "Dynamic hash input",
+              "location": {
+                "file": "Patterns.sol",
+                "start_line": 25,
+                "start_column": 51,
+                "end_line": 25,
+                "end_column": 67,
+                "byte_start": 1350,
+                "byte_end": 1366
+              },
+              "excerpt": "bytes calldata b"
+            }
+          ]
+        },
+        "context": {
+          "contract": "R009V",
+          "function": "hash"
+        }
+      },
+      {
+        "id": "095e1cea74c9cbfe82bfcf1d",
+        "rule_id": "OG-SOL-010",
+        "title": "Token operation boolean is discarded",
+        "severity": "medium",
+        "confidence": "high",
+        "message": "A transfer/transferFrom/approve operation declared to return bool is used without its result.",
+        "remediation": "Use a compatible SafeERC20 wrapper or enforce the token's return value and test failure behavior.",
+        "location": {
+          "file": "Patterns.sol",
+          "start_line": 28,
+          "start_column": 145,
+          "end_line": 28,
+          "end_column": 171,
+          "byte_start": 1685,
+          "byte_end": 1711
+        },
+        "evidence": {
+          "source_sha256": "7f2b36a45ea3bcb6a79f42eaa06d71d37c60b5a48db1235d774dd5c601a19bd2",
+          "excerpt": "token.transfer(to, amount)",
+          "validated": true,
+          "related": [
+            {
+              "source_sha256": "7f2b36a45ea3bcb6a79f42eaa06d71d37c60b5a48db1235d774dd5c601a19bd2",
+              "label": "Resolved boolean-returning interface method",
+              "location": {
+                "file": "Patterns.sol",
+                "start_line": 27,
+                "start_column": 23,
+                "end_line": 27,
+                "end_column": 92,
+                "byte_start": 1469,
+                "byte_end": 1538
+              },
+              "excerpt": "function transfer(address to, uint256 amount) external returns(bool);"
+            }
+          ]
+        },
+        "context": {
+          "contract": "R010V",
+          "function": "pay"
+        }
+      },
+      {
+        "id": "cb2d7498b27429848295c3d4",
+        "rule_id": "OG-SOL-011",
+        "title": "Strict equality on contract Ether balance",
+        "severity": "medium",
+        "confidence": "medium",
+        "message": "A condition requires this contract's Ether balance to equal an exact value.",
+        "remediation": "Track internal accounting explicitly and avoid relying on an exact external Ether balance.",
+        "location": {
+          "file": "Patterns.sol",
+          "start_line": 30,
+          "start_column": 75,
+          "end_line": 30,
+          "end_column": 108,
+          "byte_start": 1792,
+          "byte_end": 1825
+        },
+        "evidence": {
+          "source_sha256": "7f2b36a45ea3bcb6a79f42eaa06d71d37c60b5a48db1235d774dd5c601a19bd2",
+          "excerpt": "address(this).balance == expected",
+          "validated": true
+        },
+        "context": {
+          "contract": "R011V",
+          "function": "exact"
+        }
+      },
+      {
+        "id": "61989c83b766ede5f4f037c3",
+        "rule_id": "OG-SOL-012",
+        "title": "Reverting Ether transfer inside a loop",
+        "severity": "medium",
+        "confidence": "medium",
+        "message": "A payable-address transfer in a loop lets a rejecting recipient revert the whole batch.",
+        "remediation": "Use independently claimable payments or isolate recipient failures without losing accounting correctness.",
+        "location": {
+          "file": "Patterns.sol",
+          "start_line": 33,
+          "start_column": 47,
+          "end_line": 33,
+          "end_column": 72,
+          "byte_start": 1969,
+          "byte_end": 1994
+        },
+        "evidence": {
+          "source_sha256": "7f2b36a45ea3bcb6a79f42eaa06d71d37c60b5a48db1235d774dd5c601a19bd2",
+          "excerpt": "recipients[i].transfer(1)",
+          "validated": true,
+          "related": [
+            {
+              "source_sha256": "7f2b36a45ea3bcb6a79f42eaa06d71d37c60b5a48db1235d774dd5c601a19bd2",
+              "label": "Enclosing batch loop",
+              "location": {
+                "file": "Patterns.sol",
+                "start_line": 33,
+                "start_column": 1,
+                "end_line": 33,
+                "end_column": 75,
+                "byte_start": 1923,
+                "byte_end": 1997
+              },
+              "excerpt": "for (uint256 i; i < recipients.length; i++) { recipients[i].transfer(1); }"
+            }
+          ]
+        },
+        "context": {
+          "contract": "R012V",
+          "function": "batch"
+        }
+      }
+    ]
+  },
+  "sources": [
+    {
+      "path": "Patterns.sol",
+      "sha256": "7f2b36a45ea3bcb6a79f42eaa06d71d37c60b5a48db1235d774dd5c601a19bd2",
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.24;\n\n// Generated from the 12 primary authored corpus cases.\n\ncontract R001V { address owner = msg.sender; function enter() external view { require(tx.origin == owner); } }\n\ncontract R002V { mapping(address => uint256) credits;\nfunction withdraw() external { uint256 amount = credits[msg.sender]; (bool ok,) = payable(msg.sender).call{value:amount}(\"\"); require(ok); credits[msg.sender] = 0; } }\n\ncontract R003V { function invoke(address target, bytes calldata data) external { target.call(data); } }\n\ncontract R004V { function pay(address payable recipient) external { recipient.send(1); } }\n\ncontract R005V { function run(address target, bytes calldata data) external { (bool ok,) = target.delegatecall(data); require(ok); } }\n\ncontract R006V { function sweep(address payable recipient) external { selfdestruct(recipient); } }\n\ncontract R007V { mapping(address => uint256) credits; function deposit(address[] calldata recipients) external payable {\nfor (uint256 i; i < recipients.length; i++) { credits[recipients[i]] += msg.value; } } }\n\ncontract R008V { function pick(address[] calldata entrants) external view returns(address) {\nreturn entrants[uint256(keccak256(abi.encodePacked(block.timestamp, block.prevrandao))) % entrants.length]; } }\n\ncontract R009V { function hash(string calldata a, bytes calldata b) external pure returns(bytes32) { return keccak256(abi.encodePacked(a,b)); } }\n\ninterface IToken10V { function transfer(address to, uint256 amount) external returns(bool); }\ncontract R010V { IToken10V token; constructor(IToken10V configured) { token = configured; } function pay(address to, uint256 amount) external { token.transfer(to, amount); } }\n\ncontract R011V { function exact(uint256 expected) external view { require(address(this).balance == expected); } }\n\ncontract R012V { function batch(address payable[] calldata recipients) external payable {\nfor (uint256 i; i < recipients.length; i++) { recipients[i].transfer(1); } } }\n"
+    }
+  ]
+}

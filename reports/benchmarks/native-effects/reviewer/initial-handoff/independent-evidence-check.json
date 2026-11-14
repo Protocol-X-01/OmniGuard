@@ -1,0 +1,191 @@
+{
+  "label": "initial-handoff",
+  "cases": 26,
+  "total_checked_spans": 79,
+  "cases_with_errors": 0,
+  "results": [
+    {
+      "case": "c01_helper_actual_v",
+      "checked_spans": 6,
+      "errors": [],
+      "focus_ids": [
+        "be8f078d5898d2147e892f18"
+      ]
+    },
+    {
+      "case": "c02_helper_actual_fixed",
+      "checked_spans": 0,
+      "errors": [],
+      "focus_ids": []
+    },
+    {
+      "case": "c03_storage_parameter_v",
+      "checked_spans": 8,
+      "errors": [],
+      "focus_ids": [
+        "c49f4d0d8256ac0f0ce45d24"
+      ]
+    },
+    {
+      "case": "c04_memory_parameter_fixed",
+      "checked_spans": 0,
+      "errors": [],
+      "focus_ids": []
+    },
+    {
+      "case": "c05_overload_fixed",
+      "checked_spans": 0,
+      "errors": [],
+      "focus_ids": []
+    },
+    {
+      "case": "c06_overload_actual_v",
+      "checked_spans": 6,
+      "errors": [],
+      "focus_ids": [
+        "0733b6b4a1523871870f2a28"
+      ]
+    },
+    {
+      "case": "c07_virtual_dispatch",
+      "checked_spans": 0,
+      "errors": [],
+      "focus_ids": []
+    },
+    {
+      "case": "c08_explicit_super_v",
+      "checked_spans": 0,
+      "errors": [],
+      "focus_ids": []
+    },
+    {
+      "case": "c09_crossfile_two_callers",
+      "checked_spans": 12,
+      "errors": [],
+      "focus_ids": [
+        "680a5cf5aa2944cbfa651d9f",
+        "eb2d41bf04c77ac38c386a10"
+      ]
+    },
+    {
+      "case": "c10_internal_pointer",
+      "checked_spans": 0,
+      "errors": [],
+      "focus_ids": []
+    },
+    {
+      "case": "c11_recursive_effect",
+      "checked_spans": 6,
+      "errors": [],
+      "focus_ids": [
+        "8df14989877f46630f9e3240"
+      ]
+    },
+    {
+      "case": "c12_expansion_bound",
+      "checked_spans": 0,
+      "errors": [],
+      "focus_ids": []
+    },
+    {
+      "case": "c13_exclusive_branches_fixed",
+      "checked_spans": 0,
+      "errors": [],
+      "focus_ids": []
+    },
+    {
+      "case": "c14_callee_return_v",
+      "checked_spans": 6,
+      "errors": [],
+      "focus_ids": [
+        "d47f3c4870409bad682cfeab"
+      ]
+    },
+    {
+      "case": "c15_terminated_branch_fixed",
+      "checked_spans": 0,
+      "errors": [],
+      "focus_ids": []
+    },
+    {
+      "case": "c16_composed_modifiers_v",
+      "checked_spans": 0,
+      "errors": [],
+      "focus_ids": []
+    },
+    {
+      "case": "c17_composed_modifiers_fixed",
+      "checked_spans": 0,
+      "errors": [],
+      "focus_ids": []
+    },
+    {
+      "case": "c18_storage_rebind_v",
+      "checked_spans": 5,
+      "errors": [],
+      "focus_ids": [
+        "3b13cae65adf146ec7925e0b"
+      ]
+    },
+    {
+      "case": "c19_rebind_is_not_write",
+      "checked_spans": 0,
+      "errors": [],
+      "focus_ids": []
+    },
+    {
+      "case": "c20_inherited_noop_v",
+      "checked_spans": 5,
+      "errors": [],
+      "focus_ids": [
+        "478ef54c67aba3079e52dadf"
+      ]
+    },
+    {
+      "case": "c21_modifier_argument_attacker",
+      "checked_spans": 5,
+      "errors": [],
+      "focus_ids": [
+        "379f914db79e29ad4d180503"
+      ]
+    },
+    {
+      "case": "c22_modifier_argument_owner",
+      "checked_spans": 0,
+      "errors": [],
+      "focus_ids": []
+    },
+    {
+      "case": "c23_cross_modifier_poison",
+      "checked_spans": 7,
+      "errors": [],
+      "focus_ids": [
+        "ae0064c0ae35fd700e63eb51"
+      ]
+    },
+    {
+      "case": "c24_unknown_guard",
+      "checked_spans": 5,
+      "errors": [],
+      "focus_ids": [
+        "d0090513aec9cc3cbc55b846"
+      ]
+    },
+    {
+      "case": "c25_external_this_boundary",
+      "checked_spans": 4,
+      "errors": [],
+      "focus_ids": [
+        "f68fd0ed219f71742569684c"
+      ]
+    },
+    {
+      "case": "c26_direct_positive_control",
+      "checked_spans": 4,
+      "errors": [],
+      "focus_ids": [
+        "e8e8e64c865328312ae27117"
+      ]
+    }
+  ]
+}

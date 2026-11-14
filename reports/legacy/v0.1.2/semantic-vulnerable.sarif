@@ -1,0 +1,478 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "runs": [
+    {
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "properties": {
+            "analysis": {
+              "compiler_version": "0.8.26+commit.8a97fa7a.Linux.g++",
+              "mode": "solc"
+            },
+            "files": [
+              "Asset.sol",
+              "Base.sol",
+              "Vault.sol"
+            ],
+            "ruleSet": "solidity-core/2026.11",
+            "rules": [
+              "OG-SOL-001",
+              "OG-SOL-002",
+              "OG-SOL-003",
+              "OG-SOL-004",
+              "OG-SOL-005",
+              "OG-SOL-006",
+              "OG-SOL-007",
+              "OG-SOL-008",
+              "OG-SOL-009",
+              "OG-SOL-010",
+              "OG-SOL-011",
+              "OG-SOL-012"
+            ]
+          },
+          "toolExecutionNotifications": []
+        }
+      ],
+      "results": [
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "Vault.sol"
+                },
+                "region": {
+                  "endColumn": 61,
+                  "endLine": 7,
+                  "snippet": {
+                    "text": "tx.origin"
+                  },
+                  "startColumn": 52,
+                  "startLine": 7
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "tx.origin participates in a condition that can gate execution."
+          },
+          "partialFingerprints": {
+            "omniguard/v1": "d038eeb8a0f72c9f4b4755d1"
+          },
+          "properties": {
+            "confidence": "high",
+            "context": {
+              "contract": "SemanticVault",
+              "function": "originGuard"
+            },
+            "remediation": "Use msg.sender with an explicit role or ownership check, then add an access-control test.",
+            "severity": "high",
+            "sourceSha256": "a9a1608bb9df8a77f25416f5933b02cb619e4dd9503e259502d90eb216ddb448"
+          },
+          "relatedLocations": [],
+          "ruleId": "OG-SOL-001"
+        },
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "Vault.sol"
+                },
+                "region": {
+                  "endColumn": 56,
+                  "endLine": 10,
+                  "snippet": {
+                    "text": "msg.sender.call{value: amount}(\"\")"
+                  },
+                  "startColumn": 22,
+                  "startLine": 10
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "An address low-level call precedes a write to this contract's storage in the same function."
+          },
+          "partialFingerprints": {
+            "omniguard/v1": "15ac9e0d0d868f1f87d8c988"
+          },
+          "properties": {
+            "confidence": "medium",
+            "context": {
+              "contract": "SemanticVault",
+              "function": "withdraw"
+            },
+            "remediation": "Apply checks-effects-interactions and verify a reentrancy guard with a local regression test.",
+            "severity": "high",
+            "sourceSha256": "a9a1608bb9df8a77f25416f5933b02cb619e4dd9503e259502d90eb216ddb448"
+          },
+          "relatedLocations": [
+            {
+              "id": 1,
+              "message": {
+                "text": "Later storage write"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "Vault.sol"
+                },
+                "region": {
+                  "endColumn": 32,
+                  "endLine": 12,
+                  "snippet": {
+                    "text": "credits[msg.sender] = 0"
+                  },
+                  "startColumn": 9,
+                  "startLine": 12
+                }
+              },
+              "properties": {
+                "sourceSha256": "a9a1608bb9df8a77f25416f5933b02cb619e4dd9503e259502d90eb216ddb448"
+              }
+            },
+            {
+              "id": 2,
+              "message": {
+                "text": "Compiler-resolved storage declaration"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "Base.sol"
+                },
+                "region": {
+                  "endColumn": 114,
+                  "endLine": 3,
+                  "snippet": {
+                    "text": "mapping(address => uint256) internal credits"
+                  },
+                  "startColumn": 70,
+                  "startLine": 3
+                }
+              },
+              "properties": {
+                "sourceSha256": "7056f61dcc7d6e1f189b5e7b04422b2a33a549689d68fde74cf2fb17ae407516"
+              }
+            }
+          ],
+          "ruleId": "OG-SOL-002"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "Vault.sol"
+                },
+                "region": {
+                  "endColumn": 35,
+                  "endLine": 16,
+                  "snippet": {
+                    "text": "token.transfer(to, amount)"
+                  },
+                  "startColumn": 9,
+                  "startLine": 16
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "A transfer/transferFrom/approve operation declared to return bool is used without its result."
+          },
+          "partialFingerprints": {
+            "omniguard/v1": "9e9e054fcd236a311527427c"
+          },
+          "properties": {
+            "confidence": "high",
+            "context": {
+              "contract": "SemanticVault",
+              "function": "payAsset"
+            },
+            "remediation": "Use a compatible SafeERC20 wrapper or enforce the token's return value and test failure behavior.",
+            "severity": "medium",
+            "sourceSha256": "a9a1608bb9df8a77f25416f5933b02cb619e4dd9503e259502d90eb216ddb448"
+          },
+          "relatedLocations": [
+            {
+              "id": 1,
+              "message": {
+                "text": "Compiler-resolved boolean-returning method"
+              },
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "Asset.sol"
+                },
+                "region": {
+                  "endColumn": 90,
+                  "endLine": 3,
+                  "snippet": {
+                    "text": "function transfer(address to, uint256 amount) external returns (bool);"
+                  },
+                  "startColumn": 20,
+                  "startLine": 3
+                }
+              },
+              "properties": {
+                "sourceSha256": "8a9c953b07bb1ae56c61ca822ae02377fc918c59ec2f8019b7376f1428c9bf1b"
+              }
+            }
+          ],
+          "ruleId": "OG-SOL-010"
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "OmniGuard",
+          "rules": [
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "tx.origin participates in a condition that can gate execution."
+              },
+              "help": {
+                "text": "Use msg.sender with an explicit role or ownership check, then add an access-control test. Limitations: Recognizes require/assert conditions and if conditions; does not prove the surrounding policy."
+              },
+              "helpUri": "https://docs.soliditylang.org/en/latest/security-considerations.html#tx-origin",
+              "id": "OG-SOL-001",
+              "properties": {
+                "category": "authorization",
+                "confidence": "high"
+              },
+              "shortDescription": {
+                "text": "Authorization uses tx.origin"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "An address low-level call precedes a write to this contract's storage in the same function."
+              },
+              "help": {
+                "text": "Apply checks-effects-interactions and verify a reentrancy guard with a local regression test. Limitations: Statement-order indicator; no interprocedural control-flow or inherited guard proof."
+              },
+              "helpUri": "https://docs.soliditylang.org/en/latest/security-considerations.html#reentrancy",
+              "id": "OG-SOL-002",
+              "properties": {
+                "category": "reentrancy",
+                "confidence": "medium"
+              },
+              "shortDescription": {
+                "text": "State write follows an external call"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "An address call/delegatecall/staticcall result is discarded, or its captured success flag is unused."
+              },
+              "help": {
+                "text": "Capture and enforce the success flag, or explicitly return it to a caller that handles failure. Limitations: An observed use is not proof of correct failure handling; complex data-flow is not resolved."
+              },
+              "helpUri": "https://docs.soliditylang.org/en/latest/units-and-global-variables.html#members-of-address-types",
+              "id": "OG-SOL-003",
+              "properties": {
+                "category": "external-calls",
+                "confidence": "high"
+              },
+              "shortDescription": {
+                "text": "Low-level call result is not checked"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "The boolean from an address send operation is discarded."
+              },
+              "help": {
+                "text": "Handle failed delivery explicitly; prefer a pull-payment design when recipients can reject Ether. Limitations: Requires a locally resolved address receiver; imported or aliased types may remain unknown."
+              },
+              "helpUri": "https://docs.soliditylang.org/en/latest/security-considerations.html#sending-and-receiving-ether",
+              "id": "OG-SOL-004",
+              "properties": {
+                "category": "external-calls",
+                "confidence": "high"
+              },
+              "shortDescription": {
+                "text": "Ether send result is discarded"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "An externally callable function contains delegation to a caller-derived target without a recognized local caller restriction."
+              },
+              "help": {
+                "text": "Use a trusted implementation target and enforce the intended caller/upgrade policy before delegation. Limitations: Tracks direct parameters and local aliases; unresolved modifiers and interprocedural flows are excluded."
+              },
+              "helpUri": "https://docs.soliditylang.org/en/latest/security-considerations.html#authorized-proxies",
+              "id": "OG-SOL-005",
+              "properties": {
+                "category": "code-execution",
+                "confidence": "high"
+              },
+              "shortDescription": {
+                "text": "Caller controls a delegatecall target"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "An externally callable function contains selfdestruct without a recognized local caller restriction."
+              },
+              "help": {
+                "text": "Remove the operation or enforce the intended caller policy and test unauthorized calls locally. Limitations: Modern EVMs generally transfer the balance without deleting existing code; fork and creation-time semantics vary."
+              },
+              "helpUri": "https://docs.soliditylang.org/en/latest/units-and-global-variables.html#contract-related",
+              "id": "OG-SOL-006",
+              "properties": {
+                "category": "authorization",
+                "confidence": "medium"
+              },
+              "shortDescription": {
+                "text": "Selfdestruct lacks a local caller restriction"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "A loop writes the whole msg.value into storage on each iteration."
+              },
+              "help": {
+                "text": "Compute and validate a per-item allocation before the loop, or require a single recipient per payment. Limitations: Tracks direct writes and unmodified local aliases; does not infer protocol accounting invariants."
+              },
+              "helpUri": "https://github.com/crytic/slither/wiki/Detector-Documentation#msgvalue-inside-a-loop",
+              "id": "OG-SOL-007",
+              "properties": {
+                "category": "accounting",
+                "confidence": "medium"
+              },
+              "shortDescription": {
+                "text": "Loop repeatedly credits the full msg.value"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "A block-derived value is used in modulo arithmetic to choose an array index."
+              },
+              "help": {
+                "text": "Use an appropriate verifiable randomness or commit/reveal design with an explicit adversary model. Limitations: Direct expressions and unmodified local aliases; no interprocedural or cryptographic proof."
+              },
+              "helpUri": "https://docs.soliditylang.org/en/latest/units-and-global-variables.html#block-and-transaction-properties",
+              "id": "OG-SOL-008",
+              "properties": {
+                "category": "randomness",
+                "confidence": "high"
+              },
+              "shortDescription": {
+                "text": "Block-derived array selection"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "A hash uses packed encoding of two or more locally resolved string/bytes values, leaving input boundaries ambiguous."
+              },
+              "help": {
+                "text": "Use abi.encode with explicit types and domain separation for the intended hash or signature protocol. Limitations: Currently resolves string/bytes declarations in the same source; purpose and downstream authorization are not inferred."
+              },
+              "helpUri": "https://docs.soliditylang.org/en/latest/abi-spec.html#non-standard-packed-mode",
+              "id": "OG-SOL-009",
+              "properties": {
+                "category": "encoding",
+                "confidence": "high"
+              },
+              "shortDescription": {
+                "text": "Packed hash combines dynamic inputs"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "A transfer/transferFrom/approve operation declared to return bool is used without its result."
+              },
+              "help": {
+                "text": "Use a compatible SafeERC20 wrapper or enforce the token's return value and test failure behavior. Limitations: Source mode requires an unambiguous in-file interface; compiler mode uses the selected declaration across supplied files and overloads. Method names alone do not imply ERC-20 behavior."
+              },
+              "helpUri": "https://eips.ethereum.org/EIPS/eip-20",
+              "id": "OG-SOL-010",
+              "properties": {
+                "category": "token-handling",
+                "confidence": "high"
+              },
+              "shortDescription": {
+                "text": "Token operation boolean is discarded"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "A condition requires this contract's Ether balance to equal an exact value."
+              },
+              "help": {
+                "text": "Track internal accounting explicitly and avoid relying on an exact external Ether balance. Limitations: Flags a fragile invariant, not a proven denial of service; intended accounting needs manual review."
+              },
+              "helpUri": "https://docs.soliditylang.org/en/latest/security-considerations.html#sending-and-receiving-ether",
+              "id": "OG-SOL-011",
+              "properties": {
+                "category": "accounting",
+                "confidence": "medium"
+              },
+              "shortDescription": {
+                "text": "Strict equality on contract Ether balance"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "A payable-address transfer in a loop lets a rejecting recipient revert the whole batch."
+              },
+              "help": {
+                "text": "Use independently claimable payments or isolate recipient failures without losing accounting correctness. Limitations: Does not establish loop bounds, recipient trust or protocol-level impact."
+              },
+              "helpUri": "https://docs.soliditylang.org/en/latest/security-considerations.html#gas-limit-and-loops",
+              "id": "OG-SOL-012",
+              "properties": {
+                "category": "availability",
+                "confidence": "medium"
+              },
+              "shortDescription": {
+                "text": "Reverting Ether transfer inside a loop"
+              }
+            }
+          ],
+          "version": "0.1.2"
+        }
+      }
+    }
+  ],
+  "version": "2.1.0"
+}

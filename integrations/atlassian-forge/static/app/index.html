@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OmniGuard — Evidence to remediation</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="forge-wrap">
+    <header><div><p class="eyebrow">OMNIGUARD · EVIDENCE REVIEW</p><p id="project" class="project">Loading Jira project…</p></div><span class="fixture">Isolated fixtures</span></header>
+    <div class="hero"><div><h1>Make the fix easy to verify.</h1><p>Keep the source evidence, Jira remediation and rescan together.</p></div><button id="refresh" class="secondary" type="button" data-action>Refresh</button></div>
+    <ol class="workflow" aria-label="Remediation workflow"><li><span>1</span>Import scan</li><li><span>2</span>Review evidence</li><li><span>3</span>Create remediation</li><li><span>4</span>Import rescan &amp; verify</li></ol>
+    <p id="notice" class="notice" role="status" aria-live="polite"></p>
+    <section class="import-panel" aria-labelledby="import-title"><div><h2 id="import-title">Connect a scan report</h2><p class="help">Import a generated .omniguard.json fixture bundle. It includes the scan and source files used to validate its evidence.</p></div><div class="import-actions"><label for="bundle-file">Scan bundle</label><input type="file" id="bundle-file" accept=".json,application/json" aria-describedby="file-summary" /><details class="paste-option"><summary>Paste a report instead</summary><label for="bundle-paste">Report JSON</label><textarea id="bundle-paste" rows="7" spellcheck="false" aria-describedby="paste-help"></textarea><p id="paste-help" class="help">Paste the complete .omniguard.json file. Review it, then import it below. The same source evidence checks apply.</p><button id="use-paste" class="secondary" type="button" data-action>Use pasted report</button></details><p id="file-summary" class="help" role="status">Choose a bundle or paste its JSON to prepare an import.</p><button id="import" class="action" type="button" data-action data-unavailable="true" disabled>Import scan report</button></div></section>
+    <section class="scan-summary" aria-label="Current scan"><div><p id="mode" class="mode">Loading scan state…</p><p id="scan-meta" class="help"></p><p id="scan-digest" class="digest"></p><p id="diagnostics" class="error" role="status"></p></div><div class="metrics"><div><span id="finding-count">—</span>Findings</div><div><span id="jira-count">—</span>Jira remediations</div><div><span id="verified-count">—</span>Verified on rescan</div></div></section>
+    <section aria-labelledby="evidence-title"><p class="eyebrow">SOURCE FINDINGS</p><h2 id="evidence-title">Evidence ledger</h2><div class="ledger"><div id="findings" aria-label="Select a finding"></div><article id="evidence" class="evidence"></article></div></section>
+    <section aria-labelledby="remediation-title"><p class="eyebrow">REMEDIATION TRACKER</p><h2 id="remediation-title">Jira follow-through</h2><div id="remediations"></div></section>
+    <footer><span id="engine-version">OmniGuard</span> · Source evidence rechecked on import · Fixture reports describe their named target and revision.</footer>
+  </main>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

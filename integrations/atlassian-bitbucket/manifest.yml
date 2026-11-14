@@ -1,0 +1,19 @@
+app:
+  runtime:
+    name: nodejs24.x
+    memoryMB: 256
+    architecture: arm64
+  id: ari:cloud:ecosystem::app/00000000-0000-4000-8000-000000000001
+modules:
+  bitbucket:repoPullRequestOverviewPanel:
+    - key: omniguard-bitbucket-pr-panel
+      resource: app-ui
+      resolver:
+        function: app-resolver
+      title: OmniGuard
+  function:
+    - key: app-resolver
+      handler: index.handler
+resources:
+  - key: app-ui
+    path: static/app

@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-11-14T08:41:00Z",
+  "source": "Atlassian connector getJiraIssue and listJiraIssueComments",
+  "issue": {
+    "key": "KAN-6",
+    "url": "https://cs0lutions.atlassian.net/browse/KAN-6",
+    "summary": "[OmniGuard fixture] OG-SOL-002: State write follows an external call",
+    "status": "Done",
+    "labels": [
+      "isolated-fixture",
+      "og-71d5d57fbcd10fae495fdd12",
+      "omniguard"
+    ],
+    "baseline": {
+      "projectId": "10000",
+      "targetId": "omniguard-production-20261114",
+      "findingId": "f4c0fa6bad9f5ff6fb11dd9a",
+      "scanDigest": "71ee7367472b73c9354c8c8d678a92539a1e7e525386450931730d04867a11fa",
+      "engineVersion": "0.1.4",
+      "analysisProfile": "solc:0.8.26+commit.8a97fa7a.Linux.g++"
+    },
+    "description": "OmniGuard isolated fixture · OmniGuard production acceptance fixture · revision production-vulnerable-v0.1.4\n\nOG-SOL-002: State write follows an external call (high, medium confidence)\n\nAnalyzer 0.1.4 · solc (0.8.26+commit.8a97fa7a.Linux.g++) · 12 rules · EffectVault.withdraw\n\nEffectVault.sol:20:9 · bytes 557–591\n\nAn external interaction precedes a write to this contract's storage on a modeled execution path.\n\n```\n_send(payable(msg.sender), amount)\n```\n\nSuggested remediation: Apply checks-effects-interactions and verify a reentrancy guard with a local regression test.\n\nResolved external interaction: EffectVault.sol:25:22 · SHA-256 ea933c4380fd876fd25bff485be6980573cd25a8c67ff84841927fbc48ee18f8\n\n```\nrecipient.call{value: amount}(\"\")\n```\n\nLater storage write: EffectVault.sol:21:9 · SHA-256 ea933c4380fd876fd25bff485be6980573cd25a8c67ff84841927fbc48ee18f8\n\n```\ncredit.amount = 0\n```\n\nCompiler-resolved storage root: EffectVault.sol:6:5 · SHA-256 ea933c4380fd876fd25bff485be6980573cd25a8c67ff84841927fbc48ee18f8\n\n```\nmapping(address => Credit) private credits\n```\n\nResolved effect binding or call chain: EffectVault.sol:20:9 · SHA-256 ea933c4380fd876fd25bff485be6980573cd25a8c67ff84841927fbc48ee18f8\n\n```\n_send(payable(msg.sender), amount)\n```\n\nResolved effect binding or call chain: EffectVault.sol:24:5 · SHA-256 ea933c4380fd876fd25bff485be6980573cd25a8c67ff84841927fbc48ee18f8\n\n```\nfunction _send(address payable recipient, uint256 amount) private {\n        (bool ok,) = recipient.call{value: amount}(\"\");\n        require(ok, \"send failed\");\n    }\n```\n\nResolved effect binding or call chain: EffectVault.sol:17:9 · SHA-256 ea933c4380fd876fd25bff485be6980573cd25a8c67ff84841927fbc48ee18f8\n\n```\nCredit storage credit = credits[msg.sender]\n```\n\nSource SHA-256: ea933c4380fd876fd25bff485be6980573cd25a8c67ff84841927fbc48ee18f8\n\nScan bundle SHA-256: 71ee7367472b73c9354c8c8d678a92539a1e7e525386450931730d04867a11fa\n\nSource evidence was rechecked against the imported source. This is an isolated regression fixture; the detection is a review heuristic."
+  },
+  "verification": {
+    "id": "10005",
+    "created": "2026-11-14T08:37:50.991+0000",
+    "body": "OmniGuard rescan verification: 168b2f00049542687408b3ba1f4b543fdac351d17d51ecbf6380a930f4300293\n\nOG-SOL-002 is absent in EffectVault.sol in imported revision production-fixed-v0.1.4. The imported report declares 12-rule coverage under engine 0.1.4 (solc, 0.8.26+commit.8a97fa7a.Linux.g++) and contains no diagnostics.\n\nPrevious source SHA-256: ea933c4380fd876fd25bff485be6980573cd25a8c67ff84841927fbc48ee18f8\n\nRescanned source SHA-256: 18c00bd192c116d3b419c51b182f1301f41e602a5a9eb5e567b64860324635d8\n\nThis records absence in an imported isolated-fixture scan. Review the code change before completing the Jira issue."
+  },
+  "checks": {
+    "done": true,
+    "targetIsProductionFixture": true,
+    "fixedBundleDigestMatches": true,
+    "previousSourceHashMatches": true,
+    "fixedSourceHashMatches": true
+  }
+}

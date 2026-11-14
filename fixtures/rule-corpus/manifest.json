@@ -1,0 +1,478 @@
+{
+  "corpus_version": 1,
+  "scope": "isolated, authored pattern-regression fixtures; labels describe detector patterns, not universal exploitability",
+  "cases": [
+    {
+      "id": "rule_001_vulnerable",
+      "path": "positive/rule_001_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-001"
+      ],
+      "rationale": "Transaction origin gates execution."
+    },
+    {
+      "id": "rule_001_fixed",
+      "path": "fixed/rule_001_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "rationale": "Remediation control for OG-SOL-001."
+    },
+    {
+      "id": "rule_002_vulnerable",
+      "path": "positive/rule_002_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-002"
+      ],
+      "rationale": "A low-level value call precedes the matching storage update."
+    },
+    {
+      "id": "rule_002_fixed",
+      "path": "fixed/rule_002_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "rationale": "Remediation control for OG-SOL-002."
+    },
+    {
+      "id": "rule_003_vulnerable",
+      "path": "positive/rule_003_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-003"
+      ],
+      "rationale": "Low-level success flag is discarded."
+    },
+    {
+      "id": "rule_003_fixed",
+      "path": "fixed/rule_003_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "rationale": "Remediation control for OG-SOL-003."
+    },
+    {
+      "id": "rule_004_vulnerable",
+      "path": "positive/rule_004_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-004"
+      ],
+      "rationale": "The recipient can refuse a send whose result is ignored."
+    },
+    {
+      "id": "rule_004_fixed",
+      "path": "fixed/rule_004_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "rationale": "Remediation control for OG-SOL-004."
+    },
+    {
+      "id": "rule_005_vulnerable",
+      "path": "positive/rule_005_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-005"
+      ],
+      "rationale": "A function parameter controls the delegated code target without caller restriction."
+    },
+    {
+      "id": "rule_005_fixed",
+      "path": "fixed/rule_005_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "rationale": "Remediation control for OG-SOL-005."
+    },
+    {
+      "id": "rule_006_vulnerable",
+      "path": "positive/rule_006_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-006"
+      ],
+      "rationale": "Any caller can trigger the selfdestruct balance-transfer operation."
+    },
+    {
+      "id": "rule_006_fixed",
+      "path": "fixed/rule_006_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "rationale": "Remediation control for OG-SOL-006."
+    },
+    {
+      "id": "rule_007_vulnerable",
+      "path": "positive/rule_007_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-007"
+      ],
+      "rationale": "Each iteration credits the entire payment again."
+    },
+    {
+      "id": "rule_007_fixed",
+      "path": "fixed/rule_007_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "rationale": "Remediation control for OG-SOL-007."
+    },
+    {
+      "id": "rule_008_vulnerable",
+      "path": "positive/rule_008_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-008"
+      ],
+      "rationale": "Block-derived entropy directly selects an array entry; the control assumes a trusted randomness oracle."
+    },
+    {
+      "id": "rule_008_fixed",
+      "path": "fixed/rule_008_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "rationale": "Remediation control for OG-SOL-008."
+    },
+    {
+      "id": "rule_009_vulnerable",
+      "path": "positive/rule_009_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-009"
+      ],
+      "rationale": "Two dynamic values have ambiguous packed hash boundaries."
+    },
+    {
+      "id": "rule_009_fixed",
+      "path": "fixed/rule_009_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "rationale": "Remediation control for OG-SOL-009."
+    },
+    {
+      "id": "rule_010_vulnerable",
+      "path": "positive/rule_010_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-010"
+      ],
+      "rationale": "The locally declared token method returns a boolean that is ignored."
+    },
+    {
+      "id": "rule_010_fixed",
+      "path": "fixed/rule_010_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "rationale": "Remediation control for OG-SOL-010."
+    },
+    {
+      "id": "rule_011_vulnerable",
+      "path": "positive/rule_011_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-011"
+      ],
+      "rationale": "Exact balance equality can be disturbed by unsolicited Ether."
+    },
+    {
+      "id": "rule_011_fixed",
+      "path": "fixed/rule_011_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "rationale": "Remediation control for OG-SOL-011."
+    },
+    {
+      "id": "rule_012_vulnerable",
+      "path": "positive/rule_012_vulnerable.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-012"
+      ],
+      "rationale": "One reverting recipient can stop the whole transfer loop."
+    },
+    {
+      "id": "rule_012_fixed",
+      "path": "fixed/rule_012_fixed.sol",
+      "group": "fixed",
+      "expected": [],
+      "rationale": "Remediation control for OG-SOL-012."
+    },
+    {
+      "id": "origin_in_message",
+      "path": "negative/origin_in_message.sol",
+      "group": "negative",
+      "expected": [],
+      "rationale": "tx.origin appears only in the require message, not its condition."
+    },
+    {
+      "id": "origin_in_event",
+      "path": "negative/origin_in_event.sol",
+      "group": "negative",
+      "expected": [],
+      "rationale": "Logging transaction origin is not an authorization condition."
+    },
+    {
+      "id": "cross_contract_state",
+      "path": "negative/cross_contract_state.sol",
+      "group": "negative",
+      "expected": [],
+      "rationale": "A storage declaration in another contract must not classify a local write as storage."
+    },
+    {
+      "id": "local_shadowing",
+      "path": "negative/local_shadowing.sol",
+      "group": "negative",
+      "expected": [],
+      "rationale": "Local shadowing must resolve before checking later state writes."
+    },
+    {
+      "id": "storage_name_in_index",
+      "path": "negative/storage_name_in_index.sol",
+      "group": "negative",
+      "expected": [],
+      "rationale": "A state variable used as a memory-array index does not make the memory write a storage write."
+    },
+    {
+      "id": "custom_method_names",
+      "path": "negative/custom_method_names.sol",
+      "group": "negative",
+      "expected": [],
+      "rationale": "User-defined call/send/transfer method names alone do not establish address or token semantics."
+    },
+    {
+      "id": "resolved_owner_modifier",
+      "path": "negative/resolved_owner_modifier.sol",
+      "group": "negative",
+      "expected": [],
+      "rationale": "A resolved modifier enforces the caller check before its placeholder."
+    },
+    {
+      "id": "overwritten_delegate_target",
+      "path": "negative/overwritten_delegate_target.sol",
+      "group": "negative",
+      "expected": [],
+      "rationale": "The parameter is overwritten before the sink; direct caller taint must not be assumed."
+    },
+    {
+      "id": "disjoint_branches",
+      "path": "negative/disjoint_branches.sol",
+      "group": "negative",
+      "expected": [],
+      "rationale": "The call and state write occur in mutually exclusive branches."
+    },
+    {
+      "id": "deadline_only",
+      "path": "negative/deadline_only.sol",
+      "group": "negative",
+      "expected": [],
+      "rationale": "A timestamp deadline is not array selection or randomness."
+    },
+    {
+      "id": "packed_static",
+      "path": "negative/packed_static.sol",
+      "group": "negative",
+      "expected": [],
+      "rationale": "All packed hash inputs have fixed width."
+    },
+    {
+      "id": "packed_one_dynamic",
+      "path": "negative/packed_one_dynamic.sol",
+      "group": "negative",
+      "expected": [],
+      "rationale": "Only one packed hash input is dynamic."
+    },
+    {
+      "id": "value_loop_check_only",
+      "path": "negative/value_loop_check_only.sol",
+      "group": "negative",
+      "expected": [],
+      "rationale": "A loop condition/check does not repeatedly credit storage."
+    },
+    {
+      "id": "value_loop_scaled",
+      "path": "negative/value_loop_scaled.sol",
+      "group": "negative",
+      "expected": [],
+      "rationale": "An explicitly divided allocation is not the direct full-value pattern."
+    },
+    {
+      "id": "address_transfer_outside_loop",
+      "path": "negative/address_transfer_outside_loop.sol",
+      "group": "negative",
+      "expected": [],
+      "rationale": "Ether transfer returns no boolean and is outside a loop."
+    },
+    {
+      "id": "guarded_revert",
+      "path": "negative/guarded_revert.sol",
+      "group": "negative",
+      "expected": [],
+      "rationale": "An explicit rejecting branch dominates selfdestruct."
+    },
+    {
+      "id": "delegate_alias",
+      "path": "positive/delegate_alias.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-005"
+      ],
+      "rationale": "A direct local alias preserves caller control of the delegated target."
+    },
+    {
+      "id": "guard_after_sink",
+      "path": "positive/guard_after_sink.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-006"
+      ],
+      "rationale": "A caller check after the sink cannot authorize it."
+    },
+    {
+      "id": "noop_modifier",
+      "path": "positive/noop_modifier.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-005"
+      ],
+      "rationale": "A modifier name must not be trusted when its body has no guard."
+    },
+    {
+      "id": "guard_or_bypass",
+      "path": "positive/guard_or_bypass.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-005"
+      ],
+      "rationale": "The caller predicate is bypassed by another OR arm."
+    },
+    {
+      "id": "nested_guard_not_dominating",
+      "path": "positive/nested_guard_not_dominating.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-006"
+      ],
+      "rationale": "A conditional guard does not dominate an unconditional sink."
+    },
+    {
+      "id": "captured_success_unused",
+      "path": "positive/captured_success_unused.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-003"
+      ],
+      "rationale": "Capturing a success flag without any later use must still be reported."
+    },
+    {
+      "id": "staticcall_discarded",
+      "path": "positive/staticcall_discarded.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-003"
+      ],
+      "rationale": "Discarded staticcall success is unchecked, but staticcall is excluded from state-order reentrancy."
+    },
+    {
+      "id": "modifier_guard_after_placeholder",
+      "path": "positive/modifier_guard_after_placeholder.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-006"
+      ],
+      "rationale": "A modifier check after its placeholder is too late to guard the sink."
+    },
+    {
+      "id": "conditional_revert_not_guard",
+      "path": "positive/conditional_revert_not_guard.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-006"
+      ],
+      "rationale": "A conditional revert inside a rejecting branch does not reject every unauthorized caller."
+    },
+    {
+      "id": "early_return_separates_write",
+      "path": "negative/early_return_separates_write.sol",
+      "group": "negative",
+      "expected": [],
+      "rationale": "An unconditional early return after the call prevents reaching the later write."
+    },
+    {
+      "id": "unused_success_shadowed_use",
+      "path": "positive/unused_success_shadowed_use.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-003"
+      ],
+      "rationale": "A same-named variable in an inner scope is not a use of the captured success flag."
+    },
+    {
+      "id": "block_index_alias",
+      "path": "positive/block_index_alias.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-008"
+      ],
+      "rationale": "Unmodified local values preserve block-derived selection flow."
+    },
+    {
+      "id": "payment_alias_loop",
+      "path": "positive/payment_alias_loop.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-007"
+      ],
+      "rationale": "An unscaled payment alias reused in a loop preserves the repeated-credit risk."
+    },
+    {
+      "id": "overwritten_block_index",
+      "path": "negative/overwritten_block_index.sol",
+      "group": "negative",
+      "expected": [],
+      "rationale": "An overwritten selection index must not retain its old block-entropy classification."
+    },
+    {
+      "id": "address_prefixed_contract_type",
+      "path": "negative/address_prefixed_contract_type.sol",
+      "group": "negative",
+      "expected": [],
+      "rationale": "A contract type whose name starts with address is not the address primitive."
+    },
+    {
+      "id": "shadowed_selfdestruct_function",
+      "path": "negative/shadowed_selfdestruct_function.sol",
+      "group": "negative",
+      "expected": [],
+      "rationale": "A locally declared same-named function must not be treated as the selfdestruct builtin."
+    },
+    {
+      "id": "shadowed_require_is_not_guard",
+      "path": "positive/shadowed_require_is_not_guard.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-006"
+      ],
+      "rationale": "A no-op function named require is not an enforcing builtin guard."
+    },
+    {
+      "id": "contract_typed_delegate_target",
+      "path": "positive/contract_typed_delegate_target.sol",
+      "group": "positive",
+      "expected": [
+        "OG-SOL-005"
+      ],
+      "rationale": "A caller-supplied contract parameter remains a controlled address when explicitly cast."
+    },
+    {
+      "id": "callee_ignores_block_argument",
+      "path": "negative/callee_ignores_block_argument.sol",
+      "group": "negative",
+      "expected": [],
+      "rationale": "Unknown function arguments are not automatically assumed to flow into the result."
+    },
+    {
+      "id": "shadowed_hash_function",
+      "path": "negative/shadowed_hash_function.sol",
+      "group": "negative",
+      "expected": [],
+      "rationale": "A locally declared non-hash function must not be assigned builtin hash semantics."
+    }
+  ]
+}

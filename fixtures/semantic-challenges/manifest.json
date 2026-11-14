@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "frozen_before_implementation": "2026-11-13",
+  "method": "Authored challenge cases frozen before compiler integration; once used for implementation, these are development cases, not an independent held-out accuracy estimate.",
+  "cases": [
+    {"path":"ImportedToken.sol","expected":["OG-SOL-010"],"rationale":"Imported interface alias resolves a single boolean-returning call."},
+    {"path":"OverloadedToken.sol","expected":["OG-SOL-010"],"rationale":"Compiler chooses the address overload returning bool; bytes32 overload returns nothing."},
+    {"path":"InheritedState.sol","expected":["OG-SOL-002"],"rationale":"Later write refers to inherited storage, with a reachable deposit path."},
+    {"path":"FixedState.sol","expected":[],"rationale":"Inherited storage is updated before the external call."},
+    {"path":"ImportedVoid.sol","expected":[],"rationale":"Imported void method has no boolean to check."},
+    {"path":"ImportedStruct.sol","expected":["OG-SOL-009"],"rationale":"Compiler resolves both imported struct members as dynamic hash inputs."},
+    {"path":"InheritedValue.sol","expected":["OG-SOL-007"],"rationale":"Repeated unscaled value credit writes inherited storage."},
+    {"path":"InheritedShadow.sol","expected":[],"rationale":"A local shadow of inherited storage is not a state write."}
+  ]
+}

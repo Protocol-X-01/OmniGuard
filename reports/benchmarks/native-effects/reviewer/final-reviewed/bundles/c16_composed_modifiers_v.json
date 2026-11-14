@@ -1,0 +1,73 @@
+{
+  "bundle_version": 1,
+  "target": {
+    "id": "redteam-effect-review",
+    "name": "Independent effect review",
+    "kind": "isolated-fixture"
+  },
+  "revision": "c16_composed_modifiers_v",
+  "rules": [
+    "OG-SOL-001",
+    "OG-SOL-002",
+    "OG-SOL-003",
+    "OG-SOL-004",
+    "OG-SOL-005",
+    "OG-SOL-006",
+    "OG-SOL-007",
+    "OG-SOL-008",
+    "OG-SOL-009",
+    "OG-SOL-010",
+    "OG-SOL-011",
+    "OG-SOL-012"
+  ],
+  "report": {
+    "schema_version": 3,
+    "engine_version": "0.1.4",
+    "scanned_files": 1,
+    "analysis": {
+      "mode": "solc",
+      "compiler_version": "0.8.26+commit.8a97fa7a.Linux.g++"
+    },
+    "coverage": {
+      "rule_set": "solidity-core/2026.11",
+      "rules": [
+        "OG-SOL-001",
+        "OG-SOL-002",
+        "OG-SOL-003",
+        "OG-SOL-004",
+        "OG-SOL-005",
+        "OG-SOL-006",
+        "OG-SOL-007",
+        "OG-SOL-008",
+        "OG-SOL-009",
+        "OG-SOL-010",
+        "OG-SOL-011",
+        "OG-SOL-012"
+      ],
+      "files": [
+        "Case.sol"
+      ],
+      "source_sha256": {
+        "Case.sol": "f3c7772b8f52443a2f600aba466a8557dabc8a6a3556e2f3f3f3980b92240f94"
+      },
+      "complete": false
+    },
+    "diagnostics": [
+      {
+        "code": "native-effects-incomplete",
+        "message": "Ordered effect provenance exceeds the eight-item evidence limit; finding withheld.",
+        "file": "Case.sol",
+        "line": 3,
+        "column": 171
+      }
+    ],
+    "findings": []
+  },
+  "sources": [
+    {
+      "path": "Case.sol",
+      "sha256": "f3c7772b8f52443a2f600aba466a8557dabc8a6a3556e2f3f3f3980b92240f94",
+      "content": "// SPDX-License-Identifier: UNLICENSED\npragma solidity ^0.8.26;\ncontract C { uint internal credit=1; function _pay(address to) internal { (bool ok,)=to.call(\"\"); require(ok); } modifier pay(address to) {_pay(to);_;} modifier clear() {credit=0;_;} function run(address to) external pay(to) clear {} }\n"
+    }
+  ]
+}

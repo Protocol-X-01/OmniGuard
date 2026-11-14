@@ -1,0 +1,23 @@
+name: Analysis or evidence gap
+description: A reproducible detection, evidence, or coverage problem
+title: "[Analysis] "
+body:
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and observed behavior
+      description: Include rule ID, version, source/compiler mode and exact command.
+    validations:
+      required: true
+  - type: textarea
+    id: fixture
+    attributes:
+      label: Minimal fixture and matching fix
+      description: Use an isolated example without secrets or confidential code. Report sensitive vulnerabilities privately through SECURITY.md.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and limits
+      description: Include report diagnostics, relevant source spans and what was actually executed.

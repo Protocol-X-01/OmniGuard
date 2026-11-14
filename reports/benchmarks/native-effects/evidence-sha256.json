@@ -1,0 +1,106 @@
+[
+  {
+    "path": "work/native-effects-20261114/fixture-owner/baseline-reports/alias-after.json",
+    "sha256": "b23a694612846b3ab932dce55fcc870b6c2f99213050b11ab8545edc2a94f0db"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/baseline-reports/alias-before.json",
+    "sha256": "9c7d72a25f57268668559e1e19d570da33d399f3d6bef1d8ca4b432a3f9e3de9"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/baseline-reports/alias-rebound-after.json",
+    "sha256": "21a331374010a60419a7c05583386019f0022ac2d05a3c1c148afca8d4ea9da8"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/baseline-reports/destroy-inherited-enforcing.json",
+    "sha256": "5ece7ea7c4a4dd4760290df05beff1e17aa8698af623206f12a8892a3208c98d"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/baseline-reports/destroy-inherited-noop.json",
+    "sha256": "206cfb0390e119e1f523668afbd89027b5627ecb27712821e4a215ffa9bf65b8"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/baseline-reports/effect-vault-fixed.json",
+    "sha256": "225cb892fe35bdca68afc2208c99c63420a14704f36a0dce1d222f0749074ca3"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/baseline-reports/effect-vault-vulnerable.json",
+    "sha256": "c3c5ab1c6e2096ecedce3fdd2392def97d4bcab10eb243127e2d830fc6dbc129"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/baseline-reports/helper-call-after-alias-reset.json",
+    "sha256": "75e13f85e950eb870bec9048a24c77712886fd059265f8812c8754c3c1761c27"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/baseline-reports/helper-call-before-alias-reset.json",
+    "sha256": "4f8d807f9073473ad3247d83706fef4f25493fb0880eab954b66f393ca64a15f"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/baseline-reports/helper-delegate-enforcing.json",
+    "sha256": "3809a933acaa29a0efbe2c9739e399efde4fea24d5c561e9aef74d4a1b4f61e5"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/baseline-reports/helper-delegate-parameter.json",
+    "sha256": "b44f3ebe3a0b02472aef7a2980a87ae6a2401ca8344ae9bd9575406dfb5a307c"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/baseline-reports/helper-exclusive-branches.json",
+    "sha256": "519b4bbc55b8dcdd1f49a7e5bef0996dd7e5e5e75f9ebe343909e1f5ca3a0441"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/baseline-reports/helper-function-pointer.json",
+    "sha256": "e6d68b3259a6a67cc6befc0014c7e46809edc95fa8e00e4c1455cbcacb7eff65"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/baseline-reports/helper-recursive.json",
+    "sha256": "369c2dfc32ff8ec0f902320ef1125256faf74c1e5814a2c1f4a1a21b189c0a2b"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/baseline-reports/helper-terminated-branch.json",
+    "sha256": "3dd3e484dc864949366c2eb9f58c2e14d5a2775f265b83a2cf332bcf09e09390"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/baseline-reports/helper-two-level.json",
+    "sha256": "a17b83c4795313f6ae7a5a026343fcdbfae54d013ceb068d514848f50ba47d99"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/baseline-reports/helper-virtual.json",
+    "sha256": "5270826221f351e1999f9b6d137c46917e479fd8aca15dd47a8177a0406e8c9b"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/baseline-reports/memory-copy-after.json",
+    "sha256": "daf24112d207e2429f23264509a107f41c5d31da0e30275d060a145f7ec0ca56"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/baseline-reports/modifier-inherited-enforcing.json",
+    "sha256": "6cdf0f359b094c1ece65102f6b2cfc29e3eac398c12c25452a9d589fe75630fa"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/baseline-reports/modifier-inherited-irrelevant.json",
+    "sha256": "66517ebb41c0d13422dcbe6033689080811088ef7a7b070013f472b2a22c1c30"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/baseline-reports/modifier-inherited-noop.json",
+    "sha256": "bf8c75df10bf77d6775de627238d041e3defde3a82376f9792ec2fdce1093228"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/baseline-reports/modifier-post-effect.json",
+    "sha256": "b50f20b45eeec8688010f50da5463cfe1ae1eb902f7771c1885d02d7f9fe53ed"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/baseline-results.json",
+    "sha256": "cd61c64eb9d980f4341099e1c54ecf9fc9a1302d4d33e13bb66e62ca731a8aaa"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/compile-results.json",
+    "sha256": "aae3911c4bcd9417ee572df09f26d3b50a7b91d2fe73567a6c01b3fee0af570d"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/foundry-witnesses.json",
+    "sha256": "4d1d0205b4b7d444fa7dbc3a2eb41b45c08602afdcc850383117dab11d4a0d40"
+  },
+  {
+    "path": "work/native-effects-20261114/fixture-owner/runtime-source-manifest.json",
+    "sha256": "ddbb3f3f23eff9936b334fde3bb7e2207c55244be6bb81f16befca2716b33644"
+  }
+]

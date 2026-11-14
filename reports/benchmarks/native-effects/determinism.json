@@ -1,0 +1,19 @@
+{
+  "binary_sha256": "dbf3fb31b96d7a33b6972ca110fd7d5980e03272ef6f3af38d0ee2d08497a7d3",
+  "bundle_count": 12,
+  "byte_identical": true,
+  "bundles_sha256": {
+    "outputs/omniguard/reports/effects-fixed.omniguard.json": "89f4d18bc88dcaf8f25f4a83e4a2b19cee3f8478652c7e0e67e593e700fd0a06",
+    "outputs/omniguard/reports/effects-vulnerable.omniguard.json": "724d3a6c35dfe422677d0fec99bcc3d0672f452158068ab88d5d79cd94849f6b",
+    "outputs/omniguard/reports/executable-fixed.omniguard.json": "de3c7d01c79e87f0f9f4119ed7301dd2646eee55104bea69f58b6f7efbc483ac",
+    "outputs/omniguard/reports/executable-vulnerable.omniguard.json": "3e6d2299806f5b9c9c1fd2a1581ebc772809c1d1e6dfa804c6fbbf3b8cbd53e5",
+    "outputs/omniguard/reports/fixed.omniguard.json": "6675926bec6bc2e865d1c33c009ffdb4865a94302e4ad416999ef50e338310d1",
+    "outputs/omniguard/reports/patterns-fixed.omniguard.json": "920c4a3b5f3435618329260ddf8e5359c670bd085b0d5aa591a9943018beb479",
+    "outputs/omniguard/reports/patterns-vulnerable.omniguard.json": "7ababe9d1cf4b603cb1a51b9f410e37cff46dfd4ce261020cc8496e731a2b2cd",
+    "outputs/omniguard/reports/semantic-fixed.omniguard.json": "12faa3b4dbcf114b45418d352cc80abc8c2d352dae6adcae8fb54ce8db6235e1",
+    "outputs/omniguard/reports/semantic-source-fixed.omniguard.json": "a15cade82ad9f5d665b9cd0b0e156a9c57731c8af78b3ebb0b0c0498bbfdc0d7",
+    "outputs/omniguard/reports/semantic-source-vulnerable.omniguard.json": "6a7409324eb6d5b494df1dde22ff6cc7ca02d9921ccfe974e68c6294c37b5dbf",
+    "outputs/omniguard/reports/semantic-vulnerable.omniguard.json": "eeefc87c1a7ad020594a3e0d00e2c153be092e3f52c07d0662c26883fd797982",
+    "outputs/omniguard/reports/vulnerable.omniguard.json": "552e52c510a62d66c5a062bf2ce4fd5afcfe8456360f8cd9bb465d53271efc83"
+  }
+}

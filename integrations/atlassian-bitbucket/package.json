@@ -1,0 +1,14 @@
+{
+  "name": "omniguard-bitbucket-scaffold",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "register": "forge register",
+    "deploy": "forge deploy",
+    "install-app": "forge install"
+  },
+  "dependencies": { "@forge/resolver": "2.0.2" },
+  "devDependencies": { "@forge/cli": "15.1.0" },
+  "overrides": { "glob": "14.0.2", "minimatch": "11.0.8", "prosemirror-view": "1.42.9" }
+}

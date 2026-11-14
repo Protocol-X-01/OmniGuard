@@ -1,0 +1,53 @@
+{
+  "at_utc": "2026-11-14T08:35:31.856077+00:00",
+  "bundles": [
+    {
+      "name": "vulnerable.omniguard.json",
+      "original_bundle_sha256": "245a31792dc688dda47c121d1bd3e509012fa624a0c11974cf6906d128dc8c75",
+      "new_file_sha256": "b9800ea40972b9999aba72da9fcd7834b96e90db244a7a4e4b6af6be89fda363",
+      "changes": [
+        "target.id",
+        "target.name",
+        "revision"
+      ],
+      "source_and_report_unchanged": true,
+      "findings": 1,
+      "analysis": {
+        "mode": "solc",
+        "compiler_version": "0.8.26+commit.8a97fa7a.Linux.g++"
+      }
+    },
+    {
+      "name": "fixed.omniguard.json",
+      "original_bundle_sha256": "09f0dc817f4cc14db96cf45e6d5aa47ff5017ff621e1263b59fa4c182b89ecda",
+      "new_file_sha256": "3b60fcec2f92c16b2d56d3164386719465ce22e723bbde24e315c993d9257639",
+      "changes": [
+        "target.id",
+        "target.name",
+        "revision"
+      ],
+      "source_and_report_unchanged": true,
+      "findings": 0,
+      "analysis": {
+        "mode": "solc",
+        "compiler_version": "0.8.26+commit.8a97fa7a.Linux.g++"
+      }
+    },
+    {
+      "name": "fixed-source-only.omniguard.json",
+      "original_bundle_sha256": "8938bd1d94249bdae0e17dc52033a0c48a0393bb01e79a7488f1c63c72525bf0",
+      "new_file_sha256": "3d9ca83bf151af5766ddf617bdaa3f89e2cfa661ef0d2dc90a18c44e74203b51",
+      "changes": [
+        "target.id",
+        "target.name",
+        "revision"
+      ],
+      "source_and_report_unchanged": true,
+      "findings": 0,
+      "analysis": {
+        "mode": "source",
+        "compiler_version": null
+      }
+    }
+  ]
+}

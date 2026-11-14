@@ -1,0 +1,28 @@
+app:
+  runtime:
+    name: nodejs24.x
+    memoryMB: 256
+    architecture: arm64
+  id: ari:cloud:ecosystem::app/2dcc2164-b65e-43a5-90c8-bc4ac20447ab
+
+modules:
+  jira:projectPage:
+    - key: omniguard-jira-project
+      resource: app-ui
+      resolver:
+        function: app-resolver
+      title: OmniGuard
+      layout: native
+  function:
+    - key: app-resolver
+      handler: index.handler
+
+resources:
+  - key: app-ui
+    path: static/app
+
+permissions:
+  scopes:
+    - read:jira-work
+    - write:jira-work
+    - storage:app

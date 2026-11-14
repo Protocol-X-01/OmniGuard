@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "engine_version": "0.1.0",
+  "scanned_files": 1,
+  "diagnostics": [],
+  "findings": [
+    {
+      "id": "f7273657934e67bffa1d921e",
+      "rule_id": "OG-SOL-001",
+      "title": "Authorization uses tx.origin",
+      "severity": "high",
+      "confidence": "high",
+      "message": "tx.origin can be a user-controlled call-chain identity and should not guard access.",
+      "remediation": "Use msg.sender with an explicit role or ownership check, then add an access-control test.",
+      "location": {
+        "file": "Vault.sol",
+        "start_line": 13,
+        "start_column": 17,
+        "end_line": 13,
+        "end_column": 26,
+        "byte_start": 272,
+        "byte_end": 281
+      },
+      "evidence": {
+        "source_sha256": "cdf35eeb2c1c91546898923964ef4cddf690f8fb2f5ae85272345f51b2583396",
+        "excerpt": "tx.origin",
+        "validated": true
+      }
+    },
+    {
+      "id": "8ff5b76fca8cf4e4151b6e8b",
+      "rule_id": "OG-SOL-002",
+      "title": "State write follows an external call",
+      "severity": "high",
+      "confidence": "medium",
+      "message": "State variable `credits` is written after this external call.",
+      "remediation": "Apply checks-effects-interactions: update state before the external call and consider a reentrancy guard.",
+      "location": {
+        "file": "Vault.sol",
+        "start_line": 19,
+        "start_column": 23,
+        "end_line": 19,
+        "end_column": 66,
+        "byte_start": 428,
+        "byte_end": 471
+      },
+      "evidence": {
+        "source_sha256": "cdf35eeb2c1c91546898923964ef4cddf690f8fb2f5ae85272345f51b2583396",
+        "excerpt": "payable(msg.sender).call{value: amount}(\"\")",
+        "validated": true
+      }
+    },
+    {
+      "id": "424caeb9b9e6b5a8da2dd455",
+      "rule_id": "OG-SOL-003",
+      "title": "Low-level call result is discarded",
+      "severity": "medium",
+      "confidence": "high",
+      "message": "The success flag returned by call or delegatecall is ignored.",
+      "remediation": "Capture and check the success flag, or use a typed call that reverts on failure.",
+      "location": {
+        "file": "Vault.sol",
+        "start_line": 25,
+        "start_column": 9,
+        "end_line": 25,
+        "end_column": 41,
+        "byte_start": 636,
+        "byte_end": 668
+      },
+      "evidence": {
+        "source_sha256": "cdf35eeb2c1c91546898923964ef4cddf690f8fb2f5ae85272345f51b2583396",
+        "excerpt": "recipient.call{value: 1 wei}(\"\")",
+        "validated": true
+      }
+    }
+  ]
+}

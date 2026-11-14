@@ -1,0 +1,107 @@
+{
+  "bundle_version": 1,
+  "target": {
+    "id": "omniguard-semantic-vault",
+    "name": "Compiler-resolved Vault fixture",
+    "kind": "isolated-fixture"
+  },
+  "revision": "semantic-source-vulnerable-v0.1.2",
+  "rules": [
+    "OG-SOL-001",
+    "OG-SOL-002",
+    "OG-SOL-003",
+    "OG-SOL-004",
+    "OG-SOL-005",
+    "OG-SOL-006",
+    "OG-SOL-007",
+    "OG-SOL-008",
+    "OG-SOL-009",
+    "OG-SOL-010",
+    "OG-SOL-011",
+    "OG-SOL-012"
+  ],
+  "report": {
+    "schema_version": 3,
+    "engine_version": "0.1.2",
+    "scanned_files": 3,
+    "analysis": {
+      "mode": "source",
+      "compiler_version": null
+    },
+    "coverage": {
+      "rule_set": "solidity-core/2026.11",
+      "rules": [
+        "OG-SOL-001",
+        "OG-SOL-002",
+        "OG-SOL-003",
+        "OG-SOL-004",
+        "OG-SOL-005",
+        "OG-SOL-006",
+        "OG-SOL-007",
+        "OG-SOL-008",
+        "OG-SOL-009",
+        "OG-SOL-010",
+        "OG-SOL-011",
+        "OG-SOL-012"
+      ],
+      "files": [
+        "Asset.sol",
+        "Base.sol",
+        "Vault.sol"
+      ],
+      "source_sha256": {
+        "Asset.sol": "8a9c953b07bb1ae56c61ca822ae02377fc918c59ec2f8019b7376f1428c9bf1b",
+        "Base.sol": "7056f61dcc7d6e1f189b5e7b04422b2a33a549689d68fde74cf2fb17ae407516",
+        "Vault.sol": "a9a1608bb9df8a77f25416f5933b02cb619e4dd9503e259502d90eb216ddb448"
+      },
+      "complete": true
+    },
+    "diagnostics": [],
+    "findings": [
+      {
+        "id": "d038eeb8a0f72c9f4b4755d1",
+        "rule_id": "OG-SOL-001",
+        "title": "Authorization uses tx.origin",
+        "severity": "high",
+        "confidence": "high",
+        "message": "tx.origin participates in a condition that can gate execution.",
+        "remediation": "Use msg.sender with an explicit role or ownership check, then add an access-control test.",
+        "location": {
+          "file": "Vault.sol",
+          "start_line": 7,
+          "start_column": 52,
+          "end_line": 7,
+          "end_column": 61,
+          "byte_start": 311,
+          "byte_end": 320
+        },
+        "evidence": {
+          "source_sha256": "a9a1608bb9df8a77f25416f5933b02cb619e4dd9503e259502d90eb216ddb448",
+          "excerpt": "tx.origin",
+          "validated": true
+        },
+        "context": {
+          "contract": "SemanticVault",
+          "function": "originGuard"
+        }
+      }
+    ]
+  },
+  "sources": [
+    {
+      "path": "Asset.sol",
+      "sha256": "8a9c953b07bb1ae56c61ca822ae02377fc918c59ec2f8019b7376f1428c9bf1b",
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.26;\ninterface IAsset { function transfer(address to, uint256 amount) external returns (bool); }\n"
+    },
+    {
+      "path": "Base.sol",
+      "sha256": "7056f61dcc7d6e1f189b5e7b04422b2a33a549689d68fde74cf2fb17ae407516",
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.26;\nabstract contract CreditState { address internal owner = msg.sender; mapping(address => uint256) internal credits; }\n"
+    },
+    {
+      "path": "Vault.sol",
+      "sha256": "a9a1608bb9df8a77f25416f5933b02cb619e4dd9503e259502d90eb216ddb448",
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.26;\nimport {CreditState} from \"./Base.sol\";\nimport {IAsset as Asset} from \"./Asset.sol\";\ncontract SemanticVault is CreditState {\n    function deposit() external payable { credits[msg.sender] += msg.value; }\n    function originGuard() external view { require(tx.origin == owner); }\n    function withdraw() external {\n        uint256 amount = credits[msg.sender];\n        (bool ok,) = msg.sender.call{value: amount}(\"\");\n        require(ok);\n        credits[msg.sender] = 0;\n    }\n    function payAsset(Asset token, address to, uint256 amount) external {\n        require(msg.sender == owner);\n        token.transfer(to, amount);\n    }\n}\n"
+    }
+  ]
+}

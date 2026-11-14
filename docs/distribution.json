@@ -1,0 +1,22 @@
+{
+  "checked_at_utc": "2026-11-14T08:45:00Z",
+  "app_id": "2dcc2164-b65e-43a5-90c8-bc4ac20447ab",
+  "engine_version": "0.1.4",
+  "production_version": "2.0.0",
+  "installation_url": "https://developer.atlassian.com/console/install/2dcc2164-b65e-43a5-90c8-bc4ac20447ab?signature=AYABeC71pFlRaXSdKnl2xdp%2B0EMAAAADAAdhd3Mta21zAEthcm46YXdzOmttczp1cy13ZXN0LTI6NzA5NTg3ODM1MjQzOmtleS83MDVlZDY3MC1mNTdjLTQxYjUtOWY5Yi1lM2YyZGNjMTQ2ZTcAuAECAQB4CxqLTo9l4lqXuFjNim1xJM%2Bp%2F3TVP9xHS2BrU5DRRucBzaUP%2FSt0sw0lgROi4h60WQAAAH4wfAYJKoZIhvcNAQcGoG8wbQIBADBoBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDFeXZWYPl8paRudO%2BQIBEIA7foYy2q3M8lVTV7Wp3rPQStyG1Siy6Z8qJ6r3TXWm%2FcjvFfJpbfx8ncv1RMv7hkmYwWbl6oFLmeenz2MAB2F3cy1rbXMAS2Fybjphd3M6a21zOmV1LXdlc3QtMTo3MDk1ODc4MzUyNDM6a2V5LzQ2MzBjZTZiLTAwYzMtNGRlMi04NzdiLTYyN2UyMDYwZTVjYwC4AQICAHi9bVMAkme4qVQX1fQHo6ePw3H40A7cGfz7yrmSfBWMXgEQGXV7ZDI18eyfZhxgodPCAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMEz304naJVPS2fn1zAgEQgDsIj%2BCbI6UtLY4elLQRCVzlGNNUwHLnhSascslz3flwpA4X2dvPrPoVzFIC8XJ4nZPpo1nwZ%2BG3bpl8lAAHYXdzLWttcwBLYXJuOmF3czprbXM6dXMtZWFzdC0xOjcwOTU4NzgzNTI0MzprZXkvNmMxMjBiYTAtNGNkNS00OTg1LWI4MmUtNDBhMDQ5NTJjYzU3ALgBAgIAeDYASx0XCjkny4iLV6vz%2BKtEGSGT6kdt0QRpkn6D%2FlVEAZB%2BuV2QD6CG48m409My6XkAAAB%2BMHwGCSqGSIb3DQEHBqBvMG0CAQAwaAYJKoZIhvcNAQcBMB4GCWCGSAFlAwQBLjARBAyCJA%2BBJyiExLMJz1oCARCAOyXZ5hF%2FK7jYfa6kqZZbX%2FJ31gnduu68YBfqxKYolyjWa63c5f0L%2BcwNbdDDFVqs04gZ2r9F1VkFQrPiAgAAAAAMAAAQAAAAAAAAAAAAAAAAAHTQsM73DKpHpSqe89saxDn%2F%2F%2F%2F%2FAAAAAQAAAAAAAAAAAAAAAQAAADL6YguqMOqPZnHgoKT9e4mfmeK2Y%2FF1c9MTgWafQjRPe1Oj0bZa3vrDtH8rAWFwStBEvIenvwgTo1evSRY4nKpsWuA%3D&product=jira",
+  "privacy_policy_url": "https://cs0lutions.atlassian.net/wiki/external/YWQ1ZWRkNDFiMzVlNGZkY2JlZmJkOGY5MTNhNzYzNGI",
+  "support_email": "protocolx76@gmail.com",
+  "products": [
+    "Jira"
+  ],
+  "stores_personal_data": true,
+  "production_acceptance": {
+    "site": "cs0lutions.atlassian.net",
+    "issue": "KAN-6",
+    "status": "Done",
+    "verification_comment": "10005"
+  },
+  "independent_site_acceptance": "not yet tested; owner has no second site",
+  "public_video_url": null,
+  "submission_status": "not submitted"
+}

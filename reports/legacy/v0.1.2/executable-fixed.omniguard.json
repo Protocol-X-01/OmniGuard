@@ -1,0 +1,65 @@
+{
+  "bundle_version": 1,
+  "target": {
+    "id": "omniguard-executable-vault",
+    "name": "Executable Vault regression fixture",
+    "kind": "isolated-fixture"
+  },
+  "revision": "executable-fixed-v0.1.2",
+  "rules": [
+    "OG-SOL-001",
+    "OG-SOL-002",
+    "OG-SOL-003",
+    "OG-SOL-004",
+    "OG-SOL-005",
+    "OG-SOL-006",
+    "OG-SOL-007",
+    "OG-SOL-008",
+    "OG-SOL-009",
+    "OG-SOL-010",
+    "OG-SOL-011",
+    "OG-SOL-012"
+  ],
+  "report": {
+    "schema_version": 3,
+    "engine_version": "0.1.2",
+    "scanned_files": 1,
+    "analysis": {
+      "mode": "source",
+      "compiler_version": null
+    },
+    "coverage": {
+      "rule_set": "solidity-core/2026.11",
+      "rules": [
+        "OG-SOL-001",
+        "OG-SOL-002",
+        "OG-SOL-003",
+        "OG-SOL-004",
+        "OG-SOL-005",
+        "OG-SOL-006",
+        "OG-SOL-007",
+        "OG-SOL-008",
+        "OG-SOL-009",
+        "OG-SOL-010",
+        "OG-SOL-011",
+        "OG-SOL-012"
+      ],
+      "files": [
+        "Vault.sol"
+      ],
+      "source_sha256": {
+        "Vault.sol": "1bcaa5d19dd95172b32e78e31bbd47981f34faa3ff8c81d3cf4d2157f10755cd"
+      },
+      "complete": true
+    },
+    "diagnostics": [],
+    "findings": []
+  },
+  "sources": [
+    {
+      "path": "Vault.sol",
+      "sha256": "1bcaa5d19dd95172b32e78e31bbd47981f34faa3ff8c81d3cf4d2157f10755cd",
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.24;\n\n// Local-only remediation control for ExecutableVault, not production audited code.\ncontract ExecutableVault {\n    address public owner;\n    mapping(address => uint256) public credits;\n\n    constructor() { owner = msg.sender; }\n    modifier onlyOwner() { require(msg.sender == owner, \"owner only\"); _; }\n\n    function deposit() external payable { credits[msg.sender] += msg.value; }\n    function withdraw() external {\n        uint256 amount = credits[msg.sender];\n        credits[msg.sender] = 0;\n        (bool ok,) = payable(msg.sender).call{value: amount}(\"\");\n        require(ok, \"transfer failed\");\n    }\n    function checkedSend(address payable recipient) external onlyOwner {\n        (bool ok,) = recipient.call{value: 1 wei}(\"\");\n        require(ok, \"transfer failed\");\n    }\n}\n"
+    }
+  ]
+}

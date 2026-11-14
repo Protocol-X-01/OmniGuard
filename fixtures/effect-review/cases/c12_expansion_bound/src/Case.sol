@@ -1,0 +1,3 @@
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.26;
+contract C { uint internal credit=1; function _h0(address to) private {_h1(to);} function _h1(address to) private {_h2(to);} function _h2(address to) private {_h3(to);} function _h3(address to) private {_h4(to);} function _h4(address to) private {_h5(to);} function _h5(address to) private {_h6(to);} function _h6(address to) private {_h7(to);} function _h7(address to) private {_h8(to);} function _h8(address to) private {_h9(to);} function _h9(address to) private {_h10(to);} function _h10(address to) private {_h11(to);} function _h11(address to) private {_h12(to);} function _h12(address to) private {(bool ok,)=to.call("");require(ok);} function run(address to) external {_h0(to);credit=0;} }
