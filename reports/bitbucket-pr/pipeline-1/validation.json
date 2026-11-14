@@ -1,0 +1,60 @@
+{
+  "recordedAt": "2026-11-14T14:51:57.123545+00:00",
+  "pipeline": {
+    "number": 1,
+    "url": "https://bitbucket.org/omniguard/omniguard-pr-fixtures/pipelines/results/1",
+    "result": "SUCCESSFUL",
+    "trigger": "automatic PR source-branch update",
+    "durationDisplay": "2min 2 sec",
+    "stepDurationDisplay": "2m 1s",
+    "stepUuid": "{6151f75d-0258-4dbf-aa28-740d4f21fa05}"
+  },
+  "sourceCommit": "b45f8b45849f7cc05deabea3e87bc009e6a6eeef",
+  "engineCommit": "c5d49185802c8bfc7124d1252acc4f67e43efd1a",
+  "compilerSha256": "d5f23436f443edb85d8e76906d12f0a86ce0490e7663a9e608efeb7a93f149ef",
+  "jiraEvidenceDigest": "e03394020087d7d93fee7e61c2d6d67139f4efd5a51c0199bfa9d9287fe2591a",
+  "checks": {
+    "generatedBundleMatchesCommittedFixture": true,
+    "generatedSourceAndReportMatchJiraImport": true,
+    "sourceCommitMatchesPrHead": true,
+    "completeCoverage": true,
+    "rules": 12,
+    "findings": 0,
+    "diagnostics": 0,
+    "sarifVersion": "2.1.0",
+    "sarifResults": 0
+  },
+  "artifacts": {
+    "artifacts.tar.gz": {
+      "bytes": 4018,
+      "sha256": "b0f4dcad32604ae0f5a16eb8440ecf3bb6ce81b609f9fa01657fb887f2a14fdc"
+    },
+    "omniguard.sarif": {
+      "bytes": 12906,
+      "sha256": "79ca1496065059a0bc3baab87f31ddb73c69b6f7e11d8004f1cf1a8e0201b96d"
+    },
+    "omniguard.scan.json": {
+      "bytes": 2233,
+      "sha256": "caee4c492348d4df746135a420b6149b030d6f618fd2c0ee980132cdc3565895"
+    },
+    "source-commit.txt": {
+      "bytes": 41,
+      "sha256": "9b4d790904c2942d365fde99eaf9d127ee9084992c57699169b9fd3add2c0697"
+    }
+  },
+  "jira": {
+    "issue": "KAN-7",
+    "status": "Done",
+    "updated": "2026-11-14T14:52:14.441+0000",
+    "verification": {
+      "id": "10007",
+      "body": "OmniGuard rescan verification: e03394020087d7d93fee7e61c2d6d67139f4efd5a51c0199bfa9d9287fe2591a\n\nOG-SOL-002 is absent in EffectVault.sol in imported revision b45f8b45849f7cc05deabea3e87bc009e6a6eeef. The imported report declares 12-rule coverage under engine 0.1.4 (solc, 0.8.26+commit.8a97fa7a.Linux.g++) and contains no diagnostics.\n\nBitbucket PR: https://bitbucket.org/omniguard/omniguard-pr-fixtures/pull-requests/1 \u00b7 source commit b45f8b45849f7cc05deabea3e87bc009e6a6eeef \u00b7 destination commit 7d12037d4d91fb7bde86849a124a6d445e8aa02a. Both heads were checked immediately before this action.\n\nPrevious source SHA-256: ea933c4380fd876fd25bff485be6980573cd25a8c67ff84841927fbc48ee18f8\n\nRescanned source SHA-256: 18c00bd192c116d3b419c51b182f1301f41e602a5a9eb5e567b64860324635d8\n\nThis records absence in an imported isolated-fixture scan. Review the code change before completing the Jira issue.",
+      "created": "2026-11-14T14:52:14.441+0000"
+    },
+    "retainedCommentIds": [
+      "10007",
+      "10006"
+    ],
+    "totalComments": 2
+  }
+}

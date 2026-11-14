@@ -58,7 +58,7 @@ The app imports full selected fixture source and retains scan/history records. N
 
 The separate Bitbucket app is installed in the **omniguard** workspace. [Fixture PR #1](https://bitbucket.org/omniguard/omniguard-pr-fixtures/pull-requests/1) shows the source, committed report and current evidence panel. In Jira, paste that PR URL under **Connect a Bitbucket pull request**. The app checks every selected source byte and both PR heads before creating or verifying a remediation.
 
-The production test created **KAN-7**, rejected stale and mismatched evidence, then accepted the fixed compiler rescan, recorded comment **10006**, and moved the issue to **Done**. [Read the acceptance evidence](docs/acceptance-bitbucket-2026-11-14.md) and [setup instructions](integrations/atlassian-bitbucket/). This release supports public isolated fixtures only. Pipeline configuration is committed; Bitbucket execution is pending account two-step verification and is not claimed as passing.
+The production test created **KAN-7**, rejected stale and mismatched evidence, then accepted the fixed compiler rescan and moved the issue to **Done**. A subsequent PR update automatically triggered [Bitbucket Pipeline #1](https://bitbucket.org/omniguard/omniguard-pr-fixtures/pipelines/results/1), which passed in **2 minutes 2 seconds**. Its downloaded JSON/SARIF matched the fixed source and committed report; Jira recorded that commit in verification comment **10007**. [Read the acceptance evidence](docs/acceptance-bitbucket-2026-11-14.md) and [setup instructions](integrations/atlassian-bitbucket/). This release supports public isolated fixtures only; Jira import and completion remain deliberate reviewer actions.
 
 ## Run a local scan
 

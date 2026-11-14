@@ -27,6 +27,8 @@ Commit source and report together. Copy [the example pipeline](example/bitbucket
 
 Bitbucket requires account two-step verification before Pipelines can be enabled. Enable it in your account, then activate Pipelines for the repository and run the PR pipeline. The example uses the workspace's existing build-minute allowance, a 15-minute step limit, and no integration credentials. The Rust image has a version tag; the engine commit and compiler checksum are immutable pins.
 
+In the owner's `omniguard/omniguard-pr-fixtures` repository, Pipelines is enabled and [automatic PR run #1](https://bitbucket.org/omniguard/omniguard-pr-fixtures/pipelines/results/1) passed on 14 November 2026. Its downloaded bundle matched the committed fixed report exactly as parsed JSON, SARIF 2.1.0 contained zero results, and `source-commit.txt` matched the PR commit imported into Jira. [Acceptance record and archived reports](../../docs/acceptance-bitbucket-2026-11-14.md#automatic-pipeline-acceptance).
+
 ## Jira workflow
 
 1. Open the PR's OmniGuard panel and inspect its current evidence.
