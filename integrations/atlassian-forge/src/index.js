@@ -5,10 +5,20 @@ import { fetch } from '@forge/api';
 import { PullRequestReader, createPublicBitbucketApi } from '../../shared/bitbucket-pr.js';
 import { validateBundle } from './report-bundle.js';
 import { PrivacyService } from './privacy-service.js';
+import { FrontlineService } from './frontline-service.js';
 
 const service = new RemediationService({ store, jira, pullRequests: new PullRequestReader({ api: createPublicBitbucketApi(fetch), validateBundle }) });
 const privacy = new PrivacyService({ store, jira });
+const frontline = new FrontlineService({ store, jira });
 export const handler = makeResolver({
+  getFrontline: ({ context }) => frontline.dashboard(context),
+  importFrontline: ({ context, payload }) => frontline.import(context, payload),
+  createFrontline: ({ context, payload }) => frontline.create(context, payload),
+  decideFrontline: ({ context, payload }) => frontline.action(context, payload, 'decision'),
+  verifyFrontline: ({ context, payload }) => frontline.action(context, payload, 'verify'),
+  completeFrontline: ({ context, payload }) => frontline.action(context, payload, 'complete'),
+  previewFrontlineContact: ({ context, payload }) => frontline.contact(context, payload),
+  sendFrontlineContact: ({ context, payload }) => frontline.contact(context, payload, true),
   getDashboard: ({ context }) => service.dashboard(context),
   importPullRequest: ({ context, payload }) => service.importPullRequest(context, payload),
   importReport: ({ context, payload }) => service.importReport(context, payload),

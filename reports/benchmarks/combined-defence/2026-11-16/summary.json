@@ -1,0 +1,605 @@
+{
+  "recorded_at_utc": "2026-11-16T01:19:05.747104+00:00",
+  "scope": "Authored offline regression lab. One combined vulnerable contract and one corrected counterpart. No production accuracy or completeness claim.",
+  "engine_version": "0.1.4",
+  "binary_sha256": "9feaa27326ad75d32b6c8abe72fd75477755f79c0d676c60819051cb883c7021",
+  "solc_sha256": "d5f23436f443edb85d8e76906d12f0a86ce0490e7663a9e608efeb7a93f149ef",
+  "fixture_compiler": "0.8.26",
+  "evm_version": "cancun",
+  "inputs": {
+    "fixtures/combined-defence/manifest.json": "b4dc1a180a3953ac7610ffe95788946891ab6ff4bddbb8f8d81fa0b28fc3d422",
+    "fixtures/combined-defence/foundry.toml": "b3bf3be8ceed8c05c4e5f65cb40bb7299af14bdad1e2facb7ab33305f0d95899",
+    "fixtures/combined-defence/test/DefenceLab.t.sol": "6d46df6780964a5cc901cc58fb27e3acaa3e3c1e870c12e539d76e727c689481",
+    "fixtures/combined-defence/vulnerable/src/DefenceLab.sol": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+    "fixtures/combined-defence/fixed/src/DefenceLab.sol": "fc3b24f2fe5aeb9c60fef3ff8d10cea8496ada8cad4a2b11df6d693ce8e3135c",
+    "fixtures/combined-defence/vulnerable/foundry.toml": "1302bc77acbe1fed39e88b51afcdb7658e528e1882a6888cf10604d6ddc00533",
+    "fixtures/combined-defence/fixed/foundry.toml": "1302bc77acbe1fed39e88b51afcdb7658e528e1882a6888cf10604d6ddc00533",
+    "scripts/validate-combined-defence.py": "af042bb919b8554b9e1a27139b894e7c8be8735724b18cc560c9cd22b45807d5",
+    "scripts/validate-effect-review.py": "84ebe7f10d81566deb7e36b01aff32703e7ef04c3e000eaea1ef845c9431b836",
+    "crates/omniguard-core/tests/combined_defence.rs": "8f427aaa6f0498ae7625f01fc020eda7d186867b326906312c197fce56db6bab"
+  },
+  "implemented_rule_regressions_passed": true,
+  "implemented_rules_detected_in_both_modes": 12,
+  "labelled_cases": 22,
+  "known_undetected_cases": [
+    "GAP-001",
+    "GAP-002",
+    "GAP-003",
+    "GAP-004",
+    "GAP-005",
+    "GAP-006",
+    "GAP-007",
+    "GAP-008",
+    "GAP-009",
+    "GAP-010"
+  ],
+  "all_labelled_cases_detected": false,
+  "require_all": false,
+  "runs": {
+    "vulnerable.source": {
+      "findings": 12,
+      "coverage_complete_for_modeled_rules": true,
+      "diagnostics": 0,
+      "source_spans_checked": 19,
+      "analysis": {
+        "mode": "source",
+        "compiler_version": null
+      },
+      "sarif_matches_json": true,
+      "report_sha256": "97ba6267553cfb954c6343137e6eb5091b45c22ebb3716aeca7f2adcac484024",
+      "sarif_sha256": "815dfbd46a8455ae23756d94461b06f91ffe9b9ed182a8f25ed7e7e210884f67"
+    },
+    "fixed.source": {
+      "findings": 0,
+      "coverage_complete_for_modeled_rules": true,
+      "diagnostics": 0,
+      "source_spans_checked": 0,
+      "analysis": {
+        "mode": "source",
+        "compiler_version": null
+      },
+      "sarif_matches_json": true,
+      "report_sha256": "0cb7d4e7d51bcee5614f992aa01dccb69fd868778a5ec325d602906377eb5a44",
+      "sarif_sha256": "2167dd5608a43f76eb48916585aa10d7af023d78a573c936f3f1874e361e3e0e"
+    },
+    "vulnerable.solc": {
+      "findings": 12,
+      "coverage_complete_for_modeled_rules": true,
+      "diagnostics": 0,
+      "source_spans_checked": 26,
+      "analysis": {
+        "mode": "solc",
+        "compiler_version": "0.8.26+commit.8a97fa7a.Linux.g++"
+      },
+      "sarif_matches_json": true,
+      "report_sha256": "30a23a6d24469d2499cc5bec00f1dad94e8fe3743473546ee43376017f43b87f",
+      "sarif_sha256": "4f037075b55e61d1d93be498dab668efd6f5b63ddde92ea10c4e0b6504e13416"
+    },
+    "fixed.solc": {
+      "findings": 0,
+      "coverage_complete_for_modeled_rules": true,
+      "diagnostics": 0,
+      "source_spans_checked": 0,
+      "analysis": {
+        "mode": "solc",
+        "compiler_version": "0.8.26+commit.8a97fa7a.Linux.g++"
+      },
+      "sarif_matches_json": true,
+      "report_sha256": "ccacff0d443d7bd522b0f645ca36b2bb6cdf766928756cf2b242a5c3c87a4cb0",
+      "sarif_sha256": "d36bf34c48e854af0afb0b10c842ac083deccb6746d0d45e278e9491af4b0229"
+    }
+  },
+  "behaviour": {
+    "status": "passed",
+    "cases_passed": 22,
+    "tests_passed": 24,
+    "fuzz_runs": {
+      "testFuzz_full_ownership_preserves_amount(uint64,uint64)": 128,
+      "testFuzz_narrowing_preserves_representable_values(uint64)": 128
+    },
+    "test_results": {
+      "testFuzz_full_ownership_preserves_amount(uint64,uint64)": "Success",
+      "testFuzz_narrowing_preserves_representable_values(uint64)": "Success",
+      "test_gap_001_unchecked_overflow()": "Success",
+      "test_gap_002_narrowing()": "Success",
+      "test_gap_003_oracle_freshness()": "Success",
+      "test_gap_004_voucher_replay()": "Success",
+      "test_gap_005_role_update()": "Success",
+      "test_gap_006_upgrade_authority()": "Success",
+      "test_gap_007_slippage()": "Success",
+      "test_gap_008_rounding_order()": "Success",
+      "test_gap_009_credit_backing()": "Success",
+      "test_gap_010_bounded_queue_progress()": "Success",
+      "test_rule_001_origin_authority()": "Success",
+      "test_rule_002_callback_order()": "Success",
+      "test_rule_003_failed_call()": "Success",
+      "test_rule_004_failed_send()": "Success",
+      "test_rule_005_delegate_authority()": "Success",
+      "test_rule_006_destructive_balance_transfer()": "Success",
+      "test_rule_007_batch_conservation()": "Success",
+      "test_rule_008_block_selection()": "Success",
+      "test_rule_009_packed_boundary_collision()": "Success",
+      "test_rule_010_false_token_result()": "Success",
+      "test_rule_011_unaccounted_ether()": "Success",
+      "test_rule_012_recipient_isolation()": "Success"
+    }
+  },
+  "cases": [
+    {
+      "id": "RULE-001",
+      "kind": "implemented",
+      "function": "originRestricted",
+      "rule_id": "OG-SOL-001",
+      "property": "Only the direct authorized caller can pass the owner gate.",
+      "witness": "test_rule_001_origin_authority",
+      "observations": {
+        "source": {
+          "observed_rule_ids": [
+            "OG-SOL-001"
+          ],
+          "status": "detected"
+        },
+        "solc": {
+          "observed_rule_ids": [
+            "OG-SOL-001"
+          ],
+          "status": "detected"
+        }
+      },
+      "behaviour_witness": "passed"
+    },
+    {
+      "id": "RULE-002",
+      "kind": "implemented",
+      "function": "withdrawLate",
+      "rule_id": "OG-SOL-002",
+      "property": "A withdrawal consumes its credit before any recipient callback.",
+      "witness": "test_rule_002_callback_order",
+      "observations": {
+        "source": {
+          "observed_rule_ids": [
+            "OG-SOL-002"
+          ],
+          "status": "detected"
+        },
+        "solc": {
+          "observed_rule_ids": [
+            "OG-SOL-002"
+          ],
+          "status": "detected"
+        }
+      },
+      "behaviour_witness": "passed"
+    },
+    {
+      "id": "RULE-003",
+      "kind": "implemented",
+      "function": "ignoreCall",
+      "rule_id": "OG-SOL-003",
+      "property": "Failure of the requested external operation propagates to its caller.",
+      "witness": "test_rule_003_failed_call",
+      "observations": {
+        "source": {
+          "observed_rule_ids": [
+            "OG-SOL-003"
+          ],
+          "status": "detected"
+        },
+        "solc": {
+          "observed_rule_ids": [
+            "OG-SOL-003"
+          ],
+          "status": "detected"
+        }
+      },
+      "behaviour_witness": "passed"
+    },
+    {
+      "id": "RULE-004",
+      "kind": "implemented",
+      "function": "ignoreSend",
+      "rule_id": "OG-SOL-004",
+      "property": "A rejected Ether send is not treated as successful delivery.",
+      "witness": "test_rule_004_failed_send",
+      "observations": {
+        "source": {
+          "observed_rule_ids": [
+            "OG-SOL-004"
+          ],
+          "status": "detected"
+        },
+        "solc": {
+          "observed_rule_ids": [
+            "OG-SOL-004"
+          ],
+          "status": "detected"
+        }
+      },
+      "behaviour_witness": "passed"
+    },
+    {
+      "id": "RULE-005",
+      "kind": "implemented",
+      "function": "delegateTo",
+      "rule_id": "OG-SOL-005",
+      "property": "An outsider cannot select and execute delegated code.",
+      "witness": "test_rule_005_delegate_authority",
+      "observations": {
+        "source": {
+          "observed_rule_ids": [
+            "OG-SOL-005"
+          ],
+          "status": "detected"
+        },
+        "solc": {
+          "observed_rule_ids": [
+            "OG-SOL-005"
+          ],
+          "status": "detected"
+        }
+      },
+      "behaviour_witness": "passed"
+    },
+    {
+      "id": "RULE-006",
+      "kind": "implemented",
+      "function": "destroyTo",
+      "rule_id": "OG-SOL-006",
+      "property": "An outsider cannot move the contract balance through selfdestruct.",
+      "witness": "test_rule_006_destructive_balance_transfer",
+      "observations": {
+        "source": {
+          "observed_rule_ids": [
+            "OG-SOL-006"
+          ],
+          "status": "detected"
+        },
+        "solc": {
+          "observed_rule_ids": [
+            "OG-SOL-006"
+          ],
+          "status": "detected"
+        }
+      },
+      "behaviour_witness": "passed"
+    },
+    {
+      "id": "RULE-007",
+      "kind": "implemented",
+      "function": "creditBatch",
+      "rule_id": "OG-SOL-007",
+      "property": "Total new batch credit equals the value supplied once.",
+      "witness": "test_rule_007_batch_conservation",
+      "observations": {
+        "source": {
+          "observed_rule_ids": [
+            "OG-SOL-007"
+          ],
+          "status": "detected"
+        },
+        "solc": {
+          "observed_rule_ids": [
+            "OG-SOL-007"
+          ],
+          "status": "detected"
+        }
+      },
+      "behaviour_witness": "passed"
+    },
+    {
+      "id": "RULE-008",
+      "kind": "implemented",
+      "function": "chooseRecipient",
+      "rule_id": "OG-SOL-008",
+      "property": "The chosen allocation is independent of a change in block timestamp.",
+      "witness": "test_rule_008_block_selection",
+      "observations": {
+        "source": {
+          "observed_rule_ids": [
+            "OG-SOL-008"
+          ],
+          "status": "detected"
+        },
+        "solc": {
+          "observed_rule_ids": [
+            "OG-SOL-008"
+          ],
+          "status": "detected"
+        }
+      },
+      "behaviour_witness": "passed"
+    },
+    {
+      "id": "RULE-009",
+      "kind": "implemented",
+      "function": "packedKey",
+      "rule_id": "OG-SOL-009",
+      "property": "Distinct pairs of strings have unambiguous encoding boundaries.",
+      "witness": "test_rule_009_packed_boundary_collision",
+      "observations": {
+        "source": {
+          "observed_rule_ids": [
+            "OG-SOL-009"
+          ],
+          "status": "detected"
+        },
+        "solc": {
+          "observed_rule_ids": [
+            "OG-SOL-009"
+          ],
+          "status": "detected"
+        }
+      },
+      "behaviour_witness": "passed"
+    },
+    {
+      "id": "RULE-010",
+      "kind": "implemented",
+      "function": "ignoreToken",
+      "rule_id": "OG-SOL-010",
+      "property": "A token returning false cannot silently satisfy the operation.",
+      "witness": "test_rule_010_false_token_result",
+      "observations": {
+        "source": {
+          "observed_rule_ids": [
+            "OG-SOL-010"
+          ],
+          "status": "detected"
+        },
+        "solc": {
+          "observed_rule_ids": [
+            "OG-SOL-010"
+          ],
+          "status": "detected"
+        }
+      },
+      "behaviour_witness": "passed"
+    },
+    {
+      "id": "RULE-011",
+      "kind": "implemented",
+      "function": "exactBalance",
+      "rule_id": "OG-SOL-011",
+      "property": "Extra unaccounted Ether does not disable an otherwise sufficient reserve check.",
+      "witness": "test_rule_011_unaccounted_ether",
+      "observations": {
+        "source": {
+          "observed_rule_ids": [
+            "OG-SOL-011"
+          ],
+          "status": "detected"
+        },
+        "solc": {
+          "observed_rule_ids": [
+            "OG-SOL-011"
+          ],
+          "status": "detected"
+        }
+      },
+      "behaviour_witness": "passed"
+    },
+    {
+      "id": "RULE-012",
+      "kind": "implemented",
+      "function": "pushBatch",
+      "rule_id": "OG-SOL-012",
+      "property": "One rejecting recipient does not prevent another from obtaining its allocation.",
+      "witness": "test_rule_012_recipient_isolation",
+      "observations": {
+        "source": {
+          "observed_rule_ids": [
+            "OG-SOL-012"
+          ],
+          "status": "detected"
+        },
+        "solc": {
+          "observed_rule_ids": [
+            "OG-SOL-012"
+          ],
+          "status": "detected"
+        }
+      },
+      "behaviour_witness": "passed"
+    },
+    {
+      "id": "GAP-001",
+      "kind": "known_gap",
+      "function": "overflowAdd",
+      "rule_id": null,
+      "family": "arithmetic",
+      "property": "Addition outside uint256 range must reject, rather than wrap.",
+      "witness": "test_gap_001_unchecked_overflow",
+      "observations": {
+        "source": {
+          "observed_rule_ids": [],
+          "status": "known_gap"
+        },
+        "solc": {
+          "observed_rule_ids": [],
+          "status": "known_gap"
+        }
+      },
+      "behaviour_witness": "passed"
+    },
+    {
+      "id": "GAP-002",
+      "kind": "known_gap",
+      "function": "narrowAmount",
+      "rule_id": null,
+      "family": "arithmetic",
+      "property": "Amounts exceeding uint64 must reject, rather than truncate.",
+      "witness": "test_gap_002_narrowing",
+      "observations": {
+        "source": {
+          "observed_rule_ids": [],
+          "status": "known_gap"
+        },
+        "solc": {
+          "observed_rule_ids": [],
+          "status": "known_gap"
+        }
+      },
+      "behaviour_witness": "passed"
+    },
+    {
+      "id": "GAP-003",
+      "kind": "known_gap",
+      "function": "readPrice",
+      "rule_id": null,
+      "family": "oracles",
+      "property": "A price older than the selected age limit must reject.",
+      "witness": "test_gap_003_oracle_freshness",
+      "observations": {
+        "source": {
+          "observed_rule_ids": [],
+          "status": "known_gap"
+        },
+        "solc": {
+          "observed_rule_ids": [],
+          "status": "known_gap"
+        }
+      },
+      "behaviour_witness": "passed"
+    },
+    {
+      "id": "GAP-004",
+      "kind": "known_gap",
+      "function": "claimVoucher",
+      "rule_id": null,
+      "family": "signatures",
+      "property": "A domain-bound voucher nonce can credit its recipient only once.",
+      "witness": "test_gap_004_voucher_replay",
+      "observations": {
+        "source": {
+          "observed_rule_ids": [],
+          "status": "known_gap"
+        },
+        "solc": {
+          "observed_rule_ids": [],
+          "status": "known_gap"
+        }
+      },
+      "behaviour_witness": "passed"
+    },
+    {
+      "id": "GAP-005",
+      "kind": "known_gap",
+      "function": "changeOperator",
+      "rule_id": null,
+      "family": "authorization",
+      "property": "Only the owner can replace the operator role.",
+      "witness": "test_gap_005_role_update",
+      "observations": {
+        "source": {
+          "observed_rule_ids": [],
+          "status": "known_gap"
+        },
+        "solc": {
+          "observed_rule_ids": [],
+          "status": "known_gap"
+        }
+      },
+      "behaviour_witness": "passed"
+    },
+    {
+      "id": "GAP-006",
+      "kind": "known_gap",
+      "function": "upgradeTo",
+      "rule_id": null,
+      "family": "upgrades",
+      "property": "Only the owner can change the implementation that executes subsequent calls.",
+      "witness": "test_gap_006_upgrade_authority",
+      "observations": {
+        "source": {
+          "observed_rule_ids": [],
+          "status": "known_gap"
+        },
+        "solc": {
+          "observed_rule_ids": [],
+          "status": "known_gap"
+        }
+      },
+      "behaviour_witness": "passed"
+    },
+    {
+      "id": "GAP-007",
+      "kind": "known_gap",
+      "function": "trade",
+      "rule_id": null,
+      "family": "transaction-ordering",
+      "property": "A trade cannot commit less output than its requested minimum after a price change.",
+      "witness": "test_gap_007_slippage",
+      "observations": {
+        "source": {
+          "observed_rule_ids": [],
+          "status": "known_gap"
+        },
+        "solc": {
+          "observed_rule_ids": [],
+          "status": "known_gap"
+        }
+      },
+      "behaviour_witness": "passed"
+    },
+    {
+      "id": "GAP-008",
+      "kind": "known_gap",
+      "function": "scaledShare",
+      "rule_id": null,
+      "family": "accounting",
+      "property": "Scaling must preserve the defined share before integer rounding within the bounded fixture domain.",
+      "witness": "test_gap_008_rounding_order",
+      "observations": {
+        "source": {
+          "observed_rule_ids": [],
+          "status": "known_gap"
+        },
+        "solc": {
+          "observed_rule_ids": [],
+          "status": "known_gap"
+        }
+      },
+      "behaviour_witness": "passed"
+    },
+    {
+      "id": "GAP-009",
+      "kind": "known_gap",
+      "function": "issueCredit",
+      "rule_id": null,
+      "family": "protocol-invariants",
+      "property": "New issued credit requires equal new backing in the same operation.",
+      "witness": "test_gap_009_credit_backing",
+      "observations": {
+        "source": {
+          "observed_rule_ids": [],
+          "status": "known_gap"
+        },
+        "solc": {
+          "observed_rule_ids": [],
+          "status": "known_gap"
+        }
+      },
+      "behaviour_witness": "passed"
+    },
+    {
+      "id": "GAP-010",
+      "kind": "known_gap",
+      "function": "processQueue",
+      "rule_id": null,
+      "family": "availability",
+      "property": "A growing queue must permit a bounded chunk to make progress within the fixture gas budget.",
+      "witness": "test_gap_010_bounded_queue_progress",
+      "observations": {
+        "source": {
+          "observed_rule_ids": [],
+          "status": "known_gap"
+        },
+        "solc": {
+          "observed_rule_ids": [],
+          "status": "known_gap"
+        }
+      },
+      "behaviour_witness": "passed"
+    }
+  ]
+}

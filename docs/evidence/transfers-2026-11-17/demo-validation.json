@@ -1,0 +1,24 @@
+{
+  "duration_seconds": 275.666667,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "fps": 30,
+  "voice": "en-US-AndrewNeural",
+  "rate": "-4%",
+  "synthetic_narration": true,
+  "base_video_sha256": "ae2d4f787906e43169947212c5c09b5dc2700c4e0400dd00494eaac0dc12e59e",
+  "video_sha256": "c4d7a9e1d3da70555102b45c7dafda9ec67ddb1caf2810b6fd7c26fc1d67606b",
+  "captions": 68,
+  "update_begins_seconds": 231.121354,
+  "capture_scope": "Original November 14 core footage plus dated Bitbucket acceptance and real November 17 local browser/guide captures. Static update frames; not a real-time demonstration.",
+  "integrated_loudness_lufs": -18.4,
+  "black_intervals": [],
+  "full_decode_exit": 0,
+  "reviewed_frames_seconds": [
+    235,
+    250,
+    268
+  ]
+}

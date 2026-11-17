@@ -47,3 +47,9 @@ The [public privacy notice](https://cs0lutions.atlassian.net/wiki/external/YWQ1Z
 Atlassian recommends avoiding unnecessary cached personal data and provides reporting/erasure requirements for apps that retain it. This update minimizes a field that had no workflow consumer; cleanup of that field was verified only for the named project environments above. [Forge user privacy guidance](https://developer.atlassian.com/platform/forge/user-privacy-guidelines/).
 
 The storage design follows the documented query consistency and cursor limits. [Forge KVS consistency and cursors](https://developer.atlassian.com/platform/forge/storage-reference/kvs/) and [KVS queries](https://developer.atlassian.com/platform/forge/storage-reference/kvs-api-query/). Sources checked 14 November 2026.
+
+## Development owner contact and separate local messaging (14 November 2026)
+
+Development 3.6.0 reads the current Jira assignee for a reviewed mention. Forge stores a per-project random signing secret plus comment receipt, reason, evidence digest and time; it does not persist the recipient account ID, display name, preview token or message body. Jira itself retains comment authorship and mention identity. No new Forge scopes or destinations were added. The public production privacy notice is unchanged because production is unchanged.
+
+The separately running encrypted messaging lab is local-only, with synthetic users and owner-only server state outside the repository. The Matrix homeserver stores encrypted message content and visible room/device metadata; browser keys and access tokens are memory-only. The fixture broker has synthetic account credentials and is not production authentication. No Matrix data is sent to Forge. See its [trust boundaries](../secure-comms/SPEC.md).

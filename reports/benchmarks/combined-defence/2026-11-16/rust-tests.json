@@ -1,0 +1,29 @@
+{
+  "command": [
+    "/usr/bin/bwrap",
+    "--unshare-net",
+    "--die-with-parent",
+    "--bind",
+    "/",
+    "/",
+    "--dev",
+    "/dev",
+    "--proc",
+    "/proc",
+    "/usr/bin/env",
+    "OMNIGUARD_TEST_SOLC=/home/protocol-x/.local/share/svm/0.8.26/solc-0.8.26",
+    "/home/protocol-x/.cargo/bin/cargo",
+    "test",
+    "--release",
+    "--locked",
+    "--offline",
+    "-p",
+    "omniguard-core",
+    "--",
+    "--include-ignored"
+  ],
+  "exit_code": 0,
+  "passed": 37,
+  "failed": 0,
+  "ignored": 0
+}

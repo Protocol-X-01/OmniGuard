@@ -1,0 +1,29 @@
+{
+  "openapi": "3.0.3",
+  "info": {"title": "OmniGuard local Matrix transfer dependency subset", "version": "0.1.0", "description": "Existing Matrix routes consumed by the isolated transfer lab. Bodies are ciphertext; key-bearing events use the existing encrypted room workflow."},
+  "servers": [{"url": "http://127.0.0.1:8998"}],
+  "security": [{"matrixBearer": []}],
+  "components": {"securitySchemes": {"matrixBearer": {"type": "http", "scheme": "bearer"}}},
+  "paths": {
+    "/_matrix/media/v3/upload": {"post": {
+      "operationId": "uploadEncryptedTransfer",
+      "requestBody": {"required": true, "content": {"application/octet-stream": {"schema": {"type": "string", "format": "binary"}}}},
+      "responses": {
+        "200": {"description": "Stored ciphertext", "content": {"application/json": {"schema": {"type": "object", "required": ["content_uri"], "properties": {"content_uri": {"type": "string"}}}}}},
+        "401": {"description": "Authentication required"}, "413": {"description": "Upload exceeds server limit"}, "429": {"description": "Rate limited"}
+      }
+    }},
+    "/_matrix/client/v1/media/download/{serverName}/{mediaId}": {"get": {
+      "operationId": "downloadEncryptedTransfer",
+      "parameters": [
+        {"name": "serverName", "in": "path", "required": true, "schema": {"type": "string"}},
+        {"name": "mediaId", "in": "path", "required": true, "schema": {"type": "string"}}
+      ],
+      "responses": {
+        "200": {"description": "Ciphertext bytes", "content": {"application/octet-stream": {"schema": {"type": "string", "format": "binary"}}}},
+        "401": {"description": "Authentication required"}, "404": {"description": "Media unavailable"}, "429": {"description": "Rate limited"},
+        "307": {"description": "Provider redirect; this local client refuses it"}, "308": {"description": "Provider redirect; this local client refuses it"}
+      }
+    }}
+  }
+}

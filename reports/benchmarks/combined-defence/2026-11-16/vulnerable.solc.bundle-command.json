@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+    "bundle",
+    "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/combined-defence/vulnerable",
+    "--target",
+    "combined-defence",
+    "--name",
+    "Combined defence lab",
+    "--revision",
+    "combined-vulnerable-v1",
+    "--isolated-fixture",
+    "--solc",
+    "/home/protocol-x/.local/share/svm/0.8.26/solc-0.8.26",
+    "--output",
+    "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/reports/benchmarks/combined-defence/2026-11-16/vulnerable.solc.bundle.json"
+  ],
+  "exit_code": 0,
+  "stderr": ""
+}

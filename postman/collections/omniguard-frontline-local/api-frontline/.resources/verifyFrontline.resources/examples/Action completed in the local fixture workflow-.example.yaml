@@ -1,0 +1,28 @@
+$kind: http-example
+name: Action completed in the local fixture workflow.
+request:
+  url: "{{baseUrl}}/api/frontline/verify"
+  method: POST
+  headers:
+    - key: X-OmniGuard-Local
+      value: "1"
+      disabled: false
+      description: "(Required) "
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "string",
+        "digest": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: "{}"
+order: 1000

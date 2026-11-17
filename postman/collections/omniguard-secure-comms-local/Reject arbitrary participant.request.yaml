@@ -1,0 +1,21 @@
+$kind: http-request
+name: 'Reject arbitrary participant'
+method: POST
+url: '{{baseUrl}}/lab/session'
+order: 3000
+headers:
+  - key: Origin
+    value: 'http://127.0.0.1:4190'
+  - key: Content-Type
+    value: 'application/json'
+  - key: X-OmniGuard-Lab
+    value: '1'
+body:
+  type: json
+  content: |-
+    {"participant":"outsider"}
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test('HTTP 400', () => pm.response.to.have.status(400));

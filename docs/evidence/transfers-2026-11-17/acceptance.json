@@ -1,0 +1,17 @@
+{
+  "measuredAt": "2026-11-17T07:06:19.356Z",
+  "server": "Synapse 1.165.0 on numeric loopback",
+  "sdk": "matrix-js-sdk 45.1.0",
+  "crypto": "Rust SDK 0.19.1 (d9d901f), Vodozemac 0.11.2",
+  "encryptedWireEvent": true,
+  "intendedRecipientDecrypted": true,
+  "plaintextAbsentFromWire": true,
+  "outsiderJoinDenied": true,
+  "outsiderReadDenied": true,
+  "wrongFingerprintRejected": true,
+  "unverifiedDeviceBlocked": true,
+  "changedMembershipBlocked": true,
+  "unavailableLocalEncryptionBlocked": true,
+  "fixtureOnly": true,
+  "physicalMobileTested": false
+}

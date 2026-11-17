@@ -1,0 +1,21 @@
+$kind: http-request
+name: 'Reject foreign origin'
+method: POST
+url: '{{baseUrl}}/lab/session'
+order: 2000
+headers:
+  - key: Origin
+    value: 'https://foreign.example'
+  - key: Content-Type
+    value: 'application/json'
+  - key: X-OmniGuard-Lab
+    value: '1'
+body:
+  type: json
+  content: |-
+    {"participant":"alice"}
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test('HTTP 403', () => pm.response.to.have.status(403));

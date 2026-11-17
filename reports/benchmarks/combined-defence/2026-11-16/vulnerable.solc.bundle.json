@@ -1,0 +1,600 @@
+{
+  "bundle_version": 1,
+  "target": {
+    "id": "combined-defence",
+    "name": "Combined defence lab",
+    "kind": "isolated-fixture"
+  },
+  "revision": "combined-vulnerable-v1",
+  "rules": [
+    "OG-SOL-001",
+    "OG-SOL-002",
+    "OG-SOL-003",
+    "OG-SOL-004",
+    "OG-SOL-005",
+    "OG-SOL-006",
+    "OG-SOL-007",
+    "OG-SOL-008",
+    "OG-SOL-009",
+    "OG-SOL-010",
+    "OG-SOL-011",
+    "OG-SOL-012"
+  ],
+  "report": {
+    "schema_version": 3,
+    "engine_version": "0.1.4",
+    "scanned_files": 1,
+    "analysis": {
+      "mode": "solc",
+      "compiler_version": "0.8.26+commit.8a97fa7a.Linux.g++"
+    },
+    "coverage": {
+      "rule_set": "solidity-core/2026.11",
+      "rules": [
+        "OG-SOL-001",
+        "OG-SOL-002",
+        "OG-SOL-003",
+        "OG-SOL-004",
+        "OG-SOL-005",
+        "OG-SOL-006",
+        "OG-SOL-007",
+        "OG-SOL-008",
+        "OG-SOL-009",
+        "OG-SOL-010",
+        "OG-SOL-011",
+        "OG-SOL-012"
+      ],
+      "files": [
+        "DefenceLab.sol"
+      ],
+      "source_sha256": {
+        "DefenceLab.sol": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9"
+      },
+      "complete": true
+    },
+    "diagnostics": [],
+    "findings": [
+      {
+        "id": "3ecbe424392fce61418a5540",
+        "rule_id": "OG-SOL-001",
+        "title": "Authorization uses tx.origin",
+        "severity": "high",
+        "confidence": "high",
+        "message": "tx.origin participates in a condition that can gate execution.",
+        "remediation": "Use msg.sender with an explicit role or ownership check, then add an access-control test.",
+        "location": {
+          "file": "DefenceLab.sol",
+          "start_line": 41,
+          "start_column": 17,
+          "end_line": 41,
+          "end_column": 26,
+          "byte_start": 1416,
+          "byte_end": 1425
+        },
+        "evidence": {
+          "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+          "excerpt": "tx.origin",
+          "validated": true
+        },
+        "context": {
+          "contract": "DefenceLab",
+          "function": "originRestricted"
+        }
+      },
+      {
+        "id": "da4faaa12b4b65cb04268b9f",
+        "rule_id": "OG-SOL-002",
+        "title": "State write follows an external call",
+        "severity": "high",
+        "confidence": "medium",
+        "message": "An external interaction precedes a write to this contract's storage on a modeled execution path.",
+        "remediation": "Apply checks-effects-interactions and verify a reentrancy guard with a local regression test.",
+        "location": {
+          "file": "DefenceLab.sol",
+          "start_line": 52,
+          "start_column": 22,
+          "end_line": 52,
+          "end_column": 65,
+          "byte_start": 1711,
+          "byte_end": 1754
+        },
+        "evidence": {
+          "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+          "excerpt": "payable(msg.sender).call{value: amount}(\"\")",
+          "validated": true,
+          "related": [
+            {
+              "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+              "label": "Resolved external interaction",
+              "location": {
+                "file": "DefenceLab.sol",
+                "start_line": 52,
+                "start_column": 22,
+                "end_line": 52,
+                "end_column": 65,
+                "byte_start": 1711,
+                "byte_end": 1754
+              },
+              "excerpt": "payable(msg.sender).call{value: amount}(\"\")"
+            },
+            {
+              "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+              "label": "Later storage write",
+              "location": {
+                "file": "DefenceLab.sol",
+                "start_line": 54,
+                "start_column": 9,
+                "end_line": 54,
+                "end_column": 33,
+                "byte_start": 1797,
+                "byte_end": 1821
+              },
+              "excerpt": "deposits[msg.sender] = 0"
+            },
+            {
+              "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+              "label": "Compiler-resolved storage root",
+              "location": {
+                "file": "DefenceLab.sol",
+                "start_line": 23,
+                "start_column": 5,
+                "end_line": 23,
+                "end_column": 48,
+                "byte_start": 740,
+                "byte_end": 783
+              },
+              "excerpt": "mapping(address => uint256) public deposits"
+            }
+          ]
+        },
+        "context": {
+          "contract": "DefenceLab",
+          "function": "withdrawLate"
+        }
+      },
+      {
+        "id": "ad4a103bf06136bb85ddffbc",
+        "rule_id": "OG-SOL-003",
+        "title": "Low-level call result is not checked",
+        "severity": "medium",
+        "confidence": "high",
+        "message": "An address call/delegatecall/staticcall result is discarded, or its captured success flag is unused.",
+        "remediation": "Capture and enforce the success flag, or explicitly return it to a caller that handles failure.",
+        "location": {
+          "file": "DefenceLab.sol",
+          "start_line": 58,
+          "start_column": 9,
+          "end_line": 58,
+          "end_column": 24,
+          "byte_start": 1889,
+          "byte_end": 1904
+        },
+        "evidence": {
+          "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+          "excerpt": "target.call(\"\")",
+          "validated": true
+        },
+        "context": {
+          "contract": "DefenceLab",
+          "function": "ignoreCall"
+        }
+      },
+      {
+        "id": "c9ca7b8bdd66a2d3077bd8df",
+        "rule_id": "OG-SOL-004",
+        "title": "Ether send result is discarded",
+        "severity": "medium",
+        "confidence": "high",
+        "message": "The boolean from an address send operation is discarded.",
+        "remediation": "Handle failed delivery explicitly; prefer a pull-payment design when recipients can reject Ether.",
+        "location": {
+          "file": "DefenceLab.sol",
+          "start_line": 62,
+          "start_column": 9,
+          "end_line": 62,
+          "end_column": 31,
+          "byte_start": 1999,
+          "byte_end": 2021
+        },
+        "evidence": {
+          "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+          "excerpt": "recipient.send(amount)",
+          "validated": true
+        },
+        "context": {
+          "contract": "DefenceLab",
+          "function": "ignoreSend"
+        }
+      },
+      {
+        "id": "cf6e246bf30d7615bb8dfd19",
+        "rule_id": "OG-SOL-005",
+        "title": "Caller controls a delegatecall target",
+        "severity": "high",
+        "confidence": "high",
+        "message": "An externally callable path delegates to a caller-derived target without a recognized preceding caller restriction.",
+        "remediation": "Use a trusted implementation target and enforce the intended caller/upgrade policy before delegation.",
+        "location": {
+          "file": "DefenceLab.sol",
+          "start_line": 66,
+          "start_column": 42,
+          "end_line": 66,
+          "end_column": 67,
+          "byte_start": 2166,
+          "byte_end": 2191
+        },
+        "evidence": {
+          "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+          "excerpt": "target.delegatecall(data)",
+          "validated": true,
+          "related": [
+            {
+              "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+              "label": "Resolved delegated interaction",
+              "location": {
+                "file": "DefenceLab.sol",
+                "start_line": 66,
+                "start_column": 42,
+                "end_line": 66,
+                "end_column": 67,
+                "byte_start": 2166,
+                "byte_end": 2191
+              },
+              "excerpt": "target.delegatecall(data)"
+            },
+            {
+              "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+              "label": "Caller-controlled target source",
+              "location": {
+                "file": "DefenceLab.sol",
+                "start_line": 65,
+                "start_column": 25,
+                "end_line": 65,
+                "end_column": 39,
+                "byte_start": 2054,
+                "byte_end": 2068
+              },
+              "excerpt": "address target"
+            }
+          ]
+        },
+        "context": {
+          "contract": "DefenceLab",
+          "function": "delegateTo"
+        }
+      },
+      {
+        "id": "a038091eb9e3fbe6803467f7",
+        "rule_id": "OG-SOL-006",
+        "title": "Selfdestruct lacks a local caller restriction",
+        "severity": "high",
+        "confidence": "medium",
+        "message": "An externally callable path contains selfdestruct without a recognized preceding caller restriction.",
+        "remediation": "Remove the operation or enforce the intended caller policy and test unauthorized calls locally.",
+        "location": {
+          "file": "DefenceLab.sol",
+          "start_line": 72,
+          "start_column": 9,
+          "end_line": 72,
+          "end_column": 32,
+          "byte_start": 2325,
+          "byte_end": 2348
+        },
+        "evidence": {
+          "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+          "excerpt": "selfdestruct(recipient)",
+          "validated": true,
+          "related": [
+            {
+              "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+              "label": "Resolved destruction effect",
+              "location": {
+                "file": "DefenceLab.sol",
+                "start_line": 72,
+                "start_column": 9,
+                "end_line": 72,
+                "end_column": 32,
+                "byte_start": 2325,
+                "byte_end": 2348
+              },
+              "excerpt": "selfdestruct(recipient)"
+            }
+          ]
+        },
+        "context": {
+          "contract": "DefenceLab",
+          "function": "destroyTo"
+        }
+      },
+      {
+        "id": "4ede66756f599096b9a75665",
+        "rule_id": "OG-SOL-007",
+        "title": "Loop repeatedly credits the full msg.value",
+        "severity": "high",
+        "confidence": "medium",
+        "message": "A loop writes the whole msg.value into storage on each iteration.",
+        "remediation": "Compute and validate a per-item allocation before the loop, or require a single recipient per payment.",
+        "location": {
+          "file": "DefenceLab.sol",
+          "start_line": 78,
+          "start_column": 13,
+          "end_line": 78,
+          "end_column": 48,
+          "byte_start": 2552,
+          "byte_end": 2587
+        },
+        "evidence": {
+          "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+          "excerpt": "credits[recipients[i]] += msg.value",
+          "validated": true,
+          "related": [
+            {
+              "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+              "label": "Repeated accounting operation",
+              "location": {
+                "file": "DefenceLab.sol",
+                "start_line": 77,
+                "start_column": 9,
+                "end_line": 79,
+                "end_column": 10,
+                "byte_start": 2494,
+                "byte_end": 2598
+              },
+              "excerpt": "for (uint256 i; i < recipients.length; i++) {\n            credits[recipients[i]] += msg.value;\n        }"
+            },
+            {
+              "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+              "label": "Compiler-resolved storage declaration",
+              "location": {
+                "file": "DefenceLab.sol",
+                "start_line": 24,
+                "start_column": 5,
+                "end_line": 24,
+                "end_column": 47,
+                "byte_start": 789,
+                "byte_end": 831
+              },
+              "excerpt": "mapping(address => uint256) public credits"
+            }
+          ]
+        },
+        "context": {
+          "contract": "DefenceLab",
+          "function": "creditBatch"
+        }
+      },
+      {
+        "id": "e76a2760169200ec1ca55d59",
+        "rule_id": "OG-SOL-008",
+        "title": "Block-derived array selection",
+        "severity": "medium",
+        "confidence": "high",
+        "message": "A block-derived value is used in modulo arithmetic to choose an array index.",
+        "remediation": "Use an appropriate verifiable randomness or commit/reveal design with an explicit adversary model.",
+        "location": {
+          "file": "DefenceLab.sol",
+          "start_line": 84,
+          "start_column": 27,
+          "end_line": 84,
+          "end_column": 62,
+          "byte_start": 2817,
+          "byte_end": 2852
+        },
+        "evidence": {
+          "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+          "excerpt": "block.timestamp % recipients.length",
+          "validated": true
+        },
+        "context": {
+          "contract": "DefenceLab",
+          "function": "chooseRecipient"
+        }
+      },
+      {
+        "id": "ce8d114a73cb59552e48d234",
+        "rule_id": "OG-SOL-009",
+        "title": "Packed hash combines dynamic inputs",
+        "severity": "high",
+        "confidence": "high",
+        "message": "A hash uses packed encoding of two or more locally resolved string/bytes values, leaving input boundaries ambiguous.",
+        "remediation": "Use abi.encode with explicit types and domain separation for the intended hash or signature protocol.",
+        "location": {
+          "file": "DefenceLab.sol",
+          "start_line": 88,
+          "start_column": 26,
+          "end_line": 88,
+          "end_column": 55,
+          "byte_start": 2989,
+          "byte_end": 3018
+        },
+        "evidence": {
+          "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+          "excerpt": "abi.encodePacked(left, right)",
+          "validated": true,
+          "related": [
+            {
+              "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+              "label": "Dynamic hash input",
+              "location": {
+                "file": "DefenceLab.sol",
+                "start_line": 87,
+                "start_column": 24,
+                "end_line": 87,
+                "end_column": 44,
+                "byte_start": 2885,
+                "byte_end": 2905
+              },
+              "excerpt": "string calldata left"
+            },
+            {
+              "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+              "label": "Dynamic hash input",
+              "location": {
+                "file": "DefenceLab.sol",
+                "start_line": 87,
+                "start_column": 46,
+                "end_line": 87,
+                "end_column": 67,
+                "byte_start": 2907,
+                "byte_end": 2928
+              },
+              "excerpt": "string calldata right"
+            },
+            {
+              "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+              "label": "Compiler-resolved dynamic hash input",
+              "location": {
+                "file": "DefenceLab.sol",
+                "start_line": 87,
+                "start_column": 24,
+                "end_line": 87,
+                "end_column": 44,
+                "byte_start": 2885,
+                "byte_end": 2905
+              },
+              "excerpt": "string calldata left"
+            },
+            {
+              "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+              "label": "Compiler-resolved dynamic hash input",
+              "location": {
+                "file": "DefenceLab.sol",
+                "start_line": 87,
+                "start_column": 46,
+                "end_line": 87,
+                "end_column": 67,
+                "byte_start": 2907,
+                "byte_end": 2928
+              },
+              "excerpt": "string calldata right"
+            }
+          ]
+        },
+        "context": {
+          "contract": "DefenceLab",
+          "function": "packedKey"
+        }
+      },
+      {
+        "id": "94b62d7178e6136f790a3318",
+        "rule_id": "OG-SOL-010",
+        "title": "Token operation boolean is discarded",
+        "severity": "medium",
+        "confidence": "high",
+        "message": "A transfer/transferFrom/approve operation declared to return bool is used without its result.",
+        "remediation": "Use a compatible SafeERC20 wrapper or enforce the token's return value and test failure behavior.",
+        "location": {
+          "file": "DefenceLab.sol",
+          "start_line": 92,
+          "start_column": 9,
+          "end_line": 92,
+          "end_column": 42,
+          "byte_start": 3123,
+          "byte_end": 3156
+        },
+        "evidence": {
+          "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+          "excerpt": "token.transfer(recipient, amount)",
+          "validated": true,
+          "related": [
+            {
+              "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+              "label": "Compiler-resolved boolean-returning method",
+              "location": {
+                "file": "DefenceLab.sol",
+                "start_line": 5,
+                "start_column": 5,
+                "end_line": 5,
+                "end_column": 82,
+                "byte_start": 82,
+                "byte_end": 159
+              },
+              "excerpt": "function transfer(address recipient, uint256 amount) external returns (bool);"
+            }
+          ]
+        },
+        "context": {
+          "contract": "DefenceLab",
+          "function": "ignoreToken"
+        }
+      },
+      {
+        "id": "75d2d06e4b43a70fa4bbbb9d",
+        "rule_id": "OG-SOL-011",
+        "title": "Strict equality on contract Ether balance",
+        "severity": "medium",
+        "confidence": "medium",
+        "message": "A condition requires this contract's Ether balance to equal an exact value.",
+        "remediation": "Track internal accounting explicitly and avoid relying on an exact external Ether balance.",
+        "location": {
+          "file": "DefenceLab.sol",
+          "start_line": 96,
+          "start_column": 17,
+          "end_line": 96,
+          "end_column": 50,
+          "byte_start": 3256,
+          "byte_end": 3289
+        },
+        "evidence": {
+          "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+          "excerpt": "address(this).balance == expected",
+          "validated": true
+        },
+        "context": {
+          "contract": "DefenceLab",
+          "function": "exactBalance"
+        }
+      },
+      {
+        "id": "6550d0636fed192c312e5fc9",
+        "rule_id": "OG-SOL-012",
+        "title": "Reverting Ether transfer inside a loop",
+        "severity": "medium",
+        "confidence": "medium",
+        "message": "A payable-address transfer in a loop lets a rejecting recipient revert the whole batch.",
+        "remediation": "Use independently claimable payments or isolate recipient failures without losing accounting correctness.",
+        "location": {
+          "file": "DefenceLab.sol",
+          "start_line": 103,
+          "start_column": 13,
+          "end_line": 103,
+          "end_column": 43,
+          "byte_start": 3533,
+          "byte_end": 3563
+        },
+        "evidence": {
+          "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+          "excerpt": "recipients[i].transfer(amount)",
+          "validated": true,
+          "related": [
+            {
+              "source_sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+              "label": "Enclosing batch loop",
+              "location": {
+                "file": "DefenceLab.sol",
+                "start_line": 102,
+                "start_column": 9,
+                "end_line": 104,
+                "end_column": 10,
+                "byte_start": 3475,
+                "byte_end": 3574
+              },
+              "excerpt": "for (uint256 i; i < recipients.length; i++) {\n            recipients[i].transfer(amount);\n        }"
+            }
+          ]
+        },
+        "context": {
+          "contract": "DefenceLab",
+          "function": "pushBatch"
+        }
+      }
+    ]
+  },
+  "sources": [
+    {
+      "path": "DefenceLab.sol",
+      "sha256": "a11db03b6a17c5f59b25114c74b9be46e47f6723aff2fc5a22a2907fe1c7eeb9",
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.26;\n\ninterface LabToken {\n    function transfer(address recipient, uint256 amount) external returns (bool);\n}\n\ninterface LabOracle {\n    function latest() external view returns (uint256 price, uint256 updatedAt);\n}\n\n/// @notice Deliberately unsafe, authored local fixture. Never deploy with real assets.\n/// @dev Each named case has a separate property and fresh-instance witness in ../test.\ncontract DefenceLab {\n    address public immutable owner;\n    address public immutable signer;\n    address public operator;\n    address public implementation;\n    uint256 public marketPrice = 10 ether;\n    uint256 public processed;\n    uint256 public queueTotal;\n    uint256[] private queue;\n    mapping(address => uint256) public deposits;\n    mapping(address => uint256) public credits;\n    mapping(address => uint256) public payments;\n    mapping(address => uint256) public voucherCredits;\n    mapping(address => uint256) public nonces;\n    mapping(address => uint256) public tradeCredits;\n    mapping(address => uint256) public issuedCredits;\n\n    constructor(address voucherSigner) {\n        owner = msg.sender;\n        signer = voucherSigner;\n        operator = msg.sender;\n    }\n\n    receive() external payable {}\n\n    // Supported patterns: one expected finding per named entry point.\n    function originRestricted() external view returns (bool) {\n        require(tx.origin == owner, \"owner\");\n        return true;\n    }\n\n    function deposit() external payable {\n        deposits[msg.sender] += msg.value;\n    }\n\n    function withdrawLate() external {\n        uint256 amount = deposits[msg.sender];\n        require(amount > 0, \"empty\");\n        (bool ok,) = payable(msg.sender).call{value: amount}(\"\");\n        require(ok, \"delivery\");\n        deposits[msg.sender] = 0;\n    }\n\n    function ignoreCall(address target) external {\n        target.call(\"\");\n    }\n\n    function ignoreSend(address payable recipient, uint256 amount) external {\n        recipient.send(amount);\n    }\n\n    function delegateTo(address target, bytes calldata data) external returns (bytes memory) {\n        (bool ok, bytes memory result) = target.delegatecall(data);\n        require(ok, \"delegate\");\n        return result;\n    }\n\n    function destroyTo(address payable recipient) external {\n        selfdestruct(recipient);\n    }\n\n    function creditBatch(address[] calldata recipients) external payable {\n        require(recipients.length > 0, \"recipients\");\n        for (uint256 i; i < recipients.length; i++) {\n            credits[recipients[i]] += msg.value;\n        }\n    }\n\n    function chooseRecipient(address[] calldata recipients, uint256 choice) external view returns (address) {\n        choice; // Intended allocation must not depend on block producers.\n        return recipients[block.timestamp % recipients.length];\n    }\n\n    function packedKey(string calldata left, string calldata right) external pure returns (bytes32) {\n        return keccak256(abi.encodePacked(left, right));\n    }\n\n    function ignoreToken(LabToken token, address recipient, uint256 amount) external {\n        token.transfer(recipient, amount);\n    }\n\n    function exactBalance(uint256 expected) external view returns (bool) {\n        require(address(this).balance == expected, \"reserve\");\n        return true;\n    }\n\n    function pushBatch(address payable[] calldata recipients, uint256 amount) external {\n        require(msg.sender == owner, \"owner\");\n        for (uint256 i; i < recipients.length; i++) {\n            recipients[i].transfer(amount);\n        }\n    }\n\n    // Known gaps: the manifest records properties, not fictitious detector IDs.\n    function overflowAdd(uint256 left, uint256 right) external pure returns (uint256) {\n        unchecked { return left + right; }\n    }\n\n    function narrowAmount(uint256 amount) external pure returns (uint64) {\n        return uint64(amount);\n    }\n\n    function readPrice(LabOracle oracle, uint256 maxAge) external view returns (uint256) {\n        maxAge;\n        (uint256 price,) = oracle.latest();\n        return price;\n    }\n\n    function claimVoucher(uint256 amount, uint256 nonce, uint8 v, bytes32 r, bytes32 s) external {\n        bytes32 digest = keccak256(abi.encode(address(this), block.chainid, msg.sender, amount, nonce));\n        address recovered = ecrecover(digest, v, r, s);\n        require(recovered != address(0) && recovered == signer, \"signature\");\n        voucherCredits[msg.sender] += amount;\n    }\n\n    function changeOperator(address next) external {\n        operator = next;\n    }\n\n    function upgradeTo(address next) external {\n        implementation = next;\n    }\n\n    function executeImplementation(bytes calldata data) external returns (bytes memory) {\n        (bool ok, bytes memory result) = implementation.delegatecall(data);\n        require(ok, \"implementation\");\n        return result;\n    }\n\n    function setMarketPrice(uint256 next) external {\n        require(msg.sender == owner, \"fixture price operator\");\n        marketPrice = next;\n    }\n\n    function trade(uint256 amount, uint256 minimumOutput) external returns (uint256 output) {\n        minimumOutput;\n        output = amount * marketPrice / 1 ether;\n        tradeCredits[msg.sender] += output;\n    }\n\n    function scaledShare(uint256 amount, uint256 total, uint256 shares) external pure returns (uint256) {\n        return (amount / total) * shares;\n    }\n\n    function issueCredit(uint256 amount) external payable {\n        issuedCredits[msg.sender] += amount;\n    }\n\n    function enqueueMany(uint256 count) external {\n        for (uint256 i; i < count; i++) { queue.push(1); }\n    }\n\n    function processQueue(uint256 limit) external {\n        limit;\n        uint256 sum = queueTotal;\n        for (uint256 i = processed; i < queue.length; i++) { sum += queue[i]; }\n        queueTotal = sum;\n        processed = queue.length;\n    }\n}\n"
+    }
+  ]
+}

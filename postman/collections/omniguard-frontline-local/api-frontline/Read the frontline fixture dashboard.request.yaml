@@ -1,0 +1,11 @@
+$kind: http-request
+name: 'Read the frontline fixture dashboard'
+method: GET
+url: '{{baseUrl}}/api/frontline'
+order: 1000
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test('HTTP 200', () => pm.response.to.have.status(200));
+      pm.test('Dashboard is explicit about the project and checks',()=>{const b=pm.response.json();pm.expect(b.project.key).to.eql('LOCAL');pm.expect(b.checks).to.have.lengthOf(5);});

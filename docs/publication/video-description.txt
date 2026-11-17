@@ -1,0 +1,20 @@
+OmniGuard — evidence, remediation and team handoffs
+
+Project update: 2026-11-17. 4:36 walkthrough: original 14 November core footage plus a 17 November Bitbucket, local file-transfer and availability update. Mellow US synthetic narration; no voice cloning.
+
+Source evidence → Jira → matching rescan (Production acceptance, 2026-11-14): Twelve Solidity rules, source-bound reports and explicit Jira verification/completion. KAN-6 and a separate-site fixture completed the workflow. Static findings and supplied evidence consistency do not certify safety or scanner execution.
+
+Bitbucket PR scans and Jira provenance (Production acceptance, 2026-11-14): Automatic fixture Pipeline #1 passed; JSON/SARIF and full PR commits matched the Jira KAN-7 verification record. Public isolated fixtures only. Import, verification and completion remain reviewer actions; no private/fork PR support or execution attestation.
+
+Team defence and reviewed owner contact (Forge development acceptance, 2026-11-14): Entry-point ownership, explicit coverage gaps, attributed triage and retest completed KAN-8. A reviewed Jira owner mention retained its receipt. Development 3.6.0 only; a self-mention is not an independent reviewer test, online presence or a read receipt.
+
+Encrypted conversation and file/folder handoff (Local browser acceptance, 2026-11-17): Synthetic Alice/Bob verified exact devices, transferred a file and nested folder, then explicitly saved byte-identical copies. Names and paths travel inside the encrypted bundle. Loopback lab only: 100 files / 10 MiB. No production identity, hosting, recovery, retention or physical mobile acceptance. Integrity is not malware scanning.
+
+Combined defence regression lab (Local fixture acceptance, 2026-11-16): One contract exercises 22 labelled properties: all 12 implemented detectors match in source/compiler modes; 24 paired behaviour/property tests passed. Ten demonstrated properties remain undetected. The strict all-case gate fails as expected. Authored fixtures do not measure general accuracy.
+
+Guide and installer: https://omniguard-n5h9.onrender.com/
+Source: https://github.com/Protocol-X-01/OmniGuard
+Status and reproducible evidence: https://github.com/Protocol-X-01/OmniGuard/blob/main/docs/project-status.md
+Codegeist entry: https://devpost.com/software/omniguard-z1pmcg
+
+All demonstrations use authorized synthetic fixtures. No live-chain transactions. The video uses genuine recorded UI, dated evidence and scene cuts; it is not a real-time performance benchmark. The local messaging lab must not be used for real incident data.

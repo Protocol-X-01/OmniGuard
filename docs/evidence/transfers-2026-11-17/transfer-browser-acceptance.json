@@ -1,0 +1,24 @@
+{
+  "recorded_at": "2026-11-17T07:00:40.472724+00:00",
+  "environment": "Two real browser tabs, synthetic Alice/Bob, loopback Synapse",
+  "device_verification": "Exact full fingerprints compared in both tabs",
+  "single_file_picker": true,
+  "nested_folder_picker": true,
+  "recipient_verify_then_explicit_save": true,
+  "single_file_bytes_match": true,
+  "folder_zip_paths_and_bytes_match": true,
+  "auto_open_or_extraction": false,
+  "physical_mobile_tested": false,
+  "production_service": false,
+  "screenshot": "transfer-browser-verified.png",
+  "download_sha256": {
+    "review-note.txt": "d69df29473c0994c4fc64f024675db6db2d78475066c3140b05e6b91f0d5804e",
+    "omniguard-files.zip": "d6fdba1544fec2eb5bfc08ae1329a066fde928d0eb7e109aecbd2f215f71a447"
+  },
+  "narrow_browser": {
+    "width": 390,
+    "scroll_width": 375,
+    "horizontal_overflow": false
+  },
+  "sessions_ended": true
+}

@@ -1,0 +1,32 @@
+$kind: http-example
+name: Request rejected; no successful outcome is implied.
+request:
+  url: "{{baseUrl}}/api/frontline/complete"
+  method: POST
+  headers:
+    - key: X-OmniGuard-Local
+      value: "1"
+      disabled: false
+      description: "(Required) "
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "string",
+        "digest": "string",
+        "transitionId": "string"
+      }
+response:
+  statusCode: 413
+  statusText: Request Entity Too Large
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "message": "string"
+      }
+order: 5000

@@ -1,0 +1,4 @@
+$kind: collection
+description: Loopback-only fixture transport for the Forge frontline service. No live Jira writes or network scans. All previews use synthetic observations.
+variables:
+  baseUrl: http://127.0.0.1:4180

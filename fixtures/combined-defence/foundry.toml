@@ -1,0 +1,16 @@
+[profile.default]
+src = "vulnerable/src"
+test = "test"
+out = "out"
+libs = []
+solc = "0.8.26"
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 200
+# The witness harness embeds both fixture creation bytecodes; it is not a deployable product.
+code_size_limit = 100000
+ffi = false
+
+[profile.default.fuzz]
+runs = 128
+seed = "0xdefe11ce"

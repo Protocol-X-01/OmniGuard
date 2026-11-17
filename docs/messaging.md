@@ -2,7 +2,7 @@
 
 Security work depends on a clear handoff: who owns the response, what needs attention, and which evidence supports the next action. OmniGuard's development work brings reviewed owner contact into Jira and explores a separate encrypted space for team conversation.
 
-**Availability as measured on 14 November 2026:**
+**Availability: dated Jira/messaging evidence from 14 November; transfer browser evidence from 17 November 2026.**
 
 | Capability | Accepted environment | What a public installer provides today |
 | --- | --- | --- |
@@ -10,7 +10,7 @@ Security work depends on a clear handoff: who owns the response, what needs atte
 | Team-defence workflow and reviewed owner mentions | Forge development 3.6.0 on cs0lutions | Development capability; not in the public production installer |
 | Encrypted conversation between verified fixture devices | Separate local browser app and loopback Synapse server | Local development lab; no public messaging service |
 
-This public update contains documentation and recorded acceptance evidence. The messaging and team-defence implementation source remains in the local development branch; it is not yet included in public `main` or the tagged release. The current public walkthrough predates these features.
+The repository now includes the team-defence and messaging implementation source, tests and local setup instructions. The tagged v0.1.4 release and production Forge installation remain separate from this source update. See the [current project status](project-status.md) for the evidence and demo revision.
 
 ## Contact the person responsible
 
@@ -35,6 +35,16 @@ Before each send, the client checks encryption, invite-only room policy, expecte
 Two-way messages were accepted in two real browser sessions. Two local tests passed without skips, including real-server ciphertext, recipient decryption, outsider join/read denial and send-block checks. Inspection of stored server events found encrypted content and no test-message plaintext. A 390px browser layout had no horizontal overflow; this was not an Android or iOS device test.
 
 [Crypto acceptance](evidence/messaging-2026-11-14/crypto-acceptance.json) · [Browser acceptance](evidence/messaging-2026-11-14/browser-acceptance.json) · [Capture and source provenance](evidence/messaging-2026-11-14/provenance.json).
+
+## Encrypted files and folders
+
+The [local transfer extension](../secure-comms/TRANSFERS.md) encrypts file contents, names and nested paths before uploading ciphertext through Matrix Attachment v2. Each transfer is bounded to 100 files and 10 MiB of file content. The recipient checks the verified sender device, encrypted event provenance, bundle bounds, safe paths and per-file hashes before an explicit **Save verified copy** action. A multi-file handoff becomes a ZIP locally; received content is never automatically opened, unpacked or executed.
+
+On 17 November, real browser pickers selected a single file and a nested folder. The recipient verified and saved both. Independent byte comparisons confirmed the single-file copy and every path and file in the downloaded ZIP. The prior 16 November real-server suite passed 13 tests, including corruption and changed-device/membership rejection. These are synthetic local measurements; encryption is not a malware verdict, metadata remains visible to the homeserver, and saved copies cannot be recalled.
+
+![Local recipient has verified a file and nested-folder transfer](evidence/transfers-2026-11-17/transfer-demo-frame.png)
+
+[Browser acceptance](evidence/transfers-2026-11-17/transfer-browser-acceptance.json) · [Run the local lab](../secure-comms/README.md).
 
 ## What remains before real team use
 

@@ -1,0 +1,65 @@
+{
+  "bundle_version": 1,
+  "target": {
+    "id": "combined-defence",
+    "name": "Combined defence lab",
+    "kind": "isolated-fixture"
+  },
+  "revision": "combined-fixed-v1",
+  "rules": [
+    "OG-SOL-001",
+    "OG-SOL-002",
+    "OG-SOL-003",
+    "OG-SOL-004",
+    "OG-SOL-005",
+    "OG-SOL-006",
+    "OG-SOL-007",
+    "OG-SOL-008",
+    "OG-SOL-009",
+    "OG-SOL-010",
+    "OG-SOL-011",
+    "OG-SOL-012"
+  ],
+  "report": {
+    "schema_version": 3,
+    "engine_version": "0.1.4",
+    "scanned_files": 1,
+    "analysis": {
+      "mode": "solc",
+      "compiler_version": "0.8.26+commit.8a97fa7a.Linux.g++"
+    },
+    "coverage": {
+      "rule_set": "solidity-core/2026.11",
+      "rules": [
+        "OG-SOL-001",
+        "OG-SOL-002",
+        "OG-SOL-003",
+        "OG-SOL-004",
+        "OG-SOL-005",
+        "OG-SOL-006",
+        "OG-SOL-007",
+        "OG-SOL-008",
+        "OG-SOL-009",
+        "OG-SOL-010",
+        "OG-SOL-011",
+        "OG-SOL-012"
+      ],
+      "files": [
+        "DefenceLab.sol"
+      ],
+      "source_sha256": {
+        "DefenceLab.sol": "fc3b24f2fe5aeb9c60fef3ff8d10cea8496ada8cad4a2b11df6d693ce8e3135c"
+      },
+      "complete": true
+    },
+    "diagnostics": [],
+    "findings": []
+  },
+  "sources": [
+    {
+      "path": "DefenceLab.sol",
+      "sha256": "fc3b24f2fe5aeb9c60fef3ff8d10cea8496ada8cad4a2b11df6d693ce8e3135c",
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.26;\n\ninterface LabToken {\n    function transfer(address recipient, uint256 amount) external returns (bool);\n}\n\ninterface LabOracle {\n    function latest() external view returns (uint256 price, uint256 updatedAt);\n}\n\n/// @notice Corrections for the specific local fixture properties, not a production protocol.\ncontract DefenceLab {\n    address public immutable owner;\n    address public immutable signer;\n    address public operator;\n    address public implementation;\n    uint256 public marketPrice = 10 ether;\n    uint256 public processed;\n    uint256 public queueTotal;\n    uint256[] private queue;\n    mapping(address => uint256) public deposits;\n    mapping(address => uint256) public credits;\n    mapping(address => uint256) public payments;\n    mapping(address => uint256) public voucherCredits;\n    mapping(address => uint256) public nonces;\n    mapping(address => uint256) public tradeCredits;\n    mapping(address => uint256) public issuedCredits;\n\n    constructor(address voucherSigner) {\n        owner = msg.sender;\n        signer = voucherSigner;\n        operator = msg.sender;\n    }\n\n    receive() external payable {}\n\n    function originRestricted() external view returns (bool) {\n        require(msg.sender == owner, \"owner\");\n        return true;\n    }\n\n    function deposit() external payable {\n        deposits[msg.sender] += msg.value;\n    }\n\n    function withdrawLate() external {\n        uint256 amount = deposits[msg.sender];\n        require(amount > 0, \"empty\");\n        deposits[msg.sender] = 0;\n        (bool ok,) = payable(msg.sender).call{value: amount}(\"\");\n        require(ok, \"delivery\");\n    }\n\n    function ignoreCall(address target) external {\n        (bool ok,) = target.call(\"\");\n        require(ok, \"call failed\");\n    }\n\n    function ignoreSend(address payable recipient, uint256 amount) external {\n        bool ok = recipient.send(amount);\n        require(ok, \"send failed\");\n    }\n\n    function delegateTo(address target, bytes calldata data) external returns (bytes memory) {\n        require(msg.sender == owner, \"owner\");\n        (bool ok, bytes memory result) = target.delegatecall(data);\n        require(ok, \"delegate\");\n        return result;\n    }\n\n    function destroyTo(address payable recipient) external {\n        require(msg.sender == owner, \"owner\");\n        selfdestruct(recipient);\n    }\n\n    function creditBatch(address[] calldata recipients) external payable {\n        require(recipients.length > 0 && msg.value % recipients.length == 0, \"allocation\");\n        uint256 each = msg.value / recipients.length;\n        for (uint256 i; i < recipients.length; i++) { credits[recipients[i]] += each; }\n    }\n\n    // Deterministic, owner-authorized allocation; this does not claim secure randomness.\n    function chooseRecipient(address[] calldata recipients, uint256 choice) external view returns (address) {\n        require(msg.sender == owner, \"owner\");\n        return recipients[choice];\n    }\n\n    function packedKey(string calldata left, string calldata right) external pure returns (bytes32) {\n        return keccak256(abi.encode(left, right));\n    }\n\n    function ignoreToken(LabToken token, address recipient, uint256 amount) external {\n        require(token.transfer(recipient, amount), \"token failed\");\n    }\n\n    function exactBalance(uint256 expected) external view returns (bool) {\n        require(address(this).balance >= expected, \"reserve\");\n        return true;\n    }\n\n    function pushBatch(address payable[] calldata recipients, uint256 amount) external {\n        require(msg.sender == owner, \"owner\");\n        for (uint256 i; i < recipients.length; i++) { payments[recipients[i]] += amount; }\n    }\n\n    function claimPayment() external {\n        uint256 amount = payments[msg.sender];\n        payments[msg.sender] = 0;\n        (bool ok,) = payable(msg.sender).call{value: amount}(\"\");\n        require(ok, \"payment\");\n    }\n\n    function overflowAdd(uint256 left, uint256 right) external pure returns (uint256) {\n        return left + right;\n    }\n\n    function narrowAmount(uint256 amount) external pure returns (uint64) {\n        require(amount <= type(uint64).max, \"width\");\n        return uint64(amount);\n    }\n\n    function readPrice(LabOracle oracle, uint256 maxAge) external view returns (uint256) {\n        (uint256 price, uint256 updatedAt) = oracle.latest();\n        require(price > 0 && updatedAt <= block.timestamp, \"observation\");\n        require(block.timestamp - updatedAt <= maxAge, \"stale\");\n        return price;\n    }\n\n    function claimVoucher(uint256 amount, uint256 nonce, uint8 v, bytes32 r, bytes32 s) external {\n        require(nonce == nonces[msg.sender], \"nonce\");\n        bytes32 digest = keccak256(abi.encode(address(this), block.chainid, msg.sender, amount, nonce));\n        address recovered = ecrecover(digest, v, r, s);\n        require(recovered != address(0) && recovered == signer, \"signature\");\n        nonces[msg.sender] = nonce + 1;\n        voucherCredits[msg.sender] += amount;\n    }\n\n    function changeOperator(address next) external {\n        require(msg.sender == owner, \"owner\");\n        operator = next;\n    }\n\n    function upgradeTo(address next) external {\n        require(msg.sender == owner, \"owner\");\n        require(next.code.length > 0, \"implementation code\");\n        implementation = next;\n    }\n\n    function executeImplementation(bytes calldata data) external returns (bytes memory) {\n        (bool ok, bytes memory result) = implementation.delegatecall(data);\n        require(ok, \"implementation\");\n        return result;\n    }\n\n    function setMarketPrice(uint256 next) external {\n        require(msg.sender == owner, \"fixture price operator\");\n        marketPrice = next;\n    }\n\n    function trade(uint256 amount, uint256 minimumOutput) external returns (uint256 output) {\n        output = amount * marketPrice / 1 ether;\n        require(output >= minimumOutput, \"slippage\");\n        tradeCredits[msg.sender] += output;\n    }\n\n    function scaledShare(uint256 amount, uint256 total, uint256 shares) external pure returns (uint256) {\n        // Fixture values have a bounded product; production full-width math needs a mulDiv review.\n        return amount * shares / total;\n    }\n\n    function issueCredit(uint256 amount) external payable {\n        require(msg.value == amount, \"backing\");\n        issuedCredits[msg.sender] += amount;\n    }\n\n    function enqueueMany(uint256 count) external {\n        for (uint256 i; i < count; i++) { queue.push(1); }\n    }\n\n    function processQueue(uint256 limit) external {\n        require(limit > 0 && limit <= 64, \"batch limit\");\n        uint256 end = processed + limit;\n        if (end > queue.length) { end = queue.length; }\n        uint256 sum = queueTotal;\n        for (uint256 i = processed; i < end; i++) { sum += queue[i]; }\n        queueTotal = sum;\n        processed = end;\n    }\n}\n"
+    }
+  ]
+}

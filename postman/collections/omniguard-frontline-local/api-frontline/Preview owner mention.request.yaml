@@ -1,0 +1,24 @@
+$kind: http-request
+name: 'Preview owner mention'
+method: POST
+url: '{{baseUrl}}/api/frontline/contact-preview'
+order: 3500
+headers:
+  - key: Content-Type
+    value: application/json
+  - key: X-OmniGuard-Local
+    value: '1'
+body:
+  type: json
+  content: |-
+    {
+      "id": "{{caseId}}",
+      "digest": "{{digest}}",
+      "reason": "request_context"
+    }
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test('HTTP 200', () => pm.response.to.have.status(200));
+      const b=pm.response.json(); pm.collectionVariables.set('contactToken',b.token); pm.collectionVariables.set('contactExpiry',b.expiresAt); pm.test('Preview names the synthetic recipient without sending',()=>{pm.expect(b.recipient).to.eql('Fixture responder');pm.expect(b.alreadySent).to.eql(false);});

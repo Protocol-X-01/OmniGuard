@@ -1,10 +1,31 @@
 # Changelog
 
+## Team source and publication update — 17 November 2026
+
+- Published the existing development team-defence source, reviewed owner contact and separate local encrypted communications lab. Production Forge apps and the historical v0.1.4 tag remain unchanged.
+- Added encrypted file/folder handoffs with verified devices, bounded bundles, safe paths and explicit recipient save. Real browser single-file/folder downloads matched the original bytes.
+- Published the combined contract regression: 12 implemented patterns detected, 10 explicit gaps and 24 recorded behaviour/property witnesses.
+- Added one versioned capability record with generated README, guide, Devpost copy and demo notes, checked for drift in CI. Next priorities remain planned and have acceptance criteria.
+
 ## Messaging documentation — 14 November 2026
 
 - Added a public overview of reviewed Jira owner mentions, accepted in Forge development 3.6.0, and the separately tested local Matrix encrypted messaging lab.
 - Published an authentic synthetic-conversation screenshot and sanitized, dated acceptance records for encryption, device checks, browser behavior and the Jira self-mention.
 - Distinguished the installed production workflow from development and local-lab capabilities, with hosting, authentication, recovery and physical mobile acceptance still pending. This update publishes documentation and evidence; development feature source, production apps and the v0.1.4 release are unchanged.
+
+## Development collaboration update — 14 November 2026
+
+- Forge development 3.6.0: fresh team-defence fixtures completed KAN-8 through assigned remediation, one attributed decision, evidence-bound retest and explicit Done. Five satisfied checks and two gaps survive reload.
+- Added reviewed, current-assignee Jira mentions with recipient/actor/evidence binding, expiry and duplicate/uncertain-write protection. One self-mention was accepted on the synthetic issue. No online, delivery or read-receipt claim.
+- Fixed in-app routing and added a paste-report import path. 67 Jira/shared tests and 23 local API assertions pass. Production and submission unchanged.
+- Added a separate local encrypted communications lab using Matrix SDK Rust crypto and Synapse: device fingerprint checks, encrypted messages, tested recipient decryption, outsider denial and new-device/membership send blocks. Browser desktop and narrow layout checked; native mobile and production hosting remain pending.
+
+## Front-line team defence — local candidate, 14 November 2026
+
+- Added independent Rust `omniguard-frontline` 0.1.0 with five explicit control checks, bounded synthetic observations, evidence digests and freshness/coverage states.
+- Jira package 0.1.6 adds a separate team-defence screen, assigned remediation, attributed triage comments, immutable baselines and retest/completion separation. Duplicate, stale and uncertain outcomes remain explicit.
+- Added a loopback preview with simulated Jira, a Postman contract/collection, reproducible fixtures, regression tests and deployment instructions. This candidate is local and has not changed the production Forge apps, Codegeist submission or release tag.
+
 
 ## Bitbucket integration 0.1.5 — 2026-11-14
 

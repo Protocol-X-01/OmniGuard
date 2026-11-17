@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/home/protocol-x/.config/.foundry/versions/foundry-rs/foundry/v1.8.4/forge",
+    "test",
+    "--offline",
+    "--use",
+    "/home/protocol-x/.local/share/svm/0.8.26/solc-0.8.26",
+    "--root",
+    "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/combined-defence",
+    "--json"
+  ],
+  "exit_code": 0,
+  "stderr": ""
+}

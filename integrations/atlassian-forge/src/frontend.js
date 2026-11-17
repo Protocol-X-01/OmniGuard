@@ -1,7 +1,8 @@
 import { invoke, router, view } from '@forge/bridge';
 import catalog from './rule-catalog.json' with { type: 'json' };
 
-const $ = (selector) => document.querySelector(selector);
+export async function mountCodeEvidence(root) {
+const $ = (selector) => root.querySelector(selector);
 $('#engine-version').textContent = `OmniGuard v${catalog.engine_version}`;
 let state;
 let chosenBundle;
@@ -29,7 +30,7 @@ function notice(message, error = false) {
 }
 function setBusy(value) {
   busy = value;
-  document.querySelectorAll('button[data-action]').forEach((button) => { button.disabled = value || button.dataset.unavailable === 'true'; });
+  root.querySelectorAll('button[data-action]').forEach((button) => { button.disabled = value || button.dataset.unavailable === 'true'; });
   $('#bundle-file').disabled = value;
   $('#bundle-paste').disabled = value;
   $('#privacy-confirm').disabled = value;
@@ -230,3 +231,6 @@ $('#privacy-review').addEventListener('click', () => action(() => reviewImporter
 $('#privacy-remove').addEventListener('click', () => action(() => reviewImporterData(true), 'Importer ID removal pass completed. Source evidence and Jira records were retained.'));
 try { siteUrl = (await view.getContext()).siteUrl || ''; await refresh(); }
 catch (error) { $('#mode').textContent = 'OmniGuard could not load'; notice(error.message, true); }
+
+return refresh;
+}

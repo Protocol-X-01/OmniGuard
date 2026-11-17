@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "engine_version",
+    "intake",
+    "intake_sha256",
+    "assessed_at",
+    "results"
+  ],
+  "properties": {
+    "engine_version": {
+      "const": "frontline-0.1.0"
+    },
+    "intake": {
+      "$ref": "frontline-intake-v1.schema.json"
+    },
+    "intake_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "assessed_at": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4102444800
+    },
+    "results": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "entry_id",
+          "coverage",
+          "outcome",
+          "reasons"
+        ],
+        "properties": {
+          "entry_id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]{1,64}$"
+          },
+          "coverage": {
+            "enum": [
+              "assessed",
+              "unassessed",
+              "incomplete",
+              "unsupported",
+              "stale"
+            ]
+          },
+          "outcome": {
+            "enum": [
+              "pass",
+              "fail",
+              "unknown"
+            ]
+          },
+          "reasons": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

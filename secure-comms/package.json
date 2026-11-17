@@ -1,0 +1,19 @@
+{
+  "name": "omniguard-secure-comms-lab",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test --test-force-exit test/*.test.mjs",
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "@matrix-org/matrix-sdk-crypto-wasm": "18.9.2",
+    "fflate": "0.8.3",
+    "matrix-js-sdk": "45.1.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
+  }
+}

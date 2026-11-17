@@ -1,0 +1,26 @@
+$kind: http-request
+name: 'Send reviewed owner mention'
+method: POST
+url: '{{baseUrl}}/api/frontline/contact'
+order: 3600
+headers:
+  - key: Content-Type
+    value: application/json
+  - key: X-OmniGuard-Local
+    value: '1'
+body:
+  type: json
+  content: |-
+    {
+      "id": "{{caseId}}",
+      "digest": "{{digest}}",
+      "reason": "request_context",
+      "expiresAt": {{contactExpiry}},
+      "token": "{{contactToken}}"
+    }
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test('HTTP 200', () => pm.response.to.have.status(200));
+      pm.test('Mention receipt recorded',()=>pm.expect(pm.response.json().duplicate).to.eql(false));

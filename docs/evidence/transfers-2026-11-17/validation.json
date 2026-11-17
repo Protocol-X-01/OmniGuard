@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-17",
+  "rust_tests": 45,
+  "jira_shared_tests": 67,
+  "bitbucket_tests": 3,
+  "communications_tests": 13,
+  "communications_skipped": 0,
+  "local_contract_tests": 24,
+  "fmt_clippy_builds": "passed",
+  "deterministic_packages": "All enumerated source/judge files checked; repeated packages byte-identical",
+  "browser": "real single-file and nested-folder picker -> explicit verified save; exact bytes match",
+  "production_deployments": "unchanged",
+  "claims_check": "python3 scripts/sync-project-status.py --check",
+  "scope": "Authored isolated fixtures only; no chain transactions; dated production evidence is not current hosted-state monitoring"
+}
