@@ -1,0 +1,169 @@
+{
+  "assessed_at": 1794673200,
+  "engine_version": "frontline-0.1.0",
+  "intake": {
+    "engagement_id": "team-engagement-fixture",
+    "entries": [
+      {
+        "check_id": "OG-TEAM-001",
+        "evidence": {
+          "captured_at": 1794673200,
+          "expires_at": 1794759600,
+          "facts": {
+            "approved_request": true,
+            "independent_channel": true,
+            "requester_verified": false
+          },
+          "id": "observation-1-0",
+          "source": "synthetic_fixture"
+        },
+        "id": "entry-1",
+        "name": "Urgent access request",
+        "owner": "Service desk"
+      },
+      {
+        "check_id": "OG-TEAM-002",
+        "evidence": {
+          "captured_at": 1794673200,
+          "expires_at": 1794759600,
+          "facts": {
+            "access_scoped": true,
+            "approved_channel": true,
+            "recipient_verified": false
+          },
+          "id": "observation-1-1",
+          "source": "synthetic_fixture"
+        },
+        "id": "entry-2",
+        "name": "External evidence handoff",
+        "owner": "Case owner"
+      },
+      {
+        "check_id": "OG-TEAM-003",
+        "evidence": {
+          "captured_at": 1794673200,
+          "expires_at": 1794759600,
+          "facts": {
+            "context_complete": true,
+            "receiving_owner_acknowledged": false
+          },
+          "id": "observation-1-2",
+          "source": "synthetic_fixture"
+        },
+        "id": "entry-3",
+        "name": "Response team handover",
+        "owner": "Response lead"
+      },
+      {
+        "check_id": "OG-FL-001",
+        "evidence": {
+          "captured_at": 1794673200,
+          "expires_at": 1794759600,
+          "facts": {
+            "mfa_enabled": false,
+            "privileges_reviewed": true
+          },
+          "id": "observation-1-3",
+          "source": "synthetic_fixture"
+        },
+        "id": "entry-4",
+        "name": "Responder account",
+        "owner": "Identity team"
+      },
+      {
+        "check_id": "OG-FL-002",
+        "evidence": {
+          "captured_at": 1794673200,
+          "expires_at": 1794759600,
+          "facts": {
+            "managed": false,
+            "protection_active": true,
+            "updates_current": true
+          },
+          "id": "observation-1-4",
+          "source": "synthetic_fixture"
+        },
+        "id": "entry-5",
+        "name": "Responder workstation",
+        "owner": "Device team"
+      },
+      {
+        "check_id": "OG-FUTURE-001",
+        "evidence": null,
+        "id": "unknown-integration",
+        "name": "New external collaboration tool",
+        "owner": "Platform team"
+      },
+      {
+        "check_id": "OG-TEAM-001",
+        "evidence": null,
+        "id": "awaiting-intake",
+        "name": "New service-desk report",
+        "owner": "Service desk"
+      }
+    ],
+    "isolated_fixture": true,
+    "name": "Team engagement exercise",
+    "schema_version": 1,
+    "sequence": 1
+  },
+  "intake_sha256": "eb7525e4a6f1d0ec041a6c414137ef54f9d5a0737b6a670c07511411756b77a4",
+  "results": [
+    {
+      "coverage": "assessed",
+      "entry_id": "entry-1",
+      "outcome": "fail",
+      "reasons": [
+        "Not satisfied: requester_verified"
+      ]
+    },
+    {
+      "coverage": "assessed",
+      "entry_id": "entry-2",
+      "outcome": "fail",
+      "reasons": [
+        "Not satisfied: recipient_verified"
+      ]
+    },
+    {
+      "coverage": "assessed",
+      "entry_id": "entry-3",
+      "outcome": "fail",
+      "reasons": [
+        "Not satisfied: receiving_owner_acknowledged"
+      ]
+    },
+    {
+      "coverage": "assessed",
+      "entry_id": "entry-4",
+      "outcome": "fail",
+      "reasons": [
+        "Not satisfied: mfa_enabled"
+      ]
+    },
+    {
+      "coverage": "assessed",
+      "entry_id": "entry-5",
+      "outcome": "fail",
+      "reasons": [
+        "Not satisfied: managed"
+      ]
+    },
+    {
+      "coverage": "unsupported",
+      "entry_id": "unknown-integration",
+      "outcome": "unknown",
+      "reasons": [
+        "No implemented check for this entry point"
+      ]
+    },
+    {
+      "coverage": "unassessed",
+      "entry_id": "awaiting-intake",
+      "outcome": "unknown",
+      "reasons": [
+        "No evidence supplied"
+      ]
+    }
+  ]
+}

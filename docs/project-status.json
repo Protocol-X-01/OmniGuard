@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "updated": "2026-11-17",
+  "engine": "0.1.4",
+  "demo_url": "https://www.youtube.com/watch?v=fNNNfdLTPnY",
+  "demo_scope": "4:36 walkthrough: original 14 November core footage plus a 17 November Bitbucket, local file-transfer and availability update",
+  "capabilities": [
+    {
+      "name": "Source evidence \u2192 Jira \u2192 matching rescan",
+      "stage": "Production acceptance",
+      "date": "2026-11-14",
+      "summary": "Twelve Solidity rules, source-bound reports and explicit Jira verification/completion. KAN-6 and a separate-site fixture completed the workflow.",
+      "limit": "Static findings and supplied evidence consistency do not certify safety or scanner execution.",
+      "evidence": "docs/acceptance-production-cs0lutions-2026-11-14.md"
+    },
+    {
+      "name": "Bitbucket PR scans and Jira provenance",
+      "stage": "Production acceptance",
+      "date": "2026-11-14",
+      "summary": "Automatic fixture Pipeline #1 passed; JSON/SARIF and full PR commits matched the Jira KAN-7 verification record.",
+      "limit": "Public isolated fixtures only. Import, verification and completion remain reviewer actions; no private/fork PR support or execution attestation.",
+      "evidence": "docs/acceptance-bitbucket-2026-11-14.md"
+    },
+    {
+      "name": "Team defence and reviewed owner contact",
+      "stage": "Forge development acceptance",
+      "date": "2026-11-14",
+      "summary": "Entry-point ownership, explicit coverage gaps, attributed triage and retest completed KAN-8. A reviewed Jira owner mention retained its receipt.",
+      "limit": "Development 3.6.0 only; a self-mention is not an independent reviewer test, online presence or a read receipt.",
+      "evidence": "docs/acceptance-frontline-cs0lutions-dev-2026-11-14.md"
+    },
+    {
+      "name": "Encrypted conversation and file/folder handoff",
+      "stage": "Local browser acceptance",
+      "date": "2026-11-17",
+      "summary": "Synthetic Alice/Bob verified exact devices, transferred a file and nested folder, then explicitly saved byte-identical copies. Names and paths travel inside the encrypted bundle.",
+      "limit": "Loopback lab only: 100 files / 10 MiB. No production identity, hosting, recovery, retention or physical mobile acceptance. Integrity is not malware scanning.",
+      "evidence": "docs/evidence/transfers-2026-11-17/transfer-browser-acceptance.json"
+    },
+    {
+      "name": "Combined defence regression lab",
+      "stage": "Local fixture acceptance",
+      "date": "2026-11-16",
+      "summary": "One contract exercises 22 labelled properties: all 12 implemented detectors match in source/compiler modes; 24 paired behaviour/property tests passed.",
+      "limit": "Ten demonstrated properties remain undetected. The strict all-case gate fails as expected. Authored fixtures do not measure general accuracy.",
+      "evidence": "fixtures/combined-defence/README.md"
+    }
+  ],
+  "next": [
+    {
+      "name": "Shared review queue",
+      "benefit": "Bring owner, reviewer, deputy, evidence age, open gaps and the next handoff into one view.",
+      "acceptance": "Two independent users review the same immutable evidence; changed or stale evidence invalidates approval."
+    },
+    {
+      "name": "Evidence-grounded Rovo teammate",
+      "benefit": "Explain findings and draft triage from project-scoped evidence with visible agent attribution.",
+      "acceptance": "Every claim links to evidence; cross-project reads fail and consequential actions require explicit review."
+    },
+    {
+      "name": "Contract and bytecode workbench",
+      "benefit": "Share ABI, entry points, authority, storage, interactions and bytecode/source mappings.",
+      "acceptance": "Every view binds to the artifact hash; unknown or inferred relationships remain labelled."
+    },
+    {
+      "name": "Deployment rehearsal and sign-off",
+      "benefit": "Review local simulations, configuration changes and rollback plans before release.",
+      "acceptance": "A reviewer can reproduce the plan and compare deployed-artifact identity; this does not authorize a live transaction."
+    },
+    {
+      "name": "Team outcome metrics",
+      "benefit": "Track review age, stale evidence, time to verified remediation and incident handoff quality.",
+      "acceptance": "Metrics show their source and time window, separate unknowns, and avoid scoring people or claiming protection from counts alone."
+    }
+  ]
+}

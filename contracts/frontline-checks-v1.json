@@ -1,0 +1,55 @@
+[
+  {
+    "id": "OG-TEAM-001",
+    "name": "Verify a sensitive request",
+    "kind": "interaction",
+    "facts": [
+      "requester_verified",
+      "independent_channel",
+      "approved_request"
+    ],
+    "guidance": "Confirm the requester through an independently known channel and check the agreed approval process."
+  },
+  {
+    "id": "OG-TEAM-002",
+    "name": "Check a sensitive handoff",
+    "kind": "interaction",
+    "facts": [
+      "recipient_verified",
+      "approved_channel",
+      "access_scoped"
+    ],
+    "guidance": "Confirm the recipient, use the agreed sharing channel and limit access to the intended material."
+  },
+  {
+    "id": "OG-TEAM-003",
+    "name": "Confirm handoff ownership",
+    "kind": "interaction",
+    "facts": [
+      "receiving_owner_acknowledged",
+      "context_complete"
+    ],
+    "guidance": "Obtain acknowledgement from the receiving owner and include the evidence, uncertainty and next action."
+  },
+  {
+    "id": "OG-FL-001",
+    "name": "Review account protection",
+    "kind": "identity",
+    "facts": [
+      "mfa_enabled",
+      "privileges_reviewed"
+    ],
+    "guidance": "Have the identity owner review MFA and the privileges needed for this engagement."
+  },
+  {
+    "id": "OG-FL-002",
+    "name": "Review endpoint posture",
+    "kind": "endpoint",
+    "facts": [
+      "managed",
+      "protection_active",
+      "updates_current"
+    ],
+    "guidance": "Have the device owner review management status, active protection and the update baseline."
+  }
+]

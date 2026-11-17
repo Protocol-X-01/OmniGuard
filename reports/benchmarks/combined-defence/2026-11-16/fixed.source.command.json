@@ -1,0 +1,13 @@
+{
+  "command": [
+    "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+    "scan",
+    "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/fixtures/combined-defence/fixed",
+    "--format",
+    "json",
+    "--output",
+    "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/reports/benchmarks/combined-defence/2026-11-16/fixed.source.json"
+  ],
+  "exit_code": 0,
+  "stderr": ""
+}

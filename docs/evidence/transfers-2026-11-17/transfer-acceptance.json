@@ -1,0 +1,20 @@
+{
+  "measuredAt": "2026-11-17T07:06:19.359Z",
+  "fixtureOnly": true,
+  "singleFileRoundTrip": true,
+  "nestedFolderRoundTrip": true,
+  "filenamesAbsentFromWire": true,
+  "ciphertextMedia": true,
+  "uploadFilenameOmitted": true,
+  "authenticatedMediaRequired": true,
+  "outsiderMayReadCiphertextWithUri": true,
+  "outsiderKeyEventDenied": true,
+  "unverifiedDeviceBlocked": true,
+  "membershipChangeAfterUploadBlocked": true,
+  "uploadFailurePublishesNoKey": true,
+  "senderProvenanceCheckedBeforeAndAfterDownload": true,
+  "unavailableEncryptionBlocksTransfer": true,
+  "browserPickerTested": false,
+  "physicalMobileTested": false,
+  "productionReady": false
+}

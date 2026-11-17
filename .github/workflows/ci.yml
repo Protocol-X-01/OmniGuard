@@ -37,6 +37,11 @@ jobs:
       - run: cargo clippy --locked --workspace --all-targets -- -D warnings
       - run: cargo test --locked --workspace -- --include-ignored
       - run: cargo build --locked --release --workspace
+      - name: Combined contract report regressions with explicit known gaps
+        run: >-
+          python3 scripts/validate-combined-defence.py
+          --binary target/release/omniguard --solc "$OMNIGUARD_TEST_SOLC"
+          --output "$RUNNER_TEMP/omniguard-combined-defence"
 
   interfaces:
     name: Forge, dashboard and release integrity
@@ -64,11 +69,19 @@ jobs:
           npm test
           npm run build
           npm run validate:manifest
+      - name: Local transfer boundaries and communications build
+        working-directory: secure-comms
+        run: |
+          npm ci --ignore-scripts
+          node --test test/server.test.mjs test/transfers.test.mjs
+          npm run build
       - name: Dashboard production build
         working-directory: dashboard
         run: |
           npm ci --ignore-scripts
           npm run build
+      - name: Check shared project claims for publication drift
+        run: python3 scripts/sync-project-status.py --check
       - name: Verify deterministic source and judge packages
         run: python3 scripts/check-release.py
       - name: Build static judge guide and fixture downloads

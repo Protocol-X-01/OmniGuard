@@ -1,0 +1,10 @@
+{
+  "command": [
+    "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/outputs/omniguard/target/release/omniguard",
+    "rules",
+    "--format",
+    "json"
+  ],
+  "exit_code": 0,
+  "stderr": ""
+}

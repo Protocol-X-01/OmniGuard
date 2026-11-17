@@ -1,5 +1,5 @@
 [workspace]
-members = ["crates/omniguard-core", "crates/omniguard-cli"]
+members = ["crates/omniguard-core", "crates/omniguard-cli", "crates/omniguard-frontline"]
 resolver = "2"
 
 [workspace.package]

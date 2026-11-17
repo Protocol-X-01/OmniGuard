@@ -1,0 +1,4 @@
+$kind: collection
+name: OmniGuard encrypted lab origin checks
+variables:
+  baseUrl: http://127.0.0.1:4190

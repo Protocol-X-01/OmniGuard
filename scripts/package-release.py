@@ -14,7 +14,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 ROOT_FILES = ['.gitignore', '.editorconfig', 'Cargo.toml', 'Cargo.lock', 'rust-toolchain.toml', 'LICENSE', 'README.md', 'SPEC.md', 'SECURITY.md', 'CONTRIBUTING.md', 'CHANGELOG.md']
-ROOT_DIRS = ['.github', 'contracts', 'crates', 'dashboard', 'docs', 'fixtures', 'integrations', 'reports', 'scripts', 'site']
+ROOT_DIRS = ['.github', 'contracts', 'crates', 'dashboard', 'docs', 'fixtures', 'integrations', 'reports', 'scripts', 'site', 'postman', 'secure-comms']
 SKIP_DIRS = {'.git', '.forge', 'node_modules', 'target', 'out', 'cache', 'dist', '__pycache__'}
 SUFFIXES = {'.md', '.toml', '.lock', '.rs', '.json', '.schema', '.sol', '.py', '.js', '.mjs', '.jsx',
             '.css', '.html', '.yml', '.yaml', '.jpg', '.jpeg', '.png', '.svg', '.sha256', '.sarif', '.txt'}
@@ -43,7 +43,7 @@ def source_files():
                 relative = path.relative_to(ROOT).as_posix()
                 if filename.startswith('.env') or filename == '.npmrc' or path.suffix == '.log':
                     continue
-                if relative in {'integrations/atlassian-forge/static/app/main.js', 'integrations/atlassian-bitbucket/static/app/main.js'}:
+                if relative in {'integrations/atlassian-forge/static/app/main.js', 'integrations/atlassian-forge/static/app/frontline.js', 'integrations/atlassian-bitbucket/static/app/main.js'}:
                     continue  # Rebuild from the locked package, never include a stale bundle.
                 if path.suffix not in SUFFIXES:
                     raise ValueError(f'Unreviewed release file type: {relative}')

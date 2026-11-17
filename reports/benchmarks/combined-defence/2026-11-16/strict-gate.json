@@ -1,0 +1,41 @@
+{
+  "command": [
+    "/usr/bin/bwrap",
+    "--unshare-net",
+    "--die-with-parent",
+    "--bind",
+    "/",
+    "/",
+    "--dev",
+    "/dev",
+    "--proc",
+    "/proc",
+    "python3",
+    "scripts/validate-combined-defence.py",
+    "--binary",
+    "target/release/omniguard",
+    "--solc",
+    "/home/protocol-x/.local/share/svm/0.8.26/solc-0.8.26",
+    "--require-all",
+    "--output",
+    "/home/protocol-x/Documents/Codex/2026-11-13/referenced-chatgpt-conversation-this-is-an/work/combined-defence-20261116-strict-gate-final"
+  ],
+  "exit_code": 1,
+  "expected_exit_code": 1,
+  "reason": "All-case detection gate correctly rejects ten known undetected properties",
+  "summary_sha256": "9fd1f2b39fe0ab8af78d5da84cf2df08c159de4f8a3db4aea15546dad1aacc8b",
+  "all_labelled_cases_detected": false,
+  "known_undetected_cases": [
+    "GAP-001",
+    "GAP-002",
+    "GAP-003",
+    "GAP-004",
+    "GAP-005",
+    "GAP-006",
+    "GAP-007",
+    "GAP-008",
+    "GAP-009",
+    "GAP-010"
+  ],
+  "input_hashes_match_measured_lab": true
+}

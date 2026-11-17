@@ -1,0 +1,23 @@
+$kind: http-request
+name: 'createFrontline'
+method: POST
+url: '{{baseUrl}}/api/frontline/create'
+order: 3000
+headers:
+  - key: Content-Type
+    value: application/json
+  - key: X-OmniGuard-Local
+    value: '1'
+body:
+  type: json
+  content: |-
+    {
+      "entryId": "entry-1",
+      "digest": "{{digest}}"
+    }
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test('HTTP 200', () => pm.response.to.have.status(200));
+      const b=pm.response.json();pm.collectionVariables.set('caseId',b.id);pm.test('Case retains its evidence and Jira key',()=>{pm.expect(b.baselineDigest).to.eql(pm.collectionVariables.get('digest'));pm.expect(b.issueKey).to.match(/^LOCAL-/);});

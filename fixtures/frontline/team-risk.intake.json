@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "isolated_fixture": true,
+  "engagement_id": "team-engagement-fixture",
+  "name": "Team engagement exercise",
+  "sequence": 1,
+  "entries": [
+    {
+      "id": "entry-1",
+      "name": "Urgent access request",
+      "owner": "Service desk",
+      "check_id": "OG-TEAM-001",
+      "evidence": {
+        "id": "observation-1-0",
+        "source": "synthetic_fixture",
+        "captured_at": 1794673200,
+        "expires_at": 1794759600,
+        "facts": {
+          "requester_verified": false,
+          "independent_channel": true,
+          "approved_request": true
+        }
+      }
+    },
+    {
+      "id": "entry-2",
+      "name": "External evidence handoff",
+      "owner": "Case owner",
+      "check_id": "OG-TEAM-002",
+      "evidence": {
+        "id": "observation-1-1",
+        "source": "synthetic_fixture",
+        "captured_at": 1794673200,
+        "expires_at": 1794759600,
+        "facts": {
+          "recipient_verified": false,
+          "approved_channel": true,
+          "access_scoped": true
+        }
+      }
+    },
+    {
+      "id": "entry-3",
+      "name": "Response team handover",
+      "owner": "Response lead",
+      "check_id": "OG-TEAM-003",
+      "evidence": {
+        "id": "observation-1-2",
+        "source": "synthetic_fixture",
+        "captured_at": 1794673200,
+        "expires_at": 1794759600,
+        "facts": {
+          "receiving_owner_acknowledged": false,
+          "context_complete": true
+        }
+      }
+    },
+    {
+      "id": "entry-4",
+      "name": "Responder account",
+      "owner": "Identity team",
+      "check_id": "OG-FL-001",
+      "evidence": {
+        "id": "observation-1-3",
+        "source": "synthetic_fixture",
+        "captured_at": 1794673200,
+        "expires_at": 1794759600,
+        "facts": {
+          "mfa_enabled": false,
+          "privileges_reviewed": true
+        }
+      }
+    },
+    {
+      "id": "entry-5",
+      "name": "Responder workstation",
+      "owner": "Device team",
+      "check_id": "OG-FL-002",
+      "evidence": {
+        "id": "observation-1-4",
+        "source": "synthetic_fixture",
+        "captured_at": 1794673200,
+        "expires_at": 1794759600,
+        "facts": {
+          "managed": false,
+          "protection_active": true,
+          "updates_current": true
+        }
+      }
+    },
+    {
+      "id": "unknown-integration",
+      "name": "New external collaboration tool",
+      "owner": "Platform team",
+      "check_id": "OG-FUTURE-001",
+      "evidence": null
+    },
+    {
+      "id": "awaiting-intake",
+      "name": "New service-desk report",
+      "owner": "Service desk",
+      "check_id": "OG-TEAM-001",
+      "evidence": null
+    }
+  ]
+}

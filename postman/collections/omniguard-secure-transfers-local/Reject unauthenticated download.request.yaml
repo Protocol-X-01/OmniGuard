@@ -1,0 +1,13 @@
+$kind: http-request
+name: 'Reject unauthenticated download'
+method: GET
+url: 'http://127.0.0.1:8998/_matrix/client/v1/media/download/omniguard.local/synthetic-placeholder'
+order: 2000
+settings:
+  followRedirects: false
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test('HTTP 401', () => pm.response.to.have.status(401));
+      pm.test('Missing authentication rejected', () => pm.expect(pm.response.json().errcode).to.equal('M_MISSING_TOKEN'));
