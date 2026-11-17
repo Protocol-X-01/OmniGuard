@@ -1,5 +1,11 @@
 # Changelog
 
+## Shared review queue — 17 November 2026
+
+- Added a shared Jira project review queue with live Jira ownership, separate reviewer/deputy roles, evidence age, explicit handoff acceptance and structured decisions.
+- Bound receipts to current evidence and participants; stale/future/changed evidence, ownership changes, wrong recipients, concurrent writes and self-review fail closed in the accepted tests. Reviews remain separate from matching-rescan verification and Jira completion.
+- Added local synthetic multi-participant browser/API acceptance, Forge development KAN-9 role/owner checks, deployment instructions and purposeful account-attribution privacy documentation. Two real independent Jira users and production promotion remain pending.
+
 ## Team source and publication update — 17 November 2026
 
 - Published the existing development team-defence source, reviewed owner contact and separate local encrypted communications lab. Production Forge apps and the historical v0.1.4 tag remain unchanged.

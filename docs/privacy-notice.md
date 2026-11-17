@@ -2,7 +2,7 @@
 
 ## About this notice
 
-Effective 14 November 2026, updated for the Bitbucket PR integration. This notice describes OmniGuard engine 0.1.4 and its early-access Forge Jira and Bitbucket apps, maintained by Protocol-X / cs0lutions. For support, privacy questions, or a security report, contact protocolx76@gmail.com.
+Effective 17 November 2026, updated for shared review in Forge development and the existing Bitbucket PR integration. This notice describes OmniGuard engine 0.1.4 and its early-access Forge Jira and Bitbucket apps, maintained by Protocol-X / cs0lutions. For support, privacy questions, or a security report, contact protocolx76@gmail.com.
 
 OmniGuard helps review isolated, authorized Solidity fixtures and track their remediation in Jira. The local scanner and the Forge app are separate. This page also explains the information handled when you contact support.
 
@@ -57,3 +57,9 @@ This privacy page contains explanatory text and links only. We have added no cus
 Changes to this notice will be published here with a revised effective date. Contact protocolx76@gmail.com about a privacy concern or suspected security issue.
 
 Provider privacy information: [Atlassian](https://www.atlassian.com/legal/privacy-policy) · [Google](https://policies.google.com/privacy).
+
+## Shared review queue (Forge development)
+
+The shared review feature reads the current Jira assignee to show ownership. When you take a reviewer or deputy role, the app stores your authenticated Atlassian account reference and the display label you choose. It also records the acting account, action time, role changes, handoff recipient/acceptance and review decisions against evidence digests in bounded project-scoped history. Labels are self-chosen; account references enforce who can accept or review. Releasing a role preserves its historical receipts. These records are used for team coordination and attribution; no email directory search, online-presence tracking, automatic mention or message dispatch is added.
+
+Rows are disclosed only after a current-user read of the corresponding Jira issue. Review records remain in Forge storage without automatic expiry; expiry of an evidence review window invalidates the review, rather than deleting its history. The legacy importer-ID cleanup does not remove purposeful reviewer/deputy/action attribution. Contact the privacy address above for authorized review-record access, correction or removal requests. The loopback acceptance exercise uses distinct synthetic participants and simulated Jira, rather than real team accounts.

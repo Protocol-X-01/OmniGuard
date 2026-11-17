@@ -25,3 +25,4 @@ __pycache__/
 
 # Also ignore node_modules symlinks in isolated review worktrees.
 node_modules
+/integrations/atlassian-forge/static/app/review.js

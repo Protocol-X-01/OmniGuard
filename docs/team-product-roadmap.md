@@ -191,3 +191,8 @@ The existing submission's historical evidence is retained in the [submission rec
 ## When a feature is ready
 
 A feature is ready when a team can complete its job through the intended interface; its owner and support responsibilities are assigned; positive, negative, stale-data and permission cases have evidence; its limits are visible; and the user can understand what happened and what happens next. Accessibility and operational cost are part of acceptance. Candidate features without a clear user benefit or maintainable validation method stay in the backlog.
+
+
+## Shared review delivery — 17 November 2026
+
+The first shared review queue is now implemented and deployed to Forge development, with separate synthetic-principal browser acceptance and one-actor live role/owner checks. [Dated acceptance and open gates](acceptance-review-queue-2026-11-17.md). This advances the ownership/review/handoff capabilities; it does not complete the two-real-user or production gates.

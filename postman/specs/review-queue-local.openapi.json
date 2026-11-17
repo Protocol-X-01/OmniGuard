@@ -1,0 +1,546 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "OmniGuard shared review local acceptance adapter",
+    "version": "0.1.0",
+    "description": "Loopback-only adapter for the actual review service with simulated Jira and distinct synthetic principals. Not a production authentication scheme. Actions require the exact operation fields documented in docs/shared-review-queue-spec.md."
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:4186"
+    }
+  ],
+  "paths": {
+    "/api/reviews": {
+      "get": {
+        "operationId": "getReviewQueue",
+        "summary": "Read permitted review items and current evidence age",
+        "parameters": [
+          {
+            "name": "X-OmniGuard-Actor",
+            "in": "header",
+            "description": "Synthetic principal in this loopback acceptance adapter only. Forge uses authenticated context.accountId.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "owner",
+                "reviewer",
+                "deputy",
+                "outsider"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Project, refreshedAt, permitted rows, unavailable count and review window"
+          },
+          "403": {
+            "description": "Rejected; no new review state is saved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "message"
+                  ],
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/reviews/act": {
+      "post": {
+        "operationId": "actReviewQueue",
+        "summary": "Claim a role, hand off, accept or record evidence review",
+        "parameters": [
+          {
+            "name": "X-OmniGuard-Actor",
+            "in": "header",
+            "description": "Synthetic principal in this loopback acceptance adapter only. Forge uses authenticated context.accountId.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "owner",
+                "reviewer",
+                "deputy",
+                "outsider"
+              ]
+            }
+          },
+          {
+            "name": "X-OmniGuard-Local",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "1"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "revision",
+                      "evidenceToken",
+                      "action",
+                      "label"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "pattern": "^(code|team):[a-f0-9]{24}$"
+                      },
+                      "revision": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "evidenceToken": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      },
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "take_reviewer"
+                        ]
+                      },
+                      "label": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 60
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "revision",
+                      "evidenceToken",
+                      "action",
+                      "label"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "pattern": "^(code|team):[a-f0-9]{24}$"
+                      },
+                      "revision": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "evidenceToken": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      },
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "take_deputy"
+                        ]
+                      },
+                      "label": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 60
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "revision",
+                      "evidenceToken",
+                      "action"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "pattern": "^(code|team):[a-f0-9]{24}$"
+                      },
+                      "revision": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "evidenceToken": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      },
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "release_reviewer"
+                        ]
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "revision",
+                      "evidenceToken",
+                      "action"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "pattern": "^(code|team):[a-f0-9]{24}$"
+                      },
+                      "revision": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "evidenceToken": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      },
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "release_deputy"
+                        ]
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "revision",
+                      "evidenceToken",
+                      "action",
+                      "toRole",
+                      "purpose"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "pattern": "^(code|team):[a-f0-9]{24}$"
+                      },
+                      "revision": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "evidenceToken": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      },
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "handoff"
+                        ]
+                      },
+                      "toRole": {
+                        "type": "string",
+                        "enum": [
+                          "owner",
+                          "reviewer",
+                          "deputy"
+                        ]
+                      },
+                      "purpose": {
+                        "type": "string",
+                        "enum": [
+                          "review_evidence",
+                          "add_context",
+                          "address_changes"
+                        ]
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "revision",
+                      "evidenceToken",
+                      "action"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "pattern": "^(code|team):[a-f0-9]{24}$"
+                      },
+                      "revision": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "evidenceToken": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      },
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "accept"
+                        ]
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "revision",
+                      "evidenceToken",
+                      "action",
+                      "decision",
+                      "reason"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "pattern": "^(code|team):[a-f0-9]{24}$"
+                      },
+                      "revision": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "evidenceToken": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      },
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "decide"
+                        ]
+                      },
+                      "decision": {
+                        "type": "string",
+                        "enum": [
+                          "reviewed",
+                          "needs_changes"
+                        ]
+                      },
+                      "reason": {
+                        "type": "string",
+                        "enum": [
+                          "context_checked",
+                          "changes_needed",
+                          "missing_context"
+                        ]
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated review item including the new revision"
+          },
+          "400": {
+            "description": "Rejected; no new review state is saved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "message"
+                  ],
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Rejected; no new review state is saved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "message"
+                  ],
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Rejected; no new review state is saved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "message"
+                  ],
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Rejected; no new review state is saved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "message"
+                  ],
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Rejected; no new review state is saved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "message"
+                  ],
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/reviews/lab/{change}": {
+      "post": {
+        "operationId": "changeSyntheticEvidence",
+        "summary": "Change or expire only the local synthetic evidence",
+        "parameters": [
+          {
+            "name": "change",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "change",
+                "expire"
+              ]
+            }
+          },
+          {
+            "name": "X-OmniGuard-Local",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "1"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Synthetic change applied"
+          },
+          "400": {
+            "description": "Rejected; no new review state is saved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "message"
+                  ],
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Rejected; no new review state is saved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "message"
+                  ],
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

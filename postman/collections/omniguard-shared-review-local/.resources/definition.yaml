@@ -1,0 +1,5 @@
+$kind: collection
+name: OmniGuard shared review local
+variables:
+  - key: base_url
+    value: 'http://127.0.0.1:4186'

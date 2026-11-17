@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://omniguard-n5h9.onrender.com/"><strong>Project site</strong></a> ·
-  <a href="https://www.youtube.com/watch?v=fNNNfdLTPnY"><strong>Watch the demo</strong></a> ·
+  <a href="https://www.youtube.com/watch?v=eTlsw__RC_o"><strong>Watch the demo</strong></a> ·
   <a href="https://devpost.com/software/omniguard-z1pmcg"><strong>Codegeist entry</strong></a> ·
   <a href="docs/judge-guide.md"><strong>Try it in Jira</strong></a> ·
   <a href="#run-a-local-scan"><strong>Run a scan</strong></a> ·
@@ -26,12 +26,15 @@ Updated **2026-11-17**. These are dated acceptance records, not continuous monit
 | --- | --- | --- |
 | Source evidence → Jira → matching rescan | [Production acceptance · 2026-11-14](https://github.com/Protocol-X-01/OmniGuard/blob/main/docs/acceptance-production-cs0lutions-2026-11-14.md) | Static findings and supplied evidence consistency do not certify safety or scanner execution. |
 | Bitbucket PR scans and Jira provenance | [Production acceptance · 2026-11-14](https://github.com/Protocol-X-01/OmniGuard/blob/main/docs/acceptance-bitbucket-2026-11-14.md) | Public isolated fixtures only. Import, verification and completion remain reviewer actions; no private/fork PR support or execution attestation. |
-| Team defence and reviewed owner contact | [Forge development acceptance · 2026-11-14](https://github.com/Protocol-X-01/OmniGuard/blob/main/docs/acceptance-frontline-cs0lutions-dev-2026-11-14.md) | Development 3.6.0 only; a self-mention is not an independent reviewer test, online presence or a read receipt. |
+| Team defence and reviewed owner contact | [Forge development acceptance · 2026-11-14](https://github.com/Protocol-X-01/OmniGuard/blob/main/docs/acceptance-frontline-cs0lutions-dev-2026-11-14.md) | Acceptance was development 3.6.0; a self-mention is not an independent reviewer test, online presence or a read receipt. |
+| Shared review queue and explicit handoffs | [Forge development preview · 2026-11-17](https://github.com/Protocol-X-01/OmniGuard/blob/main/docs/acceptance-review-queue-2026-11-17.md) | One real Jira actor tested. Independent two-user Jira acceptance and production promotion remain pending; reviews do not complete issues or certify safety. |
 | Encrypted conversation and file/folder handoff | [Local browser acceptance · 2026-11-17](https://github.com/Protocol-X-01/OmniGuard/blob/main/docs/evidence/transfers-2026-11-17/transfer-browser-acceptance.json) | Loopback lab only: 100 files / 10 MiB. No production identity, hosting, recovery, retention or physical mobile acceptance. Integrity is not malware scanning. |
 | Combined defence regression lab | [Local fixture acceptance · 2026-11-16](https://github.com/Protocol-X-01/OmniGuard/blob/main/fixtures/combined-defence/README.md) | Ten demonstrated properties remain undetected. The strict all-case gate fails as expected. Authored fixtures do not measure general accuracy. |
 
 [Next priorities and release checklist](docs/project-status.md)
 <!-- project-status:end -->
+
+[Shared review queue: use it, run the local exercise and deploy development](docs/shared-review-queue.md).
 
 ## Follow the evidence
 
@@ -146,4 +149,4 @@ The core and Forge remain separate: neither imports the other's runtime. No Omni
 
 Start with [CONTRIBUTING.md](CONTRIBUTING.md), bring an isolated regression and a matching fix, and keep unsupported cases visible. [Report a security issue privately](SECURITY.md), browse the [changelog](CHANGELOG.md), or contact **protocolx76@gmail.com**.
 
-Submitted to Codegeist 2026 on **14 November 2026**, in **Apps for Software Teams**. [View the entry](https://devpost.com/software/omniguard-z1pmcg) and [submission confirmation](docs/acceptance-codegeist-2026-11-14.md). The [public captioned walkthrough](https://www.youtube.com/watch?v=fNNNfdLTPnY) shows the development workflow and separate production acceptance. Separate-site installation and remediation passed under the same administrator; an independent reviewer account was not tested. See [the judge guide](docs/judge-guide.md) for installation and testing instructions.
+Submitted to Codegeist 2026 on **14 November 2026**, in **Apps for Software Teams**. [View the entry](https://devpost.com/software/omniguard-z1pmcg) and [submission confirmation](docs/acceptance-codegeist-2026-11-14.md). The [public captioned walkthrough](https://www.youtube.com/watch?v=eTlsw__RC_o) shows the development workflow and separate production acceptance. Separate-site installation and remediation passed under the same administrator; an independent reviewer account was not tested. See [the judge guide](docs/judge-guide.md) for installation and testing instructions.
