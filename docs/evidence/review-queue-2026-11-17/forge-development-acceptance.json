@@ -1,0 +1,21 @@
+{
+  "recorded_at": "2026-11-17T12:21:02.547436+00:00",
+  "site": "https://cs0lutions.atlassian.net",
+  "environment": "development",
+  "deployment": "3.7.0",
+  "issue": "KAN-9",
+  "status": "To Do",
+  "bundle_digest": "2dc96fbc66878fb3c797794becd338c16fa3e45be3fb00e281ea710f2188d3a5",
+  "observed": [
+    "Shared review route rendered existing code and team cases; old evidence was blocked",
+    "Fresh native-solc fixture imported through the UI and KAN-9 created",
+    "Current signed-in actor took review while issue was unassigned; role persisted in Forge KVS",
+    "Jira ownership assigned to the same actor; queue showed live owner and independent review unavailable",
+    "Temporary reviewer role released; two role receipts retained",
+    "Shared-review deep route reloaded with live owner and two retained role receipts"
+  ],
+  "live_actor_count": 1,
+  "two_independent_atlassian_users": false,
+  "production_promoted": false,
+  "final_deployment": "3.8.0"
+}

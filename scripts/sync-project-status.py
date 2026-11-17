@@ -28,7 +28,7 @@ def generate():
     assert re.fullmatch(r'\d+:\d{2}', data['demo_duration'])
     def current_video_links(text):
         return re.sub(r'https://www\.youtube\.com/watch\?v=[\w-]{11}', data['demo_url'], text)
-    allowed = {'Production acceptance', 'Forge development acceptance', 'Local browser acceptance', 'Local fixture acceptance'}
+    allowed = {'Production acceptance', 'Forge development acceptance', 'Forge development preview', 'Local browser acceptance', 'Local fixture acceptance'}
     for c in data['capabilities']:
         assert c['stage'] in allowed and c['limit'] and c['date']
         p = Path(c['evidence'])

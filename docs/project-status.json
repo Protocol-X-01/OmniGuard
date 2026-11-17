@@ -2,8 +2,8 @@
   "schema_version": 1,
   "updated": "2026-11-17",
   "engine": "0.1.4",
-  "demo_url": "https://www.youtube.com/watch?v=fNNNfdLTPnY",
-  "demo_scope": "4:36 walkthrough: original 14 November core footage plus a 17 November Bitbucket, local file-transfer and availability update",
+  "demo_url": "https://www.youtube.com/watch?v=eTlsw__RC_o",
+  "demo_scope": "4:44 walkthrough: dated core and team footage plus the 17 November local shared-review exercise and Forge development preview",
   "capabilities": [
     {
       "name": "Source evidence \u2192 Jira \u2192 matching rescan",
@@ -26,8 +26,16 @@
       "stage": "Forge development acceptance",
       "date": "2026-11-14",
       "summary": "Entry-point ownership, explicit coverage gaps, attributed triage and retest completed KAN-8. A reviewed Jira owner mention retained its receipt.",
-      "limit": "Development 3.6.0 only; a self-mention is not an independent reviewer test, online presence or a read receipt.",
+      "limit": "Acceptance was development 3.6.0; a self-mention is not an independent reviewer test, online presence or a read receipt.",
       "evidence": "docs/acceptance-frontline-cs0lutions-dev-2026-11-14.md"
+    },
+    {
+      "name": "Shared review queue and explicit handoffs",
+      "stage": "Forge development preview",
+      "date": "2026-11-17",
+      "summary": "Jira owners, separate reviewer/deputy roles, evidence age and accepted handoffs join existing code and team cases. Distinct synthetic browser participants completed review and changed-evidence invalidation; KAN-9 proved live role persistence and owner refresh.",
+      "limit": "One real Jira actor tested. Independent two-user Jira acceptance and production promotion remain pending; reviews do not complete issues or certify safety.",
+      "evidence": "docs/acceptance-review-queue-2026-11-17.md"
     },
     {
       "name": "Encrypted conversation and file/folder handoff",
@@ -48,9 +56,9 @@
   ],
   "next": [
     {
-      "name": "Shared review queue",
-      "benefit": "Bring owner, reviewer, deputy, evidence age, open gaps and the next handoff into one view.",
-      "acceptance": "Two independent users review the same immutable evidence; changed or stale evidence invalidates approval."
+      "name": "Independent reviewer pilot",
+      "benefit": "Complete the shared queue handoff with two real Jira users, then exercise permission loss, stale evidence and deputy recovery.",
+      "acceptance": "Both real users see the same evidence and immutable receipts; changed evidence and revoked access fail closed before production promotion."
     },
     {
       "name": "Evidence-grounded Rovo teammate",
@@ -73,5 +81,5 @@
       "acceptance": "Metrics show their source and time window, separate unknowns, and avoid scoring people or claiming protection from counts alone."
     }
   ],
-  "demo_duration": "4:36"
+  "demo_duration": "4:44"
 }

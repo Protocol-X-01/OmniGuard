@@ -34,6 +34,7 @@ def main():
     shutil.copyfile(ROOT / 'site/style.css', output / 'style.css')
     shutil.copyfile(ROOT / 'docs/evidence/production-jira-completed.png', output / 'assets/production-jira-completed.png')
     shutil.copyfile(ROOT / 'docs/evidence/transfers-2026-11-17/transfer-demo-frame.jpg', output / 'assets/transfer-demo-frame.jpg')
+    shutil.copyfile(ROOT / 'docs/evidence/review-queue-2026-11-17/review-demo-frame.jpg', output / 'assets/review-demo-frame.jpg')
     for name in ('vulnerable', 'fixed-source-only', 'fixed'):
         shutil.copyfile(ROOT / f'reports/judge/{name}.omniguard.json', downloads / f'{name}.omniguard.json')
     with tempfile.TemporaryDirectory(prefix='omniguard-site-pack-') as temporary:

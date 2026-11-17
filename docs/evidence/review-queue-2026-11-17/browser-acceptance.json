@@ -1,0 +1,21 @@
+{
+  "recorded_at": "2026-11-17T12:17:21.845132+00:00",
+  "environment": "Loopback actual review service with simulated Jira and distinct synthetic owner/reviewer browser tabs",
+  "observed": [
+    "Reviewer took role through UI",
+    "Owner requested evidence-review handoff",
+    "Reviewer explicitly accepted",
+    "Evidence digest, capture time, expiry and failed check inspected",
+    "Reviewer recorded evidence reviewed while Jira case remained open",
+    "Reload retained current review and four receipts",
+    "Changed evidence invalidated review and acceptance; four receipts retained",
+    "390px responsive test: document scroll width375, all input/select controls labelled, Tab moved to Refresh queue"
+  ],
+  "physical_mobile_tested": false,
+  "real_atlassian_two_user_acceptance": false,
+  "captures": [
+    "reviewed-browser.jpg",
+    "changed-evidence-browser.jpg",
+    "review-narrow.jpg"
+  ]
+}

@@ -1,0 +1,21 @@
+$kind: http-request
+name: Reject owner self-review
+method: POST
+url: '{{base_url}}/api/reviews/act'
+order: 2000
+headers:
+  - key: Content-Type
+    value: application/json
+  - key: X-OmniGuard-Local
+    value: '1'
+  - key: X-OmniGuard-Actor
+    value: owner
+body:
+  type: json
+  content: |-
+    {"id": "{{id}}", "revision": {{rev}}, "evidenceToken": "{{token}}", "action": "take_reviewer", "label": "Owner"}
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test('HTTP 403',()=>pm.response.to.have.status(403));

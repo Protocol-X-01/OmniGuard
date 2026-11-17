@@ -1,0 +1,19 @@
+$kind: http-request
+name: Read shared queue
+method: GET
+url: '{{base_url}}/api/reviews'
+order: 1000
+headers:
+  - key: Content-Type
+    value: application/json
+  - key: X-OmniGuard-Local
+    value: '1'
+  - key: X-OmniGuard-Actor
+    value: owner
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test('HTTP 200',()=>pm.response.to.have.status(200));
+      pm.test('one permitted item',()=>pm.expect(pm.response.json().rows).to.have.length(1));
+      const v=pm.response.json();const r=v.rows?v.rows[0]:v;if(r.id){pm.collectionVariables.set('id',r.id);pm.collectionVariables.set('rev',String(r.revision));pm.collectionVariables.set('token',r.evidenceToken);}

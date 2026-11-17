@@ -1,0 +1,21 @@
+$kind: http-request
+name: Change synthetic evidence
+method: POST
+url: '{{base_url}}/api/reviews/lab/change'
+order: 8000
+headers:
+  - key: Content-Type
+    value: application/json
+  - key: X-OmniGuard-Local
+    value: '1'
+  - key: X-OmniGuard-Actor
+    value: owner
+body:
+  type: json
+  content: |-
+    {}
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test('HTTP 200',()=>pm.response.to.have.status(200));

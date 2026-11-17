@@ -1,0 +1,23 @@
+$kind: http-request
+name: Request review handoff
+method: POST
+url: '{{base_url}}/api/reviews/act'
+order: 4000
+headers:
+  - key: Content-Type
+    value: application/json
+  - key: X-OmniGuard-Local
+    value: '1'
+  - key: X-OmniGuard-Actor
+    value: owner
+body:
+  type: json
+  content: |-
+    {"id": "{{id}}", "revision": {{rev}}, "evidenceToken": "{{token}}", "action": "handoff", "toRole": "reviewer", "purpose": "review_evidence"}
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test('HTTP 200',()=>pm.response.to.have.status(200));
+      pm.test('awaits acceptance',()=>pm.expect(pm.response.json().reviewStatus).to.eql('Awaiting acceptance'));
+      const v=pm.response.json();const r=v.rows?v.rows[0]:v;if(r.id){pm.collectionVariables.set('id',r.id);pm.collectionVariables.set('rev',String(r.revision));pm.collectionVariables.set('token',r.evidenceToken);}

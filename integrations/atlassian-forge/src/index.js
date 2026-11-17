@@ -6,11 +6,15 @@ import { PullRequestReader, createPublicBitbucketApi } from '../../shared/bitbuc
 import { validateBundle } from './report-bundle.js';
 import { PrivacyService } from './privacy-service.js';
 import { FrontlineService } from './frontline-service.js';
+import { ReviewQueueService } from './review-queue-service.js';
 
 const service = new RemediationService({ store, jira, pullRequests: new PullRequestReader({ api: createPublicBitbucketApi(fetch), validateBundle }) });
 const privacy = new PrivacyService({ store, jira });
 const frontline = new FrontlineService({ store, jira });
+const reviews = new ReviewQueueService({ store, jira, pullRequests: service.pullRequests });
 export const handler = makeResolver({
+  getReviewQueue: ({ context }) => reviews.dashboard(context),
+  actReviewQueue: ({ context, payload }) => reviews.act(context, payload),
   getFrontline: ({ context }) => frontline.dashboard(context),
   importFrontline: ({ context, payload }) => frontline.import(context, payload),
   createFrontline: ({ context, payload }) => frontline.create(context, payload),
