@@ -72,5 +72,6 @@
       "benefit": "Track review age, stale evidence, time to verified remediation and incident handoff quality.",
       "acceptance": "Metrics show their source and time window, separate unknowns, and avoid scoring people or claiming protection from counts alone."
     }
-  ]
+  ],
+  "demo_duration": "4:36"
 }
